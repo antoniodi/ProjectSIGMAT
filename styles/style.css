@@ -1,3 +1,4 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto+Condensed:300,400);
 body, html {
   margin: 0;
   padding: 0;
@@ -17,13 +18,13 @@ body, html {
   cursor: pointer;
   margin-right: 10px;
   border-radius: 50%;
-  background-color: rgba(211, 104, 104, 0.9);
+  background-color: rgba(45, 49, 63, 0.9);
   background-repeat: no-repeat;
   background-size: 32px 64px;
   background-image: url("../img/cd-icon-controller.svg");
 }
 #map-zoom-in:hover, #map-zoom-out:hover {
-  background-color: #d36868;
+  background-color: #1bce7c;
 }
 
 #map-zoom-in {
