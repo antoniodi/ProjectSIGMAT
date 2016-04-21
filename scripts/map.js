@@ -1,6 +1,5 @@
-var map;
 function initMap() {
- //set your google maps parameters
+	//set your google maps parameters
 	var latitude = 7.09,
 		longitude = -73.11,
 		map_zoom = 13;
@@ -207,14 +206,26 @@ function initMap() {
 	 	icon: marker_url,
 	});
 
-google.maps.event.addDomListener(window, "resize", function() {
-    var center = map.getCenter();
-    google.maps.event.trigger(map, "resize");
-    map.setCenter(center);
+	//add custom buttons for the zoom-in/zoom-out on the map
+	function CustomZoomControl(controlDiv, map) {
+		//grap the zoom elements from the DOM and insert them in the map
+	  	var controlUIzoomIn= document.getElementById('map-zoom-in'),
+	  		controlUIzoomOut= document.getElementById('map-zoom-out');
+	  	controlDiv.appendChild(controlUIzoomIn);
+	  	controlDiv.appendChild(controlUIzoomOut);
 
+		// Setup the click event listeners and zoom-in or out according to the clicked element
+		google.maps.event.addDomListener(controlUIzoomIn, 'click', function() {
+		    map.setZoom(map.getZoom()+1)
+		});
+		google.maps.event.addDomListener(controlUIzoomOut, 'click', function() {
+		    map.setZoom(map.getZoom()-1)
+		});
+	}
 
+	var zoomControlDiv = document.createElement('div');
+ 	var zoomControl = new CustomZoomControl(zoomControlDiv, map);
 
-
-});
-
+  	//insert the zoom div on the top left of the map
+  	map.controls[google.maps.ControlPosition.RIGHT_BOTTOM].push(zoomControlDiv);
 }
