@@ -7,7 +7,8 @@ function initMap() {
 	//google map custom marker icon - .png fallback for IE11
 	var is_internetExplorer11= navigator.userAgent.toLowerCase().indexOf('trident') > -1;
 	var marker_url = ( is_internetExplorer11 ) ? 'img/cd-icon-location.png' : 'img/cd-icon-location.svg';
-
+	var marker_bus = 'img/bus.svg';
+	var marker_bus1 = 'img/bus1.svg';
 	//define the basic color of your map, plus a value for saturation and brightness
 	var	main_color = '#2d313f',
 		saturation_value= -20,
@@ -206,6 +207,22 @@ function initMap() {
 	 	icon: marker_url,
 	});
 
+	//add a custom marker to the map
+	var marker = new google.maps.Marker({
+	  	position: new google.maps.LatLng(7.127269,  -73.119469),
+	    map: map,
+	    visible: true,
+	 	icon: marker_bus,
+	});
+
+	//add a custom marker to the map
+	var marker = new google.maps.Marker({
+			position: new google.maps.LatLng(7.102385, -73.113370),
+			map: map,
+			visible: true,
+		icon: marker_bus1,
+	});
+
 	//add custom buttons for the zoom-in/zoom-out on the map
 	function CustomZoomControl(controlDiv, map) {
 		//grap the zoom elements from the DOM and insert them in the map
@@ -228,4 +245,10 @@ function initMap() {
 
   	//insert the zoom div on the top left of the map
   	map.controls[google.maps.ControlPosition.RIGHT_BOTTOM].push(zoomControlDiv);
+
+	google.maps.event.addDomListener(window, "resize", function() {
+	    var center = map.getCenter();
+	    google.maps.event.trigger(map, "resize");
+	    map.setCenter(center);
+});
 }
