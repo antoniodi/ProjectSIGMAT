@@ -199,29 +199,35 @@ function initMap() {
     }
     //inizialize the map
 	var map = new google.maps.Map(document.getElementById('map'), map_options);
+
+	var estaciones = [
+    {"Nombre":"Parque estación UIS","latitud":7.1348401,"longitud":-73.1248171},
+    {"Nombre":"Estación Payador","latitud":7.0846673,"longitud":-73.1079612},
+    {"Nombre":"Estación Lagos","latitud":7.0470658,"longitud":-73.1275132}
+   ];
+	 var a ={"Nombre":"Parque estación UIS","latitud":7.1348401,"longitud":-73.1248171};
+
+ for (i = 0; i < estaciones.length; i++){
 	//add a custom marker to the map
+	lon=estaciones[i].latitud
+	lat=estaciones[i].longitud
 	var marker = new google.maps.Marker({
-	  	position: new google.maps.LatLng(latitude, longitude),
+	  	position: new google.maps.LatLng(lon, lat),
 	    map: map,
 	    visible: true,
 	 	icon: marker_url,
 	});
+ }
 
-	//add a custom marker to the map
-	var marker = new google.maps.Marker({
-	  	position: new google.maps.LatLng(7.127269,  -73.119469),
-	    map: map,
-	    visible: true,
-	 	icon: marker_bus,
-	});
+		//add a custom marker to the map
+		var marker = new google.maps.Marker({
+		  	position: new google.maps.LatLng(7.127269,  -73.119469),
+		    map: map,
+		    visible: true,
+		 	icon: marker_bus,
+		});
 
-	//add a custom marker to the map
-	var marker = new google.maps.Marker({
-			position: new google.maps.LatLng(7.102385, -73.113370),
-			map: map,
-			visible: true,
-		icon: marker_bus1,
-	});
+
 
 	//add custom buttons for the zoom-in/zoom-out on the map
 	function CustomZoomControl(controlDiv, map) {
