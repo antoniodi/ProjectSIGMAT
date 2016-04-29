@@ -201,31 +201,101 @@ function initMap() {
 	var map = new google.maps.Map(document.getElementById('map'), map_options);
 
 	var estaciones = [
-    {"Nombre":"Parque estación UIS","latitud":7.1348401,"longitud":-73.1248171},
+    {"Nombre":"Parque estación UIS","latitud":7.1372035,"longitud":-73.1223754},
+		{"Nombre":"Estación la Isla","latitud":7.107844,"longitud":-73.116074},
+		{"Nombre":"Estación Diamante","latitud":7.095459,"longitud":-73.110635},
     {"Nombre":"Estación Payador","latitud":7.0846673,"longitud":-73.1079612},
-    {"Nombre":"Estación Lagos","latitud":7.0470658,"longitud":-73.1275132}
+    {"Nombre":"Estación Lagos","latitud":7.0667097,"longitud":-73.0997972}
    ];
-	 var a ={"Nombre":"Parque estación UIS","latitud":7.1348401,"longitud":-73.1248171};
 
- for (i = 0; i < estaciones.length; i++){
-	//add a custom marker to the map
-	lon=estaciones[i].latitud
-	lat=estaciones[i].longitud
-	var marker = new google.maps.Marker({
-	  	position: new google.maps.LatLng(lon, lat),
-	    map: map,
-	    visible: true,
-	 	icon: marker_url,
-	});
- }
+	 var estaciones1 = function(lat,lon) {
+	 		var marker = new google.maps.Marker({
+	 				position: new google.maps.LatLng(lat,lon),
+	 				map: map,
+	 				visible: true,
+	 			icon: marker_url,
+	 		});
+	 	};
+
+		for (var i = 0; i < estaciones.length; i++) {
+			estaciones1(estaciones[i].latitud,estaciones[i].longitud);
+		}
 
 		//add a custom marker to the map
-		var marker = new google.maps.Marker({
+		var marker1 = new google.maps.Marker({
 		  	position: new google.maps.LatLng(7.127269,  -73.119469),
 		    map: map,
 		    visible: true,
 		 	icon: marker_bus,
 		});
+
+
+			var ruta = function(lat,lon) {
+				marker1.setPosition(new google.maps.LatLng(lat,lon));
+				};
+
+		var recorrido =[{"latitud":7.137554,"longitud":-73.122270},
+									 {"latitud":7.137458,"longitud":-73.122731},
+									 {"latitud":7.137354,"longitud":-73.123179},
+									 {"latitud":7.137277,"longitud":-73.123584},
+ 									 {"latitud":7.137183,"longitud":-73.124052},
+ 									 {"latitud":7.137121,"longitud":-73.124428},
+ 									 {"latitud":7.137032,"longitud":-73.124849},
+ 									 {"latitud":7.136961,"longitud":-73.125278},
+ 									 {"latitud":7.136908,"longitud":-73.125529},
+									 {"latitud":7.136813,"longitud":-73.125940},
+ 									 {"latitud":7.136797,"longitud":-73.126133},
+ 									 {"latitud":7.136426,"longitud":-73.126048},
+ 									 {"latitud":7.135626,"longitud":-73.125911},
+ 									 {"latitud":7.135231,"longitud":-73.125847},
+									 {"latitud":7.134596,"longitud":-73.125675},
+ 									 {"latitud":7.134158,"longitud":-73.125604},
+ 									 {"latitud":7.133766,"longitud":-73.125537},
+ 									 {"latitud":7.133329,"longitud":-73.125448},
+ 									 {"latitud":7.132937,"longitud":-73.125359},
+									 {"latitud":7.132909,"longitud":-73.125367},
+ 									 {"latitud":7.132485,"longitud":-73.125291},
+ 									 {"latitud":7.132077,"longitud":-73.125196},
+									 {"latitud":7.131727,"longitud":-73.125116},
+ 									 {"latitud":7.131455,"longitud":-73.125475},
+ 									 {"latitud":7.131116,"longitud":-73.125530},
+ 									 {"latitud":7.130773,"longitud":-73.125312},
+ 									 {"latitud":7.130673,"longitud":-73.124913},
+									 {"latitud":7.130372,"longitud":-73.124862},
+ 									 {"latitud":7.130380,"longitud":-73.124852},
+ 									 {"latitud":7.129993,"longitud":-73.124783},
+ 									 {"latitud":7.129491,"longitud":-73.124697},
+									 {"latitud":7.129111,"longitud":-73.124610},
+ 									 {"latitud":7.128644,"longitud":-73.124523},
+ 									 {"latitud":7.128235,"longitud":-73.124433},
+									 {"latitud":7.127797,"longitud":-73.124354},
+ 									 {"latitud":7.127373,"longitud":-73.124263},
+ 									 {"latitud":7.126923,"longitud":-73.124173},
+ 									 {"latitud":7.126556,"longitud":-73.124075},
+ 									 {"latitud":7.126111,"longitud":-73.123930},
+									 {"latitud":7.125729,"longitud":-73.123810},
+ 									 {"latitud":7.125315,"longitud":-73.123673},
+ 									 {"latitud":7.124835,"longitud":-73.123531}
+
+										];
+
+
+	var suma = function (a) {
+		a=a
+		return a;
+	}
+	b=0
+ setInterval(function () {
+	 b=suma(1)+b
+	 if(b<recorrido.length)
+	 {
+		 ruta(recorrido[b].latitud,recorrido[b].longitud)   }
+  		console.log(suma(b));
+
+ },1000);
+
+
+
 
 
 
