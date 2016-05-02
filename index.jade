@@ -1,25 +1,41 @@
 //el ng-app hace posible consultar el scrip connection y traer la funcion Ruta
-html(lang="es" ng-app="") 
+html(lang="es") 
   head
     title SIGMAT
     meta(charset="UTF-8")
     script(src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js")
     script(src="controller/connection.js")
+    script(src="scripts/min/map.min.js")
+    script(src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBGeiXByYhldiT7SRt5xKIcz3s3k_a6jjM&callback=initMap" async defer)
     link(href="styles/style.css",rel="stylesheet")
   body
-    section#map
-    #map-zoom-in
-    #map-zoom-out
-    #logo
-    //ng-controller="Ruta" permite acceder a la funcion en el connection.js
-    div(ng-controller="Ruta") 
-      p the id id 
-        //accedemos a los campos de objeto almacenado en el archivo json
-        spam {{greeting.id}} 
-      p the is 
-        spam {{greeting.content}}
-    
+    section
+      #map
+      #map-zoom-in
+      #map-zoom-out
+      #izquierda
+        
+        //ng-controller="Ruta" permite acceder a la funcion en el connection.js
+        div(ng-app="myApp")
+          div.arriba(ng-controller="FirstCtrl") 
+            table
+              tr
+                th Nombre
+                th latitud
+                th longitud
+              tr(ng-repeat="reg in coordenadas")
+                td {{reg.Nombre}}
+                td {{reg.latitud}}
+                td {{reg.longitud}}
+            p the id
+              //accedemos a los campos de objeto almacenado en el archivo json
+              spam {{coordenadas[2].Nombre}} 
+            p the is 
+              spam {{coordenadas}}
+        .gridStyles(ng-app="myApp")
+          div(ng-controller="FirstCtrl")
+                
+          
     
       script(src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js")
-      script(src="scripts/min/map.min.js")
-      script(src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBGeiXByYhldiT7SRt5xKIcz3s3k_a6jjM&callback=initMap" async defer)
+      
