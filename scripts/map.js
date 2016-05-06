@@ -3,20 +3,79 @@ var estaciones = [
 	{"Nombre":"Estación la Isla","latitud":7.107844,"longitud":-73.116074},
 	{"Nombre":"Estación Diamante","latitud":7.095459,"longitud":-73.110635},
 	{"Nombre":"Estación Payador","latitud":7.0846673,"longitud":-73.1079612},
+	{"Nombre":"Estación Cañaveral","latitud":7.070489,"longitud":-73.104748},
+	{"Nombre":"Estación Panamericano","latitud":7.069408,"longitud":-73.103893},
 	{"Nombre":"Estación Lagos","latitud":7.0667097,"longitud":-73.0997972}
  ];
+
+var rp11={"Ruta":"P11","Distancia":3500,"coordenadas":
+	[{"latitud":7.070489,"longitud":-73.104748},
+	 {"latitud":7.070165,"longitud": -73.104443},
+	 {"latitud":7.069890,"longitud": -73.104133},
+	 {"latitud":7.069604,"longitud": -73.103771},
+	 {"latitud":7.069298,"longitud": -73.103398},
+	 {"latitud":7.068705,"longitud": -73.102679},
+	 {"latitud":7.068347,"longitud": -73.102184},
+	 {"latitud":7.067863,"longitud": -73.101510},
+	 {"latitud":7.067456,"longitud": -73.100917},
+	 {"latitud":7.067154,"longitud": -73.100494},
+	 {"latitud":7.066698,"longitud": -73.099877},
+	 {"latitud":7.066086,"longitud": -73.099227},
+	 {"latitud":7.065606,"longitud": -73.098561},
+	 {"latitud":7.065711,"longitud": -73.097956},
+	 {"latitud":7.066190,"longitud": -73.098127},
+	 {"latitud":7.066464,"longitud": -73.098571},
+	 {"latitud":7.066664,"longitud": -73.098878},
+	 {"latitud":7.066864,"longitud": -73.099121},
+	 {"latitud":7.067043,"longitud": -73.099370},
+	 {"latitud":7.067321,"longitud": -73.099624},
+	 {"latitud":7.067655,"longitud": -73.099623},
+	 {"latitud":7.067968,"longitud": -73.099541},
+	 {"latitud":7.068725,"longitud": -73.099130},
+	 {"latitud":7.069096,"longitud": -73.098489},
+	 {"latitud":7.069419,"longitud": -73.097871},
+	 {"latitud":7.069584,"longitud": -73.097677},
+	 {"latitud":7.070045,"longitud": -73.097640},
+	 {"latitud":7.071008,"longitud": -73.097985},
+	 {"latitud":7.071399,"longitud": -73.098533},
+	 {"latitud":7.071706,"longitud": -73.098992},
+	 {"latitud":7.072024,"longitud": -73.099618},
+	 {"latitud":7.072214,"longitud": -73.100714},
+	 {"latitud":7.072311,"longitud": -73.101311},
+	 {"latitud":7.072398,"longitud": -73.102058},
+	 {"latitud":7.072414,"longitud": -73.102798},
+	 {"latitud":7.072419,"longitud": -73.103431},
+	 {"latitud":7.072414,"longitud": -73.104000},
+	 {"latitud":7.072433,"longitud": -73.104770},
+	 {"latitud":7.072443,"longitud": -73.105219},
+	 {"latitud":7.072497,"longitud": -73.105711},
+	 {"latitud":7.072336,"longitud": -73.106492},
+	 {"latitud":7.072000,"longitud": -73.106803},
+	 {"latitud":7.071729,"longitud": -73.107195},
+	 {"latitud":7.072150,"longitud": -73.107373},
+	 {"latitud":7.072470,"longitud": -73.107585},
+	 {"latitud":7.072606,"longitud": -73.107274},
+	 {"latitud":7.072301,"longitud": -73.106925},
+	 {"latitud":7.071725,"longitud": -73.106296},
+	 {"latitud":7.071347,"longitud": -73.105845},
+	 {"latitud":7.071008,"longitud": -73.105481},
+	 {"latitud":7.070736,"longitud": -73.105174}
+
+]};
+
+
  var recorrido =[{"latitud":7.137554,"longitud":-73.122270},
  							 {"latitud":7.137458,"longitud":-73.122731},
  							 {"latitud":7.137354,"longitud":-73.123179},
  							 {"latitud":7.137277,"longitud":-73.123584},
- 							 {"latitud":7.137183,"longitud":-73.124052},
+							 {"latitud":7.137183,"longitud":-73.124052},
  							 {"latitud":7.137121,"longitud":-73.124428},
  							 {"latitud":7.137032,"longitud":-73.124849},
  							 {"latitud":7.136961,"longitud":-73.125278},
  							 {"latitud":7.136908,"longitud":-73.125529},
  							 {"latitud":7.136813,"longitud":-73.125940},
  							 {"latitud":7.136797,"longitud":-73.126133},
- 							 {"latitud":7.136426,"longitud":-73.126048},
+							 {"latitud":7.136426,"longitud":-73.126048},
  							 {"latitud":7.135626,"longitud":-73.125911},
  							 {"latitud":7.135231,"longitud":-73.125847},
  							 {"latitud":7.134596,"longitud":-73.125675},
@@ -49,6 +108,8 @@ var estaciones = [
  							 {"latitud":7.124835,"longitud":-73.123531}
  								];
 
+
+
 function initMap() {
 	//set your google maps parameters
 	var latitude = 7.09,
@@ -56,10 +117,10 @@ function initMap() {
 		map_zoom = 13;
 
 	//google map custom marker icon - .png fallback for IE11
-	var is_internetExplorer11= navigator.userAgent.toLowerCase().indexOf('trident') > -1;
-	var marker_url = ( is_internetExplorer11 ) ? 'img/cd-icon-location.png' : 'img/cd-icon-location.svg';
-	var marker_bus = 'img/bus.svg';
-	var marker_bus1 = 'img/bus1.svg';
+	var marker_bus0 = 'img/busmorado.svg';
+	var marker_bus1 = 'img/busnaranja.svg';
+	var marker_bus2 = 'img/busverde.svg';
+	var marker_estacion = 'img/busestacionazul.svg';
 	//define the basic color of your map, plus a value for saturation and brightness
 	var	main_color = '#2d313f',
 		saturation_value= -20,
@@ -258,26 +319,54 @@ function initMap() {
 	 				position: new google.maps.LatLng(lat,lon),
 	 				map: map,
 	 				visible: true,
-	 			icon: marker_url,
+	 			icon: marker_estacion,
+				zIndex: 2
 	 		});
 			return marker;
 	 	};
 
-function infoW(texto,marker) {
-	var infowindow = new google.maps.InfoWindow({
-		content:texto
-		});
+
+
+		function infoW(texto,marker) {
+			var infowindow = new google.maps.InfoWindow({
+				content:texto
+				});
+				google.maps.event.addListener(marker, 'click', function() {
+
+					infowindow.open(map,marker);
+			    });
+		}
+
+
+
+
+		var infowindow = new google.maps.InfoWindow({
+			content:null
+			});
+
+
+	function infoWD(texto,marker) {
+	 infowindow.setContent(texto)
 
 		google.maps.event.addListener(marker, 'click', function() {
 	    infowindow.open(map,marker);
 	    });
 }
 
+function lee_json() {
+	$.getJSON("../data/coordenadas.json", function(datos) {
+
+						$.coordenadas=datos;
+						console.log($.coordenadas);
+            })
+
+        };
+
+console.log(lee_json());
+
 
 		for (var i = 0; i < estaciones.length; i++) {
-
 			infoW(estaciones[i].Nombre,estaciones1(estaciones[i].latitud,estaciones[i].longitud));
-
 		}
 
 
@@ -286,30 +375,78 @@ function infoW(texto,marker) {
 		  	position: null,
 		    map: map,
 		    visible: true,
-		 	icon: marker_bus,
+		 	icon: marker_bus2,
+		});
+		var marker2 = new google.maps.Marker({
+		  	position: null,
+		    map: map,
+		    visible: true,
+		 	icon: marker_bus1,
 		});
 
-		var ruta = function(lat,lon) {
+		var ruta = function(lat,lon,marker) {
 			var pos = new google.maps.LatLng(lat,lon);
-			marker1.setPosition(pos);
+			marker.setPosition(pos);
 			};
+
+
+
+
+
+
+ function openInfoWindow(marker10) {
+    var markerLatLng = marker10.getPosition();
+    infoWindow1.setContent([
+        '"latitud":',
+        markerLatLng.lat(),
+        ',"longitud":',
+        markerLatLng.lng(),
+        ''
+    ].join(''));
+    infoWindow1.open(map, marker10);
+ }
+
+infoWindow1 = new google.maps.InfoWindow();
+
+ var marker10 = new google.maps.Marker({
+ 		position: new google.maps.LatLng(7.071729,-73.107195),
+ 		map: map,
+		draggable: true,
+ 		visible: true,
+ });
+
+ google.maps.event.addListener(marker10, 'click', function(){
+        openInfoWindow(marker10);
+    });
+
+
+
+
 
 
 	b=0
  setInterval(function () {
-	 if(b<recorrido.length)
-	 {
-		 ruta(recorrido[b].latitud,recorrido[b].longitud)   }
+ if(b<recorrido.length)
+ {
+	 ruta(recorrido[b].latitud,recorrido[b].longitud,marker1);
+
+ }
+ if(b<rp11.coordenadas.length)
+ {
+	 ruta(rp11.coordenadas[b].latitud,rp11.coordenadas[b].longitud,marker2);
+	 infoWD("<p>Ruta: "+rp11.Ruta+"<br>latitud: "+rp11.coordenadas[b].latitud+"<br>lontitud: "+rp11.coordenadas[b].longitud+"</p>",marker2);
+ }
+ else {
+ 	b=0;
+ }
 			b++
+
+
  },1000);
 
- var infowindow = new google.maps.InfoWindow({
-   content:"Hello World!"
-   });
 
- google.maps.event.addListener(marker1, 'click', function() {
-   infowindow.open(map,marker1);
-   });
+
+
 
 
 
@@ -342,4 +479,7 @@ function infoW(texto,marker) {
 	    google.maps.event.trigger(map, "resize");
 	    map.setCenter(center);
 });
+
+
+
 }

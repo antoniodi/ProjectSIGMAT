@@ -4,7 +4,8 @@
   <head>
     <title>SIGMAT</title>
     <meta charset="UTF-8"/>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
     <script src="controller/connection.js"></script>
     <script src="scripts/min/map.min.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBGeiXByYhldiT7SRt5xKIcz3s3k_a6jjM&amp;callback=initMap" async="async" defer="defer"></script>
@@ -16,35 +17,46 @@
       <div id="map-zoom-in"></div>
       <div id="map-zoom-out"></div>
       <div id="izquierda">
-        <!--ng-controller="Ruta" permite acceder a la funcion en el connection.js-->
-        <div ng-app="myApp">
-          <div ng-controller="FirstCtrl" class="arriba">
-            <table>
-              <tr>
-                <th>Nombre</th>
-                <th>latitud</th>
-                <th>longitud</th>
-              </tr>
-              <tr ng-repeat="reg in coordenadas">
-                <td>{{reg.Nombre}}</td>
-                <td>{{reg.latitud}}</td>
-                <td>{{reg.longitud}}</td>
-              </tr>
-            </table>
-            <p>the id
-              <!--accedemos a los campos de objeto almacenado en el archivo json-->
-              <spam>{{coordenadas[2].Nombre}} </spam>
-            </p>
-            <p>the is 
-              <spam>{{coordenadas}}</spam>
-            </p>
+        <div class="abajo">
+          <p>hola mundo</p>
+          <div class="tabs_links"><a href="#BRT-1">BRT0</a><a href="#BRT-2">BRT1</a><a href="#BRT-3">BRT2</a><a href="#BRT-4">BRT3</a></div>
+          <div class="tabs_contens">
+            <div id="BRT-1" class="items">
+              <p>hola </p>
+            </div>
+            <div id="BRT-2" class="items">
+              <P>2Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</P>
+            </div>
+            <div id="BRT-3" class="items">
+              <P>3Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</P>
+            </div>
+            <div id="BRT-4" class="items">
+              <P>4Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</P>
+            </div>
           </div>
         </div>
-        <div ng-app="myApp" class="gridStyles">
-          <div ng-controller="FirstCtrl"></div>
+        <!--ng-controller="Ruta" permite acceder a la funcion en el connection.js-->
+        <div ng-app="myApp" class="arriba">
+          <table ng-controller="FirstCtrl">
+            <tr>
+              <th>Nombre</th>
+              <th>latitud</th>
+              <th>longitud</th>
+            </tr>
+            <tr ng-repeat="reg in coordenadas">
+              <td>{{reg.Nombre}}</td>
+              <td>{{reg.latitud}}</td>
+              <td>{{reg.longitud}}</td>
+            </tr>
+          </table>
+          <!--p the id-->
+          <!--accedemos a los campos de objeto almacenado en el archivo json-->
+          <!--spam {{coordenadas[2].Nombre}} -->
+          <!--p the is -->
+          <!--spam {{coordenadas}}-->
+          <script src="controller/con.js"></script>
         </div>
       </div>
-      <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     </section>
   </body>
 </html>
