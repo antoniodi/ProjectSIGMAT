@@ -8,7 +8,16 @@ $http.get('http://localhost:8001/data/coordenadas.json').
     });
 });
 
+var linksp = $(".tabs_links");
+var links = linksp.find('a');
+var items = $('.items');
+links.eq(0).add(items.eq(0)).addClass("active");
+linksp.on('click','a',function() {
+  var t =$(this);
+  var i = t.index();
+  t.add(items.eq(i)).addClass('active').siblings().removeClass('active');
 
+});
 /*
 .controller('FirstCtrl', ['$scope', function($scope) {
    console.log("entro a mi controller");
