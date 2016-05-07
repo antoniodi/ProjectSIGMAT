@@ -8,60 +8,60 @@ var estaciones = [
 	{"Nombre":"Estación Lagos","latitud":7.0667097,"longitud":-73.0997972}
  ];
 
-var rp11={"Ruta":"P11","Distancia":3500,"coordenadas":
-	[{"latitud":7.070489,"longitud":-73.104748},
-	 {"latitud":7.070165,"longitud": -73.104443},
-	 {"latitud":7.069890,"longitud": -73.104133},
-	 {"latitud":7.069604,"longitud": -73.103771},
-	 {"latitud":7.069298,"longitud": -73.103398},
-	 {"latitud":7.068705,"longitud": -73.102679},
-	 {"latitud":7.068347,"longitud": -73.102184},
-	 {"latitud":7.067863,"longitud": -73.101510},
-	 {"latitud":7.067456,"longitud": -73.100917},
-	 {"latitud":7.067154,"longitud": -73.100494},
-	 {"latitud":7.066698,"longitud": -73.099877},
-	 {"latitud":7.066086,"longitud": -73.099227},
-	 {"latitud":7.065606,"longitud": -73.098561},
-	 {"latitud":7.065711,"longitud": -73.097956},
-	 {"latitud":7.066190,"longitud": -73.098127},
-	 {"latitud":7.066464,"longitud": -73.098571},
-	 {"latitud":7.066664,"longitud": -73.098878},
-	 {"latitud":7.066864,"longitud": -73.099121},
-	 {"latitud":7.067043,"longitud": -73.099370},
-	 {"latitud":7.067321,"longitud": -73.099624},
-	 {"latitud":7.067655,"longitud": -73.099623},
-	 {"latitud":7.067968,"longitud": -73.099541},
-	 {"latitud":7.068725,"longitud": -73.099130},
-	 {"latitud":7.069096,"longitud": -73.098489},
-	 {"latitud":7.069419,"longitud": -73.097871},
-	 {"latitud":7.069584,"longitud": -73.097677},
-	 {"latitud":7.070045,"longitud": -73.097640},
-	 {"latitud":7.071008,"longitud": -73.097985},
-	 {"latitud":7.071399,"longitud": -73.098533},
-	 {"latitud":7.071706,"longitud": -73.098992},
-	 {"latitud":7.072024,"longitud": -73.099618},
-	 {"latitud":7.072214,"longitud": -73.100714},
-	 {"latitud":7.072311,"longitud": -73.101311},
-	 {"latitud":7.072398,"longitud": -73.102058},
-	 {"latitud":7.072414,"longitud": -73.102798},
-	 {"latitud":7.072419,"longitud": -73.103431},
-	 {"latitud":7.072414,"longitud": -73.104000},
-	 {"latitud":7.072433,"longitud": -73.104770},
-	 {"latitud":7.072443,"longitud": -73.105219},
-	 {"latitud":7.072497,"longitud": -73.105711},
-	 {"latitud":7.072336,"longitud": -73.106492},
-	 {"latitud":7.072000,"longitud": -73.106803},
-	 {"latitud":7.071729,"longitud": -73.107195},
-	 {"latitud":7.072150,"longitud": -73.107373},
-	 {"latitud":7.072470,"longitud": -73.107585},
-	 {"latitud":7.072606,"longitud": -73.107274},
-	 {"latitud":7.072301,"longitud": -73.106925},
-	 {"latitud":7.071725,"longitud": -73.106296},
-	 {"latitud":7.071347,"longitud": -73.105845},
-	 {"latitud":7.071008,"longitud": -73.105481},
-	 {"latitud":7.070736,"longitud": -73.105174}
+ var rp11={"Ruta":"P11","Distancia":3500,"coordenadas":
+ 	[{"latitud":7.070489,"longitud":-73.104748},
+ 	 {"latitud":7.070165,"longitud": -73.104443},
+ 	 {"latitud":7.069890,"longitud": -73.104133},
+ 	 {"latitud":7.069604,"longitud": -73.103771},
+ 	 {"latitud":7.069298,"longitud": -73.103398},
+ 	 {"latitud":7.068705,"longitud": -73.102679},
+ 	 {"latitud":7.068347,"longitud": -73.102184},
+ 	 {"latitud":7.067863,"longitud": -73.101510},
+ 	 {"latitud":7.067456,"longitud": -73.100917},
+ 	 {"latitud":7.067154,"longitud": -73.100494},
+ 	 {"latitud":7.066698,"longitud": -73.099877},
+ 	 {"latitud":7.066086,"longitud": -73.099227},
+ 	 {"latitud":7.065606,"longitud": -73.098561},
+ 	 {"latitud":7.065711,"longitud": -73.097956},
+ 	 {"latitud":7.066190,"longitud": -73.098127},
+ 	 {"latitud":7.066464,"longitud": -73.098571},
+ 	 {"latitud":7.066664,"longitud": -73.098878},
+ 	 {"latitud":7.066864,"longitud": -73.099121},
+ 	 {"latitud":7.067043,"longitud": -73.099370},
+ 	 {"latitud":7.067321,"longitud": -73.099624},
+ 	 {"latitud":7.067655,"longitud": -73.099623},
+ 	 {"latitud":7.067968,"longitud": -73.099541},
+ 	 {"latitud":7.068725,"longitud": -73.099130},
+ 	 {"latitud":7.069096,"longitud": -73.098489},
+ 	 {"latitud":7.069419,"longitud": -73.097871},
+ 	 {"latitud":7.069584,"longitud": -73.097677},
+ 	 {"latitud":7.070045,"longitud": -73.097640},
+ 	 {"latitud":7.071008,"longitud": -73.097985},
+ 	 {"latitud":7.071399,"longitud": -73.098533},
+ 	 {"latitud":7.071706,"longitud": -73.098992},
+ 	 {"latitud":7.072024,"longitud": -73.099618},
+ 	 {"latitud":7.072214,"longitud": -73.100714},
+ 	 {"latitud":7.072311,"longitud": -73.101311},
+ 	 {"latitud":7.072398,"longitud": -73.102058},
+ 	 {"latitud":7.072414,"longitud": -73.102798},
+ 	 {"latitud":7.072419,"longitud": -73.103431},
+ 	 {"latitud":7.072414,"longitud": -73.104000},
+ 	 {"latitud":7.072433,"longitud": -73.104770},
+ 	 {"latitud":7.072443,"longitud": -73.105219},
+ 	 {"latitud":7.072497,"longitud": -73.105711},
+ 	 {"latitud":7.072336,"longitud": -73.106492},
+ 	 {"latitud":7.072000,"longitud": -73.106803},
+ 	 {"latitud":7.071729,"longitud": -73.107195},
+ 	 {"latitud":7.072150,"longitud": -73.107373},
+ 	 {"latitud":7.072470,"longitud": -73.107585},
+ 	 {"latitud":7.072606,"longitud": -73.107274},
+ 	 {"latitud":7.072301,"longitud": -73.106925},
+ 	 {"latitud":7.071725,"longitud": -73.106296},
+ 	 {"latitud":7.071347,"longitud": -73.105845},
+ 	 {"latitud":7.071008,"longitud": -73.105481},
+ 	 {"latitud":7.070736,"longitud": -73.105174}
 
-]};
+ ]};
 
 
  var recorrido =[{"latitud":7.137554,"longitud":-73.122270},
@@ -107,7 +107,6 @@ var rp11={"Ruta":"P11","Distancia":3500,"coordenadas":
  							 {"latitud":7.125315,"longitud":-73.123673},
  							 {"latitud":7.124835,"longitud":-73.123531}
  								];
-
 
 
 function initMap() {
@@ -353,21 +352,9 @@ function initMap() {
 	    });
 }
 
-function lee_json() {
-	$.getJSON("../data/coordenadas.json", function(datos) {
-
-						$.coordenadas=datos;
-						console.log($.coordenadas);
-            })
-
-        };
-
-console.log(lee_json());
-
-
-		for (var i = 0; i < estaciones.length; i++) {
-			infoW(estaciones[i].Nombre,estaciones1(estaciones[i].latitud,estaciones[i].longitud));
-		}
+for (var i = 0; i < estaciones.length; i++) {
+	infoW(estaciones[i].Nombre,estaciones1(estaciones[i].latitud,estaciones[i].longitud));
+}
 
 
 		//add a custom marker to the map
@@ -393,7 +380,7 @@ console.log(lee_json());
 
 
 
-
+//funcion que agrega la latitud y longitud de la posicion de un market a un infoWindow
  function openInfoWindow(marker10) {
     var markerLatLng = marker10.getPosition();
     infoWindow1.setContent([
@@ -406,6 +393,8 @@ console.log(lee_json());
     infoWindow1.open(map, marker10);
  }
 
+
+//marcador que permite saber la coordenada de una ubicacion al hacer click sobre este
 infoWindow1 = new google.maps.InfoWindow();
 
  var marker10 = new google.maps.Marker({
@@ -424,7 +413,10 @@ infoWindow1 = new google.maps.InfoWindow();
 
 
 
-	b=0
+
+
+
+b=0
  setInterval(function () {
  if(b<recorrido.length)
  {
@@ -439,16 +431,10 @@ infoWindow1 = new google.maps.InfoWindow();
  else {
  	b=0;
  }
-			b++
+		b++
 
 
  },1000);
-
-
-
-
-
-
 
 
 	//add custom buttons for the zoom-in/zoom-out on the map
