@@ -1,7 +1,7 @@
 angular.module('myApp', [])
 
 .controller('FirstCtrl', function($scope,$http) {
-$http.get('http://localhost:8003/data/coordenadas.json').
+$http.get('http://localhost:8001/data/coordenadas.json').
     success(function(data) {
         $scope.coordenadas = data;
         console.log(data[0].Nombre);
@@ -21,51 +21,58 @@ linksp.on('click','a',function() {
 
 function graficarTiempo(datos) {
   setInterval(function () {
-
-    crearGrafica(b);
-
+    //data identifica una sola tonalidad
+    chart.series[1].data[1].update(b)
+    chart.series[3].data[2].update(b)
   },1000);
 
 };
 
-
-$.getJSON("../data/ruta1.json", function(datos) {
+$.getJSON("http://localhost:8001/data/coordenadas.json", function(datos) {
 		$.coordenadas=datos;
     graficarTiempo(datos)
       })
 
 
-function crearGrafica(c) {
-    $('#container').highcharts({
-        chart: {
-            type: 'bar'
-        },
+$('#container').highcharts({
+    chart: {
+        type: 'bar'
+    },
+    title: {
+        text: 'Contraste de hipóstesis ideal'
+    },
+    xAxis: {
+        categories: ['Hipótesis ideal', 'Simulación 1<br>Hora salida: 6:00', 'Simulación 2<br>Hora salida: 6:10']
+    },
+    yAxis: {
+        min: 0,
         title: {
-            text: 'Contraste de hipóstesis ideal'
-        },
-        xAxis: {
-            categories: ['Hipótesis ideal', 'Simulación 1', 'Simulación 2<br>Hora salida: 6:10']
-        },
-        yAxis: {
-            min: 0,
-            title: {
-                text: 'Tiempo total de recorrido [s]'
-            }
-        },
-        legend: {
-            reversed: true
-        },
-        plotOptions: {
-            series: {
-                stacking: 'normal'
-            }
-        },
-        series: [{
-            name: 'Estación Panamericano',
-            data: [20, 10, c]
-        }]
-    });
-}
+            text: 'Tiempo total de recorrido [s]'
+        }
+    },
+    legend: {
+        reversed: true
+    },
+    plotOptions: {
+        series: {
+            stacking: 'normal'
+        }
+    },
+    series: [{
+        name: 'Estación Panamericano',
+        data: [10,0,0]
+      },{
+          name: 'Hacia estación lagos',
+          data: [20, 20,0]
+      },{
+          name: 'Estación lagos',
+          data: [10, 10,0]
+      },{
+          name: 'hacia estación Panamericano',
+          data: [20, 20, 20]
+      }]
+});
+var chart = $('#container').highcharts();
 
 
 /*
