@@ -1,7 +1,7 @@
 angular.module('myApp', [])
 
 .controller('FirstCtrl', function($scope,$http) {
-$http.get('http://localhost:8001/data/coordenadas.json').
+$http.get('http://localhost:8003/data/coordenadas.json').
     success(function(data) {
         $scope.coordenadas = data;
         console.log(data[0].Nombre);
@@ -16,6 +16,7 @@ linksp.on('click','a',function() {
   var t =$(this);
   var i = t.index();
   t.add(items.eq(i)).addClass('active').siblings().removeClass('active');
+
 });
 
 function graficarTiempo(datos) {
@@ -32,11 +33,6 @@ $.getJSON("../data/ruta1.json", function(datos) {
 		$.coordenadas=datos;
     graficarTiempo(datos)
       })
-
-
-
-
-
 
 
 function crearGrafica(c) {
@@ -70,6 +66,8 @@ function crearGrafica(c) {
         }]
     });
 }
+
+
 /*
 .controller('FirstCtrl', ['$scope', function($scope) {
    console.log("entro a mi controller");
