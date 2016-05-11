@@ -4,7 +4,6 @@ angular.module('myApp', [])
 $http.get('http://localhost:8001/data/coordenadas.json').
     success(function(data) {
         $scope.coordenadas = data;
-        console.log(data[0].Nombre);
     });
 });
 
@@ -19,7 +18,7 @@ linksp.on('click','a',function() {
 
 });
 
-function graficarTiempo(datos) {
+function graficarTiempo() {
   setInterval(function () {
     //data identifica una sola tonalidad
     chart.series[1].data[1].update(b)
@@ -27,11 +26,8 @@ function graficarTiempo(datos) {
   },1000);
 
 };
+graficarTiempo();
 
-$.getJSON("http://localhost:8001/data/coordenadas.json", function(datos) {
-		$.coordenadas=datos;
-    graficarTiempo(datos)
-      })
 
 
 $('#container').highcharts({

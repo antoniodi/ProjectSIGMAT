@@ -60,10 +60,10 @@ section #izquierda {
 }
 section #izquierda .abajo, section #izquierda .arriba {
   width: 100%;
-  height: 50vh;
 }
 section #izquierda .abajo {
   overflow: auto;
+  height: 80vh;
 }
 section #izquierda .abajo p {
   font-size: 1em;
