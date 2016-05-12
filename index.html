@@ -7,8 +7,6 @@
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"> </script>
     <script src="https://code.highcharts.com/highcharts.js"></script>
-    <script src="scripts/min/map.min.js"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBGeiXByYhldiT7SRt5xKIcz3s3k_a6jjM&amp;callback=initMap" async="async" defer="defer"></script>
     <link href="styles/style.css" rel="stylesheet"/>
   </head>
   <body>
@@ -53,7 +51,9 @@
           <!--spam {{coordenadas[2].Nombre}} -->
           <!--p the is -->
           <!--spam {{coordenadas}}-->
+          <script src="scripts/map.js"></script>
           <script src="controller/connection.js"></script>
+          <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBGeiXByYhldiT7SRt5xKIcz3s3k_a6jjM&amp;callback=initMap" async="async" defer="defer"></script>
         </div>
       </div>
     </section>

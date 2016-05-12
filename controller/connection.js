@@ -18,15 +18,7 @@ linksp.on('click','a',function() {
 
 });
 
-function graficarTiempo() {
-  setInterval(function () {
-    //data identifica una sola tonalidad
-    chart.series[1].data[1].update(b)
-    chart.series[3].data[2].update(b)
-  },1000);
 
-};
-graficarTiempo();
 
 
 
@@ -55,17 +47,17 @@ $('#container').highcharts({
         }
     },
     series: [{
-        name: 'Estación Panamericano',
+        name: 'Hacia estación cañaveral',
         data: [10,0,0]
       },{
-          name: 'Hacia estación lagos',
-          data: [20, 20,0]
-      },{
           name: 'Estación lagos',
-          data: [10, 10,0]
+          data: [20, 0,0]
       },{
-          name: 'hacia estación Panamericano',
-          data: [20, 20, 20]
+          name: 'Hacia estación lagos',
+          data: [10, 0,0]
+      },{
+          name: 'Estación cañaveral',
+          data: [20, 0, 0]
       }]
 });
 var chart = $('#container').highcharts();

@@ -303,15 +303,30 @@ infoWindow1 = new google.maps.InfoWindow();
 
 
 
+		function graficarTiempo() {
+		  setInterval(function () {
+		    //data identifica una sola tonalidad
+
+		    chart.series[3].data[2].update(b);
+		  },1000);
+
+		};
+		graficarTiempo();
+
+
 
 	b=0
 function recorridos(rutas) {
 	setInterval(function () {
 
   if(b<rutas.coordenadas.length)
-  {
+  {var c =-rutas.coordenadas[b].id+4;
+		t=b-10*(rutas.coordenadas[b].id-1);
+		console.log(t);
+		chart.series[c].data[1].update(t);
+
  	 ruta(rutas.coordenadas[b].latitud,rutas.coordenadas[b].longitud,marker2);
- 	 infoWD("<p>Ruta: "+rutas.Ruta+"<br>latitud: "+rutas.coordenadas[b].latitud+"<br>lontitud: "+rutas.coordenadas[b].longitud+"<br>id: "+rutas.coordenadas[b].id+"</p>",marker2);
+ 	 infoWD("<p>Ruta: "+rutas.Ruta+"<br>latitud: "+rutas.coordenadas[b].latitud+"<br>lontitud: "+rutas.coordenadas[b].longitud+"<br>id: "+rutas.coordenadas[b].id+"<br>Hora salida: "+rutas.HoraS+"</p>",marker2);
   }
   else {
   	b=0;
