@@ -255,7 +255,7 @@ $.getJSON("http://localhost:8001/data/coordenadas.json", function(datos) {
 		  	position: null,
 		    map: map,
 		    visible: true,
-		 	icon: marker_bus2,
+		 	icon: marker_bus1,
 		});
 		var marker2 = new google.maps.Marker({
 		  	position: null,
@@ -300,47 +300,43 @@ infoWindow1 = new google.maps.InfoWindow();
     });
 
 
+		$.getJSON("http://localhost:8001/data/ruta2.json", function(datos) {
+				$.coordenadas=datos;
 
 
+					recorridos(datos.info[0],marker1);
+					recorridos(datos.info[1],marker2);
 
-		function graficarTiempo() {
-		  setInterval(function () {
-		    //data identifica una sola tonalidad
-
-		    chart.series[3].data[2].update(b);
-		  },1000);
-
-		};
-		graficarTiempo();
-
-
+		      })
 
 	b=0
-function recorridos(rutas) {
+function recorridos(rutas,marker1,marker2) {
 	setInterval(function () {
 
   if(b<rutas.coordenadas.length)
   {var c =-rutas.coordenadas[b].id+4;
-		t=b-10*(rutas.coordenadas[b].id-1);
-		console.log(t);
-		chart.series[c].data[1].update(t);
+		t=b-10*(rutas.coordenadas[b].id-1)+1;
+		//console.log(t);
+		console.log(b);
+		chart.series[c].data[2].update(t);
 
- 	 ruta(rutas.coordenadas[b].latitud,rutas.coordenadas[b].longitud,marker2);
- 	 infoWD("<p>Ruta: "+rutas.Ruta+"<br>latitud: "+rutas.coordenadas[b].latitud+"<br>lontitud: "+rutas.coordenadas[b].longitud+"<br>id: "+rutas.coordenadas[b].id+"<br>Hora salida: "+rutas.HoraS+"</p>",marker2);
+ 	 ruta(rutas.coordenadas[b].latitud,rutas.coordenadas[b].longitud,marker1);
+ 	 infoWD("<p>Ruta: "+rutas.Ruta+"<br>latitud: "+rutas.coordenadas[b].latitud+"<br>lontitud: "+rutas.coordenadas[b].longitud+"<br>id: "+rutas.coordenadas[b].id+"<br>Hora salida: "+rutas.HoraS+"</p>",marker1);
   }
   else {
   	b=0;
+		for (var i = 0; i < chart.series.length; i++) {
+			chart.series[i].data[1].update(b);
+			console.log("hola");
+		}
   }
  			b++
 
-  },1000);
+  },200);
 
 }
 
-$.getJSON("http://localhost:8001/data/ruta1.json", function(datos) {
-		$.coordenadas=datos;
-		recorridos(datos);
-      })
+
 
 
 

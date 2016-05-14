@@ -48,16 +48,16 @@ $('#container').highcharts({
     },
     series: [{
         name: 'Hacia estación cañaveral',
-        data: [10,0,0]
+        data: [39,0,0]
       },{
           name: 'Estación lagos',
-          data: [20, 0,0]
+          data: [10, 0,0]
       },{
           name: 'Hacia estación lagos',
           data: [10, 0,0]
       },{
           name: 'Estación cañaveral',
-          data: [20, 0, 0]
+          data: [10, 0, 0]
       }]
 });
 var chart = $('#container').highcharts();
