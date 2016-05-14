@@ -323,7 +323,7 @@ switch (rutas.HoraS) {
 		chart.series[c].data[1].update(t);
 
  	 ruta(rutas.coordenadas[b].latitud,rutas.coordenadas[b].longitud,marker1);
- 	 infoWD("<p>Ruta: "+rutas.Ruta+"<br>latitud: "+rutas.coordenadas[b].latitud+"<br>lontitud: "+rutas.coordenadas[b].longitud+"<br>id: "+rutas.coordenadas[b].id+"<br>Hora salida: "+rutas.HoraS+"</p>",marker1);
+ 	 infoWD("<p>latitud: "+rutas.coordenadas[b].latitud+"<br>lontitud: "+rutas.coordenadas[b].longitud+"<br>id: "+rutas.coordenadas[b].id+"<br>Hora salida: "+rutas.HoraS+"</p>",marker1);
 
 	}
   else {
@@ -345,7 +345,7 @@ switch (rutas.HoraS) {
 			chart.series[c].data[2].update(t);
 
 	 	 ruta(rutas.coordenadas[g].latitud,rutas.coordenadas[g].longitud,marker1);
-	 	 infoWD("<p>Ruta: "+rutas.Ruta+"<br>latitud: "+rutas.coordenadas[g].latitud+"<br>lontitud: "+rutas.coordenadas[g].longitud+"<br>id: "+rutas.coordenadas[g].id+"<br>Hora salida: "+rutas.HoraS+"</p>",marker1);
+	 	 infoWD("<p>latitud: "+rutas.coordenadas[g].latitud+"<br>lontitud: "+rutas.coordenadas[g].longitud+"<br>id: "+rutas.coordenadas[g].id+"<br>Hora salida: "+rutas.HoraS+"</p>",marker1);
 
 		}
 	  else {
