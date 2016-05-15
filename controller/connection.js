@@ -22,6 +22,8 @@ linksp.on('click','a',function() {
 
 
 
+
+
 $('#container').highcharts({
     chart: {
         type: 'bar'

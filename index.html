@@ -16,6 +16,12 @@
       <div id="map-zoom-out"></div>
       <div id="izquierda">
         <div class="abajo">
+          <select id="lista">
+            <option value="-1" selected="">Seleccione la velocidad de actualizacion</option>
+            <option value="1">Tiempo real</option>
+            <option value="2">Rapido</option>
+            <option value="3">Lento</option>
+          </select>
           <div class="tabs_links"><a href="#BRT-1">RUTA 1</a><a href="#BRT-2">RUTA 2</a><a href="#BRT-3">RUTA 3</a><a href="#BRT-4">RUTA 4</a></div>
           <div class="tabs_contens">
             <div id="BRT-1" class="items">
@@ -33,28 +39,26 @@
           </div>
         </div>
         <!--ng-controller="Ruta" permite acceder a la funcion en el connection.js-->
-        <div ng-app="myApp" class="arriba">
-          <table ng-controller="FirstCtrl">
-            <tr>
-              <th>Nombre</th>
-              <th>latitud</th>
-              <th>longitud</th>
-            </tr>
-            <tr ng-repeat="reg in coordenadas">
-              <td>{{reg.Nombre}}</td>
-              <td>{{reg.latitud}}</td>
-              <td>{{reg.longitud}}</td>
-            </tr>
-          </table>
-          <!--p the id-->
-          <!--accedemos a los campos de objeto almacenado en el archivo json-->
-          <!--spam {{coordenadas[2].Nombre}} -->
-          <!--p the is -->
-          <!--spam {{coordenadas}}-->
-          <script src="scripts/map.js"></script>
-          <script src="controller/connection.js"></script>
-          <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBGeiXByYhldiT7SRt5xKIcz3s3k_a6jjM&amp;callback=initMap" async="async" defer="defer"></script>
-        </div>
+        <!--.arriba(ng-app="myApp")
+        table(ng-controller="FirstCtrl")
+          tr
+            th Nombre
+            th latitud
+            th longitud
+          tr(ng-repeat="reg in coordenadas")
+            td {{reg.Nombre}}
+            td {{reg.latitud}}
+            td {{reg.longitud}}
+            
+          p the id
+        accedemos a los campos de objeto almacenado en el archivo json
+        spam {{coordenadas[2].Nombre}} 
+        p the is 
+        spam {{coordenadas}}
+        -->
+        <script src="scripts/map.js"></script>
+        <script src="controller/connection.js"></script>
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBGeiXByYhldiT7SRt5xKIcz3s3k_a6jjM&amp;callback=initMap" async="async" defer="defer"></script>
       </div>
     </section>
   </body>

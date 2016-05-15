@@ -299,79 +299,80 @@ infoWindow1 = new google.maps.InfoWindow();
         openInfoWindow(marker10);
     });
 
+timer=setInterval(asi,200)
+
+function asi() {
+
 
 		$.getJSON("http://localhost:8001/data/ruta2.json", function(datos) {
 				$.coordenadas=datos;
 
+				recorridos(datos.info[0],marker1);
+				recorridos(datos.info[1],marker2);
 
-					recorridos(datos.info[0],marker1);
-					recorridos(datos.info[1],marker2);
+			})}
 
-		      })
+var b=0, g=-20;
 
-	b=0;
-	g=-20;
-function recorridos(rutas,marker1) {
-	setInterval(function () {
-
-switch (rutas.HoraS) {
-	case 0:
-	if(b<rutas.coordenadas.length)
-  {var c =-rutas.coordenadas[b].id+4;
-		t=b-10*(rutas.coordenadas[b].id-1)+1;
-		//console.log(t);
-		chart.series[c].data[1].update(t);
-
- 	 ruta(rutas.coordenadas[b].latitud,rutas.coordenadas[b].longitud,marker1);
- 	 infoWD("<p>latitud: "+rutas.coordenadas[b].latitud+"<br>lontitud: "+rutas.coordenadas[b].longitud+"<br>id: "+rutas.coordenadas[b].id+"<br>Hora salida: "+rutas.HoraS+"</p>",marker1);
-
-	}
-  else {
-  	b=0;
-		for (var i = 0; i < chart.series.length; i++) {
-			chart.series[i].data[1].update(b);
-
-		}
-  }
- 			b++
-		break;
-		case 20:
-		if(g<rutas.coordenadas.length && g>=0)
-		{var c =-rutas.coordenadas[g].id+4;
-			t=g-10*(rutas.coordenadas[g].id-1)+1;
+function recorridos(rutas,marker) {
+	switch (rutas.HoraS) {
+		case 0:
+		if(b<rutas.coordenadas.length)
+	  {var c =-rutas.coordenadas[b].id+4;
+			t=b-10*(rutas.coordenadas[b].id-1)+1;
 			//console.log(t);
-			console.log(g);
+			chart.series[c].data[1].update(t);
 
-			chart.series[c].data[2].update(t);
-
-	 	 ruta(rutas.coordenadas[g].latitud,rutas.coordenadas[g].longitud,marker1);
-	 	 infoWD("<p>latitud: "+rutas.coordenadas[g].latitud+"<br>lontitud: "+rutas.coordenadas[g].longitud+"<br>id: "+rutas.coordenadas[g].id+"<br>Hora salida: "+rutas.HoraS+"</p>",marker1);
+	 	 ruta(rutas.coordenadas[b].latitud,rutas.coordenadas[b].longitud,marker);
+	 	 infoWD("<p>latitud: "+rutas.coordenadas[b].latitud+"<br>lontitud: "+rutas.coordenadas[b].longitud+"<br>id: "+rutas.coordenadas[b].id+"<br>Hora salida: "+rutas.HoraS+"</p>",marker);
 
 		}
 	  else {
-	  	if (0>=g) {
-					g++
-	  	}
-				else {
-					g=0;
-					for (var i = 0; i < chart.series.length; i++) {
-						chart.series[i].data[2].update(g);
-				}
+	  	b=0;
+			for (var i = 0; i < chart.series.length; i++) {
+				chart.series[i].data[1].update(b);
+
 			}
 	  }
-	 			g++
+	 			b++
 			break;
-	default:
+			case 20:
+			if(g<rutas.coordenadas.length && g>=0)
+			{var c =-rutas.coordenadas[g].id+4;
+				t=g-10*(rutas.coordenadas[g].id-1)+1;
+				console.log(g);
 
-}
+				chart.series[c].data[2].update(t);
+
+		 	 ruta(rutas.coordenadas[g].latitud,rutas.coordenadas[g].longitud,marker);
+		 	 infoWD("<p>latitud: "+rutas.coordenadas[g].latitud+"<br>lontitud: "+rutas.coordenadas[g].longitud+"<br>id: "+rutas.coordenadas[g].id+"<br>Hora salida: "+rutas.HoraS+"</p>",marker);
+
+			}
+		  else {
+		  	if (0>=g) {
+						g++
+		  	}
+					else {
+						g=0;
+						for (var i = 0; i < chart.series.length; i++) {
+							chart.series[i].data[2].update(g);
+					}
+				}
+		  }
+		 			g++
+				break;
+		default:
+
+	}
+	}
 
 
 
-  },200);
-
-}
-
-
+var select=$("#lista").change(function() {
+	console.log(select.val());
+	clearInterval(timer);
+	timer = setInterval(asi, 1000);
+});
 
 
 
