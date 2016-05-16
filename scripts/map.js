@@ -299,7 +299,7 @@ infoWindow1 = new google.maps.InfoWindow();
         openInfoWindow(marker10);
     });
 
-timer=setInterval(asi,200)
+timer=setInterval(asi,1000)
 
 function asi() {
 
@@ -367,11 +367,29 @@ function recorridos(rutas,marker) {
 	}
 
 
-
+//esperamos a que se modifique el valor seleccionado de la lista desplegable y lo capturamos
 var select=$("#lista").change(function() {
-	console.log(select.val());
+	//detenemos el Intervalo de tiempo de la funcion setInterval
 	clearInterval(timer);
-	timer = setInterval(asi, 1000);
+	//tomamos el valor obtenido de la lista desplegable y modificamos el intervalo de tiempo de actualizacion
+	switch (select.val()) {
+		case "1":
+			//actualizacion de 1/5 de segundo
+			timer = setInterval(asi, 200);
+			break;
+		case "2":
+			//actualizacion de 1 segundo
+			timer = setInterval(asi, 1000);
+			break;
+		case "3":
+			//actualizacion de 5 segundos
+			timer = setInterval(asi, 5000);
+			break;
+		default:
+			//por defecto el valor es 1 segundo
+			timer = setInterval(asi, 1000);
+	}
+
 });
 
 
