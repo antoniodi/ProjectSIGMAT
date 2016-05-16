@@ -307,8 +307,8 @@ function asi() {
 		$.getJSON("http://localhost:8001/data/ruta2.json", function(datos) {
 				$.coordenadas=datos;
 
-				recorridos(datos.info[0],marker1);
-				recorridos(datos.info[1],marker2);
+				recorridos(datos[0],marker1);
+				recorridos(datos[1],marker2);
 
 			})}
 
