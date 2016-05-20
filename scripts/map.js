@@ -1,8 +1,8 @@
 //google map custom marker icon - .png fallback for IE11
-var marker_bus0 = 'img/busmorado.svg';
-var marker_bus1 = 'img/busnaranja.svg';
-var marker_bus2 = 'img/busverde.svg';
-var marker_estacion = 'img/busestacionazul.svg';
+var marker_bus0 = 'img/busmorado.svg',
+  	marker_bus1 = 'img/busnaranja.svg',
+  	marker_bus2 = 'img/busverde.svg',
+  	marker_estacion = 'img/busestacionazul.svg';
 
 //codigo encargado de crear la grafica
 
