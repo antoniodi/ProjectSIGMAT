@@ -1,5 +1,4 @@
-{"Rutas":[{"estacion":1},
-          {"estacion":1}
-
+[{"Rura":"R1","tFlota":5},
+  {"Rura":"R2","tFlota":7},
+  {"Rura":"R3","tFlota":3}
 ]
-}
