@@ -45,8 +45,11 @@ body,html
       position: relative
       &.active
         z-index: 100
+        cursor: default
         color: $naranja
         border-bottom: 2px solid $naranja
+
+
 
 
 #container
@@ -70,6 +73,32 @@ section
         align-content: center
       p
         font-size: 1em
+      .caja
+        display: flex
+        background-color: rgb(168, 213, 212)
+        .circulo
+          flex: auto
+          margin-top: 2em
+          display: flex
+          width: 2em
+          height: 2em
+          border-radius: 50%
+          border: 2px solid $verde
+          background-color: $blanco
+          .interno
+            margin: auto
+            align-items: center
+            line-height: 1em
+            border-radius: 50%
+            width: 1.5em
+            height: 1.5em
+            background-color: $verde
+        p
+          text-align: center
+          margin: 5px
+
+
+
 
     .arriba
       overflow: auto

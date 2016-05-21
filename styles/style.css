@@ -42,6 +42,7 @@ body, html {
 }
 .tabs_links a.active {
   z-index: 100;
+  cursor: default;
   color: #ff5252;
   border-bottom: 2px solid #ff5252;
 }
@@ -75,6 +76,33 @@ section #izquierda .abajo #lista {
 }
 section #izquierda .abajo p {
   font-size: 1em;
+}
+section #izquierda .abajo .caja {
+  display: flex;
+  background-color: #a8d5d4;
+}
+section #izquierda .abajo .caja .circulo {
+  flex: auto;
+  margin-top: 2em;
+  display: flex;
+  width: 2em;
+  height: 2em;
+  border-radius: 50%;
+  border: 2px solid #1bce7c;
+  background-color: #fdfdfd;
+}
+section #izquierda .abajo .caja .circulo .interno {
+  margin: auto;
+  align-items: center;
+  line-height: 1em;
+  border-radius: 50%;
+  width: 1.5em;
+  height: 1.5em;
+  background-color: #1bce7c;
+}
+section #izquierda .abajo .caja p {
+  text-align: center;
+  margin: 5px;
 }
 section #izquierda .arriba {
   overflow: auto;

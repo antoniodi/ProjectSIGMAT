@@ -48,63 +48,70 @@ var marker_bus0 = 'img/busmorado.svg',
 var chart = $('#container').highcharts();
 
 //Patron factory implementado para crear los marker en el mapa
-function markerFactory(){
-    this.crearMarker = function(type,map){
-				this.map=map;
+function markerPaqueteFactory(){
+    this.crearPaqueteMarker = function(type,map,n){
         switch (type) {
         	case "estacion":
 						console.log("Se creo un marker para una estacion");
-						return markerEstacion(this.map);
+						return markerEstacion(map,n);
+						break;
 					case "R1":
 						console.log("Se creo un recorrido de la ruta R1");
-						return markerR1(this.map);
+            console.log(paqueteMarkerR1(map,n));
+						return paqueteMarkerR1(map,n);
         		break;
-					case "R1":
+					case "R2":
 						console.log("Se creo un recorrido de la ruta R2");
-						return markerR2(this.map);
+						return paqueteMarkerR2(map,n);
         		break;
-					case "R1":
+					case "R3":
 						console.log("Se creo un recorrido de la ruta R3");
-						return markerR3(this.map);
+						return paqueteMarkerR3(map,n);
         		break;
         	default:
-        		console.log("Marker no valido");
+        		console.log("Nombre de la Ruta no esta definido en la funcion markerPaqueteFactory()");
         }
     }
-
-    function markerEstacion(map){
-			this.map=map;
-			return new google.maps.Marker({
-					position: null,
-					visible: true,
-					map: this.map,
-					icon: marker_estacion,
-					zIndex: 2
-					});
+    function markerEstacion(map,n){
+      var R=[];
+      for (var i = 0; i < n; i++) {
+        R.push(new google.maps.Marker({
+            map: map,
+            icon: marker_estacion,
+  					zIndex: 2,
+          }));
+      }
+			return R;
     }
-		function R1() {
-			new google.maps.Marker({
-			  	position: null,
-			    map: this.map,
-			    visible: true,
-			 	icon: marker_bus0,
-			});
+		function paqueteMarkerR1(map,n) {
+      var R=[];
+      for (var i = 0; i < n; i++) {
+        R.push(new google.maps.Marker({
+            map: map,
+            icon: marker_bus0,
+          }));
+      }
+      return R;
 		}
-		function R2() {
-			new google.maps.Marker({
-			  	position: null,
-			    map: this.map,
-			    visible: true,
-			 	icon: marker_bus1,
-			});
+		function paqueteMarkerR2(map,n) {
+      var R=[];
+      for (var i = 0; i < n; i++) {
+        R.push(new google.maps.Marker({
+            map: map,
+            icon: marker_bus1,
+          }));
+      }
+      return R;
 		}
-		function R3() {
-			new google.maps.Marker({
-			  	position: null,
-			    map: this.map,
-			    visible: true,
-			 	icon: marker_bus2,
-			});
+		function paqueteMarkerR3(map,n) {
+      var R=[];
+      for (var i = 0; i < n; i++) {
+        R.push(new google.maps.Marker({
+            map: map,
+            icon: marker_bus2,
+          }));
+      }
+      return R;
 		}
 };
  // fin del Patron factory
@@ -324,15 +331,14 @@ function initMap() {
 
 
 	//creando una instancia de factory, para crear a partir de ella indefinidos marker de estaciones y rutas
-  var factory = new markerFactory();
+  var factory = new markerPaqueteFactory();
   //funcion encargada de colocar los marcadores de todas las estaciones sobre el mapa
   function graficarEstaciones(arrayEstaciones,map) {
-   this.mape=map;
+    //creamos un paquete de Marker
+   	 var m=factory.crearPaqueteMarker("estacion",map,arrayEstaciones.length);
      for (var i = 0; i < arrayEstaciones.length; i++) {
-         var m=factory.crearMarker("estacion",this.mape);
-         infoW(arrayEstaciones[i].Nombre,m);
-         m.setPosition(new google.maps.LatLng(arrayEstaciones[i].latitud,arrayEstaciones[i].longitud));
-
+				 m[i].setPosition(new google.maps.LatLng(arrayEstaciones[i].latitud,arrayEstaciones[i].longitud));
+         infoW(arrayEstaciones[i].Nombre,m[i]);
      }
   }
 
@@ -368,23 +374,7 @@ function infoW(texto,marker) {
 
 
 
-		//add a custom marker to the map
-		var marker1 = new google.maps.Marker({
-		  	position: null,
-		    map: map,
-		    visible: true,
-		 	icon: marker_bus1,
-		});
-		var marker2 = new google.maps.Marker({
-		  	position: null,
-		    map: map,
-		    visible: true,
-		 	icon: marker_bus1,
-		});
 
-		var ruta = function(lat,lon,marker) {
-			marker.setPosition(new google.maps.LatLng(lat,lon));
-			};
 
 
 
@@ -415,67 +405,64 @@ infoWindow1 = new google.maps.InfoWindow();
         openInfoWindow(marker10);
     });
 */
-//codigo encargado de la gestion de las coordenadas
-var b=0, g=-20;
-timer=setInterval(asi,1000)
 
+var R2=factory.crearPaqueteMarker("R2",map,5);
+
+timer=setInterval(asi,1000);
+var b=0;
+//variable para almacenar valores de posicion conceptual y poder saber si ubo un camio de posicion
+var ant=[];
 function asi() {
-		$.getJSON("http://localhost:8001/data/ruta2.json", function(datos) {
+		$.getJSON("http://localhost:8001/data/ruta1.json", function(datos) {
 				$.coordenadas=datos;
-				recorridos(datos[0],marker1);
-				recorridos(datos[1],marker2);
-				//restriccion: todos los arreglos internos (coordenadas) deben tener el mismo tamaño en la simulacion
-		//		for (var i = 0; i < datos.length; i++) {
+				if(b<datos[0].coordenadas.length)
+			  {
+				for (var i = 0; i < datos.length; i++) {
+          var cambio=false;
+          if (ant[i]==undefined || (ant[i]-datos[i].coordenadas[b].id)>1 ) {
+            cambio=true;
 
-			//		datos[i].coordenadas[b];
-			//	}
-})}
+          }
+          else if (true) {
 
+          }
+          moverMarker(datos[i].coordenadas[b],R2[i]);
+					recorridosGrafica(datos[i].coordenadas[b],i,cambio);
+          ant[i]=datos[i].coordenadas[b].id;
 
-
-function recorridos(rutas,marker) {
-	switch (rutas.HoraS) {
-		case 0:
-		if(b<rutas.coordenadas.length)
-	  {//volteamos el indice para que pueda ser usado como referencia al crear la grafica
-			var c =-rutas.coordenadas[b].id+4;
-			var t=b-10*(rutas.coordenadas[b].id-1)+1;
-			//console.log(t);
-			chart.series[c].data[1].update(t);
-
-	 	 ruta(rutas.coordenadas[b].latitud,rutas.coordenadas[b].longitud,marker);
-		}
-	  else {
-	  	b=0;
-			for (var i = 0; i < chart.series.length; i++) {
-				chart.series[i].data[1].update(b);
-
-			}
-	  }
-	 			b++
-			break;
-			case 20:
-			if(g<rutas.coordenadas.length && g>=0)
-			{var c =-rutas.coordenadas[g].id+4;
-				t=g-10*(rutas.coordenadas[g].id-1)+1;
-
-				chart.series[c].data[2].update(t);
-
-		 	 ruta(rutas.coordenadas[g].latitud,rutas.coordenadas[g].longitud,marker);
-			}
-		  else {
-		  	if (0>=g) {
-						g++
-		  	}
-					else {
-						g=0;
-						for (var i = 0; i < chart.series.length; i++) {
-							chart.series[i].data[2].update(g);
-					}
+					}	b++
+				}else {
+					b=0
 				}
-		  }
-		 			g++
-				break;
+})};
+
+var moverMarker = function(recorrido,marker) {
+	marker.setPosition(new google.maps.LatLng(recorrido.latitud,recorrido.longitud));
+	};
+
+function recorridosGrafica(rutas,posicion,cambio) {
+	switch (posicion) {
+		case 0:
+      //  for (var i = 3; i < rutas.id; i--) {
+      //  console.log(chart.series[3].data[posicion+1].y);
+        //}
+        //a la posicion se le suma uno,
+        //if (cambio) {
+          //for (var i = 0; i < chart.series.length; i++) {
+            //chart.series[i].data[2].update(g);
+          //}else {
+            chart.series[-rutas.id+3].data[posicion+1].update(chart.series[-rutas.id+3].data[posicion+1].y+=1);
+          //}
+
+				//chart.series[-rutas.id+3].data[posicion+1].update+=1;
+        //console.log(chart.series[-rutas.id+3].data[posicion+1].y);
+
+			break;
+		case 1:
+
+				chart.series[-rutas.id+3].data[posicion+1].update(chart.series[-rutas.id+3].data[posicion+1].y+=1);
+
+			break;
 		default:
 
 	}
