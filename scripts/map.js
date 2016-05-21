@@ -323,23 +323,23 @@ function initMap() {
 
 
 
- //creando una instancia de factory, para crear a partir de ella indefinidos marker de estaciones y rutas
-var factory = new markerFactory();
+	//creando una instancia de factory, para crear a partir de ella indefinidos marker de estaciones y rutas
+  var factory = new markerFactory();
+  //funcion encargada de colocar los marcadores de todas las estaciones sobre el mapa
+  function graficarEstaciones(arrayEstaciones,map) {
+   this.mape=map;
+     for (var i = 0; i < arrayEstaciones.length; i++) {
+         var m=factory.crearMarker("estacion",this.mape);
+         infoW(arrayEstaciones[i].Nombre,m);
+         m.setPosition(new google.maps.LatLng(arrayEstaciones[i].latitud,arrayEstaciones[i].longitud));
 
-function graficarEstaciones(arrayEstaciones) {
-		for (var i = 0; i < arrayEstaciones.length; i++) {
-				//infoW(arrayEstaciones[i].Nombre,marker.setPosition(new google.maps.LatLng(arrayEstaciones[i].latitud,arrayEstaciones[i].longitud)));
-				var m=factory.crearMarker("estacion",map);
-				infoW(arrayEstaciones[i].Nombre,m);
-				m.setPosition(new google.maps.LatLng(arrayEstaciones[i].latitud,arrayEstaciones[i].longitud));
+     }
+  }
 
-		}
-}
-
-$.getJSON("http://localhost:8001/data/coordenadas.json", function(datos) {
-		$.coordenadas=datos;
-		graficarEstaciones(datos);
-      })
+  $.getJSON("http://localhost:8001/data/coordenadas.json", function(datos) {
+     $.coordenadas=datos;
+     graficarEstaciones(datos,map);
+       })
 
 //agrega un mensaje al
 function infoW(texto,marker) {
