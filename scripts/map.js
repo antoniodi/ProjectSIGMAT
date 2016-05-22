@@ -415,19 +415,23 @@ var ant=[];
 function asi() {
 		$.getJSON("http://localhost:8001/data/ruta1.json", function(datos) {
 				$.coordenadas=datos;
+        //if para resetear la b cuando se llegue al final de la prueba
 				if(b<datos[0].coordenadas.length)
 			  {
+          //recorremos todos los datos de la ruta especifica
 				for (var i = 0; i < datos.length; i++) {
-          var cambio=false;
-          if (ant[i]==undefined || (ant[i]-datos[i].coordenadas[b].id)>1 ) {
-            cambio=true;
+
+          if (ant[i]==undefined || (ant[i]-datos[i].coordenadas[b].id)>0 ) {
+            for (var j = 0; j < chart.series.length; j++) {
+              chart.series[j].data[i+1].update(0);
+              }
 
           }
-          else if (true) {
 
-          }
           moverMarker(datos[i].coordenadas[b],R2[i]);
-					recorridosGrafica(datos[i].coordenadas[b],i,cambio);
+
+					recorridosGrafica(datos[i].coordenadas[b],i);
+
           ant[i]=datos[i].coordenadas[b].id;
 
 					}	b++
@@ -440,7 +444,7 @@ var moverMarker = function(recorrido,marker) {
 	marker.setPosition(new google.maps.LatLng(recorrido.latitud,recorrido.longitud));
 	};
 
-function recorridosGrafica(rutas,posicion,cambio) {
+function recorridosGrafica(rutas,posicion) {
 	switch (posicion) {
 		case 0:
       //  for (var i = 3; i < rutas.id; i--) {
@@ -451,7 +455,7 @@ function recorridosGrafica(rutas,posicion,cambio) {
           //for (var i = 0; i < chart.series.length; i++) {
             //chart.series[i].data[2].update(g);
           //}else {
-            chart.series[-rutas.id+3].data[posicion+1].update(chart.series[-rutas.id+3].data[posicion+1].y+=1);
+          chart.series[-rutas.id+3].data[posicion+1].update(chart.series[-rutas.id+3].data[posicion+1].y+=1);
           //}
 
 				//chart.series[-rutas.id+3].data[posicion+1].update+=1;
@@ -476,8 +480,10 @@ var select=$("#lista").change(function() {
 	//tomamos el valor obtenido de la lista desplegable y modificamos el intervalo de tiempo de actualizacion
 	switch (select.val()) {
 		case "1":
-			//actualizacion de 1/5 de segundo
-			timer = setInterval(asi, 200);
+			//actualizacion de 1/10 de segundo
+      //Nota: cuando el número es 200 ocurre un erro el cual he solucionado cambiando este número por 100
+      //aunque no aparece el error es aconsesaje realizar mas pruebas
+			timer = setInterval(asi, 100);
 			break;
 		case "2":
 			//actualizacion de 1 segundo
