@@ -7,6 +7,20 @@ $http.get('http://localhost:8001/data/coordenadas.json').
     });
 });
 
+//creando una instancia de factory, para crear a partir de ella indefinidos marker de estaciones y rutas
+var factory = new markerPaqueteFactory(),
+    mapa = new initMap();
+jQuery(document).ready(function($){
+
+$.getJSON("http://localhost:8001/data/coordenadas.json", function(datos) {
+     $.coordenadas=datos;
+     mapa.graficarEstaciones(datos);
+
+       })
+
+  });
+
+
 
 
 /*

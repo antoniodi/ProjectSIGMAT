@@ -4,8 +4,6 @@
 
 //Primary style
 
-
-
 body,html
   margin: 0
   padding: 0
@@ -17,15 +15,15 @@ body,html
 
 .tabs
   &_contens
-    width: 90%
+    width: 100%
     margin: auto
     position: relative
-
     .items
       position: absolute
       left: 0
       top: 0
       display: none
+      width: 100%
       &.active
         display: block
   &_links
@@ -45,11 +43,9 @@ body,html
       position: relative
       &.active
         z-index: 100
-        cursor: default
+        pointer-events: none
         color: $naranja
         border-bottom: 2px solid $naranja
-
-
 
 
 #container
@@ -66,36 +62,60 @@ section
     .abajo
       width: 100%
       height: 100vh
-    .abajo
       overflow: auto
       #lista
         margin: auto
         align-content: center
       p
         font-size: 1em
+
+
+      .line
+        position: absolute
+        height: 2px
+        width: 100%
+        background: $grisc
+        top: 2.8em
+      .bus
+        position: absolute
+        text-align: center
+        transform: translateX(50%)
+        top: 5em
+        &::after
+          content: ""
+          position: absolute
+          height: 1em
+          width: 1em
+          border-radius: 50%
+          background: $morado
+          transform: translateX(-200%)
+          z-index: 100
       .caja
         display: flex
-        background-color: rgb(168, 213, 212)
+        height: 10em
+        background: $moradoc
+
         .circulo
-          flex: auto
-          margin-top: 2em
+          position: absolute
           display: flex
-          width: 2em
-          height: 2em
+          margin: auto
+          margin-top: 2em
+          width: 1.5em
+          height: 1.5em
           border-radius: 50%
-          border: 2px solid $verde
-          background-color: $blanco
-          .interno
-            margin: auto
-            align-items: center
-            line-height: 1em
+          border: 2px solid $verde1
+          background-color: $moradoc
+          z-index: 98
+          &::before
+            content: ""
             border-radius: 50%
-            width: 1.5em
-            height: 1.5em
-            background-color: $verde
-        p
-          text-align: center
-          margin: 5px
+            width: 1em
+            height: 1em
+            margin: auto
+            background-color: $verde1
+            z-index: 200
+
+
 
 
 

@@ -47,6 +47,7 @@ var marker_bus0 = 'img/busmorado.svg',
 
 var chart = $('#container').highcharts();
 
+
 //Patron factory implementado para crear los marker en el mapa
 function markerPaqueteFactory(){
     this.crearPaqueteMarker = function(type,map,n){
@@ -126,11 +127,21 @@ function markerPaqueteFactory(){
    t.add(items.eq(i)).addClass('active').siblings().removeClass('active');
  });
 
+function h() {
+  function x() {
+    console.log('hola');
+  }
 
-
+}
+z = new h()
 
 
 function initMap() {
+
+var h=function hola() {
+  console.log('hola');
+}
+
 	//set your google maps parameters
 	var latitude = 7.09,
 		longitude = -73.11,
@@ -330,10 +341,9 @@ function initMap() {
 
 
 
-	//creando una instancia de factory, para crear a partir de ella indefinidos marker de estaciones y rutas
-  var factory = new markerPaqueteFactory();
+
   //funcion encargada de colocar los marcadores de todas las estaciones sobre el mapa
-  function graficarEstaciones(arrayEstaciones,map) {
+  this.graficarEstaciones =function graficarEstaciones(arrayEstaciones) {
     //creamos un paquete de Marker
    	 var m=factory.crearPaqueteMarker("estacion",map,arrayEstaciones.length);
      for (var i = 0; i < arrayEstaciones.length; i++) {
@@ -344,7 +354,7 @@ function initMap() {
 
   $.getJSON("http://localhost:8001/data/coordenadas.json", function(datos) {
      $.coordenadas=datos;
-     graficarEstaciones(datos,map);
+
        })
 
 //agrega un mensaje al
@@ -405,7 +415,6 @@ infoWindow1 = new google.maps.InfoWindow();
         openInfoWindow(marker10);
     });
 */
-
 var R2=factory.crearPaqueteMarker("R2",map,5);
 
 timer=setInterval(asi,1000);
@@ -416,10 +425,10 @@ function asi() {
 		$.getJSON("http://localhost:8001/data/ruta1.json", function(datos) {
 				$.coordenadas=datos;
         //if para resetear la b cuando se llegue al final de la prueba
-				if(b<datos[0].coordenadas.length)
-			  {
+        if(b<datos[0].coordenadas.length)
+        {
           //recorremos todos los datos de la ruta especifica
-				for (var i = 0; i < datos.length; i++) {
+        for (var i = 0; i < datos.length; i++) {
 
           if (ant[i]==undefined || (ant[i]-datos[i].coordenadas[b].id)>0 ) {
             for (var j = 0; j < chart.series.length; j++) {
@@ -430,36 +439,55 @@ function asi() {
 
           moverMarker(datos[i].coordenadas[b],R2[i]);
 
-					recorridosGrafica(datos[i].coordenadas[b],i);
+          recorridosGrafica(datos[i].coordenadas[b],i);
 
           ant[i]=datos[i].coordenadas[b].id;
 
-					}	b++
-				}else {
-					b=0
-				}
-})};
+          }	b++
+        }else {
+          b=0
+        }
+}
 
-var moverMarker = function(recorrido,marker) {
+)};
+/*
+function construir(data, b) {
+  //if para resetear la b cuando se llegue al final de la prueba
+  if(b<datos[0].coordenadas.length)
+  {
+    //recorremos todos los datos de la ruta especifica
+  for (var i = 0; i < datos.length; i++) {
+
+    if (ant[i]==undefined || (ant[i]-datos[i].coordenadas[b].id)>0 ) {
+      for (var j = 0; j < chart.series.length; j++) {
+        chart.series[j].data[i+1].update(0);
+        }
+
+    }
+
+    moverMarker(datos[i].coordenadas[b],R2[i]);
+
+    recorridosGrafica(datos[i].coordenadas[b],i);
+
+    ant[i]=datos[i].coordenadas[b].id;
+
+    }	b++
+  }else {
+    b=0
+  }
+};
+
+*/
+
+
+function moverMarker(recorrido,marker) {
 	marker.setPosition(new google.maps.LatLng(recorrido.latitud,recorrido.longitud));
 	};
 
 function recorridosGrafica(rutas,posicion) {
 	switch (posicion) {
 		case 0:
-      //  for (var i = 3; i < rutas.id; i--) {
-      //  console.log(chart.series[3].data[posicion+1].y);
-        //}
-        //a la posicion se le suma uno,
-        //if (cambio) {
-          //for (var i = 0; i < chart.series.length; i++) {
-            //chart.series[i].data[2].update(g);
-          //}else {
           chart.series[-rutas.id+3].data[posicion+1].update(chart.series[-rutas.id+3].data[posicion+1].y+=1);
-          //}
-
-				//chart.series[-rutas.id+3].data[posicion+1].update+=1;
-        //console.log(chart.series[-rutas.id+3].data[posicion+1].y);
 
 			break;
 		case 1:
@@ -470,7 +498,7 @@ function recorridosGrafica(rutas,posicion) {
 		default:
 
 	}
-	}
+}
 
 
 //esperamos a que se modifique el valor seleccionado de la lista desplegable y lo capturamos
@@ -537,4 +565,4 @@ var select=$("#lista").change(function() {
 
 
 
-}
+};

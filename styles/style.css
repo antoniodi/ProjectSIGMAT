@@ -10,7 +10,7 @@ body, html {
 }
 
 .tabs_contens {
-  width: 90%;
+  width: 100%;
   margin: auto;
   position: relative;
 }
@@ -19,6 +19,7 @@ body, html {
   left: 0;
   top: 0;
   display: none;
+  width: 100%;
 }
 .tabs_contens .items.active {
   display: block;
@@ -42,7 +43,7 @@ body, html {
 }
 .tabs_links a.active {
   z-index: 100;
-  cursor: default;
+  pointer-events: none;
   color: #ff5252;
   border-bottom: 2px solid #ff5252;
 }
@@ -66,8 +67,6 @@ section #izquierda {
 section #izquierda .abajo {
   width: 100%;
   height: 100vh;
-}
-section #izquierda .abajo {
   overflow: auto;
 }
 section #izquierda .abajo #lista {
@@ -77,32 +76,54 @@ section #izquierda .abajo #lista {
 section #izquierda .abajo p {
   font-size: 1em;
 }
+section #izquierda .abajo .line {
+  position: absolute;
+  height: 2px;
+  width: 100%;
+  background: #b5b5b5;
+  top: 2.8em;
+}
+section #izquierda .abajo .bus {
+  position: absolute;
+  text-align: center;
+  transform: translateX(50%);
+  top: 5em;
+}
+section #izquierda .abajo .bus::after {
+  content: "";
+  position: absolute;
+  height: 1em;
+  width: 1em;
+  border-radius: 50%;
+  background: #7c4dff;
+  transform: translateX(-200%);
+  z-index: 100;
+}
 section #izquierda .abajo .caja {
   display: flex;
-  background-color: #a8d5d4;
+  height: 10em;
+  background: #826ecd;
 }
 section #izquierda .abajo .caja .circulo {
-  flex: auto;
-  margin-top: 2em;
+  position: absolute;
   display: flex;
-  width: 2em;
-  height: 2em;
-  border-radius: 50%;
-  border: 2px solid #1bce7c;
-  background-color: #fdfdfd;
-}
-section #izquierda .abajo .caja .circulo .interno {
   margin: auto;
-  align-items: center;
-  line-height: 1em;
-  border-radius: 50%;
+  margin-top: 2em;
   width: 1.5em;
   height: 1.5em;
-  background-color: #1bce7c;
+  border-radius: 50%;
+  border: 2px solid #00e676;
+  background-color: #826ecd;
+  z-index: 98;
 }
-section #izquierda .abajo .caja p {
-  text-align: center;
-  margin: 5px;
+section #izquierda .abajo .caja .circulo::before {
+  content: "";
+  border-radius: 50%;
+  width: 1em;
+  height: 1em;
+  margin: auto;
+  background-color: #00e676;
+  z-index: 200;
 }
 section #izquierda .arriba {
   overflow: auto;

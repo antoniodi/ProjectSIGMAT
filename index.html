@@ -7,6 +7,7 @@
     <script src="librerias/jquery-2.2.4.min.js"></script>
     <script src="librerias/angular.min.js"> </script>
     <script src="librerias/highcharts.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBGeiXByYhldiT7SRt5xKIcz3s3k_a6jjM&amp;" async="async" defer="defer"></script>
     <link href="styles/style.css" rel="stylesheet"/>
   </head>
   <body>
@@ -18,7 +19,7 @@
         <div class="abajo">
           <select id="lista">
             <option value="-1" selected="">Seleccione la velocidad de actualizacion</option>
-            <option value="1">Tiempo real (cada 0.2 segundos)</option>
+            <option value="1">Tiempo real (cada 0.1 segundos)</option>
             <option value="2">Rapido (cada segundo)</option>
             <option value="3">Lento (cada 5 segundos)</option>
           </select>
@@ -28,16 +29,13 @@
               <div id="container"></div>
             </div>
             <div id="BRT-2" class="items">
-              <div class="caja">
-                <div class="circulo">
-                  <div class="interno"></div>
-                </div>
-                <div class="circulo">
-                  <div class="interno"></div>
-                </div>
-                <div class="circulo">
-                  <div class="interno"></div>
-                </div>
+              <div class="line"></div>
+              <div class="bus">Hola como estas</div>
+              <div class="caja">    
+                <div class="circulo"></div>
+                <div class="circulo"></div>
+                <div class="circulo"></div>
+                <div class="circulo"></div>
               </div>
             </div>
             <div id="BRT-3" class="items">
@@ -65,10 +63,10 @@
         spam {{coordenadas[2].Nombre}} 
         p the is 
         spam {{coordenadas}}
+        
         -->
         <script src="scripts/map.js"></script>
         <script src="controller/connection.js"></script>
-        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBGeiXByYhldiT7SRt5xKIcz3s3k_a6jjM&amp;callback=initMap" async="async" defer="defer"></script>
       </div>
     </section>
   </body>
