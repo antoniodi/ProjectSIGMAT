@@ -3,11 +3,12 @@ html(lang="es")
   head
     title SIGMAT
     meta(charset="UTF-8")
+    script(src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBGeiXByYhldiT7SRt5xKIcz3s3k_a6jjM&" )
     script(src="librerias/jquery-2.2.4.min.js")
     script(src="librerias/angular.min.js")  
     script(src="librerias/highcharts.js")
-    script(src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBGeiXByYhldiT7SRt5xKIcz3s3k_a6jjM&" async defer)
     link(href="styles/style.css",rel="stylesheet")
+    link(href="styles/style1.css",rel="stylesheet")
     
   body
     section
@@ -30,16 +31,12 @@ html(lang="es")
             #BRT-1.items
               #container
             #BRT-2.items
-              .line
-              .bus Hola como estas
-              .caja     
-                .circulo 
-                  
-                .circulo 
-                                  
-                .circulo 
-                                
-                .circulo 
+              .timeline
+                .line
+                  ol.linei        
+                ul.mover
+                  li: a(href="#0").prev.inactive Anterior
+                  li: a(href="#0").next Siguiente
                   
             
               
@@ -68,7 +65,7 @@ html(lang="es")
             spam {{coordenadas}}
         
         script(src="scripts/map.js")
-        
+        script(src="scripts/main.js")
         script(src="controller/connection.js")
         
         

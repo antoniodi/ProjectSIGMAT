@@ -12,11 +12,11 @@ var factory = new markerPaqueteFactory(),
     mapa = new initMap();
 jQuery(document).ready(function($){
 
-$.getJSON("http://localhost:8001/data/coordenadas.json", function(datos) {
-     $.coordenadas=datos;
-     mapa.graficarEstaciones(datos);
-
-       })
+       $.getJSON("http://localhost:8001/data/coordenadas.json").
+           success(function(data) {
+            $.coordenadas = data;
+            mapa.graficarEstaciones(data);
+          });
 
   });
 
