@@ -58,7 +58,7 @@ $.getJSON("http://localhost:8001/data/rutasd.json").
                  }
 
                    }
-                     ,200);
+                     ,1000);
 
 
 
@@ -74,7 +74,7 @@ function setTimelineWidth(timeline,data) {
   //el ancho esta definido por el numero de estaciones, se estima 100px estre cada estacion, los cuales seran distibuidos
   //de forma uniforme entre las estaciones de acuerdo a la distancia real, genreando una perseccion de la distacia real.
 
-  totalWidth=(data.length*150+100);
+  totalWidth=(data.length*150+200);
   (timeline.children('.line')).children('.linei').css('width', totalWidth+'px');
   return totalWidth;
 }
@@ -96,7 +96,7 @@ function setPosTimeline(elemento,distancia,max,timelineWidth) {
 
     /*  var distance = daydiff(timelineComponents['timelineDates'][0], timelineComponents['timelineDates'][i]),
         distanceNorm = Math.round(distance/timelineComponents['eventsMinLapse']) + 2;*/
-        disNormal=Math.round((distancia/max)*(timelineWidth-100));
+        disNormal=Math.round(((distancia+100)/max)*(timelineWidth-100));
         console.log(disNormal);
         elemento.css('left', disNormal+'px');
 
