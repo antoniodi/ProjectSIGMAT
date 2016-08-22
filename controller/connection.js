@@ -1,18 +1,9 @@
-angular.module('myApp', [])
-
-.controller('FirstCtrl', function($scope,$http) {
-$http.get('http://localhost:8001/data/coordenadas.json').
-    success(function(data) {
-        $scope.coordenadas = data;
-    });
-});
-
 //creando una instancia de factory, para crear a partir de ella indefinidos marker de estaciones y rutas
 var factory = new markerPaqueteFactory(),
     mapa = new initMap();
 jQuery(document).ready(function($){
 
-       $.getJSON("http://localhost:8001/data/coordenadas.json").
+       $.getJSON("http://localhost:8008/data/coordenadas.json").
            success(function(data) {
             $.coordenadas = data;
             mapa.graficarEstaciones(data);
