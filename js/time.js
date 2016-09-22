@@ -1,15 +1,23 @@
-$.getJSON("http://localhost:8008/data/r1.json").
-  success(function(data) {
-  $.rutas = data;
+
 
   jQuery(document).ready(function($){
+    $.getJSON("http://localhost:8000/data/estacionesR1.json").
+      success(function(data) {
+      $.rutas = data;
+
+
     var disEE=120, //esta variable define la distancia entre estaciones en pixeles
-        max=disEE*data.length+2*disEE,
-        nEstaciones=5;
+        max=disEE*data.length+disEE,
+        nEstaciones=data.length;
 
-    var it =new itinerario(nEstaciones,data.length,disEE);
+        //hacemos este llamado para capturar l número de buses iniciales
+        $.getJSON("http://localhost:8000/data/busesR1.json").
+             success(function(dataB) {
+             $.bus = dataB;
+              var nBuses=dataB.length;
+                  it =new itinerario(nBuses,data.length,disEE);
     //it.agregarEstaciones(data.length);
-
+});
     //agregando lineas tiempo al body
   //  for (var i = 0; i < 5; i++) {
       //var li = document.createElement("li");
@@ -28,9 +36,6 @@ $.getJSON("http://localhost:8008/data/r1.json").
     });
     $("#btn3").click(function(){
         $('.bus').eq(0).css('background-image','url(../img/bus-markerv.svg)');
-
-
-
     });
    var timeline= $('.timeline'),
        timeline0= $('.timeline0'),
@@ -60,11 +65,9 @@ $.getJSON("http://localhost:8008/data/r1.json").
                    var estaciones=lineG.find('li')
                    //var estaciones1=lineG0.find('li')
                    timelineWidth=setTimelineWidth(disEE,timeline,data.length);
-
-                     for (i = 0; i < estaciones.length; i++) {
-
-                   setPosTimelineE(i,disEE,estaciones.eq(i),data[i].distancia,max,timelineWidth);
-                   //setPosTimelineE(i,disEE,estaciones1.eq(i));
+                   for (i = 0; i < estaciones.length; i++) {
+                     setPosTimelineE(i,disEE,estaciones.eq(i),data[i].distancia,max);
+                     //setPosTimelineE(i,disEE,estaciones1.eq(i));
                    }
 
                   /*
@@ -90,9 +93,10 @@ $.getJSON("http://localhost:8008/data/r1.json").
 */
                    timeline.addClass('loaded');
 
-       $.getJSON("http://localhost:8008/data/ite1.json").
-                  success(function(data) {
-                    $.bus = data;
+
+                  $.getJSON("http://localhost:8000/data/busesR1.json").
+                             success(function(dataB) {
+                               $.bus = dataB;
                     /*
                     for (var i = 0; i < lb.length; i++) {
                       var li = document.createElement("li");
@@ -102,23 +106,23 @@ $.getJSON("http://localhost:8008/data/r1.json").
 
                     }*/
                     b=0;
-       setInterval(function () {
+            setInterval(function () {
 
-                     if (b<data[0].distancia.length) {
-                       //console.log(data[0].Nombre);
-                       //recorremos el
-                       for (var i = 0; i < data.length; i++) {
-                         setPosTimelineB($(".bus").eq(i),data[i].distancia[b],timelineWidth,max);
-                       }
-
-                   b++;
-                 }else {
-                   b=0;
-                 }
-         },1000);
+                         if (b<dataB[0].distancia.length) {
+                           //console.log(data[0].Nombre);
+                           //recorremos el
+                           for (var i = 0; i < dataB.length; i++) {
+                             setPosTimelineB($(".bus").eq(i),dataB[i].distancia[b],nEstaciones);
+                           }
+                       b++;
+                     }else {
+                       b=0;
+                     }
+             },1000);
                  });
+});
    })
- });
+
 
 
 
@@ -146,12 +150,13 @@ function setPosTimelineE(i,disEE,elemento) {
         elemento.css('transform','translateX(-50%)');
 }
 //modificamos la posicion de los buses en la linea de tiempo y se transladan -50% en x para lograr un centrado relativo
-function setPosTimelineB(elemento,distancia,timelineWidth,max) {
+function setPosTimelineB(elemento,distancia,nEstaciones) {
     /*  var distance = daydiff(timelineComponents['timelineDates'][0], timelineComponents['timelineDates'][i]),
         distanceNorm = Math.round(distance/timelineComponents['eventsMinLapse']) + 2;*/
-        disNormal=Math.round(((distancia+120)/max)*(timelineWidth-120));
-        dis=120+Math.round(distancia/10);
-        console.log("bus"+disNormal);
+        //disNormal=Math.round(((distancia+120)/max)*(timelineWidth-120));
+        dis=Math.round(distancia/nEstaciones);
+        console.log(dis);
+        //console.log("bus"+disNormal);
         elemento.css('left', dis+'px');
         elemento.css('transform','translateX(-50%)');
         elemento.css('transition','left 1s linear');

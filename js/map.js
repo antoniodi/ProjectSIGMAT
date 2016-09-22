@@ -339,7 +339,7 @@ var b=0;
 //variable para almacenar valores de posicion conceptual y poder saber si ubo un camio de posicion
 var ant=[];
 function asi() {
-		$.getJSON("http://localhost:8008/data/ruta1.json", function(datos) {
+		$.getJSON("http://localhost:8000/data/ruta1.json", function(datos) {
 				$.coordenadas=datos;
         //if para resetear la b cuando se llegue al final de la prueba
         if(b<datos[0].coordenadas.length)

@@ -1,7 +1,8 @@
 function itinerario(nBuses,nEstaciones,disEE) {
   var body=$("body"),
       recorridos=[],
-      estaciones=[];
+      estaciones=[],
+      lineasContol=[];
 
     body.append("<div class=timeline0><div id=recorrido class=line><ol class=linei></ol> </div> <div class=datos>hora"+0+" de salida</div></div>");
   var timeline=$(".timeline0"),
@@ -14,6 +15,11 @@ function itinerario(nBuses,nEstaciones,disEE) {
         //lineG.append("<li class=estacion1></li>")
       }
       lineG.append(estaciones.join(""));
+      //creamos las lineas de control que nos indicaran de forma parcial el estado del recorrido
+      for (var i = 0; i < nEstaciones; i++) {
+        lineasContol.push("<div class=lineT></div>")
+        //lineG.append("<li class=estacion1></li>")
+      }
       // se hace la nueva llamada desde este lugar debido a que en la anteror linea se estaban agregando las estaciones
       // y en ese momento no se contaba con esos elementos en el DOM
     var lineLi=lineG.children(".estacion1");
