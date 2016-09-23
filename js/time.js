@@ -26,6 +26,11 @@
     //  $("body").append("<div class=timeline0><div class=line><ol class=linei></ol> </div> <div class=datos>hora de salida</div></div>");
     //}
 
+    var timeline= $('.timeline'),
+        lb=[],
+        line=timeline.children('.line'),
+        lineG=line.children('.linei');
+
     $("#btn1").click(function(){
         it.agregarRecorrido("hola todos");
         timeline0=$('.timeline0');
@@ -37,13 +42,20 @@
     $("#btn3").click(function(){
         $('.bus').eq(0).css('background-image','url(../img/bus-markerv.svg)');
     });
-   var timeline= $('.timeline'),
-       timeline0= $('.timeline0'),
-       lb=[],
-       line=timeline.children('.line'),
-       line0=timeline0.children('.line'),
-       lineG=line.children('.linei'),
-       lineG0=line0.children('.linei');
+    a=0;
+    $("#btn4").click(function(){
+        $('.lineT').eq(a).css('background-color','#FF5252');
+        a++;
+    });
+    $("#btn5").click(function(){
+        $('.lineT').eq(a).css('background-color','#00E676');
+        a++;
+    });
+    $("#btn6").click(function(){
+        $('.lineT').eq(a).css('background-color','#3F51B5');
+        a++;
+    });
+
 
        for (var i = 0; i < data.length; i++) {
          var li = document.createElement("li");
@@ -61,23 +73,23 @@
                    }
 */
 
-
-                   var estaciones=lineG.find('li')
+                  var estaciones=lineG.find('li')
                    //var estaciones1=lineG0.find('li')
+
                    timelineWidth=setTimelineWidth(disEE,timeline,data.length);
                    for (i = 0; i < estaciones.length; i++) {
                      setPosTimelineE(i,disEE,estaciones.eq(i),data[i].distancia,max);
-                     //setPosTimelineE(i,disEE,estaciones1.eq(i));
                    }
 
-                  /*
                   //parte de este codigo es extraido de la pagina https://codyhouse.co/gem/horizontal-timeline/
                    //detect click on the next arrow
              			timeline.find('.mover').on('click', '.next', function(event){
              				event.preventDefault();
              				updateSlide(timeline, timelineWidth, 'next');
+                    timeline0=$('.timeline0');
                     for (var i = 0; i < timeline0.length; i++) {
                         updateSlide(timeline0.eq(i), timelineWidth, 'next');
+
                     }
 
              			});
@@ -90,9 +102,9 @@
                     }
 
              			});
-*/
-                   timeline.addClass('loaded');
 
+                   timeline.addClass('loaded');
+});
 
                   $.getJSON("http://localhost:8000/data/busesR1.json").
                              success(function(dataB) {
@@ -112,7 +124,7 @@
                            //console.log(data[0].Nombre);
                            //recorremos el
                            for (var i = 0; i < dataB.length; i++) {
-                             setPosTimelineB($(".bus").eq(i),dataB[i].distancia[b],nEstaciones);
+                             setPosTimelineB($(".bus").eq(i),dataB[i].distancia[b]);
                            }
                        b++;
                      }else {
@@ -120,7 +132,7 @@
                      }
              },1000);
                  });
-});
+
    })
 
 
@@ -150,12 +162,12 @@ function setPosTimelineE(i,disEE,elemento) {
         elemento.css('transform','translateX(-50%)');
 }
 //modificamos la posicion de los buses en la linea de tiempo y se transladan -50% en x para lograr un centrado relativo
-function setPosTimelineB(elemento,distancia,nEstaciones) {
+function setPosTimelineB(elemento,distancia) {
     /*  var distance = daydiff(timelineComponents['timelineDates'][0], timelineComponents['timelineDates'][i]),
         distanceNorm = Math.round(distance/timelineComponents['eventsMinLapse']) + 2;*/
         //disNormal=Math.round(((distancia+120)/max)*(timelineWidth-120));
-        dis=Math.round(distancia/nEstaciones);
-        console.log(dis);
+        dis=Math.round(distancia);
+        //console.log(distancia +"left "+dis);
         //console.log("bus"+disNormal);
         elemento.css('left', dis+'px');
         elemento.css('transform','translateX(-50%)');

@@ -1,5 +1,5 @@
 function itinerario(nBuses,nEstaciones,disEE) {
-  var body=$("body"),
+  var body=$(".caja"), //raiz para la creacion de las lineas de tiempo para los buses
       recorridos=[],
       estaciones=[],
       lineasContol=[];
@@ -17,9 +17,10 @@ function itinerario(nBuses,nEstaciones,disEE) {
       lineG.append(estaciones.join(""));
       //creamos las lineas de control que nos indicaran de forma parcial el estado del recorrido
       for (var i = 0; i < nEstaciones; i++) {
-        lineasContol.push("<div class=lineT></div>")
+        lineasContol.push("<div class=lineT style=left:"+120*i+"px></div>")
         //lineG.append("<li class=estacion1></li>")
       }
+        lineG.append(lineasContol.join(""));
       // se hace la nueva llamada desde este lugar debido a que en la anteror linea se estaban agregando las estaciones
       // y en ese momento no se contaba con esos elementos en el DOM
     var lineLi=lineG.children(".estacion1");
@@ -38,7 +39,7 @@ function itinerario(nBuses,nEstaciones,disEE) {
 
   //se encarga de agregar un recorrido al final
   this.agregarRecorrido=function(info){
-    body.append("<div class=timeline0><div class=line>"+estBus+"</div> <div class=datos>hora"+info+" de salida</div></div>");
+    body.append("<div class=timeline0><div class=line>"+estBus+"</div> <div class=datos>hora de salida:</br>"+info+"</div></div>");
   }
   //Se encarga de eliminar un recorrido, una vez que el bus ha completado su trayecto y ya no se encuentra en el itinerario
   //se usa un indice para este evento ya que es posible que un bus adelante a otro por lo que no siempre el primero en entrar es el primero en salir

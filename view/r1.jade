@@ -7,15 +7,19 @@ html
     script(type="application/javascript", src="../js/time.js")
     
   body
-    h1 hola
-    .timeline
-      .line
-        ol.linei(style='background-color:transparent')
-        .lineT
-      ul.mover
-        li: a(href="#0").prev.inactive Anterior
-        li: a(href="#0").next Siguiente  
-    
     button#btn1 agregar recorrido
     button#btn2 eliminar recorrido
     button#btn3 cambio de color del marcador
+    br
+    button#btn4 modificar lineas de control "bus atrasado"
+    button#btn5 modificar lineas de control "bus bien"
+    button#btn6 modificar lineas de control "bus lento"
+    .cajaP
+      .timeline
+        .line
+          ol.linei(style='background-color:transparent')
+        ul.mover
+          li: a(href="#0").prev.inactive Anterior
+          li: a(href="#0").next Siguiente    
+      .caja
+    
