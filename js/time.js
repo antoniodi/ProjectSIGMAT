@@ -45,14 +45,17 @@
     a=0;
     $("#btn4").click(function(){
         $('.lineT').eq(a).css('background-color','#FF5252');
+        $('.lineT').eq(a).css('width','120px');
         a++;
     });
     $("#btn5").click(function(){
         $('.lineT').eq(a).css('background-color','#00E676');
+        $('.lineT').eq(a).css('width','120px');
         a++;
     });
     $("#btn6").click(function(){
         $('.lineT').eq(a).css('background-color','#3F51B5');
+        $('.lineT').eq(a).css('width','120px');
         a++;
     });
 
