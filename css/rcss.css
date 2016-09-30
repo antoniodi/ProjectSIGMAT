@@ -138,7 +138,7 @@ a {
 .estacion1::after {
   content: "";
   position: absolute;
-  top: 1.65em;
+  top: 1.7em;
   left: 50%;
   right: auto;
   -webkit-transform: translateX(-50%);

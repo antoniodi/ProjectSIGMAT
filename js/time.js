@@ -1,125 +1,35 @@
 
 
   jQuery(document).ready(function($){
-    $.getJSON("http://localhost:8000/data/estacionesR1.json").
+    $.getJSON("http://localhost:8000/data/rutas.json").
       success(function(data) {
       $.rutas = data;
 
 
     var disEE=120, //esta variable define la distancia entre estaciones en pixeles
         max=disEE*data.length+disEE,
-        nEstaciones=data.length;
-
+        paradas=data[0].paradas,
+        nEstaciones=paradas.length;
         //hacemos este llamado para capturar l número de buses iniciales
         $.getJSON("http://localhost:8000/data/busesR1.json").
              success(function(dataB) {
              $.bus = dataB;
               var nBuses=dataB.length;
-                  it =new itinerario(nBuses,data.length,disEE);
-    //it.agregarEstaciones(data.length);
+                  it =new Itinerario(nBuses,disEE,paradas);
+
 });
-    //agregando lineas tiempo al body
-  //  for (var i = 0; i < 5; i++) {
-      //var li = document.createElement("li");
-      //li.innerHTML=data[i].Nombre;
-      //li.className+='estacion1';
-    //  $("body").append("<div class=timeline0><div class=line><ol class=linei></ol> </div> <div class=datos>hora de salida</div></div>");
-    //}
 
-    var timeline= $('.timeline'),
-        lb=[],
-        line=timeline.children('.line'),
-        lineG=line.children('.linei');
-
-    $("#btn1").click(function(){
-        it.agregarRecorrido("hola todos");
-        timeline0=$('.timeline0');
-    });
-    $("#btn2").click(function(){
-        it.eliminarRecorrido(0);
-        timeline0=$('.timeline0');
-    });
-    $("#btn3").click(function(){
-        $('.bus').eq(0).css('background-image','url(../img/bus-markerv.svg)');
-    });
-    a=0;
-    $("#btn4").click(function(){
-        $('.lineT').eq(a).css('background-color','#FF5252');
-        $('.lineT').eq(a).css('width','120px');
-        a++;
-    });
-    $("#btn5").click(function(){
-        $('.lineT').eq(a).css('background-color','#00E676');
-        $('.lineT').eq(a).css('width','120px');
-        a++;
-    });
-    $("#btn6").click(function(){
-        $('.lineT').eq(a).css('background-color','#3F51B5');
-        $('.lineT').eq(a).css('width','120px');
-        a++;
-    });
+    
 
 
-       for (var i = 0; i < data.length; i++) {
-         var li = document.createElement("li");
-         li.innerHTML=data[i].Nombre;
-         li.className+='estacion';
-         lineG[0].appendChild(li);
-       }
 
 
-                  /* for (var i = 0; i < data.length; i++) {
-                     var li = document.createElement("li");
-                     //li.innerHTML=data[i].Nombre;
-                     li.className+='estacion1';
-                     lineG0[0].appendChild(li);
-                   }
-*/
-
-                  var estaciones=lineG.find('li')
-                   //var estaciones1=lineG0.find('li')
-
-                   timelineWidth=setTimelineWidth(disEE,timeline,data.length);
-                   for (i = 0; i < estaciones.length; i++) {
-                     setPosTimelineE(i,disEE,estaciones.eq(i),data[i].distancia,max);
-                   }
-
-                  //parte de este codigo es extraido de la pagina https://codyhouse.co/gem/horizontal-timeline/
-                   //detect click on the next arrow
-             			timeline.find('.mover').on('click', '.next', function(event){
-             				event.preventDefault();
-             				updateSlide(timeline, timelineWidth, 'next');
-                    timeline0=$('.timeline0');
-                    for (var i = 0; i < timeline0.length; i++) {
-                        updateSlide(timeline0.eq(i), timelineWidth, 'next');
-
-                    }
-
-             			});
-                   //detect click on the prev arrow
-             			timeline.find('.mover').on('click', '.prev', function(event){
-             				event.preventDefault();
-             				updateSlide(timeline, timelineWidth, 'prev');
-                    for (var i = 0; i < timeline0.length; i++) {
-                        updateSlide(timeline0.eq(i), timelineWidth, 'prev');
-                    }
-
-             			});
-
-                   timeline.addClass('loaded');
 });
 
                   $.getJSON("http://localhost:8000/data/busesR1.json").
                              success(function(dataB) {
                                $.bus = dataB;
-                    /*
-                    for (var i = 0; i < lb.length; i++) {
-                      var li = document.createElement("li");
-                      li.className+='bus';
-                      li.style.display='none';
-                      lb[i][0].appendChild(li);
 
-                    }*/
                     b=0;
             setInterval(function () {
 
