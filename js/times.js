@@ -14,23 +14,29 @@
               var nBuses=dataB.length;
                   //parametros necesarios(obligatorios), hora de salida, numero de buses, distancia entre estaciones, vector de paradas
                   //ese vector viene del .json tiene un formato especifico, y un id del numero del recorrido segun el día
-                  it =new Itinerarios(nombreRuta,nBuses,disEE,paradas,0);
-                  it1 =new Itinerarios(data[1].nombre,nBuses,disEE,data[1].paradas,1);
-                  it2 =new Itinerarios(data[2].nombre,nBuses,disEE,data[2].paradas,2);
-                  it2 =new Itinerarios(data[2].nombre,nBuses,disEE,data[2].paradas,3);
+                  it =new Itinerarios(nombreRuta,disEE,paradas,0);
+                  it1 =new Itinerarios(data[1].nombre,disEE,data[1].paradas,1);
+                  it2 =new Itinerarios(data[2].nombre,disEE,data[2].paradas,2);
+                  it3 =new Itinerarios(data[2].nombre,disEE,data[2].paradas,3);
 });
 
-});
+
 
                   $.getJSON("http://localhost:8000/data/busesR1.json").
                              success(function(dataB) {
                                $.bus = dataB;
+                               it.agregarBuses(3);
+                               it1.agregarBuses(3);
+                               it2.agregarBuses(3);
+                    var b=0,
+                        z=0,
+                        vectorBuses=$(".bus");
 
-                    b=0;
             setInterval(function () {
 
                          if (b<dataB[0].distancia.length) {
-                           var vectorBuses=$(".bus");
+
+
                            //console.log(data[0].Nombre);
                            //recorremos el
                            for (var i = 0; i < dataB.length; i++) {
@@ -44,5 +50,5 @@
                      }
              },1000);
                  });
-
+});
    })

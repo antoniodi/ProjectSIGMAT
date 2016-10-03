@@ -1,4 +1,4 @@
-function Itinerarios(nombreRuta,nBuses,disEE,paradas,nid) {
+function Itinerarios(nombreRuta,disEE,paradas,nid) {
   var nEstaciones=paradas.length;
 
   var cajaR=agregarCabecera(nEstaciones,paradas), //raiz para la creacion de las lineas de tiempo para los buses
@@ -21,14 +21,8 @@ function Itinerarios(nombreRuta,nBuses,disEE,paradas,nid) {
             setPosTimelineE(i,disEE,lineLi.eq(i));
           }
 
-      //agregando todos los buses de los que se dispone y ocultandolos para usarlos cuando sea necesario
-    var buses=[];
-    //se guarda primero la informacion del DOM en un array debido al costo computacion elevado de la funcion "append" de jQuery
-    console.log(nBuses);
-      for (var i = 0; i < nBuses; i++) {
-        buses.push("<li class=bus></li>");
-      }
-      lineG.append(buses.join(''));
+    //agregando todos los buses de los que se dispone y ocultandolos para usarlos cuando sea necesario
+    //agregarB(3);
 
 
 /*
@@ -129,6 +123,43 @@ $("#btn6").click(function(){
     cajaR.append(recorridos.join(''));
     }
     */
+    function agregarB(n) {
+      if(n==1){
+        lineG.append("<li class=bus></li>");
+      }
+      else if(n>=2){
+        //agregando todos los buses de los que se dispone y ocultandolos para usarlos cuando sea necesario
+        var buses=[];
+        //se guarda primero la informacion del DOM en un array debido al costo computacion elevado de la funcion "append" de jQuery
+
+          for (var i = 0; i < n; i++) {
+            buses.push("<li class=bus></li>");
+          }
+          lineG.append(buses.join(''));
+      }else{
+        console.log("El número de buses indicado es invalido");
+      }
+    }
+    this.agregarBuses=function (n) {
+      var line=timelineM.children(".line"),
+          lineG=line.children(".linei");
+
+      if(n==1){
+        lineG.append("<li class=bus></li>");
+      }
+      else if(n>=2){
+        //agregando todos los buses de los que se dispone y ocultandolos para usarlos cuando sea necesario
+        var buses=[];
+        //se guarda primero la informacion del DOM en un array debido al costo computacion elevado de la funcion "append" de jQuery
+
+          for (var i = 0; i < n; i++) {
+            buses.push("<li class=bus></li>");
+          }
+          lineG.append(buses.join(''));
+      }else{
+        console.log("El número de buses indicado es invalido");
+      }
+    }
   //se encarga de agregar un recorrido al final, info se refiere a la hora de salida del bus
   this.agregarRecorrido=function(info){
     lineG.append("<li class=bus></li>");

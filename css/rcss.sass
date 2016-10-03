@@ -14,11 +14,13 @@
 .datos
   position: absolute
   @include center(y)
+  padding: 10px
 .nombreRuta
   font-family: $letra1
   font-weight: lighter
   position: absolute
   @include center(y)
+  margin-left: 3%
 
 
 
@@ -45,24 +47,40 @@ a
   height: 5em
 
 .timeline0
-  width: calc(90% + 14.41px)
-  margin-left: calc(5% + 1px)
+  //width: calc(88% + 14.41px
+  //margin-left: calc( 1px)
+  width: calc(100% + 16px)
 
 .timeline,.timelineM
-  width: 90%
-  margin-left: 5%
+  width: 100%
+
+  //margin-left: 5%
 .caja
-  height: calc(90vh - 5em)
+  height: calc(100% - 76.66px)
   overflow-y: scroll
-  margin-bottom: 5%
+  overflow-x: hidden
+  margin-bottom: 10px
+  width: 95%
+
+
+
+
 
   width: 100%
 .cajaP
-  width: 100%
+  width: 95%
   margin: auto
-.cajaR0,.cajaR1,.cajaR2
-  //width: 100%
-  //margin: auto
+  box-shadow: 1px 2px 10px 0px rgba(0, 0, 0, 0.3)
+  overflow: hidden
+  margin-top: 10px
+  height: 90vh
+
+.cajaR0,.cajaR1,.cajaR2,.cajaR3,.cajaR4
+  width: 95%
+  margin: auto
+  margin-bottom: 10px
+  box-shadow: 1px 2px 10px 0px rgba(0, 0, 0, 0.3)
+
 .line
   /* this is the grey line/timeline */
   position: relative
