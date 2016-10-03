@@ -30,7 +30,7 @@ a {
   text-decoration: none;
 }
 
-.timeline, .timeline0 {
+.timeline, .timeline0, .timelineM {
   overflow: hidden;
   position: relative;
   transition: all 1s;
@@ -42,7 +42,7 @@ a {
   margin-left: calc(5% + 1px);
 }
 
-.timeline {
+.timeline, .timelineM {
   width: 90%;
   margin-left: 5%;
 }

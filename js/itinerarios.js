@@ -1,17 +1,14 @@
-function itinerario(nBuses,nEstaciones,disEE) {
+function Itinerarios(horaSalida,nBuses,disEE,paradas,nid) {
+  var nEstaciones=paradas.length;
 
-
-
-  var body=$(".caja"), //raiz para la creacion de las lineas de tiempo para los buses
-      recorridos=[],
+  var cajaR=agregarCabecera(nEstaciones,paradas), //raiz para la creacion de las lineas de tiempo para los buses
       estaciones=[];
-
-    body.append("<div class=timeline0><div id=recorrido class=line><ol class=linei></ol> </div> <div class=datos>hora"+0+" de salida</div></div>");
-  var timeline=$(".timeline0"),
-      datos=timeline.children(".datos"),
-      line=timeline.children(".line"),
+      cajaR.append("<div class=timelineM><div id=recorrido class=line><ol class=linei></ol> </div> <div class=datos>"+nid+" hora de salida:</br>"+horaSalida+"</div></div>"),
+      timelineM=cajaR.children(".timelineM"),
+      datos=timelineM.children(".datos"),
+      line=timelineM.children(".line"),
       lineG=line.children(".linei");
-      //agregamos las lineas de estaciones, se les asigno la clase estacione1 para poder manejar un estylos diferente (css)
+      //agregamos las lineas de las estaciones, se les asigno la clase estacione1 para poder manejar y modificar sus estilos (css)
       for (var i = 0; i < nEstaciones; i++) {
         estaciones.push("<li class=estacion1></li>")
         //lineG.append("<li class=estacion1></li>")
@@ -23,32 +20,219 @@ function itinerario(nBuses,nEstaciones,disEE) {
       for (var i = 0; i < nEstaciones; i++) {
             setPosTimelineE(i,disEE,lineLi.eq(i));
           }
-      //agregando todos los buses de los que se dispone y ocultandolos para usarlos cuando sea necesario
-      lineG.append('<li class=bus></li>')
-      setTimelineWidth(disEE,timeline,nEstaciones);
-      var estBus=$('#recorrido').html()
-      //se guarda primero la informacion del DOM en un array debido al costo computacion elevado de la funcion "append" de jQuery
-      for (var i = 0; i < nBuses-1; i++) {
-        recorridos.push("<div class=timeline0><div class=line>"+estBus+"</div> <div class=datos>hora"+(i+1)+" de salida</div></div>");
-      }
-      body.append(recorridos.join(''));
 
-  //se encarga de agregar un recorrido al final
+      //agregando todos los buses de los que se dispone y ocultandolos para usarlos cuando sea necesario
+    var buses=[];
+    //se guarda primero la informacion del DOM en un array debido al costo computacion elevado de la funcion "append" de jQuery
+    console.log(nBuses);
+      for (var i = 0; i < nBuses; i++) {
+        buses.push("<li class=bus></li>");
+      }
+      lineG.append(buses.join(''));
+
+
+/*
+Estas funciones se encargan de permitir el desplazamiento horizontal en la linea de tiempo
+*/
+var timeline=cajaR.children(".timeline"),
+    timelineM=cajaR.children(".timelineM");
+    setTimelineWidth(disEE,timeline,nEstaciones);
+    timelineWidth=setTimelineWidth(disEE,timelineM,nEstaciones);
+var longitudTimeline=timelineWidth; //por algun tipo de conflicto este valor se modifica, por lo que es necesario volverlo a asignar a una variable con diferente nombre
+
+    timeline.addClass('loaded');
+//parte de este codigo es extraido de la pagina https://codyhouse.co/gem/horizontal-timeline/
+ //detect click on the next arrow
+
+timeline.find('.mover').on('click', '.next', function(event){
+  event.preventDefault();
+  updateSlide(timeline, longitudTimeline, 'next');
+  updateSlide(timelineM, longitudTimeline, 'next');
+
+});
+ //detect click on the prev arrow
+timeline.find('.mover').on('click', '.prev', function(event){
+  event.preventDefault();
+  updateSlide(timeline, longitudTimeline, 'prev');
+  updateSlide(timelineM, longitudTimeline, 'prev');
+});
+
+/*
+
+*/
+//funciones de los botones
+//agregamos un nuevo bus
+$("#btn1").click(function(){
+    it.agregarRecorrido("hola todos");
+    timelineM=cajaR.children(".timelineM");
+});
+//eliminamos un bus, el inice 0 indica que se elimina el primero en ser agregado
+$("#btn2").click(function(){
+    it.eliminarRecorrido(0);
+    timelineM=cajaR.children(".timelineM");
+});
+$("#btn3").click(function(){
+    $('.bus').eq(0).css('background-image','url(../img/bus-markerv.svg)');
+});
+a=0;
+$("#btn4").click(function(){
+    $('.lineT').eq(a).css('background-color','#FF5252');
+    $('.lineT').eq(a).css('width','120px');
+    a++;
+});
+$("#btn5").click(function(){
+    $('.lineT').eq(a).css('background-color','#00E676');
+    $('.lineT').eq(a).css('width','120px');
+    a++;
+});
+$("#btn6").click(function(){
+    $('.lineT').eq(a).css('background-color','#3F51B5');
+    $('.lineT').eq(a).css('width','120px');
+    a++;
+});
+
+
+
+//funciopn encarga de mostrar los nombre de las estaciones
+  function agregarCabecera(nEstaciones,estaciones){
+    var nombreEstaciones=[];
+    //creamos las estaciones de la cabecera
+    for (var i = 0; i < nEstaciones; i++) {
+      nombreEstaciones.push("<div class=estacion>"+paradas[i].nombre+"</div>")
+      //lineG.append("<li class=estacion1></li>")
+    }
+    //console.log(nombreEstaciones.join(""));
+    var body=$("body");
+    body.append("<div class=cajaR"+nid+"><div class=timeline><div class=line><ol style=background-color:transparent class=linei>"+nombreEstaciones.join("")+"</ol></div><ul class=mover><li><a href=#0 class=prev class=inactive>Anterior</a></li><li><a href=#0 class=next>Siguiente</a></li></ul></div></div>");
+    $(".prev").addClass("inactive");
+
+    var cajaR=$(".cajaR"+nid),
+        timeline=cajaR.children(".timeline"),
+        line=timeline.children(".line"),
+        lineG=line.children(".linei"),
+        vectorEstaciones=lineG.children(".estacion");
+        //console.log(vectorEstaciones);
+      for (var i = 0; i < nEstaciones; i++) {
+            setPosTimelineE(i,disEE,vectorEstaciones.eq(i));
+          }
+    return cajaR;
+  }
+  /*
+  //se encarga de agregar los siguientes recorridos faltantes
+  function agregarRecorridosFaltantes(nBuses){
+    var estBus=$('#recorrido').html(),
+        recorridos=[];
+    //se guarda primero la informacion del DOM en un array debido al costo computacion elevado de la funcion "append" de jQuery
+    for (var i = 0; i < nBuses-1; i++) {
+      recorridos.push("<div class=timeline0><div class=line>"+estBus+"</div> <div class=datos>hora"+(i+1)+" de salida</div></div>");
+    }
+    cajaR.append(recorridos.join(''));
+    }
+    */
+  //se encarga de agregar un recorrido al final, info se refiere a la hora de salida del bus
   this.agregarRecorrido=function(info){
-    body.append("<div class=timeline0><div class=line>"+estBus+"</div> <div class=datos>hora de salida:</br>"+info+"</div></div>");
+    lineG.append("<li class=bus></li>");
   }
   //Se encarga de eliminar un recorrido, una vez que el bus ha completado su trayecto y ya no se encuentra en el itinerario
   //se usa un indice para este evento ya que es posible que un bus adelante a otro por lo que no siempre el primero en entrar es el primero en salir
   this.eliminarRecorrido=function (indice) {
-    var time =$('.timeline0');
-    if (time.length-1<indice) {
+    var buses =$('.bus');
+    if (buses.length-1<indice) {
       console.log("el sistemas no cuenta con buses");
     }
     else {
-      time[indice].remove();
+      buses[indice].remove();
     }
+  }//final de la calse, comienso de los metodos auxiliares de las lineas de tiempo
+
+  function setTimelineWidth(disEE,timeline,length) {
+    //el ancho esta definido por el numero de estaciones, se estima 120px estre cada estacion, los cuales seran distibuidos
+    //de forma uniforme entre las estaciones (en estudio: de acuerdo a la distancia real, genreando una perseccion de la distacia real.)
+
+    totalWidth=(length*disEE+disEE);
+    (timeline.children('.line')).children('.linei').css('width', totalWidth+'px');
+    return totalWidth;
   }
 
 
 
+
 }
+
+
+  //funcion encargada de calcular a partir de la distacia de la estacion o el bus, la posicion de este en el timeline
+  //modificamos la posicion de las estaciones en la linea de tiempo y se transladan -50% en x para lograr un centrado relativo
+  function setPosTimelineE(i,disEE,elemento) {
+      /*  var distance = daydiff(timelineComponents['timelineDates'][0], timelineComponents['timelineDates'][i]),
+          distanceNorm = Math.round(distance/timelineComponents['eventsMinLapse']) + 2;*/
+          //console.log(i);
+          disNormal=Math.round(i*disEE+disEE);
+          //console.log(disNormal);
+          elemento.css('left', disNormal+'px');
+          elemento.css('transform','translateX(-50%)');
+  }
+  //modificamos la posicion de los buses en la linea de tiempo y se transladan -50% en x para lograr un centrado relativo
+  function setPosTimelineB(elemento,distancia) {
+      /*  var distance = daydiff(timelineComponents['timelineDates'][0], timelineComponents['timelineDates'][i]),
+          distanceNorm = Math.round(distance/timelineComponents['eventsMinLapse']) + 2;*/
+
+          dis=Math.round(distancia);
+          //console.log(distancia +"left "+dis);
+          //console.log("bus"+disNormal);
+          elemento.css('left', dis+'px');
+          elemento.css('transform','translateX(-50%)');
+          elemento.css('transition','left 1s linear');
+  }
+
+
+  function updateSlide(timeline, timelineTotWidth, string) {
+    var line=timeline.children('.line'),
+        lineG=line.children('.linei');
+    //retrieve translateX value of timelineComponents['eventsWrapper']
+    var translateValue = getTranslateValue(lineG),
+      wrapperWidth = Number(line.css('width').replace('px', ''));
+    //translate the timeline to the left('next')/right('prev')
+    (string == 'next')
+      ? translateTimeline(timeline, translateValue - wrapperWidth, wrapperWidth - timelineTotWidth)
+      : translateTimeline(timeline, translateValue + wrapperWidth);
+  }
+
+  function getTranslateValue(timeline) {
+    var timelineStyle = window.getComputedStyle(timeline.get(0), null),
+      timelineTranslate = timelineStyle.getPropertyValue("-webkit-transform") ||
+            timelineStyle.getPropertyValue("-moz-transform") ||
+            timelineStyle.getPropertyValue("-ms-transform") ||
+            timelineStyle.getPropertyValue("-o-transform") ||
+            timelineStyle.getPropertyValue("transform");
+
+        if( timelineTranslate.indexOf('(') >=0 ) {
+          var timelineTranslate = timelineTranslate.split('(')[1];
+        timelineTranslate = timelineTranslate.split(')')[0];
+        timelineTranslate = timelineTranslate.split(',');
+        var translateValue = timelineTranslate[4];
+        } else {
+          var translateValue = 0;
+        }
+
+        return Number(translateValue);
+  }
+
+  function translateTimeline(timeline, value, totWidth) {
+    var lineG = (timeline.children('.line')).children('.linei').get(0),
+        mover=timeline.find('.mover');
+        console.log(lineG);
+    value = (value > 0) ? 0 : value; //only negative translate value
+    value = ( !(typeof totWidth === 'undefined') &&  value < totWidth ) ? totWidth : value; //do not translate more than timeline width
+    setTransformValue(lineG, 'translateX', value+'px');
+    //update navigation arrows visibility
+    (value == 0 ) ? mover.find('.prev').addClass('inactive') : mover.find('.prev').removeClass('inactive');
+    (value == totWidth ) ? mover.find('.next').addClass('inactive') : mover.find('.next').removeClass('inactive');
+  }
+
+  function setTransformValue(element, property, value) {
+    element.style["-webkit-transform"] = property+"("+value+")";
+    element.style["-moz-transform"] = property+"("+value+")";
+    element.style["-ms-transform"] = property+"("+value+")";
+    element.style["-o-transform"] = property+"("+value+")";
+    element.style["transform"] = property+"("+value+")";
+  }
