@@ -15,6 +15,19 @@
   transform: translateY(-50%);
 }
 
+.nombreRuta {
+  font-family: "Roboto Condensed", sans-serif, Arial;
+  font-weight: lighter;
+  position: absolute;
+  top: 50%;
+  bottom: auto;
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
 body, html {
   margin: 0;
   padding: 0;

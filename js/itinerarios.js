@@ -1,9 +1,9 @@
-function Itinerarios(horaSalida,nBuses,disEE,paradas,nid) {
+function Itinerarios(nombreRuta,nBuses,disEE,paradas,nid) {
   var nEstaciones=paradas.length;
 
   var cajaR=agregarCabecera(nEstaciones,paradas), //raiz para la creacion de las lineas de tiempo para los buses
       estaciones=[];
-      cajaR.append("<div class=timelineM><div id=recorrido class=line><ol class=linei></ol> </div> <div class=datos>"+nid+" hora de salida:</br>"+horaSalida+"</div></div>"),
+      cajaR.append("<div class=timelineM><div id=recorrido class=line><ol class=linei></ol> </div> <div class=nombreRuta> <h1>"+nombreRuta+"</h1></div></div>"),
       timelineM=cajaR.children(".timelineM"),
       datos=timelineM.children(".datos"),
       line=timelineM.children(".line"),

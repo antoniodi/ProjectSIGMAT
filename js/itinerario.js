@@ -4,11 +4,10 @@ function Itinerario(nBuses,disEE,paradas) {
   var caja=$(".caja"), //raiz para la creacion de las lineas de tiempo para los buses
       estaciones=[],
       lineasContol=[];
-
       caja.append("<div class=timeline0><div id=recorrido class=line><ol class=linei></ol> </div> <div class=datos>hora"+0+" de salida</div></div>");
-  var timeline=$(".timeline0"),
-      datos=timeline.children(".datos"),
-      line=timeline.children(".line"),
+  var timeline0=$(".timeline0"),
+      datos=timeline0.children(".datos"),
+      line=timeline0.children(".line"),
       lineG=line.children(".linei");
       //agregamos las lineas de estaciones, se les asigno la clase estacione1 para poder manejar un estylos diferente (css)
       for (var i = 0; i < nEstaciones; i++) {
@@ -31,21 +30,22 @@ function Itinerario(nBuses,disEE,paradas) {
 
       //agregando todos los buses de los que se dispone y ocultandolos para usarlos cuando sea necesario
       lineG.append('<li class=bus></li>')
-      setTimelineWidth(disEE,timeline,nEstaciones);
+      setTimelineWidth(disEE,timeline0,nEstaciones);
       var estBus=$('#recorrido').html()
       agregarRecorridosFaltantes(nBuses);
 
 /*
 Estas funciones se encargan de permitir el desplazamiento horizontal en la linea de tiempo
 */
-var timeline1= $('.timeline'),
-   timelineWidth=setTimelineWidth(disEE,timeline1,nEstaciones);
-   timeline1.addClass('loaded');
+var timeline= $('.timeline'),
+    timelineWidth=setTimelineWidth(disEE,timeline,nEstaciones);
+
+   timeline.addClass('loaded');
 //parte de este codigo es extraido de la pagina https://codyhouse.co/gem/horizontal-timeline/
  //detect click on the next arrow
-timeline1.find('.mover').on('click', '.next', function(event){
+timeline.find('.mover').on('click', '.next', function(event){
   event.preventDefault();
-  updateSlide(timeline1, timelineWidth, 'next');
+  updateSlide(timeline, timelineWidth, 'next');
   timeline0=$('.timeline0');
   for (var i = 0; i < timeline0.length; i++) {
       updateSlide(timeline0.eq(i), timelineWidth, 'next');
@@ -53,9 +53,9 @@ timeline1.find('.mover').on('click', '.next', function(event){
   }
 });
  //detect click on the prev arrow
-timeline1.find('.mover').on('click', '.prev', function(event){
+timeline.find('.mover').on('click', '.prev', function(event){
   event.preventDefault();
-  updateSlide(timeline1, timelineWidth, 'prev');
+  updateSlide(timeline, timelineWidth, 'prev');
   for (var i = 0; i < timeline0.length; i++) {
       updateSlide(timeline0.eq(i), timelineWidth, 'prev');
   }
@@ -68,11 +68,11 @@ timeline1.find('.mover').on('click', '.prev', function(event){
 //funciones de los botones
 $("#btn1").click(function(){
     it.agregarRecorrido("hola todos");
-    timeline=$('.timeline0');
+    timeline0=caja.children(".timeline0");
 });
 $("#btn2").click(function(){
     it.eliminarRecorrido(0);
-    timeline=$('.timeline0');
+    timeline0=caja.children(".timeline0");
 });
 $("#btn3").click(function(){
     $('.bus').eq(0).css('background-image','url(../img/bus-markerv.svg)');
@@ -131,7 +131,7 @@ $("#btn6").click(function(){
   //Se encarga de eliminar un recorrido, una vez que el bus ha completado su trayecto y ya no se encuentra en el itinerario
   //se usa un indice para este evento ya que es posible que un bus adelante a otro por lo que no siempre el primero en entrar es el primero en salir
   this.eliminarRecorrido=function (indice) {
-    var time =$('.timeline0');
+    var time =caja.children(".timeline0");;
     if (time.length-1<indice) {
       console.log("el sistemas no cuenta con buses");
     }
@@ -170,7 +170,7 @@ $("#btn6").click(function(){
   function setPosTimelineB(elemento,distancia) {
       /*  var distance = daydiff(timelineComponents['timelineDates'][0], timelineComponents['timelineDates'][i]),
           distanceNorm = Math.round(distance/timelineComponents['eventsMinLapse']) + 2;*/
-          
+
           dis=Math.round(distancia);
           //console.log(distancia +"left "+dis);
           //console.log("bus"+disNormal);
