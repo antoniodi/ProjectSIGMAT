@@ -70,10 +70,20 @@
               <div class="texto">hola</div>
               <div class="switch right-align">
                 <label>
-                  <input type="checkbox"/><span class="lever">       </span>
+                  <input type="checkbox"/><span class="lever"></span>
                 </label>
               </div>
             </div>
+          </div>
+          <div class="bloque5">
+            <select id="lista">
+              <option value="-1" selected="">Seleccione la velocidad de actualizacion</option>
+              <option value="1">Tiempo real (cada 0.1 segundos)</option>
+              <option value="2">Rapido (cada segundo)</option>
+              <option value="3">Lento (cada 5 segundos)</option>
+            </select><br/>
+            <button onClick="window.location.href='view/r1.html'" id="btn0">ruta 1</button><br/>
+            <button onClick="window.location.href='view/multiplesRutas.html'" id="btn1">multiples rutas simulneamente</button>
           </div>
         </div>
         <div class="flecha z-depth-4"><a>< </a></div>
@@ -81,18 +91,6 @@
       <div id="map"></div>
       <div id="map-zoom-in"></div>
       <div id="map-zoom-out"></div>
-      <div id="izquierda">
-        <div class="abajo">
-          <select id="lista">
-            <option value="-1" selected="">Seleccione la velocidad de actualizacion</option>
-            <option value="1">Tiempo real (cada 0.1 segundos)</option>
-            <option value="2">Rapido (cada segundo)</option>
-            <option value="3">Lento (cada 5 segundos)</option>
-          </select><br/>
-          <button onClick="window.location.href='view/r1.html'" id="btn0">ruta 1</button><br/>
-          <button onClick="window.location.href='view/multiplesRutas.html'" id="btn1">multiples rutas simulneamente</button>
-        </div>
-      </div>
     </section>
     <script src="js/map.js"></script>
     <script src="controller/connection.js"></script>

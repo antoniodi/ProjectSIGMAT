@@ -7988,6 +7988,7 @@ body, html {
   background: #1bce7c;
   left: 0px;
   transition: left 1s;
+  box-shadow: 0px 0px 5px 3px rgba(0, 0, 0, 0.2);
 }
 .izquierda .flecha {
   position: absolute;
@@ -8118,6 +8119,14 @@ body, html {
 .izquierda .bloque4 .caja3 .texto {
   width: 130px;
   margin-left: 10px;
+}
+
+.bloque5 {
+  position: absolute;
+  width: 256px;
+  display: flex;
+  flex-direction: column;
+  margin: 12px;
 }
 
 #container {
