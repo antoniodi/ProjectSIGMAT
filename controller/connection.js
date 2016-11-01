@@ -6,6 +6,7 @@ jQuery(document).ready(function($){
       $.getJSON("http://localhost:8000/data/rutas.json").
           success(function(data) {
            $.rutas = data;
+            //Agrega las rutas luego de filtrarlas a partir de sus caracteristicas mas relevantes
            agregarRutas(data,data[0].categoria);
          });
 
@@ -15,7 +16,7 @@ jQuery(document).ready(function($){
             mapa.graficarEstaciones(data);
           });
 
-
+          
 
   });
 

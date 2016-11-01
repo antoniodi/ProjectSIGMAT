@@ -15,64 +15,66 @@ html(lang="es")
   body
     section
       .izquierda
-        .flecha
-          a < 
-        .bloque0
-          .caja1 
-          .caja2 
-            p.thin SISTEMA DE INFORMACION GEOGRAFICA PARA EL MONITORE AUTOMATICO DEL TRANSPORTE
-        .bloque1
-          a.waves-effect.waves-light.btn-large 
-            i.material-icons.left room
-            | Monitoreo
-          a.waves-effect.waves-light.btn-large 
-            i.material-icons.left assessment
-            | Tablas
-        
-        .bloque2
-          .caja1
-            .input-field
-              select
-                option(value="0") Todas
-              label Selecciona una catergoria 
-        
-        
-        .bloque3
-          p Rutas
-          p Hide/
-            b View
-            
-            
+        .bloqueO
+          .bloque0
+            .caja1 
+            .caja2 
+              p.thin SISTEMA DE INFORMACION GEOGRAFICA PARA EL MONITORE AUTOMATICO DEL TRANSPORTE
+          .bloque1
+            a.waves-effect.waves-light.btn-large 
+              i.material-icons.left room
+              | Monitoreo
+            a.waves-effect.waves-light.btn-large 
+              i.material-icons.left assessment
+              | Tablas
           
-        .bloque4
-          .caja3
-            .logo R1
-            .texto hola
-            .switch.right-align
-              label
-                input(type="checkbox")
-                span.lever
-          .caja3
-            .logo R2
-            .texto hola
-            .switch.right-align
-              label
-                input(type="checkbox")
-                span.lever
-          .caja3
-            .logo R3
-            .texto hola
-            .switch.right-align
-              label
-                input(type="checkbox")
-                span.lever
-          .caja3
-            .logo R4
-            .texto hola
-            .switch.right-align
-              label
-                input(type="checkbox")
-                span.lever
+          .bloque2
+            .caja1
+              .input-field
+                select.multiple
+                  option(value='', disabled='', select='') seleccione una opcion
+                  
+                label Selecciona una catergoria 
+          
+          
+          .bloque3
+            p Rutas
+            p Hide/
+              b View
+              
+              
+            
+          .bloque4
+            .caja3
+              .logo R1
+              .texto hola
+              .switch.right-align
+                label
+                  input(type="checkbox")
+                  span.lever
+            .caja3
+              .logo R2
+              .texto hola
+              .switch.right-align
+                label
+                  input(type="checkbox")
+                  span.lever
+            .caja3
+              .logo R3
+              .texto hola
+              .switch.right-align
+                label
+                  input(type="checkbox")
+                  span.lever
+            .caja3
+              .logo R4
+              .texto hola
+              .switch.right-align
+                label
+                  input(type="checkbox")
+                  span.lever        
+        .flecha.z-depth-4
+          a < 
       #map
       #map-zoom-in
       #map-zoom-out

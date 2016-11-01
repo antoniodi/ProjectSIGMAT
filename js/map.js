@@ -2,16 +2,34 @@
 var marker_bus0 = 'img/bus-markern.svg',
   	marker_bus1 = 'img/bus-markerv.svg',
   	marker_bus2 = 'img/bus-markerm.svg',
-  	marker_estacion = 'img/bus-stop.svg';
+  	marker_estacion = 'img/bus-stop.svg',
+    flecha=$('.flecha'),
+    flecha0=flecha.children("a"),
+    izquierda=$('.izquierda'),
+    estado=true;
 //funcion que devuelve los elementos de un vector si repetir
     Array.prototype.unique=function(a){
       return function(){return this.filter(a)}}(function(a,b,c){return c.indexOf(a,b+1)<0
     });
 
 
+    flecha.click( function () {
+      console.log("hola");
+
+      if (estado) {
+        estado=false;
+        izquierda.css('left','-314px');
+        flecha0.css('transform','rotateZ(180deg)');
+      }else {
+        estado=true;
+        izquierda.css('left','0px');
+        flecha0.css('transform','rotateZ(0deg)');
+      }
+
+    });
 
 function agregarRutas(rutas,data) {
-  var opcionesRutas=[],
+  var opcionesRutas=["Todas las rutas"],
       opcionesSelect=[];
 
   console.log("hola "+rutas[1].categoria);
@@ -20,10 +38,10 @@ function agregarRutas(rutas,data) {
       opcionesRutas=opcionesRutas.concat(rutas[i].categoria);
     }
     opcionesRutas=opcionesRutas.unique();
-console.log(opcionesRutas);
+
     for (var i = 0; i < opcionesRutas.length; i++) {
 
-      opcionesSelect.push("<option value="+(i+1)+">"+opcionesRutas[i]+"</option>")
+      opcionesSelect.push("<option value="+i+">"+opcionesRutas[i]+"</option>")
     }
     console.log(opcionesSelect);
     $('select').append(opcionesSelect.join(" "));

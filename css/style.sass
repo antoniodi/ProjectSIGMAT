@@ -17,31 +17,42 @@ body,html
   position: absolute
   z-index: 5
   font-size: 20px
-  width: 300px
-  height: calc(100vh - 20px)
-  padding: 10px
+  width: 330px
   margin: 10px
-  transition: left 5s
-  background: white
-  box-shadow: 0px 0px 5px 3px rgba(0,0,0,0.2)
-  overflow: hidden
+  background: $verde
+  left: 0px
+  transition: left 1s
+
+
+
+
   .flecha
     position: absolute
     display: flex
     justify-content: center
     align-items: center
-    top: calc(50vh - 10px)
+    top: 150px
     right: 0px
-    width: 20px
-    height: 40px
-    background: $grisc
+    width: 32px
+    height: 60px
+    background: lighten($grisc, 80)
     cursor: pointer
+    transition: background 1s
+
     a
       transition: transform 1s
+      color: $verde
+      font-size: 30px
     &:hover
-      a
-        transform: rotateZ(180deg)
+      background: lighten($grisc, 10)
 
+
+  .bloqueO
+    width: 304px
+    padding: 12px
+    background: white
+    height: calc(100vh - 20px)
+    box-shadow: 0px 0px 5px 3px rgba(0,0,0,0.2)
 
   .bloque0
     width: 280px
