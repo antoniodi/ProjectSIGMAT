@@ -2,12 +2,20 @@
 var factory = new markerPaqueteFactory(),
     mapa = new initMap();
 jQuery(document).ready(function($){
+       $('select').material_select();
+      $.getJSON("http://localhost:8000/data/rutas.json").
+          success(function(data) {
+           $.rutas = data;
+           agregarRutas(data,data[0].categoria);
+         });
 
        $.getJSON("http://localhost:8000/data/coordenadas.json").
            success(function(data) {
             $.coordenadas = data;
             mapa.graficarEstaciones(data);
           });
+
+
 
   });
 

@@ -3,6 +3,35 @@ var marker_bus0 = 'img/bus-markern.svg',
   	marker_bus1 = 'img/bus-markerv.svg',
   	marker_bus2 = 'img/bus-markerm.svg',
   	marker_estacion = 'img/bus-stop.svg';
+//funcion que devuelve los elementos de un vector si repetir
+    Array.prototype.unique=function(a){
+      return function(){return this.filter(a)}}(function(a,b,c){return c.indexOf(a,b+1)<0
+    });
+
+
+
+function agregarRutas(rutas,data) {
+  var opcionesRutas=[],
+      opcionesSelect=[];
+
+  console.log("hola "+rutas[1].categoria);
+    for (var i = 0; i < rutas.length; i++) {
+
+      opcionesRutas=opcionesRutas.concat(rutas[i].categoria);
+    }
+    opcionesRutas=opcionesRutas.unique();
+console.log(opcionesRutas);
+    for (var i = 0; i < opcionesRutas.length; i++) {
+
+      opcionesSelect.push("<option value="+(i+1)+">"+opcionesRutas[i]+"</option>")
+    }
+    console.log(opcionesSelect);
+    $('select').append(opcionesSelect.join(" "));
+    $('select').material_select();
+
+
+
+}
 
 /*
 //codigo encargado de crear la grafica
