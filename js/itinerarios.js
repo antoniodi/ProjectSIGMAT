@@ -11,9 +11,15 @@ var itinerarios=function() {
 
                   //definimos el constructor
                   function agregarRecorrido(recorridos) {
-                    this.rutas.push(recorridos);
+                    if (disponible.length==0) {
+                      console.log("Ha llegado al número maximo de rutas que puede monitorear de forma simultanea");
+                    } else {
+                      this.rutas.push(recorridos);
+                    }
+
                   }
                   function eliminarRecorrido(recorridos) {
                     this.rutas.push(recorridos);
                   }
+
                 };

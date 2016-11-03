@@ -1,4 +1,4 @@
-[ {"nombre":"R1","color":"00bfa5","categoria":["autopista","carrera 27"],"descripcion":"","longitud":5,"paradas":[
+[ {"nombre":"R1","color":"00bfa5","categoria":["autopista","carrera 27"],"descripcion":"Ruta de la excelencia","longitud":5,"paradas":[
   {"nombre":"Estacion 1","distancia":0,"coordenadas":{"latitud":7.1372035,"longitud":-73.1223754}},
 	{"nombre":"Estacion 2","distancia":3100,"coordenadas":{"latitud":7.107844,"longitud":-73.116074}},
   {"nombre":"Estacion 3","distancia":6100,"coordenadas":{"latitud":7.095459,"longitud":-73.110635}},

@@ -3,6 +3,7 @@ var factory = new markerPaqueteFactory(),
     mapa = new initMap();
 jQuery(document).ready(function($){
        $('select').material_select();
+       
       $.getJSON("http://localhost:8000/data/rutas.json").
           success(function(data) {
            $.rutas = data;
@@ -16,7 +17,7 @@ jQuery(document).ready(function($){
             mapa.graficarEstaciones(data);
           });
 
-          
+
 
   });
 
