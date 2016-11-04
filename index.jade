@@ -21,11 +21,11 @@ html(lang="es")
             .caja2 
               p.thin SISTEMA DE INFORMACION GEOGRAFICA PARA EL MONITORE AUTOMATICO DEL TRANSPORTE
           .bloque1
-            a.waves-effect.waves-light.btn-large.btnM
+            a(href="#modal1").modal-trigger.waves-effect.waves-light.btn-large.btnM
               i.material-icons.left room
               | Monitoreo
           
-            a.waves-effect.waves-light.btn-large.btnT
+            a(href="#modal2").modal-trigger.waves-effect.waves-light.btn-large.btnT
               i.material-icons.left assessment
               | Tablas
             
@@ -87,22 +87,22 @@ html(lang="es")
         .flecha.z-depth-4
           a < 
               
-          
+      #modal1.modal.modal-fixed-footer
+        .modal-content
+          h4 modal
+          p hola
+        .modal-footer
+          a(href="#!").modal-action.modal-close.waves-effect.waves-green.btn-flat Iniciar monitoreo
+      #modal2.modal.modal-fixed-footer
+        .modal-content
+          h4 modal
+          p hola
+        .modal-footer
+          a(href="#!").modal-action.modal-close.waves-effect.waves-green.btn-flat Iniciar monitoreo  
       #map
       #map-zoom-in
       #map-zoom-out
-  #modal1.modal.modal-fixed-footer
-    .modal-content
-      h4 modal
-      p hola
-    .modal-footer
-      a(href="#!").modal-action.modal-close.waves-effect.waves-green.btn-flat Iniciar monitoreo
-  #modal2.modal.modal-fixed-footer
-    .modal-content
-      h4 modal
-      p hola
-    .modal-footer
-      a(href="#!").modal-action.modal-close.waves-effect.waves-green.btn-flat Iniciar monitoreo
+  
          
     script(src="js/map.js")
     script(src="controller/connection.js")

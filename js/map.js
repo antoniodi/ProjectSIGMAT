@@ -6,34 +6,32 @@ var marker_bus0 = 'img/bus-markern.svg',
     flecha=$('.flecha'),
     flecha0=flecha.children("a"),
     izquierda=$('.izquierda'),
-    estado=true,
-    modalM=$('#modal1'),
-    botonMonitoreo=$('.btnM'),
-    modalT=$('#modal2'),
-    botonMonitoreoT=$('.btnT');;
+    estado=true;
 //funcion que devuelve los elementos de un vector si repetir
     Array.prototype.unique=function(a){
       return function(){return this.filter(a)}}(function(a,b,c){return c.indexOf(a,b+1)<0
     });
 
-    modalM.openModal();
 
+    $('.modal-trigger').leanModal(open);
+    $('#modal1').openModal();
 
+/*
     botonMonitoreo.click( function () {
       modalM.openModal();
       /*
       izquierda.css('left','-314px');
       flecha0.css('transform','rotateZ(180deg)');
-      */
+
     });
     botonMonitoreoT.click( function () {
       modalT.openModal();
       /*
       izquierda.css('left','-314px');
       flecha0.css('transform','rotateZ(180deg)');
-      */
-    });
 
+    });
+*/
     flecha.click( function () {
       console.log("hola");
 

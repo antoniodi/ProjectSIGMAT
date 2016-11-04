@@ -22,7 +22,7 @@
               <p class="thin">SISTEMA DE INFORMACION GEOGRAFICA PARA EL MONITORE AUTOMATICO DEL TRANSPORTE</p>
             </div>
           </div>
-          <div class="bloque1"><a class="waves-effect waves-light btn-large btnM"><i class="material-icons left">room</i>Monitoreo</a><a class="waves-effect waves-light btn-large btnT"><i class="material-icons left">assessment</i>Tablas</a></div>
+          <div class="bloque1"><a href="#modal1" class="modal-trigger waves-effect waves-light btn-large btnM"><i class="material-icons left">room</i>Monitoreo</a><a href="#modal2" class="modal-trigger waves-effect waves-light btn-large btnT"><i class="material-icons left">assessment</i>Tablas</a></div>
           <div class="bloque2">
             <div class="caja1">
               <div class="input-field">
@@ -88,25 +88,25 @@
         </div>
         <div class="flecha z-depth-4"><a>< </a></div>
       </div>
+      <div id="modal1" class="modal modal-fixed-footer">
+        <div class="modal-content">
+          <h4>modal</h4>
+          <p>hola</p>
+        </div>
+        <div class="modal-footer"><a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Iniciar monitoreo</a></div>
+      </div>
+      <div id="modal2" class="modal modal-fixed-footer">
+        <div class="modal-content">
+          <h4>modal</h4>
+          <p>hola</p>
+        </div>
+        <div class="modal-footer"><a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Iniciar monitoreo  </a></div>
+      </div>
       <div id="map"></div>
       <div id="map-zoom-in"></div>
       <div id="map-zoom-out"></div>
     </section>
-  </body>
-  <div id="modal1" class="modal modal-fixed-footer">
-    <div class="modal-content">
-      <h4>modal</h4>
-      <p>hola</p>
-    </div>
-    <div class="modal-footer"><a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Iniciar monitoreo</a></div>
-  </div>
-  <div id="modal2" class="modal modal-fixed-footer">
-    <div class="modal-content">
-      <h4>modal</h4>
-      <p>hola</p>
-    </div>
-    <div class="modal-footer"><a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Iniciar monitoreo</a></div>
     <script src="js/map.js"></script>
     <script src="controller/connection.js"></script>
-  </div>
+  </body>
 </html>

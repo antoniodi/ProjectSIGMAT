@@ -3,7 +3,10 @@ var factory = new markerPaqueteFactory(),
     mapa = new initMap();
 jQuery(document).ready(function($){
        $('select').material_select();
-       
+       $('.modal-trigger').leanModal(open);
+       $('#modal1').openModal();
+       $('#modal1').openModal();
+
       $.getJSON("http://localhost:8000/data/rutas.json").
           success(function(data) {
            $.rutas = data;
