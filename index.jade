@@ -56,7 +56,7 @@ html(lang="es")
             br
             button(onClick="window.location.href='view/multiplesRutas.html'")#btn1 multiples rutas simulneamente
             
-        .flecha.z-depth-4
+        .flecha
           a < 
               
       #modal1.modal.modal-fixed-footer
@@ -64,21 +64,38 @@ html(lang="es")
           h4.center-align.flow-text CENTRO DE MONITOREO DE RUTAS: LINEAS DE TIEMPO
           .cajam1
             .cajam1s
-              .cajar hola
-              .cajar hola
-              .cajar hola
-              .cajar hola
+            h3.cajam1m.flow-text Selecciones la Rutas o Rutas que desea monitorizar
             .cajam1i
+              form(action="#")
+                p
+                  input(type="checkbox" class="Ruta1" id="Ruta1" )
+                  label(for="Ruta1") Ruta1
+                p
+                  input(type="checkbox" class="Ruta2" id="Ruta2" )
+                  label(for="Ruta2") Ruta2
+                p
+                  input(type="checkbox" class="Ruta3" id="Ruta3" )
+                  label(for="Ruta3") Ruta3
+                p
+                  input(type="checkbox" class="Ruta4" id="Ruta4" )
+                  label(for="Ruta4") Ruta4
+                p
+                  input(type="checkbox" class="Ruta5" id="Ruta5" )
+                  label(for="Ruta5") Ruta5
+                p
+                  input(type="checkbox" class="Ruta6" id="Ruta6" )
+                  label(for="Ruta6") Ruta6
+                p
+                  input(type="checkbox" class="Ruta7" id="Ruta7" )
+                  label(for="Ruta7") Rut7
+              
         .modal-footer
           a(href="#!").modal-action.modal-close.waves-effect.waves-green.btn-flat Iniciar monitoreo
       #modal2.modal.modal-fixed-footer
         .modal-content
-          h4.center-align CENTRO DE MONITOREO DE RUTAS: TABLAS    
+          h4.center-align.flow-text CENTRO DE MONITOREO DE RUTAS: TABLAS    
           .cajam2
             .cajam2s
-              .cajar hola
-              .cajar hola
-              .cajar hola
             .cajam2i
         .modal-footer
           a(href="#!").modal-action.modal-close.waves-effect.waves-green.btn-flat Iniciar monitoreo  

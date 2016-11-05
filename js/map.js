@@ -59,14 +59,26 @@ function individualizarCategorias(rutas) {
   }
   return opcionesRutas.unique();
 }
+//funcion que agrega los criterios de clasificacion a las ventanas modales
+function agregarCategoriaModal(opcionesRutas) {
+  opcionesSelect=[];
+
+  for (var i = 0; i < opcionesRutas.length; i++) {
+    opcionesSelect.push("<div class=cajar>"+opcionesRutas[i]+"</div>");
+  }
+  $('.cajam1s').append(opcionesSelect.join(" "));
+  $('.cajam2s').append(opcionesSelect.join(" "));
+
+}
 
 //funcion encargada de procesar las categorias, devolver y graficar
 function agregarRutas(rutas) {
   var opcionesRutas=individualizarCategorias(rutas),
       opcionesSelect=[];
+      agregarCategoriaModal(opcionesRutas);
 
     for (var i = 0; i < opcionesRutas.length; i++) {
-      opcionesSelect.push("<option value="+i+">"+opcionesRutas[i]+"</option>")
+      opcionesSelect.push("<option value="+i+">"+opcionesRutas[i]+"</option>");
     }
     $('select').append(opcionesSelect.join(" "));
     $('select').material_select();
@@ -77,9 +89,6 @@ function agregarRutas(rutas) {
         console.log(rutasSeleccionadas);
         generarOpciones(rutasSeleccionadas);
     });
-
-
-
 }
 
 function generarOpciones(rutasSeleccionadas) {

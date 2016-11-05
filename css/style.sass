@@ -30,7 +30,6 @@ body,html
   .flecha
     position: absolute
     display: flex
-
     justify-content: center
     align-items: center
     top: 150px
@@ -39,14 +38,15 @@ body,html
     height: 60px
     background: lighten($grisc, 80)
     cursor: pointer
-    transition: background 1s
+    box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12), 0 2px 4px -1px rgba(0, 0, 0, 0.4)
+    transition: box-shadow 0.5s
 
     a
       transition: transform 1s
       color: $verde
       font-size: 30px
     &:hover
-      background: lighten($grisc, 10)
+      box-shadow: 0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12), 0 5px 5px -3px rgba(0, 0, 0, 0.4)
 
 
   .bloqueO
@@ -186,34 +186,60 @@ section
     width: 80%
     margin: auto
     height: 100%
+  .cajam1m,.cajam2m
+    display: flex
+    justify-content: center
+    width: 100%
+    align-items: center
+    margin: 12px 0
 
 
   .cajam1s,.cajam2s
     display: flex
     width: 80%
+    height: 50%
     margin: auto
     margin-bottom: 6px
 
     .cajar
+      color: white
       width: 100%
       height: 100%
       display: flex
+      font-size: 17px
+      font-stretch: condensed
+      text-align: center
       align-items: center
       justify-content: center
       margin-right: 12px
+      cursor: pointer
+      font-weight: bold
       background: rgb(252, 85, 53)
       border-radius: 5px
       transition: box-shadow 0.5s
+      transition: background .5s
       box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12), 0 2px 4px -1px rgba(0, 0, 0, 0.4)
       &:hover
         box-shadow: 0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12), 0 5px 5px -3px rgba(0, 0, 0, 0.4)
+        background: $verde1
       &:last-child
         margin-right: 0px
   .cajam1i,.cajam2i
+    flex: 0 1 auto
+    overflow-y: auto
+    padding: 12px 12px 0 12px
     margin-top: 6px
     border-radius: 5px
     box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12), 0 2px 4px -1px rgba(0, 0, 0, 0.4)
-    background: rgb(28, 67, 246)
+    form
+      display: flex
+      flex-wrap: wrap
+      p
+        margin: 0
+        width: 25%
+        flex: 0 1 auto
+        label
+          margin-bottom: 5px
 
 
 
