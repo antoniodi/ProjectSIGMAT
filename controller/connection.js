@@ -2,16 +2,18 @@
 var factory = new markerPaqueteFactory(),
     mapa = new initMap();
 jQuery(document).ready(function($){
-       $('select').material_select();
-       $('.modal-trigger').leanModal(open);
-       $('#modal1').openModal();
-       $('#modal1').openModal();
+
+
 
       $.getJSON("http://localhost:8000/data/rutas.json").
           success(function(data) {
            $.rutas = data;
             //Agrega las rutas luego de filtrarlas a partir de sus caracteristicas mas relevantes
            agregarRutas(data,data[0].categoria);
+           
+
+
+
          });
 
        $.getJSON("http://localhost:8000/data/coordenadas.json").

@@ -7982,7 +7982,7 @@ body, html {
 .izquierda {
   position: absolute;
   font-size: 20px;
-  width: 330px;
+  width: 346px;
   margin: 10px;
   background: #1bce7c;
   left: 0px;
@@ -8012,11 +8012,13 @@ body, html {
   background: #cfcfcf;
 }
 .izquierda .bloqueO {
-  width: 304px;
-  padding: 12px;
+  width: 320px;
+  padding: 12px 20px;
   background: white;
   height: calc(100vh - 20px);
   box-shadow: 0px 0px 5px 3px rgba(0, 0, 0, 0.2);
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 .izquierda .bloque0 {
   width: 280px;
@@ -8094,8 +8096,10 @@ body, html {
   background: white;
   border-bottom: 2px;
   box-sizing: border-box;
-  border: 10px solid white;
-  border-radius: 4%;
+  border-top: 10px solid white;
+  border-bottom: 10px solid white;
+  border-left: 10px solid white;
+  border-radius: 5px;
   box-shadow: 0px 0px 5px 3px rgba(0, 0, 0, 0.2);
 }
 .izquierda .bloque4 .caja3 {
@@ -8119,6 +8123,8 @@ body, html {
 .izquierda .bloque4 .caja3 .texto {
   width: 130px;
   margin-left: 10px;
+  font-stretch: condensed;
+  font-size: 17px;
 }
 
 .bloque5 {
@@ -8136,6 +8142,52 @@ body, html {
 section #map {
   width: 100%;
   height: 100vh;
+}
+
+.modal-content {
+  display: flex;
+  flex-direction: column;
+}
+.modal-content .cajam1, .modal-content .cajam2 {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+}
+.modal-content .cajam1s, .modal-content .cajam1i {
+  width: 80%;
+  margin: auto;
+  height: 100%;
+}
+.modal-content .cajam1s {
+  display: flex;
+  width: 80%;
+  margin: auto;
+  margin-bottom: 6px;
+}
+.modal-content .cajam1s .cajar {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 12px;
+  background: #fc5535;
+  border-radius: 5px;
+  transition: box-shadow 0.5s;
+  box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12), 0 2px 4px -1px rgba(0, 0, 0, 0.4);
+}
+.modal-content .cajam1s .cajar:hover {
+  box-shadow: 0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12), 0 5px 5px -3px rgba(0, 0, 0, 0.4);
+}
+.modal-content .cajam1s .cajar:last-child {
+  margin-right: 0px;
+}
+.modal-content .cajam1i {
+  margin-top: 6px;
+  border-radius: 5px;
+  box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12), 0 2px 4px -1px rgba(0, 0, 0, 0.4);
+  background: #1c43f6;
 }
 
 #map-zoom-in, #map-zoom-out {

@@ -12,9 +12,12 @@ var marker_bus0 = 'img/bus-markern.svg',
       return function(){return this.filter(a)}}(function(a,b,c){return c.indexOf(a,b+1)<0
     });
 
-
+    //funcion encargada de inicializar el reconocimiento de las ventanas modales por parte de los botones
     $('.modal-trigger').leanModal(open);
+    //funcion encargada de abrir la ventana modal de monitoreo al cargarse la pagina web
     $('#modal1').openModal();
+    //funcion encargada de cargar las librerias graficas asosciadas a materialize
+    $('select').material_select();
 
 /*
     botonMonitoreo.click( function () {
@@ -32,12 +35,11 @@ var marker_bus0 = 'img/bus-markern.svg',
 
     });
 */
+//uncion encargada de ocultar y mostrar el menu ubiado en la parte lateral izquierda
     flecha.click( function () {
-      console.log("hola");
-
       if (estado) {
         estado=false;
-        izquierda.css('left','-314px');
+        izquierda.css('left','-330px');
         flecha0.css('transform','rotateZ(180deg)');
       }else {
         estado=true;
@@ -47,29 +49,76 @@ var marker_bus0 = 'img/bus-markern.svg',
 
     });
 
-function agregarRutas(rutas,data) {
-  var opcionesRutas=["Todas las rutas"],
+//funcion que recive las rutas, buca el vector categoria de cada ruta, los concatena y obtine las categorias
+//sin repetir y retorna un vector con las categorias sin repetir
+function individualizarCategorias(rutas) {
+  var opcionesRutas = ["Todas las rutas"];
+  for (var i = 0; i < rutas.length; i++) {
+
+    opcionesRutas = opcionesRutas.concat(rutas[i].categoria);
+  }
+  return opcionesRutas.unique();
+}
+
+//funcion encargada de procesar las categorias, devolver y graficar
+function agregarRutas(rutas) {
+  var opcionesRutas=individualizarCategorias(rutas),
       opcionesSelect=[];
 
-  console.log("hola "+rutas[1].categoria);
-    for (var i = 0; i < rutas.length; i++) {
-
-      opcionesRutas=opcionesRutas.concat(rutas[i].categoria);
-    }
-    opcionesRutas=opcionesRutas.unique();
-
     for (var i = 0; i < opcionesRutas.length; i++) {
-
       opcionesSelect.push("<option value="+i+">"+opcionesRutas[i]+"</option>")
     }
-    console.log(opcionesSelect);
     $('select').append(opcionesSelect.join(" "));
     $('select').material_select();
+
+    //funcion que devuelve un array de objetos con las rutas seleccionas, despues de realizar el filtrado
+    eleccion = $("#filtrar").change(function() {
+        rutasSeleccionadas = buscarCoincidencias(rutas,opcionesRutas[eleccion.val()])
+        console.log(rutasSeleccionadas);
+        generarOpciones(rutasSeleccionadas);
+    });
 
 
 
 }
 
+function generarOpciones(rutasSeleccionadas) {
+  cuadrorutas = [];
+  for (var i = 0; i < rutasSeleccionadas.length; i++) {
+    cuadrorutas.push("<div class=caja3> <div class=logo style=background:#"+rutasSeleccionadas[i].color+";>"+rutasSeleccionadas[i].nombre+"</div>  <div class=texto>"+rutasSeleccionadas[i].descripcion+"</div><div class=switch><label><input type=checkbox><span class=lever></span></label></div></div>");
+  }
+  $(".bloque4").children().remove();
+  $(".bloque4").append(cuadrorutas.join(" "));
+
+}
+
+
+function buscarCoincidencias(rutas,palabra) {
+  elegidos=[];
+  if (palabra == "Todas las rutas") {
+    elegidos=rutas;
+  }else {
+    for (var i = 0; i < rutas.length; i++) {
+      if (rutas[i].categoria.indexOf(palabra) !== -1) {
+          elegidos.push(rutas[i]);
+      }
+    }
+  }
+  return elegidos;
+}
+
+
+
+/*
+<div class="caja3">
+  <div class="logo">R1</div>
+  <div class="texto">hola</div>
+  <div class="switch right-align">
+    <label>
+      <input type="checkbox"/><span class="lever"></span>
+    </label>
+  </div>
+</div>
 /*
 //codigo encargado de crear la grafica
  $('#container').highcharts({

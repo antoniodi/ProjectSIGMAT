@@ -34,8 +34,8 @@ html(lang="es")
           .bloque2
             .caja1
               .input-field
-                select.multiple
-                  option(value='', disabled='', select='') seleccione una opcion
+                select.multiple#filtrar
+                  option(value='-1' disabled='' selected='') seleccione una opcion
                   
                 label Selecciona una catergoria 
           
@@ -44,35 +44,7 @@ html(lang="es")
             p Rutas
             p Ocultar/
               b Ver  
-          .bloque4
-            .caja3
-              .logo R1
-              .texto hola
-              .switch.right-align
-                label
-                  input(type="checkbox")
-                  span.lever
-            .caja3
-              .logo R2
-              .texto hola
-              .switch.right-align
-                label
-                  input(type="checkbox")
-                  span.lever
-            .caja3
-              .logo R3
-              .texto hola
-              .switch.right-align
-                label
-                  input(type="checkbox")
-                  span.lever
-            .caja3
-              .logo R4
-              .texto hola
-              .switch.right-align
-                label
-                  input(type="checkbox")
-                  span.lever 
+          .bloque4 
           .bloque5
             select#lista
               option(value="-1" selected="") Seleccione la velocidad de actualizacion
@@ -89,14 +61,24 @@ html(lang="es")
               
       #modal1.modal.modal-fixed-footer
         .modal-content
-          h4 modal
-          p hola
+          h4.center-align.flow-text CENTRO DE MONITOREO DE RUTAS: LINEAS DE TIEMPO
+          .cajam1
+            .cajam1s
+              .cajar hola
+              .cajar hola
+              .cajar hola
+            .cajam1i
         .modal-footer
           a(href="#!").modal-action.modal-close.waves-effect.waves-green.btn-flat Iniciar monitoreo
       #modal2.modal.modal-fixed-footer
         .modal-content
-          h4 modal
-          p hola
+          h4.center-align CENTRO DE MONITOREO DE RUTAS: TABLAS    
+          .cajam1
+            .cajam1s
+              .cajar hola
+              .cajar hola
+              .cajar hola
+            .cajam1i
         .modal-footer
           a(href="#!").modal-action.modal-close.waves-effect.waves-green.btn-flat Iniciar monitoreo  
       #map
