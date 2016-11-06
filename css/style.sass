@@ -12,13 +12,16 @@ body,html
   height: 100vh
   overflow: hidden
   box-sizing: border-box
-
+.btn-large
+  background: $color-1
+  &:hover
+    background: $color-2
 .izquierda
   position: absolute
   font-size: 20px
   width: 346px
   margin: 10px
-  background: $verde
+  background: $color-1
   left: 0px
   transition: left 1s
   box-shadow: 0px 0px 5px 3px rgba(0,0,0,0.2)
@@ -36,14 +39,14 @@ body,html
     right: 0px
     width: 32px
     height: 60px
-    background: lighten($grisc, 80)
+    background: #ff80ab
     cursor: pointer
     box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12), 0 2px 4px -1px rgba(0, 0, 0, 0.4)
     transition: box-shadow 0.5s
 
     a
       transition: transform 1s
-      color: $verde
+      color: white
       font-size: 30px
     &:hover
       box-shadow: 0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12), 0 5px 5px -3px rgba(0, 0, 0, 0.4)
@@ -113,13 +116,12 @@ body,html
     align-items: baseline
     p
       margin: 12px 0px
-
+      padding-left: 12px
       font-weight: bold
-      width: 170px
+      width: 160px
     p:last-child
       font-size: 15px
       width: 80px
-
       font-weight: lighter
     b
       font-size: 20px
@@ -147,7 +149,7 @@ body,html
       border-bottom: 1px solid $grisc
       .logo
         display: flex
-        background: $verde
+        background: $color-1
         border-radius: 20%
         width: 35px
         height: 35px
@@ -186,6 +188,7 @@ section
     width: 80%
     margin: auto
     height: 100%
+
   .cajam1m,.cajam2m
     display: flex
     justify-content: center
@@ -214,14 +217,14 @@ section
       margin-right: 12px
       cursor: pointer
       font-weight: bold
-      background: rgb(252, 85, 53)
+      background: $color-1
       border-radius: 5px
       transition: box-shadow 0.5s
       transition: background .5s
       box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12), 0 2px 4px -1px rgba(0, 0, 0, 0.4)
       &:hover
         box-shadow: 0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12), 0 5px 5px -3px rgba(0, 0, 0, 0.4)
-        background: $verde1
+        background: $color-2
       &:last-child
         margin-right: 0px
   .cajam1i,.cajam2i
@@ -231,6 +234,13 @@ section
     margin-top: 6px
     border-radius: 5px
     box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12), 0 2px 4px -1px rgba(0, 0, 0, 0.4)
+    .h3
+      display: flex
+      margin-top: 100px
+      width: 100%
+      height: 100%
+      align-items: center
+      justify-content: center
     form
       display: flex
       flex-wrap: wrap
@@ -243,6 +253,10 @@ section
 
 
 
+#hola
+  background: $verde
+  width: 230px
+  height: 100px
 
 
 
@@ -253,12 +267,12 @@ section
   cursor: pointer
   margin-right: 10px
   border-radius: 5%
-  background-color: rgba($color-1, .9)
+  background-color: $color-1
   background-repeat: no-repeat
   background-size: 32px 64px
   background-image: url('../img/cd-icon-controller.svg')
   &:hover
-    background-color: $verde
+    background-color: $color-2
 
 #map-zoom-in
   background-position: 50% 0

@@ -6,7 +6,9 @@ var marker_bus0 = 'img/bus-markern.svg',
     flecha=$('.flecha'),
     flecha0=flecha.children("a"),
     izquierda=$('.izquierda'),
-    estado=true;
+    estado=true
+    opcionesRutas=undefined,
+    rutas=undefined;
 //funcion que devuelve los elementos de un vector si repetir
     Array.prototype.unique=function(a){
       return function(){return this.filter(a)}}(function(a,b,c){return c.indexOf(a,b+1)<0
@@ -18,6 +20,29 @@ var marker_bus0 = 'img/bus-markern.svg',
     $('#modal1').openModal();
     //funcion encargada de cargar las librerias graficas asosciadas a materialize
     $('select').material_select();
+
+    //funcion encargada de procesar las categorias, devolver y graficar
+    function agregarRutas(rutas) {
+      this.rutas =rutas;
+      individualizarCategorias();
+      var opcionesSelect = [];
+      agregarCategoriaModal(opcionesRutas);
+
+        for (var i = 0; i < opcionesRutas.length; i++) {
+          opcionesSelect.push("<option value="+i+">"+opcionesRutas[i]+"</option>");
+        }
+        $('select').append(opcionesSelect.join(" "));
+        $('select').material_select();
+
+        //funcion que devuelve un array de objetos con las rutas seleccionas, despues de realizar el filtrado
+        eleccion = $("#filtrar").change(function() {
+            rutasSeleccionadas = buscarCoincidencias(opcionesRutas[eleccion.val()])
+            generarOpciones(rutasSeleccionadas);
+        });
+    }
+
+
+
 
 /*
     botonMonitoreo.click( function () {
@@ -51,58 +76,83 @@ var marker_bus0 = 'img/bus-markern.svg',
 
 //funcion que recive las rutas, buca el vector categoria de cada ruta, los concatena y obtine las categorias
 //sin repetir y retorna un vector con las categorias sin repetir
-function individualizarCategorias(rutas) {
+function individualizarCategorias() {
   var opcionesRutas = ["Todas las rutas"];
   for (var i = 0; i < rutas.length; i++) {
-
     opcionesRutas = opcionesRutas.concat(rutas[i].categoria);
   }
-  return opcionesRutas.unique();
+  this.opcionesRutas = opcionesRutas.unique();
 }
 //funcion que agrega los criterios de clasificacion a las ventanas modales
-function agregarCategoriaModal(opcionesRutas) {
-  opcionesSelect=[];
+function agregarCategoriaModal() {
+  opcionesSelectm=[],
+  opcionesSelectu=[];
 
   for (var i = 0; i < opcionesRutas.length; i++) {
-    opcionesSelect.push("<div class=cajar>"+opcionesRutas[i]+"</div>");
+    opcionesSelectm.push("<div class=cajar onclick=multiples("+i+")>"+opcionesRutas[i]+"</div>");
+    opcionesSelectu.push("<div class=cajar onclick=unica("+i+")>"+opcionesRutas[i]+"</div>");
   }
-  $('.cajam1s').append(opcionesSelect.join(" "));
-  $('.cajam2s').append(opcionesSelect.join(" "));
+  $('.cajam1s').append(opcionesSelectm.join(" "));
+  $('.cajam2s').append(opcionesSelectu.join(" "));
+}
+//llenado para seleccion de multiples rutas
+function multiples(indice) {
+  generarOpcionesM(buscarCoincidenciasN(indice));
+}
+//genera las opciones para multiples rutas en la ventana modal
+function generarOpcionesM(rutasSeleccionadas) {
+  cuadroRutas = [];
+  for (var i = 0; i < rutasSeleccionadas.length; i++) {
+    cuadroRutas.push("<p><input type=checkbox id="+rutasSeleccionadas[i].nombre+" class="+rutasSeleccionadas[i].nombre+"/><label for="+rutasSeleccionadas[i].nombre+">"+rutasSeleccionadas[i].nombre+"</label></p>");
+  }
+  $(".multipleM").children().remove();
+  $(".multipleM").append(cuadroRutas.join(" "));
+
+}
+//llenado para seleccion de una unica ruta
+function unica(indice) {
+  generarOpcionesU(buscarCoincidenciasN(indice));
+}
+//genera las opciones para multiples rutas en la ventana modal
+function generarOpcionesU(rutasSeleccionadas) {
+  cuadroRutas = [];
+    cuadroRutas.push("<p><input name=group1 type=radio id="+rutasSeleccionadas[0].nombre+" class=with-gap checked/><label for="+rutasSeleccionadas[0].nombre+">"+rutasSeleccionadas[0].nombre+"</label></p>");
+  for (var i = 1; i < rutasSeleccionadas.length; i++) {
+    cuadroRutas.push("<p><input name=group1 type=radio id="+rutasSeleccionadas[i].nombre+" class=with-gap /><label for="+rutasSeleccionadas[i].nombre+">"+rutasSeleccionadas[i].nombre+"</label></p>");
+  }
+  $(".unica").children().remove();
+  $(".unica").append(cuadroRutas.join(" "));
 
 }
 
-//funcion encargada de procesar las categorias, devolver y graficar
-function agregarRutas(rutas) {
-  var opcionesRutas=individualizarCategorias(rutas),
-      opcionesSelect=[];
-      agregarCategoriaModal(opcionesRutas);
-
-    for (var i = 0; i < opcionesRutas.length; i++) {
-      opcionesSelect.push("<option value="+i+">"+opcionesRutas[i]+"</option>");
-    }
-    $('select').append(opcionesSelect.join(" "));
-    $('select').material_select();
-
-    //funcion que devuelve un array de objetos con las rutas seleccionas, despues de realizar el filtrado
-    eleccion = $("#filtrar").change(function() {
-        rutasSeleccionadas = buscarCoincidencias(rutas,opcionesRutas[eleccion.val()])
-        console.log(rutasSeleccionadas);
-        generarOpciones(rutasSeleccionadas);
-    });
-}
 
 function generarOpciones(rutasSeleccionadas) {
-  cuadrorutas = [];
+  cuadroRutas = [];
   for (var i = 0; i < rutasSeleccionadas.length; i++) {
-    cuadrorutas.push("<div class=caja3> <div class=logo style=background:#"+rutasSeleccionadas[i].color+";>"+rutasSeleccionadas[i].nombre+"</div>  <div class=texto>"+rutasSeleccionadas[i].descripcion+"</div><div class=switch><label><input type=checkbox><span class=lever></span></label></div></div>");
+    cuadroRutas.push("<div class=caja3> <div class=logo style=background:#"+rutasSeleccionadas[i].color+";>"+rutasSeleccionadas[i].nombre+"</div>  <div class=texto>"+rutasSeleccionadas[i].descripcion+"</div><div class=switch><label><input type=checkbox><span class=lever></span></label></div></div>");
   }
   $(".bloque4").children().remove();
-  $(".bloque4").append(cuadrorutas.join(" "));
+  $(".bloque4").append(cuadroRutas.join(" "));
 
 }
 
-
-function buscarCoincidencias(rutas,palabra) {
+//funcion que busca coincidencias en una categoria a partir de una palabra
+function buscarCoincidencias(palabra) {
+  elegidos=[];
+  if (palabra == "Todas las rutas") {
+    elegidos=rutas;
+  }else {
+    for (var i = 0; i < rutas.length; i++) {
+      if (rutas[i].categoria.indexOf(palabra) !== -1) {
+          elegidos.push(rutas[i]);
+      }
+    }
+  }
+  return elegidos;
+}
+//funcion que busca coincidencias en una categoria a partir de un indice
+function buscarCoincidenciasN(indice) {
+  palabra=opcionesRutas[indice];
   elegidos=[];
   if (palabra == "Todas las rutas") {
     elegidos=rutas;

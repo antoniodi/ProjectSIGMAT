@@ -7979,12 +7979,19 @@ body, html {
   box-sizing: border-box;
 }
 
+.btn-large {
+  background: #3f51b5;
+}
+.btn-large:hover {
+  background: #ff4081;
+}
+
 .izquierda {
   position: absolute;
   font-size: 20px;
   width: 346px;
   margin: 10px;
-  background: #1bce7c;
+  background: #3f51b5;
   left: 0px;
   transition: left 1s;
   box-shadow: 0px 0px 5px 3px rgba(0, 0, 0, 0.2);
@@ -7999,14 +8006,14 @@ body, html {
   right: 0px;
   width: 32px;
   height: 60px;
-  background: white;
+  background: #ff80ab;
   cursor: pointer;
   box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12), 0 2px 4px -1px rgba(0, 0, 0, 0.4);
   transition: box-shadow 0.5s;
 }
 .izquierda .flecha a {
   transition: transform 1s;
-  color: #1bce7c;
+  color: white;
   font-size: 30px;
 }
 .izquierda .flecha:hover {
@@ -8078,8 +8085,9 @@ body, html {
 }
 .izquierda .bloque3 p {
   margin: 12px 0px;
+  padding-left: 12px;
   font-weight: bold;
-  width: 170px;
+  width: 160px;
 }
 .izquierda .bloque3 p:last-child {
   font-size: 15px;
@@ -8113,7 +8121,7 @@ body, html {
 }
 .izquierda .bloque4 .caja3 .logo {
   display: flex;
-  background: #1bce7c;
+  background: #3f51b5;
   border-radius: 20%;
   width: 35px;
   height: 35px;
@@ -8187,7 +8195,7 @@ section #map {
   margin-right: 12px;
   cursor: pointer;
   font-weight: bold;
-  background: #fc5535;
+  background: #3f51b5;
   border-radius: 5px;
   transition: box-shadow 0.5s;
   transition: background 0.5s;
@@ -8195,7 +8203,7 @@ section #map {
 }
 .modal-content .cajam1s .cajar:hover, .modal-content .cajam2s .cajar:hover {
   box-shadow: 0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12), 0 5px 5px -3px rgba(0, 0, 0, 0.4);
-  background: #00e676;
+  background: #ff4081;
 }
 .modal-content .cajam1s .cajar:last-child, .modal-content .cajam2s .cajar:last-child {
   margin-right: 0px;
@@ -8207,6 +8215,14 @@ section #map {
   margin-top: 6px;
   border-radius: 5px;
   box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12), 0 2px 4px -1px rgba(0, 0, 0, 0.4);
+}
+.modal-content .cajam1i .h3, .modal-content .cajam2i .h3 {
+  display: flex;
+  margin-top: 100px;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
 }
 .modal-content .cajam1i form, .modal-content .cajam2i form {
   display: flex;
@@ -8221,19 +8237,25 @@ section #map {
   margin-bottom: 5px;
 }
 
+#hola {
+  background: #1bce7c;
+  width: 230px;
+  height: 100px;
+}
+
 #map-zoom-in, #map-zoom-out {
   height: 32px;
   width: 32px;
   cursor: pointer;
   margin-right: 10px;
   border-radius: 5%;
-  background-color: rgba(45, 49, 63, 0.9);
+  background-color: #3f51b5;
   background-repeat: no-repeat;
   background-size: 32px 64px;
   background-image: url("../img/cd-icon-controller.svg");
 }
 #map-zoom-in:hover, #map-zoom-out:hover {
-  background-color: #1bce7c;
+  background-color: #ff4081;
 }
 
 #map-zoom-in {
