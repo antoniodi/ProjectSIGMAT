@@ -3,12 +3,18 @@ var marker_bus0 = 'img/bus-markern.svg',
   	marker_bus1 = 'img/bus-markerv.svg',
   	marker_bus2 = 'img/bus-markerm.svg',
   	marker_estacion = 'img/bus-stop.svg',
-    flecha=$('.flecha'),
-    flecha0=flecha.children("a"),
-    izquierda=$('.izquierda'),
-    estado=true
-    opcionesRutas=undefined,
-    rutas=undefined;
+    flecha = $('.flecha'),
+    flecha0 = flecha.children("a"),
+    izquierda = $('.izquierda'),
+    estado = true
+    opcionesRutas = undefined,
+    rutas = undefined,
+    cajam1s = $(".cajam1s"),
+    cajamm = undefined,
+    cajam2s = $(".cajam2s"),
+    cajamu = undefined,
+    multipleM = $(".multipleM"),
+    unica = $(".unica");
 //funcion que devuelve los elementos de un vector si repetir
     Array.prototype.unique=function(a){
       return function(){return this.filter(a)}}(function(a,b,c){return c.indexOf(a,b+1)<0
@@ -89,40 +95,53 @@ function agregarCategoriaModal() {
   opcionesSelectu=[];
 
   for (var i = 0; i < opcionesRutas.length; i++) {
-    opcionesSelectm.push("<div class=cajar onclick=multiples("+i+")>"+opcionesRutas[i]+"</div>");
-    opcionesSelectu.push("<div class=cajar onclick=unica("+i+")>"+opcionesRutas[i]+"</div>");
+    opcionesSelectm.push("<div class=cajar>"+opcionesRutas[i]+"</div>");
+    opcionesSelectu.push("<div class=cajar>"+opcionesRutas[i]+"</div>");
   }
-  $('.cajam1s').append(opcionesSelectm.join(" "));
-  $('.cajam2s').append(opcionesSelectu.join(" "));
+  cajam1s.append(opcionesSelectm.join(" "));
+  cajamm = cajam1s.find(".cajar");
+  //cajamm.eq(0).addClass("active");
+  cajam2s.append(opcionesSelectu.join(" "));
+  cajamu = cajam2s.find(".cajar");
+  //cajamu.eq(0).addClass("active");
 }
 //llenado para seleccion de multiples rutas
+cajam1s.on('click','div',function () {
+  t =  $(this);
+  console.log(t.index());
+  t.addClass('active').siblings().removeClass('active');
+  generarOpcionesM(buscarCoincidenciasN(t.index()));
+})
+/*
 function multiples(indice) {
   generarOpcionesM(buscarCoincidenciasN(indice));
-}
+}*/
 //genera las opciones para multiples rutas en la ventana modal
 function generarOpcionesM(rutasSeleccionadas) {
   cuadroRutas = [];
   for (var i = 0; i < rutasSeleccionadas.length; i++) {
     cuadroRutas.push("<p><input type=checkbox id="+rutasSeleccionadas[i].nombre+" class="+rutasSeleccionadas[i].nombre+"/><label for="+rutasSeleccionadas[i].nombre+">"+rutasSeleccionadas[i].nombre+"</label></p>");
   }
-  $(".multipleM").children().remove();
-  $(".multipleM").append(cuadroRutas.join(" "));
+  multipleM.children().remove();
+  multipleM.append(cuadroRutas.join(" "));
 
 }
 //llenado para seleccion de una unica ruta
-function unica(indice) {
-  generarOpcionesU(buscarCoincidenciasN(indice));
-}
+cajam2s.on('click','div',function () {
+  t =  $(this);
+  console.log(t.index());
+  t.addClass('active').siblings().removeClass('active');
+  generarOpcionesU(buscarCoincidenciasN(t.index()));
+})
 //genera las opciones para multiples rutas en la ventana modal
 function generarOpcionesU(rutasSeleccionadas) {
   cuadroRutas = [];
-    cuadroRutas.push("<p><input name=group1 type=radio id="+rutasSeleccionadas[0].nombre+" class=with-gap checked/><label for="+rutasSeleccionadas[0].nombre+">"+rutasSeleccionadas[0].nombre+"</label></p>");
+    cuadroRutas.push("<p><input name=group1 type=radio id=u"+rutasSeleccionadas[0].nombre+" class=with-gap checked/><label for=u"+rutasSeleccionadas[0].nombre+">"+rutasSeleccionadas[0].nombre+"</label></p>");
   for (var i = 1; i < rutasSeleccionadas.length; i++) {
-    cuadroRutas.push("<p><input name=group1 type=radio id="+rutasSeleccionadas[i].nombre+" class=with-gap /><label for="+rutasSeleccionadas[i].nombre+">"+rutasSeleccionadas[i].nombre+"</label></p>");
+    cuadroRutas.push("<p><input name=group1 type=radio id=u"+rutasSeleccionadas[i].nombre+" class=with-gap /><label for=u"+rutasSeleccionadas[i].nombre+">"+rutasSeleccionadas[i].nombre+"</label></p>");
   }
-  $(".unica").children().remove();
-  $(".unica").append(cuadroRutas.join(" "));
-
+  unica.children().remove();
+  unica.append(cuadroRutas.join(" "));
 }
 
 

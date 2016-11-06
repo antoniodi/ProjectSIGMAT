@@ -39,7 +39,7 @@ body,html
     right: 0px
     width: 32px
     height: 60px
-    background: #ff80ab
+    background: $color-2
     cursor: pointer
     box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12), 0 2px 4px -1px rgba(0, 0, 0, 0.4)
     transition: box-shadow 0.5s
@@ -227,6 +227,9 @@ section
         background: $color-2
       &:last-child
         margin-right: 0px
+    .active
+      box-shadow: 0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12), 0 5px 5px -3px rgba(0, 0, 0, 0.4)
+      background: $color-2
   .cajam1i,.cajam2i
     flex: 0 1 auto
     overflow-y: auto
@@ -234,32 +237,20 @@ section
     margin-top: 6px
     border-radius: 5px
     box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12), 0 2px 4px -1px rgba(0, 0, 0, 0.4)
-    .h3
-      display: flex
-      margin-top: 100px
-      width: 100%
-      height: 100%
-      align-items: center
-      justify-content: center
     form
       display: flex
       flex-wrap: wrap
+      h3
+        flex: auto
+        text-align: center
+        margin: auto
+
       p
         margin: 0
         width: 25%
         flex: 0 1 auto
         label
           margin-bottom: 5px
-
-
-
-#hola
-  background: $verde
-  width: 230px
-  height: 100px
-
-
-
 
 #map-zoom-in, #map-zoom-out
   height: 32px

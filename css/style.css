@@ -7983,7 +7983,7 @@ body, html {
   background: #3f51b5;
 }
 .btn-large:hover {
-  background: #ff4081;
+  background: #1bce7c;
 }
 
 .izquierda {
@@ -8006,7 +8006,7 @@ body, html {
   right: 0px;
   width: 32px;
   height: 60px;
-  background: #ff80ab;
+  background: #1bce7c;
   cursor: pointer;
   box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12), 0 2px 4px -1px rgba(0, 0, 0, 0.4);
   transition: box-shadow 0.5s;
@@ -8203,10 +8203,14 @@ section #map {
 }
 .modal-content .cajam1s .cajar:hover, .modal-content .cajam2s .cajar:hover {
   box-shadow: 0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12), 0 5px 5px -3px rgba(0, 0, 0, 0.4);
-  background: #ff4081;
+  background: #1bce7c;
 }
 .modal-content .cajam1s .cajar:last-child, .modal-content .cajam2s .cajar:last-child {
   margin-right: 0px;
+}
+.modal-content .cajam1s .active, .modal-content .cajam2s .active {
+  box-shadow: 0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12), 0 5px 5px -3px rgba(0, 0, 0, 0.4);
+  background: #1bce7c;
 }
 .modal-content .cajam1i, .modal-content .cajam2i {
   flex: 0 1 auto;
@@ -8216,17 +8220,14 @@ section #map {
   border-radius: 5px;
   box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12), 0 2px 4px -1px rgba(0, 0, 0, 0.4);
 }
-.modal-content .cajam1i .h3, .modal-content .cajam2i .h3 {
-  display: flex;
-  margin-top: 100px;
-  width: 100%;
-  height: 100%;
-  align-items: center;
-  justify-content: center;
-}
 .modal-content .cajam1i form, .modal-content .cajam2i form {
   display: flex;
   flex-wrap: wrap;
+}
+.modal-content .cajam1i form h3, .modal-content .cajam2i form h3 {
+  flex: auto;
+  text-align: center;
+  margin: auto;
 }
 .modal-content .cajam1i form p, .modal-content .cajam2i form p {
   margin: 0;
@@ -8235,12 +8236,6 @@ section #map {
 }
 .modal-content .cajam1i form p label, .modal-content .cajam2i form p label {
   margin-bottom: 5px;
-}
-
-#hola {
-  background: #1bce7c;
-  width: 230px;
-  height: 100px;
 }
 
 #map-zoom-in, #map-zoom-out {
@@ -8255,7 +8250,7 @@ section #map {
   background-image: url("../img/cd-icon-controller.svg");
 }
 #map-zoom-in:hover, #map-zoom-out:hover {
-  background-color: #ff4081;
+  background-color: #1bce7c;
 }
 
 #map-zoom-in {
