@@ -37,7 +37,7 @@ var marker_bus0 = 'img/bus-markern.svg',
         for (var i = 0; i < opcionesRutas.length; i++) {
           opcionesSelect.push("<option value="+i+">"+opcionesRutas[i]+"</option>");
         }
-        $('select').append(opcionesSelect.join(" "));
+        $('#filtrar').append(opcionesSelect.join(" "));
         $('select').material_select();
 
         //funcion que devuelve un array de objetos con las rutas seleccionas, despues de realizar el filtrado
@@ -120,7 +120,7 @@ function multiples(indice) {
 function generarOpcionesM(rutasSeleccionadas) {
   cuadroRutas = [];
   for (var i = 0; i < rutasSeleccionadas.length; i++) {
-    cuadroRutas.push("<p><input type=checkbox id="+rutasSeleccionadas[i].nombre+" class="+rutasSeleccionadas[i].nombre+"/><label for="+rutasSeleccionadas[i].nombre+">"+rutasSeleccionadas[i].nombre+"</label></p>");
+    cuadroRutas.push("<p><input type=checkbox name=rutas value="+rutasSeleccionadas[i].nombre+" id="+rutasSeleccionadas[i].nombre+" /><label for="+rutasSeleccionadas[i].nombre+">"+rutasSeleccionadas[i].nombre+"</label></p>");
   }
   multipleM.children().remove();
   multipleM.append(cuadroRutas.join(" "));
@@ -132,19 +132,19 @@ cajam2s.on('click','div',function () {
   console.log(t.index());
   t.addClass('active').siblings().removeClass('active');
   generarOpcionesU(buscarCoincidenciasN(t.index()));
-})
+});
 //genera las opciones para multiples rutas en la ventana modal
 function generarOpcionesU(rutasSeleccionadas) {
   cuadroRutas = [];
-    cuadroRutas.push("<p><input name=group1 type=radio id=u"+rutasSeleccionadas[0].nombre+" class=with-gap checked/><label for=u"+rutasSeleccionadas[0].nombre+">"+rutasSeleccionadas[0].nombre+"</label></p>");
+    cuadroRutas.push("<p><input name=group1 value="+rutasSeleccionadas[0].nombre+" type=radio id=u"+rutasSeleccionadas[0].nombre+" class=with-gap checked/><label for=u"+rutasSeleccionadas[0].nombre+">"+rutasSeleccionadas[0].nombre+"</label></p>");
   for (var i = 1; i < rutasSeleccionadas.length; i++) {
-    cuadroRutas.push("<p><input name=group1 type=radio id=u"+rutasSeleccionadas[i].nombre+" class=with-gap /><label for=u"+rutasSeleccionadas[i].nombre+">"+rutasSeleccionadas[i].nombre+"</label></p>");
+    cuadroRutas.push("<p><input name=group1 value="+rutasSeleccionadas[i].nombre+" type=radio id=u"+rutasSeleccionadas[i].nombre+" class=with-gap /><label for=u"+rutasSeleccionadas[i].nombre+">"+rutasSeleccionadas[i].nombre+"</label></p>");
   }
   unica.children().remove();
   unica.append(cuadroRutas.join(" "));
-}
+};
 
-
+//genera las opciones para una unica ruta en la ventana modal
 function generarOpciones(rutasSeleccionadas) {
   cuadroRutas = [];
   for (var i = 0; i < rutasSeleccionadas.length; i++) {
@@ -153,7 +153,7 @@ function generarOpciones(rutasSeleccionadas) {
   $(".bloque4").children().remove();
   $(".bloque4").append(cuadroRutas.join(" "));
 
-}
+};
 
 //funcion que busca coincidencias en una categoria a partir de una palabra
 function buscarCoincidencias(palabra) {
@@ -168,7 +168,7 @@ function buscarCoincidencias(palabra) {
     }
   }
   return elegidos;
-}
+};
 //funcion que busca coincidencias en una categoria a partir de un indice
 function buscarCoincidenciasN(indice) {
   palabra=opcionesRutas[indice];
@@ -183,9 +183,45 @@ function buscarCoincidenciasN(indice) {
     }
   }
   return elegidos;
-}
+};
 
+//funcion que captura el click del modal que permite motirozar las rutas en lineas de tiempo
+$('.amodal1').click(function () {
+  seleccionadasC=[]
+  //funcion que se encarga de capturar las opciones seleccionadas por el usuario
+  $('input:checkbox[name=rutas]').each(function()
+    {
+        if($(this).is(':checked'))
+        //alacenamos las rutas seleccionadas
+          seleccionadasC.push($(this).val());
 
+    });
+  //en caso de que el usuario no seleccione ninguna opcion
+  if (seleccionadasC.length == 0) {
+    Materialize.toast('¡Porfavor, Seleccione almenos una ruta!', 5000);
+  }//en caso de que el usuario solo desee monitorizar una ruta
+  else if(seleccionadasC.length == 1){
+    window.location = 'view/unicaRuta.html?value='+seleccionadasC.join("");
+  }//en caso de que el usuario desee monitorizar una o mas rutas
+  else {
+      window.location = 'view/multiplesRutas.html?value='+seleccionadasC.join(",");
+    }
+});
+//funcion que captura el click del modal que permite motirozar una ruta en una tabla
+$('.amodal2').click(function () {
+  seleccionada=undefined;
+  //funcion que se encarga de capturar las opciones seleccionadas por el usuario
+  seleccionada=$('input[name=group1]:checked').val();
+  //en caso de que el usuario no seleccione ninguna opcion
+  if (seleccionada == undefined) {
+    Materialize.toast('¡Porfavor, Seleccione almenos una ruta!', 5000);
+  }//en caso de que el usuario desee monitorizar una tabla
+  else {
+    //defina la ruta de la tabla
+    //window.location = 'view/tabla.html?value='+seleccionada;
+    Materialize.toast('¡La ruta seleccionada es: '+seleccionada+'!', 5000);
+  }
+});
 
 /*
 <div class="caja3">

@@ -50,11 +50,6 @@ html(lang="es")
               option(value="1") Tiempo real (cada 0.1 segundos)
               option(value="2") Rapido (cada segundo)
               option(value="3") Lento (cada 5 segundos)
-
-            button(onClick="window.location.href='view/r1.html'")#btn0 ruta 1
-            br
-            button(onClick="window.location.href='view/multiplesRutas.html'")#btn1 multiples rutas simulneamente
-            
             
         .flecha
           a < 
@@ -66,11 +61,11 @@ html(lang="es")
             .cajam1s
             h3.cajam1m.flow-text Seleccione la Ruta o Rutas que desea monitorizar
             .cajam1i
-              form.multipleM(action="#")
+              form.multipleM
                 h3 SELECCIONE UNA CATEGORIA
               
         .modal-footer
-          a(href="#!").modal-action.modal-close.waves-effect.waves-green.btn-flat Iniciar monitoreo
+          a.amodal1.modal-action.modal-close.waves-effect.waves-green.btn-flat Iniciar monitoreo
       #modal2.modal.modal-fixed-footer
         .modal-content
           h4.center-align.flow-text CENTRO DE MONITOREO DE RUTAS: TABLAS    
@@ -78,10 +73,10 @@ html(lang="es")
             .cajam2s
             h3.cajam2m.flow-text Selecciones la Ruta que desea monitorizar
             .cajam2i
-              form.unica(action="#")
+              form.unica
                 h3 SELECCIONE UNA CATEGORIA
         .modal-footer
-          a(href="#!").modal-action.modal-close.waves-effect.waves-green.btn-flat Iniciar monitoreo  
+          a.amodal2.modal-action.modal-close.waves-effect.waves-green.btn-flat Iniciar monitoreo  
       #map
       #map-zoom-in
       #map-zoom-out
