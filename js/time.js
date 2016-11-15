@@ -1,6 +1,10 @@
 
 
   jQuery(document).ready(function($){
+
+    console.log(window.location.search);
+
+
     $.getJSON("http://localhost:8000/data/rutas.json").
       success(function(data) {
       $.rutas = data;

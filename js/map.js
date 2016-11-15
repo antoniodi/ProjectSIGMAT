@@ -23,7 +23,7 @@ var marker_bus0 = 'img/bus-markern.svg',
     //funcion encargada de inicializar el reconocimiento de las ventanas modales por parte de los botones
     $('.modal-trigger').leanModal(open);
     //funcion encargada de abrir la ventana modal de monitoreo al cargarse la pagina web
-    $('#modal1').openModal();
+    //$('#modal1').openModal();
     //funcion encargada de cargar las librerias graficas asosciadas a materialize
     $('select').material_select();
 
@@ -38,12 +38,13 @@ var marker_bus0 = 'img/bus-markern.svg',
           opcionesSelect.push("<option value="+i+">"+opcionesRutas[i]+"</option>");
         }
         $('#filtrar').append(opcionesSelect.join(" "));
+        generarOpciones(rutas);
         $('select').material_select();
 
         //funcion que devuelve un array de objetos con las rutas seleccionas, despues de realizar el filtrado
         eleccion = $("#filtrar").change(function() {
-            rutasSeleccionadas = buscarCoincidencias(opcionesRutas[eleccion.val()])
-            generarOpciones(rutasSeleccionadas);
+            //rutasSeleccionadas = buscarCoincidencias(opcionesRutas[eleccion.val()])
+            generarOpciones(buscarCoincidencias(opcionesRutas[eleccion.val()]));
         });
     }
 
@@ -110,7 +111,7 @@ cajam1s.on('click','div',function () {
   t =  $(this);
   console.log(t.index());
   t.addClass('active').siblings().removeClass('active');
-  generarOpcionesM(buscarCoincidenciasN(t.index()));
+  generarOpcionesM(buscarCoincidencias(opcionesRutas[t.index()]));
 })
 /*
 function multiples(indice) {
@@ -131,7 +132,7 @@ cajam2s.on('click','div',function () {
   t =  $(this);
   console.log(t.index());
   t.addClass('active').siblings().removeClass('active');
-  generarOpcionesU(buscarCoincidenciasN(t.index()));
+  generarOpcionesU(buscarCoincidencias(opcionesRutas[t.index()]));
 });
 //genera las opciones para multiples rutas en la ventana modal
 function generarOpcionesU(rutasSeleccionadas) {
@@ -169,6 +170,7 @@ function buscarCoincidencias(palabra) {
   }
   return elegidos;
 };
+/*
 //funcion que busca coincidencias en una categoria a partir de un indice
 function buscarCoincidenciasN(indice) {
   palabra=opcionesRutas[indice];
@@ -183,7 +185,7 @@ function buscarCoincidenciasN(indice) {
     }
   }
   return elegidos;
-};
+};*/
 
 //funcion que captura el click del modal que permite motirozar las rutas en lineas de tiempo
 $('.amodal1').click(function () {
@@ -201,10 +203,10 @@ $('.amodal1').click(function () {
     Materialize.toast('¡Porfavor, Seleccione almenos una ruta!', 5000);
   }//en caso de que el usuario solo desee monitorizar una ruta
   else if(seleccionadasC.length == 1){
-    window.location = 'view/unicaRuta.html?value='+seleccionadasC.join("");
+    window.open('view/unicaRuta.html?ruta='+seleccionadasC.join(""));
   }//en caso de que el usuario desee monitorizar una o mas rutas
   else {
-      window.location = 'view/multiplesRutas.html?value='+seleccionadasC.join(",");
+      window.open('view/multiplesRutas.html?rutas='+seleccionadasC.join(","));
     }
 });
 //funcion que captura el click del modal que permite motirozar una ruta en una tabla
@@ -218,7 +220,7 @@ $('.amodal2').click(function () {
   }//en caso de que el usuario desee monitorizar una tabla
   else {
     //defina la ruta de la tabla
-    //window.location = 'view/tabla.html?value='+seleccionada;
+    //window.open('view/tabla.html?value='+seleccionada);
     Materialize.toast('¡La ruta seleccionada es: '+seleccionada+'!', 5000);
   }
 });

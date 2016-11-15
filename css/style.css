@@ -7979,19 +7979,16 @@ body, html {
   box-sizing: border-box;
 }
 
-.btn-large {
-  background: #3f51b5;
-}
-.btn-large:hover {
-  background: #1bce7c;
-}
-
+/*.btn
+ * background: $color-1
+ * &:hover
+ *   background: $color-2 */
 .izquierda {
   position: absolute;
   font-size: 20px;
   width: 346px;
   margin: 10px;
-  background: #3f51b5;
+  background: #1bce7c;
   left: 0px;
   transition: left 1s;
   box-shadow: 0px 0px 5px 3px rgba(0, 0, 0, 0.2);
@@ -8006,14 +8003,14 @@ body, html {
   right: 0px;
   width: 32px;
   height: 60px;
-  background: #1bce7c;
+  background: #fdfdfd;
   cursor: pointer;
   box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12), 0 2px 4px -1px rgba(0, 0, 0, 0.4);
   transition: box-shadow 0.5s;
 }
 .izquierda .flecha a {
   transition: transform 1s;
-  color: white;
+  color: #1bce7c;
   font-size: 30px;
 }
 .izquierda .flecha:hover {
@@ -8032,7 +8029,6 @@ body, html {
   width: 280px;
   height: 100px;
   background: white;
-  margin-bottom: 12px;
   border-bottom: 1px solid #b5b5b5;
 }
 .izquierda .bloque0 .caja1 {
@@ -8054,9 +8050,18 @@ body, html {
 .izquierda .bloque1 {
   display: flex;
   flex-direction: column;
+  align-content: flex-end;
   width: 280px;
+  padding-top: 12px;
   background: white;
+}
+.izquierda .bloque1 p {
+  font-weight: bold;
   border-bottom: 1px solid #b5b5b5;
+  margin-bottom: 12px;
+}
+.izquierda .bloque1 p i {
+  margin-right: 8px;
 }
 .izquierda .bloque1 a {
   margin: 0px 20px;
@@ -8080,14 +8085,19 @@ body, html {
   display: flex;
   background: white;
   border-bottom: 2px;
-  padding-left: 10px;
   align-items: baseline;
+  border-bottom: 1px solid #b5b5b5;
+  padding-bottom: 0;
+  margin-bottom: 12px;
 }
 .izquierda .bloque3 p {
   margin: 12px 0px;
-  padding-left: 12px;
+  margin-bottom: 4px;
   font-weight: bold;
-  width: 160px;
+  width: 175px;
+}
+.izquierda .bloque3 p i {
+  margin-right: 8px;
 }
 .izquierda .bloque3 p:last-child {
   font-size: 15px;
@@ -8121,7 +8131,7 @@ body, html {
 }
 .izquierda .bloque4 .caja3 .logo {
   display: flex;
-  background: #3f51b5;
+  background: #1bce7c;
   border-radius: 20%;
   width: 35px;
   height: 35px;
@@ -8137,7 +8147,6 @@ body, html {
 }
 
 .bloque5 {
-  position: absolute;
   width: 256px;
   display: flex;
   flex-direction: column;
@@ -8195,7 +8204,7 @@ section #map {
   margin-right: 12px;
   cursor: pointer;
   font-weight: bold;
-  background: #3f51b5;
+  background: #1bce7c;
   border-radius: 5px;
   transition: box-shadow 0.5s;
   transition: background 0.5s;
@@ -8203,14 +8212,14 @@ section #map {
 }
 .modal-content .cajam1s .cajar:hover, .modal-content .cajam2s .cajar:hover {
   box-shadow: 0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12), 0 5px 5px -3px rgba(0, 0, 0, 0.4);
-  background: #1bce7c;
+  background: #3f51b5;
 }
 .modal-content .cajam1s .cajar:last-child, .modal-content .cajam2s .cajar:last-child {
   margin-right: 0px;
 }
 .modal-content .cajam1s .active, .modal-content .cajam2s .active {
   box-shadow: 0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12), 0 5px 5px -3px rgba(0, 0, 0, 0.4);
-  background: #1bce7c;
+  background: #3f51b5;
 }
 .modal-content .cajam1i, .modal-content .cajam2i {
   flex: 0 1 auto;
@@ -8244,13 +8253,13 @@ section #map {
   cursor: pointer;
   margin-right: 10px;
   border-radius: 5%;
-  background-color: #3f51b5;
+  background-color: #1bce7c;
   background-repeat: no-repeat;
   background-size: 32px 64px;
   background-image: url("../img/cd-icon-controller.svg");
 }
 #map-zoom-in:hover, #map-zoom-out:hover {
-  background-color: #1bce7c;
+  background-color: #3f51b5;
 }
 
 #map-zoom-in {
