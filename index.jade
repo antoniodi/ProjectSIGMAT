@@ -20,7 +20,17 @@ html(lang="es")
             .caja1 
             .caja2 
               p.thin SISTEMA DE INFORMACION GEOGRAFICA PARA EL MONITORE AUTOMATICO DEL TRANSPORTE
-      
+          
+          .bloque1
+            p Panel de MONITOREO
+             i.material-icons.left videocam
+            a(href="#modal1").modal-trigger.waves-effect.waves-light.btn.btnM
+              i.material-icons.left query_builder
+              | L. TIEMPO
+          
+            a(href="#modal2").modal-trigger.waves-effect.waves-light.btn.btnT
+              i.material-icons.left assessment
+              | Tablas
           .bloque2
             .caja1
               .input-field
@@ -41,16 +51,7 @@ html(lang="es")
               option(value="1") Tiempo real (cada 0.1 segundos)
               option(value="2") Rapido (cada segundo)
               option(value="3") Lento (cada 5 segundos)
-          .bloque1
-            p Panel de MONITOREO
-             i.material-icons.left videocam
-            a(href="#modal1").modal-trigger.waves-effect.waves-light.btn.btnM
-              i.material-icons.left query_builder
-              | L. TIEMPO
           
-            a(href="#modal2").modal-trigger.waves-effect.waves-light.btn.btnT
-              i.material-icons.left assessment
-              | Tablas
             
         .flecha
           a < 

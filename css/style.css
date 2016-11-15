@@ -7999,7 +7999,7 @@ body, html {
   display: flex;
   justify-content: center;
   align-items: center;
-  top: 150px;
+  top: 175px;
   right: 0px;
   width: 32px;
   height: 60px;
@@ -8029,7 +8029,6 @@ body, html {
   width: 280px;
   height: 100px;
   background: white;
-  border-bottom: 1px solid #b5b5b5;
 }
 .izquierda .bloque0 .caja1 {
   width: 280px;
@@ -8050,15 +8049,13 @@ body, html {
 .izquierda .bloque1 {
   display: flex;
   flex-direction: column;
-  align-content: flex-end;
   width: 280px;
-  padding-top: 12px;
   background: white;
 }
 .izquierda .bloque1 p {
   font-weight: bold;
   border-bottom: 1px solid #b5b5b5;
-  margin-bottom: 12px;
+  margin: 12px 0;
 }
 .izquierda .bloque1 p i {
   margin-right: 8px;
@@ -8112,14 +8109,13 @@ body, html {
   height: 220px;
   overflow-y: auto;
   overflow-x: hidden;
-  background: white;
-  border-bottom: 2px;
   box-sizing: border-box;
+  background: white;
   border-top: 10px solid white;
   border-bottom: 10px solid white;
   border-left: 10px solid white;
   border-radius: 5px;
-  box-shadow: 0px 0px 5px 3px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 0px 5px 3px rgba(0, 0, 0, 0.15);
 }
 .izquierda .bloque4 .caja3 {
   display: flex;
