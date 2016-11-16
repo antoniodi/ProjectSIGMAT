@@ -96,8 +96,8 @@ function agregarCategoriaModal() {
   opcionesSelectu=[];
 
   for (var i = 0; i < opcionesRutas.length; i++) {
-    opcionesSelectm.push("<div class=cajar>"+opcionesRutas[i]+"</div>");
-    opcionesSelectu.push("<div class=cajar>"+opcionesRutas[i]+"</div>");
+    opcionesSelectm.push("<div class=cajar>Ver rutas asociadas con: "+opcionesRutas[i]+"</div>");
+    opcionesSelectu.push("<div class=cajar>Ver rutas asociadas con: "+opcionesRutas[i]+"</div>");
   }
   cajam1s.append(opcionesSelectm.join(" "));
   cajamm = cajam1s.find(".cajar");

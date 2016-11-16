@@ -25,17 +25,17 @@
           <div class="bloque1">
             <p>Panel de MONITOREO<i class="material-icons left">videocam</i></p><a href="#modal1" class="modal-trigger waves-effect waves-light btn btnM"><i class="material-icons left">query_builder</i>L. TIEMPO</a><a href="#modal2" class="modal-trigger waves-effect waves-light btn btnT"><i class="material-icons left">assessment</i>Tablas</a>
           </div>
+          <div class="bloque3">
+            <p>Mapa<i class="material-icons left">room</i></p>
+            <p>Ocultar/<b>Ver  </b></p>
+          </div>
           <div class="bloque2">
             <div class="caja1">
               <div class="input-field">
                 <select id="filtrar" class="multiple">           </select>
-                <label>Selecciona una catergoria </label>
+                <label>Selecciona una catergoria     </label>
               </div>
             </div>
-          </div>
-          <div class="bloque3">
-            <p>Rutas<i class="material-icons left">room</i></p>
-            <p>Ocultar/<b>Ver  </b></p>
           </div>
           <div class="bloque4"></div>
           <div class="bloque5">
@@ -51,10 +51,12 @@
       </div>
       <div id="modal1" class="modal modal-fixed-footer">
         <div class="modal-content">
-          <h4 class="center-align flow-text">Centro de monitoreo de rutas: LINEAS DE TIEMPO</h4>
+          <div class="cerrar modal-close">x</div>
+          <h4 class="center-align flow-text">LINEAS DE TIEMPO</h4>
           <div class="cajam1">
+            <h3 class="cajam1m flow-text">SELECCIONE una de las siguientes Categorias</h3>
             <div class="cajam1s"></div>
-            <h3 class="cajam1m flow-text">Seleccione la Ruta o Rutas que desea monitorizar</h3>
+            <h3 class="cajam1m flow-text">Seleccione la RUTA o RUTAS que desea MONITOREAR</h3>
             <div class="cajam1i">
               <form class="multipleM">
                 <h3>SELECCIONE UNA CATEGORIA</h3>
@@ -62,14 +64,16 @@
             </div>
           </div>
         </div>
-        <div class="modal-footer"><a class="modal-action modal-close waves-effect waves-red btn-flat">Volver al MAPA  </a><a target="_blank" class="amodal1 modal-action modal-close waves-effect waves-green btn-flat">Iniciar monitoreo</a></div>
+        <div class="modal-footer"><a target="_blank" class="amodal1 modal-action modal-close waves-effect waves-green btn">Iniciar monitoreo</a><a class="modal-action modal-close waves-effect waves-red btn-flat left">Volver al MAPA </a></div>
       </div>
       <div id="modal2" class="modal modal-fixed-footer">
         <div class="modal-content">
-          <h4 class="center-align flow-text">Centro de monitoreo de rutas: TABLAS    </h4>
+          <div class="cerrar modal-close">x</div>
+          <h4 class="center-align flow-text">TABLAS    </h4>
           <div class="cajam2">
+            <h3 class="cajam2m flow-text">SELECCIONE una de las siguientes Categorias</h3>
             <div class="cajam2s"></div>
-            <h3 class="cajam2m flow-text">Selecciones la Ruta que desea monitorizar</h3>
+            <h3 class="cajam2m flow-text">Selecciones la RUTA que desea MONITOREAR</h3>
             <div class="cajam2i">
               <form class="unica">
                 <h3>SELECCIONE UNA CATEGORIA</h3>
@@ -77,7 +81,7 @@
             </div>
           </div>
         </div>
-        <div class="modal-footer"><a class="modal-action modal-close waves-effect waves-red btn-flat">Volver al MAPA </a><a target="_blank" class="amodal2 modal-action modal-close waves-effect waves-green btn-flat">Iniciar monitoreo  </a></div>
+        <div class="modal-footer"><a target="_blank" class="amodal2 modal-action modal-close waves-effect waves-green btn">Iniciar monitoreo</a><a class="modal-action modal-close waves-effect waves-red btn-flat left">Volver al MAPA  </a></div>
       </div>
       <div id="map"></div>
       <div id="map-zoom-in"></div>
