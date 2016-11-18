@@ -20,6 +20,8 @@
       }
     var disEE = 100, //esta variable define la distancia entre estaciones en pixeles
         paradas = rutaElegida.paradas; //el indice marca la ruta, en este caso se selecciona la primera ruta del json
+
+        it =new Itinerario(disEE,paradas);
     //creamos un nuevo itinerario, que sera un objeto que contiene todos los recorridos
     //var it = new itinerario(disEE,rutaElegida.paradas)
 /*
@@ -29,31 +31,29 @@
         itinerarios.push(new Recorridos(data[j].nombre,disEE,data[j].paradas,nRutas));
       }*/
 
-        //hacemos este llamado para capturar l número de buses iniciales
-        $.getJSON("http://localhost:8000/data/buses"+rutaSeleccionada+".json").
-             success(function(dataB) {
-             $.bus = dataB;
-              var nBuses=dataB.recorridos.length;
-
-                  it =new Itinerario(disEE,paradas,nBuses);
 
 });
 
-});
+//hacemos este llamado para capturar l número de buses iniciales
+$.getJSON("http://localhost:8000/data/buses"+rutaSeleccionada+".json").
+     success(function(dataB) {
+     $.bus = dataB;
+      var nBuses = dataB.recorridos.length,
+          recorridos = dataB.recorridos;
 
-                  $.getJSON("http://localhost:8000/data/busesR1.json").
-                             success(function(dataB) {
-                               $.bus = dataB;
+        for (var i = 0; i < recorridos.length; i++) {
+          it.agregarRecorrido(recorridos[i].idRecorrido,recorridos[i].horaSalidaReal,recorridos[i].id);
+        }
 
                     b=0;
             setInterval(function () {
 
-                         if (b<dataB.recorridos[0].distancia.length) {
+                         if (b<recorridos[0].distancia.length) {
                            //console.log(data[0].Nombre);
                            //recorremos el
 
-                           for (var i = 0; i < dataB.recorridos.length; i++) {
-                             setPosTimelineB($(".bus").eq(i),dataB.recorridos[i].distancia[b]);
+                           for (var i = 0; i < recorridos.length; i++) {
+                             setPosTimelineB($(".bus").eq(i),recorridos[i].distancia[b]);
                            }
                        b++;
                      }else {

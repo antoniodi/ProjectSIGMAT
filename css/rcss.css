@@ -26,7 +26,8 @@
   -ms-transform: translateY(-50%);
   -o-transform: translateY(-50%);
   transform: translateY(-50%);
-  padding: 10px;
+  padding-left: 12px;
+  font-stretch: condensed;
 }
 
 .nombreRuta {
@@ -84,6 +85,7 @@ a {
 }
 
 .timeline, .timeline0, .timelineM {
+  background: white;
   overflow: hidden;
   position: relative;
   transition: height 1s;
@@ -200,12 +202,13 @@ a {
   text-align: center;
   width: 5em;
   height: 2.7em;
-  background: url(../img/bus-markerm.svg);
+  background: url(../img/bus-markerv.svg);
   background-size: 1.5em 1.5em;
   background-repeat: no-repeat;
   background-position: bottom;
-  z-index: 104;
+  z-index: 4;
   transition: left 1s linear;
+  font-stretch: condensed !important;
 }
 
 .estacion1 {
@@ -249,10 +252,11 @@ a {
 
 .estacion {
   position: absolute;
-  top: -2em;
+  top: -30px;
   z-index: 2;
-  text-align: center;
-  vertical-align: middle;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   font-size: 1em;
   color: #333333;
   width: 100px;
@@ -276,8 +280,8 @@ a {
   -o-transform: translateX(-50%);
   transform: translateX(-50%);
   width: 2px;
-  top: 50px;
-  height: 20px;
+  top: 40px;
+  height: 65px;
   background-color: #515151;
   z-index: 2;
 }
@@ -292,7 +296,7 @@ a {
   -ms-transform: translateX(-50%);
   -o-transform: translateX(-50%);
   transform: translateX(-50%);
-  top: 40px;
+  top: 35px;
   height: 1em;
   width: 1em;
   border-radius: 50%;

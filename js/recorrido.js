@@ -9,51 +9,60 @@ function eliminarRecorrido(id) {
 Author: Antonio Cortes
 esta clase se usa para dministrar los recorridos, cuando solo se cuenta con una ruta
 */
-function Itinerario(disEE,paradas,nBuses) {
+function Itinerario(disEE,paradas) {
   var nEstaciones=paradas.length;
       agregarCabecera(nEstaciones,paradas);
   var caja=$(".caja"), //raiz para la creacion de las lineas de tiempo para los buses
-      estaciones=[],
-      lineasContol=[],
-      buses=0;
-      caja.append("<div class=timeline0><div id=recorrido class=line><ol class=linei></ol> </div> <div class=datos>hora"+0+" de salida</div></div>");
-  var timeline0=$(".timeline0"),
-      datos=timeline0.children(".datos"),
-      line=timeline0.children(".line"),
-      lineG=line.children(".linei");
-      //agregamos las lineas de estaciones, se les asigno la clase estacione1 para poder manejar un estylos diferente (css)
-      for (var i = 0; i < nEstaciones; i++) {
-        estaciones.push("<li class=estacion1></li>")
-        //lineG.append("<li class=estacion1></li>")
-      }
-      lineG.append(estaciones.join(""));
-      //creamos las lineas de control que nos indicaran de forma parcial el estado del recorrido
-      for (var i = 0; i < nEstaciones; i++) {
-        lineasContol.push("<div class=lineT style=left:"+disEE*i+"px></div>")
-        //lineG.append("<li class=estacion1></li>")
-      }
-        lineG.append(lineasContol.join(""));
-      // se hace la nueva llamada desde este lugar debido a que en la anteror linea se estaban agregando las estaciones
-      // y en ese momento no se contaba con esos elementos en el DOM
-    var lineLi=lineG.children(".estacion1");
-      for (var i = 0; i < nEstaciones; i++) {
-            setPosTimelineE(i,disEE,lineLi.eq(i));
-          }
+      buses = [],
+      retorno = crearEstructura(),
+      timeline = retorno[0],
+      timelineWidth = retorno[1],
+      estBus = retorno[2];
 
       //agregando todos los buses de los que se dispone y ocultandolos para usarlos cuando sea necesario
-      lineG.append('<li class=bus>id tyo</li>')
-      setTimelineWidth(disEE,timeline0,nEstaciones);
-      var estBus=$('#recorrido').html()
-      agregarRecorridosFaltantes(nBuses);
 
-/*
-Estas funciones se encargan de permitir el desplazamiento horizontal en la linea de tiempo
-*/
-var timeline= $('.timeline'),
-    timelineWidth=setTimelineWidth(disEE,timeline,nEstaciones);
+      /*
+      Estas funciones se encargan de permitir el desplazamiento horizontal en la linea de tiempo
+      */
 
-   timeline.addClass('loaded');
+      //agregarRecorridosFaltantes(nBuses);
 
+
+  // timeline.addClass('loaded');
+function crearEstructura() {
+  caja.append("<div class=timeline0><div class=line><ol class=linei id=recorrido></ol> </div> <div class=datos>hora"+0+" de salida</div></div>");
+  timeline0 = $(".timeline0"),
+  datos = timeline0.children(".datos"),
+  line = timeline0.children(".line"),
+  lineG = line.children(".linei"),
+  estaciones = [],
+  lineasContol = [],
+  retorno = [];
+  //agregamos las lineas de estaciones, se les asigno la clase estacione1 para poder manejar unos estylos diferente (css)
+  for (var i = 0; i < nEstaciones; i++) {
+    estaciones.push("<li class=estacion1></li>")
+    //lineG.append("<li class=estacion1></li>")
+  }
+  lineG.append(estaciones.join(""));
+  //creamos las lineas de control que nos indicaran de forma parcial el estado del recorrido
+  for (var i = 0; i < nEstaciones; i++) {
+    lineasContol.push("<div class=lineT style=left:"+disEE*i+"px></div>")
+    //lineG.append("<li class=estacion1></li>")
+  }
+    lineG.append(lineasContol.join(""));
+  // se hace la nueva llamada desde este lugar debido a que en la anteror linea se estaban agregando las estaciones
+  // y en ese momento no se contaba con esos elementos en el DOM
+  var lineLi=lineG.children(".estacion1");
+    for (var i = 0; i < nEstaciones; i++) {
+          setPosTimelineE(i,disEE,lineLi.eq(i));
+        }
+      retorno.push($('.timeline'));
+      retorno.push(setTimelineWidth(disEE,retorno[0],nEstaciones));
+      retorno.push($('#recorrido').html());
+      timeline0.remove();
+
+ return retorno;
+}
 //parte de este codigo es extraido de la pagina https://codyhouse.co/gem/horizontal-timeline/
  //detect click on the next arrow
 timeline.find('.mover').on('click', '.next', function(event){
@@ -93,17 +102,17 @@ $("#btn3").click(function(){
 a=0;
 $("#btn4").click(function(){
     $('.lineT').eq(a).css('background-color','#FF5252');
-    $('.lineT').eq(a).css('width','120px');
+    $('.lineT').eq(a).css('width',disEE+'px');
     a++;
 });
 $("#btn5").click(function(){
-    $('.lineT').eq(a).css('background-color','#00E676');
-    $('.lineT').eq(a).css('width','120px');
+    $('.lineT').eq(a).css('background-color','#1BCE7C');
+    $('.lineT').eq(a).css('width',disEE+'px');
     a++;
 });
 $("#btn6").click(function(){
     $('.lineT').eq(a).css('background-color','#3F51B5');
-    $('.lineT').eq(a).css('width','120px');
+    $('.lineT').eq(a).css('width',disEE+'px');
     a++;
 });
 
@@ -127,19 +136,18 @@ $("#btn6").click(function(){
   }
   //se encarga de agregar los siguientes recorridos faltantes
   function agregarRecorridosFaltantes(nBuses){
-    var estBus=$('#recorrido').html(),
-        recorridos=[];
+    var recorridos=[];
     //se guarda primero la informacion del DOM en un array debido al costo computacion elevado de la funcion "append" de jQuery
     for (var i = 0; i < nBuses-1; i++) {
-      recorridos.push("<div class=timeline0 id=recorrido"+buses+"><div class=line>"+estBus+"</div> <div class=datos>hora"+(i+1)+" de salida</div><div class=cerrar onclick=eliminarRecorrido(recorrido"+buses+")>x</div></div>");
+      recorridos.push("<div class=timeline0 id=recorrido"+buses+"><div class=line><ol class=linei style=width:"+timelineWidth+"px;>"+estBus+"<li class=bus>id tyo</li></div> <div class=datos>hora de salida: <br>"+(i+1)+"</div><div class=cerrar onclick=eliminarRecorrido(recorrido"+buses+")>x</div></div>");
       buses++
     }
     caja.append(recorridos.join(''));
     }
   //se encarga de agregar un recorrido al final, info se refiere a la hora de salida del bus
-  this.agregarRecorrido=function(info){
-    caja.append("<div class=timeline0 id=recorrido"+buses+"><div class=line>"+estBus+"</div> <div class=datos>hora de salida:</br>"+info+"</div><div class=cerrar onclick=eliminarRecorrido(recorrido"+buses+")>x</div></div>");
-    buses++
+  this.agregarRecorrido=function(id, horaS, idBus){
+    buses.push(id,caja.append("<div class=timeline0 id=recorrido"+buses+"><div class=line><ol class=linei style=width:"+timelineWidth+"px;>"+estBus+"<li class=bus>"+idBus+"</li></div> <div class=datos>hora de salida:</br>"+horaS+"</div><div class=cerrar onclick=eliminarRecorrido(recorrido"+buses+")>x</div></div>"));
+
   }
 
 
