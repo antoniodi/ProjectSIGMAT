@@ -7999,9 +7999,9 @@ body, html {
   display: flex;
   justify-content: center;
   align-items: center;
-  top: 175px;
+  top: 280px;
   right: 0px;
-  width: 32px;
+  width: 26px;
   height: 60px;
   background: #fdfdfd;
   cursor: pointer;
@@ -8224,14 +8224,14 @@ section #map {
 }
 .modal-content .cajam1s .cajar:hover, .modal-content .cajam2s .cajar:hover {
   box-shadow: 0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12), 0 5px 5px -3px rgba(0, 0, 0, 0.4);
-  background: #3f51b5;
+  background: #4DACD2;
 }
 .modal-content .cajam1s .cajar:last-child, .modal-content .cajam2s .cajar:last-child {
   margin-right: 0px;
 }
 .modal-content .cajam1s .active, .modal-content .cajam2s .active {
   box-shadow: 0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12), 0 5px 5px -3px rgba(0, 0, 0, 0.4);
-  background: #3f51b5;
+  background: #4DACD2;
 }
 .modal-content .cajam1i, .modal-content .cajam2i {
   flex: 0 1 auto;
@@ -8282,4 +8282,13 @@ section #map {
 
 #map-zoom-out {
   background-position: 50% -32px;
+}
+
+.cajaletrero{
+  width: 100%;
+  height: 38px;
+  border-radius: 2%;
+  background-color: #11EF96;
+ color: white;
+ text-align: center;
 }
