@@ -96,8 +96,8 @@ function agregarCategoriaModal() {
   opcionesSelectu=[];
 
   for (var i = 0; i < opcionesRutas.length; i++) {
-    opcionesSelectm.push("Ver rutas<div class=cajar> "+opcionesRutas[i]+" </div>");
-    opcionesSelectu.push("Ver rutas<div class=cajar> "+opcionesRutas[i]+"</div>");
+    opcionesSelectm.push("<div class=cajar>Ver rutas asociadas con: "+opcionesRutas[i]+"</div>");
+    opcionesSelectu.push("<div class=cajar>Ver rutas asociadas con: "+opcionesRutas[i]+"</div>");
   }
   cajam1s.append(opcionesSelectm.join(" "));
   cajamm = cajam1s.find(".cajar");
@@ -137,9 +137,9 @@ cajam2s.on('click','div',function () {
 //genera las opciones para multiples rutas en la ventana modal
 function generarOpcionesU(rutasSeleccionadas) {
   cuadroRutas = [];
-    cuadroRutas.push("<p><input disabled name=group1 value="+rutasSeleccionadas[0].nombre+" type=radio id=u"+rutasSeleccionadas[0].nombre+" class=with-gap /><label for=u"+rutasSeleccionadas[0].nombre+">"+rutasSeleccionadas[0].nombre+"</label></p>");
+    cuadroRutas.push("<p><input name=group1 value="+rutasSeleccionadas[0].nombre+" type=radio id=u"+rutasSeleccionadas[0].nombre+" class=with-gap checked/><label for=u"+rutasSeleccionadas[0].nombre+">"+rutasSeleccionadas[0].nombre+"</label></p>");
   for (var i = 1; i < rutasSeleccionadas.length; i++) {
-    cuadroRutas.push("<p><input disabled name=group1 value="+rutasSeleccionadas[i].nombre+" type=radio id=u"+rutasSeleccionadas[i].nombre+" class=with-gap /><label for=u"+rutasSeleccionadas[i].nombre+">"+rutasSeleccionadas[i].nombre+"</label></p>");
+    cuadroRutas.push("<p><input name=group1 value="+rutasSeleccionadas[i].nombre+" type=radio id=u"+rutasSeleccionadas[i].nombre+" class=with-gap /><label for=u"+rutasSeleccionadas[i].nombre+">"+rutasSeleccionadas[i].nombre+"</label></p>");
   }
   unica.children().remove();
   unica.append(cuadroRutas.join(" "));
