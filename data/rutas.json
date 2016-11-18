@@ -9,7 +9,7 @@
 ]
 },
   {"nombre":"R2","color":"00b8d4","categoria":["Autopista","Carrera 33"],"descripcion":"De piedecuesta a el centro","longitud":7,"paradas":[
-    {"nombre":"Estacion 1","distancia":0,"coordenadas":{"latitud":7.1372035,"longitud":-73.1223754}},
+    {"nombre":"Estacion 1 ","distancia":0,"coordenadas":{"latitud":7.1372035,"longitud":-73.1223754}},
   	{"nombre":"Estacion 2","distancia":3100,"coordenadas":{"latitud":7.107844,"longitud":-73.116074}},
     {"nombre":"Estacion 3","distancia":6100,"coordenadas":{"latitud":7.095459,"longitud":-73.110635}},
   	{"nombre":"Estacion 4","distancia":6800,"coordenadas":{"latitud":7.0846673,"longitud":-73.1079612}},

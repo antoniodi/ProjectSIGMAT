@@ -1,9 +1,21 @@
-function Itinerario(nBuses,disEE,paradas) {
+//Se usa el id del recorrido para eliminar el bus de la ruta primero se le modifica la altura, para que ese recorrido no desaparesca
+//de forma abrupta
+function eliminarRecorrido(id) {
+  bus = $(id);
+  bus.css('height','0px');
+  setTimeout(function(){ bus.remove(); }, 1000);
+}
+/*
+Author: Antonio Cortes
+esta clase se usa para dministrar los recorridos, cuando solo se cuenta con una ruta
+*/
+function Itinerario(disEE,paradas,nBuses) {
   var nEstaciones=paradas.length;
       agregarCabecera(nEstaciones,paradas);
   var caja=$(".caja"), //raiz para la creacion de las lineas de tiempo para los buses
       estaciones=[],
-      lineasContol=[];
+      lineasContol=[],
+      buses=0;
       caja.append("<div class=timeline0><div id=recorrido class=line><ol class=linei></ol> </div> <div class=datos>hora"+0+" de salida</div></div>");
   var timeline0=$(".timeline0"),
       datos=timeline0.children(".datos"),
@@ -105,9 +117,7 @@ $("#btn6").click(function(){
       nombreEstaciones.push("<div class=estacion>"+paradas[i].nombre+"</div>")
       //lineG.append("<li class=estacion1></li>")
     }
-    console.log(nombreEstaciones.join(""));
-    var body=$("body");
-    body.append("<div class=cajaP><div class=timeline><div class=line><ol style=background-color:transparent class=linei>"+nombreEstaciones.join("")+"</ol></div><ul class=mover><li><a href=#0 class=prev class=inactive>Anterior</a></li><li><a href=#0 class=next>Siguiente</a></li></ul></div><div class=caja></div></div>");
+    $("body").append("<div class=cajaP><div class=timeline><div class=line><ol style=background-color:transparent class=linei>"+nombreEstaciones.join("")+"</ol></div><ul class=mover><li><a href=#0 class=prev class=inactive>Anterior</a></li><li><a href=#0 class=next>Siguiente</a></li></ul></div><div class=caja></div></div>");
     $(".prev").addClass("inactive");
     var line=$(".estacion");
       for (var i = 0; i < nEstaciones; i++) {
@@ -121,25 +131,17 @@ $("#btn6").click(function(){
         recorridos=[];
     //se guarda primero la informacion del DOM en un array debido al costo computacion elevado de la funcion "append" de jQuery
     for (var i = 0; i < nBuses-1; i++) {
-      recorridos.push("<div class=timeline0><div class=line>"+estBus+"</div> <div class=datos>hora"+(i+1)+" de salida</div></div>");
+      recorridos.push("<div class=timeline0 id=recorrido"+buses+"><div class=line>"+estBus+"</div> <div class=datos>hora"+(i+1)+" de salida</div><div class=cerrar onclick=eliminarRecorrido(recorrido"+buses+")>x</div></div>");
+      buses++
     }
     caja.append(recorridos.join(''));
     }
   //se encarga de agregar un recorrido al final, info se refiere a la hora de salida del bus
   this.agregarRecorrido=function(info){
-    caja.append("<div class=timeline0><div class=line>"+estBus+"</div> <div class=datos>hora de salida:</br>"+info+"</div><div class=cerrar>x</div></div>");
+    caja.append("<div class=timeline0 id=recorrido"+buses+"><div class=line>"+estBus+"</div> <div class=datos>hora de salida:</br>"+info+"</div><div class=cerrar onclick=eliminarRecorrido(recorrido"+buses+")>x</div></div>");
+    buses++
   }
-  //Se encarga de eliminar un recorrido, una vez que el bus ha completado su trayecto y ya no se encuentra en el itinerario
-  //se usa un indice para este evento ya que es posible que un bus adelante a otro por lo que no siempre el primero en entrar es el primero en salir
-  this.eliminarRecorrido=function (indice) {
-    var time =caja.children(".timeline0");
-    if (time.length-1<indice) {
-      console.log("el sistemas no cuenta con buses");
-    }
-    else {
-      time[indice].remove();
-    }
-  }
+
 
   function setTimelineWidth(disEE,timeline,length) {
     //el ancho esta definido por el numero de estaciones, se estima 120px estre cada estacion, los cuales seran distibuidos

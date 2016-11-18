@@ -48,10 +48,9 @@ body, html {
   padding: 0;
   box-sizing: border-box;
   overflow: hidden;
-  background: #f2f2f2;
   font-family: "Roboto Condensed", sans-serif, Arial;
   font-weight: lighter;
-  background-color: #fdfdfd;
+  background: #f2f2f2 !important;
 }
 
 a {
@@ -60,6 +59,13 @@ a {
 
 .timeline0 {
   width: calc(100% + 16px);
+  transition: width 1s;
+}
+.timeline0:hover {
+  background: #eeeeee;
+}
+.timeline0:hover .line, .timeline0:hover .line::before, .timeline0:hover .line::after {
+  background: #eeeeee;
 }
 .timeline0 .cerrar {
   position: absolute;
@@ -80,7 +86,7 @@ a {
 .timeline, .timeline0, .timelineM {
   overflow: hidden;
   position: relative;
-  transition: all 1s;
+  transition: height 1s;
 }
 
 .timeline, .timeline0 {
@@ -105,10 +111,10 @@ a {
 }
 
 .caja {
-  height: calc(100% - 12px);
+  height: calc(100% - 66.66px);
   overflow-y: scroll;
   overflow-x: hidden;
-  margin-bottom: 10px;
+  padding-bottom: 12px;
 }
 
 .cajaRR {
@@ -121,12 +127,14 @@ a {
 }
 
 .cajaP {
-  width: 95%;
+  background: white;
+  width: calc(100% - 24px);
   margin: auto;
   box-shadow: 1px 2px 10px 0px rgba(0, 0, 0, 0.3);
   overflow: hidden;
-  margin-top: 10px;
-  height: 90vh;
+  margin-top: 12px;
+  padding-top: 12px;
+  height: calc(90vh - 24px);
 }
 
 .cajaR0, .cajaR1, .cajaR2, .cajaR3, .cajaR4 {
@@ -179,7 +187,7 @@ a {
   height: 2px;
   width: 100%;
   /* width will be set using JavaScript */
-  background: #c5c5c5;
+  background: #515151;
   -webkit-transition: -webkit-transform 0.4s;
   -moz-transition: -moz-transform 0.4s;
   transition: transform 0.4s;
@@ -196,7 +204,7 @@ a {
   background-size: 1.5em 1.5em;
   background-repeat: no-repeat;
   background-position: bottom;
-  z-index: 102;
+  z-index: 104;
   transition: left 1s linear;
 }
 
@@ -219,7 +227,7 @@ a {
   top: -2em;
   width: 2px;
   height: 120px;
-  background: #5918e5;
+  background: #515151;
 }
 .estacion1::after {
   content: "";
@@ -235,8 +243,8 @@ a {
   width: 0.7em;
   height: 0.7em;
   border-radius: 100%;
-  background: #4bb68b;
-  box-shadow: 1px 2px 10px 0px rgba(0, 0, 0, 0.3);
+  background: white;
+  border: 2px solid #515151;
 }
 
 .estacion {
@@ -244,9 +252,12 @@ a {
   top: -2em;
   z-index: 2;
   text-align: center;
+  vertical-align: middle;
   font-size: 1em;
   color: #333333;
-  width: 120px;
+  width: 100px;
+  height: 30px;
+  font-stretch: condensed;
   /* fix bug on Safari - text flickering while timeline translates */
   -webkit-transform: translateZ(0);
   -moz-transform: translateZ(0);
@@ -265,10 +276,10 @@ a {
   -o-transform: translateX(-50%);
   transform: translateX(-50%);
   width: 2px;
-  top: 2em;
-  height: 80px;
-  background-color: #5918e5;
-  z-index: 100;
+  top: 50px;
+  height: 20px;
+  background-color: #515151;
+  z-index: 2;
 }
 .estacion::before {
   /* this is used to create the event spot */
@@ -281,14 +292,14 @@ a {
   -ms-transform: translateX(-50%);
   -o-transform: translateX(-50%);
   transform: translateX(-50%);
-  top: 1.5em;
+  top: 40px;
   height: 1em;
   width: 1em;
   border-radius: 50%;
-  border: 2px solid #d8d8d8;
-  background-color: #5918e5;
-  z-index: 101;
-  box-shadow: 0px 0px 0px 2px #5918e5;
+  border: 2px solid white;
+  background-color: #515151;
+  z-index: 3;
+  box-shadow: 0px 0px 0px 2px #515151;
   -webkit-transition: background-color 0.3s, border-color 0.3s;
   -moz-transition: background-color 0.3s, border-color 0.3s;
   transition: background-color 0.3s, border-color 0.3s;
