@@ -1,10 +1,4 @@
-//Se usa el id del recorrido para eliminar el bus de la ruta primero se le modifica la altura, para que ese recorrido no desaparesca
-//de forma abrupta
-function eliminarRecorrido(id) {
-  bus = $(id);
-  bus.css('height','0px');
-  setTimeout(function(){ bus.remove(); }, 1000);
-}
+
 /*
 Author: Antonio Cortes
 esta clase se usa para dministrar los recorridos, cuando solo se cuenta con una ruta
@@ -12,13 +6,12 @@ esta clase se usa para dministrar los recorridos, cuando solo se cuenta con una 
 function Itinerario(disEE,paradas) {
   var nEstaciones=paradas.length;
       agregarCabecera(nEstaciones,paradas);
-  var caja=$(".caja"), //raiz para la creacion de las lineas de tiempo para los buses
-      buses = [],
+  var caja = $(".caja"), //raiz para la creacion de las lineas de tiempo para los buses
       retorno = crearEstructura(),
       timeline = retorno[0],
       timelineWidth = retorno[1],
-      estBus = retorno[2];
-
+      estBus = retorno[2],
+      busesAceptados = [];
       //agregando todos los buses de los que se dispone y ocultandolos para usarlos cuando sea necesario
 
       /*
@@ -139,18 +132,57 @@ $("#btn6").click(function(){
     var recorridos=[];
     //se guarda primero la informacion del DOM en un array debido al costo computacion elevado de la funcion "append" de jQuery
     for (var i = 0; i < nBuses-1; i++) {
-      recorridos.push("<div class=timeline0 id=recorrido"+buses+"><div class=line><ol class=linei style=width:"+timelineWidth+"px;>"+estBus+"<li class=bus>id tyo</li></div> <div class=datos>hora de salida: <br>"+(i+1)+"</div><div class=cerrar onclick=eliminarRecorrido(recorrido"+buses+")>x</div></div>");
+      recorridos.push("<div class=timeline0 id=recorrido"+buses+"><div class=line><ol class=linei style=width:"+timelineWidth+"px;>"+estBus+"<li class=bus>id tyo</li></div> <div class=datos>hora de salida: <br>"+(i+1)+"</div><div class=cerrar onclick=it.eliminarRecorrido(recorrido"+idBus+")>x</div></div>");
       buses++
     }
     caja.append(recorridos.join(''));
     }
   //se encarga de agregar un recorrido al final, info se refiere a la hora de salida del bus
-  this.agregarRecorrido=function(id, horaS, idBus){
-    buses.push(id,caja.append("<div class=timeline0 id=recorrido"+buses+"><div class=line><ol class=linei style=width:"+timelineWidth+"px;>"+estBus+"<li class=bus>"+idBus+"</li></div> <div class=datos>hora de salida:</br>"+horaS+"</div><div class=cerrar onclick=eliminarRecorrido(recorrido"+buses+")>x</div></div>"));
+  this.agregarRecorrido = function(id, horaS, idBus){
+    buses = caja.append("<div class=timeline0 id=recorrido"+id+"><div class=line><ol class=linei style=width:"+timelineWidth+"px;>"+estBus+"<li class=bus>"+idBus+"</li></div> <div class=datos>hora de salida:</br>"+horaS+"</div><div class=cerrar onclick=it.removeRecorrido("+id+")>x</div></div>");
+    console.log(id);
+    busesAceptados.push(id);
 
   }
+  this.getRecorridos = function () {
+    return caja;
+  }
+  //Se usa el id del recorrido para eliminar el bus de la ruta primero se le modifica la altura, para que ese recorrido no desaparesca
+  //de forma abrupta
+  this.removeRecorrido = function(id) {
+    index = busesAceptados.indexOf(""+id);
+    if (busesAceptados.indexOf(""+id) > -1) {
+    busesAceptados.splice(busesAceptados.indexOf(""+id), 1);
+    }
+    bus = caja.find("#recorrido"+id);
+    //bus.css('height','0px');
+    //eliminamos el bus, del DOM
+    bus.remove();
+    caja = $(".caja");
+  }
+  this.getBusesAceptados = function () {
+    return busesAceptados;
+  }
+  this.getVectorIndices = function (buses) {
+    indices = [];
 
+    for (var i = 0; i < busesAceptados.length; i++) {
+      indice = buses.indexOf(busesAceptados[i]);
 
+      if (indice > -1) {
+          indices.push(indice);
+        }
+    }
+    return indices;
+  }
+
+  //creamos un listeners que espera cuando el usuario haga click sobre la x del recorrido
+  //llenado para seleccion de una unica ruta
+/*
+  caja.find(".cerra").on('click','div',function () {
+    t =  $(this);
+    console.log(t);
+  });*/
   function setTimelineWidth(disEE,timeline,length) {
     //el ancho esta definido por el numero de estaciones, se estima 120px estre cada estacion, los cuales seran distibuidos
     //de forma uniforme entre las estaciones (en estudio: de acuerdo a la distancia real, genreando una perseccion de la distacia real.)
@@ -226,7 +258,6 @@ $("#btn6").click(function(){
   function translateTimeline(timeline, value, totWidth) {
     var lineG = (timeline.children('.line')).children('.linei').get(0),
         mover=timeline.find('.mover');
-        console.log(lineG);
     value = (value > 0) ? 0 : value; //only negative translate value
     value = ( !(typeof totWidth === 'undefined') &&  value < totWidth ) ? totWidth : value; //do not translate more than timeline width
     setTransformValue(lineG, 'translateX', value+'px');

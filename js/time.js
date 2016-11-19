@@ -38,28 +38,33 @@
 $.getJSON("http://localhost:8000/data/buses"+rutaSeleccionada+".json").
      success(function(dataB) {
      $.bus = dataB;
-      var nBuses = dataB.recorridos.length,
+      var buses = [],
           recorridos = dataB.recorridos;
 
         for (var i = 0; i < recorridos.length; i++) {
+          buses.push(recorridos[i].idRecorrido);
           it.agregarRecorrido(recorridos[i].idRecorrido,recorridos[i].horaSalidaReal,recorridos[i].id);
         }
+        console.log(buses);
+              b=0;
+      setInterval(function () {
 
-                    b=0;
-            setInterval(function () {
+         if (b<recorridos[0].distancia.length) {
+           //console.log(data[0].Nombre);
+           //recorremos el
 
-                         if (b<recorridos[0].distancia.length) {
-                           //console.log(data[0].Nombre);
-                           //recorremos el
+           indices =it.getVectorIndices(buses)
+           //console.log(busesAceptados);
 
-                           for (var i = 0; i < recorridos.length; i++) {
-                             setPosTimelineB($(".bus").eq(i),recorridos[i].distancia[b]);
-                           }
-                       b++;
-                     }else {
-                       b=0;
-                     }
-             },1000);
-                 });
+           for (var i = 0; i < indices.length; i++) {
+             //console.log(busesAceptados.length);
+             setPosTimelineB($(".bus").eq(i),recorridos[indices[i]].distancia[b]);
+           }
+       b++;
+     }else {
+       b=0;
+     }
+   },1000);// tiempo en milisegundos, cada 1s segundo se hace un request(peticion) al servidor
+           });
 
    })
