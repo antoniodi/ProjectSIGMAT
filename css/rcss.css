@@ -4,18 +4,39 @@
   box-sizing: border-box;
 }
 
+
 /*TABLAS*/
 .grid {
+  position: absolute;
   width: 100%;
   height: 100%;
-  }
+  background-color: white;
+  
+}
 
-  .red { color: yellow;  background-color: red !important;}
+#grid1{
+  position: relative;
+  z-index: 1;
+  top: 100px;
+}
+
+#cajaletrero{
+  position: relative;
+  z-index: 1;
+  top: 45px;
+  width: 40%;
+  height: 38px;
+ font-size: xx-large;
+  background-color: #11EF96;
+  color: white;
+  text-align: center;
+  
+}
+
+.red { color: yellow;  background-color: red !important;}
 .blue { color: blue;  }
 
-.ui-grid .ui-grid-render-container-body .ui-grid-viewport {
-  overflow-x: scroll !important;
-}
+
 /*FIN TABLAS*/
 
 .datos {

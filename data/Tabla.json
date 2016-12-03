@@ -8,14 +8,15 @@
       "HoraSalidaEstimada": "11:55:00",
       "HoraSalidaReal":"11:57:52",
       "HorarioEstimado": {
-        "ST1": "12:00:00",
+        "ST1": "11:00:00",
         "ST2": "12:10:00",
         "ST3": "12:20:00",
         "ST4": "12:25:00",
         "ST5": "12:35:00"
+
       },
        "HorarioReal": {
-        "ST1": "12:05:00",
+        "ST1": "12:00:00",
         "ST2": "12:15:00",
         "ST3": "12:23:52",
         "ST4": "12:30:00",
@@ -38,7 +39,7 @@
         "ST5": "13:05:00"
       },
        "HorarioReal": {
-        "ST1": "12:30:00",
+        "ST1": "11:30:00",
         "ST2": "12:37:00",
         "ST3": "12:45:00",
         "ST4": "12:50:25",
@@ -48,7 +49,7 @@
 
     {
       "Clave": "4654POL",
-      "Conductor": "Señor2",
+      "Conductor": "Señor3",
       
       "Placa": "ZGR58D",
       "Ruta": "T3",
@@ -71,7 +72,7 @@
     },
     {
       "Clave": "4654POL",
-      "Conductor": "Señor2",
+      "Conductor": "Señor4",
       
       "Placa": "ZGR58D",
       "Ruta": "T3",
@@ -95,31 +96,7 @@
 ,
 {
       "Clave": "4654POL",
-      "Conductor": "Señor2",
-      
-      "Placa": "ZGR58D",
-      "Ruta": "T3",
-      "HoraSalidaEstimada": "12:25:00",
-      "HoraSalidaReal":"12:26:00",
-      "HorarioEstimado": {
-        "ST1": "12:30:00",
-        "ST2": "12:40:00",
-        "ST3": "12:50:00",
-        "ST4": "12:55:00",
-        "ST5": "13:05:00"
-      },
-       "HorarioReal": {
-        "ST1": "11:22:00",
-        "ST2": "12:37:00",
-        "ST3": "12:45:00",
-        "ST4": "12:50:25",
-        "ST5": "13:00:11"
-      }
-    }
-,
-{
-      "Clave": "4654POL",
-      "Conductor": "Señor2",
+      "Conductor": "Señor5",
       
       "Placa": "ZGR58D",
       "Ruta": "T3",
@@ -142,103 +119,7 @@
     },
     {
       "Clave": "4654POL",
-      "Conductor": "Señor2",
-      
-      "Placa": "ZGR58D",
-      "Ruta": "T3",
-      "HoraSalidaEstimada": "12:25:00",
-      "HoraSalidaReal":"12:26:00",
-      "HorarioEstimado": {
-        "ST1": "12:30:00",
-        "ST2": "12:40:00",
-        "ST3": "12:50:00",
-        "ST4": "12:55:00",
-        "ST5": "13:05:00"
-      },
-       "HorarioReal": {
-        "ST1": "11:22:00",
-        "ST2": "12:37:00",
-        "ST3": "12:45:00",
-        "ST4": "12:50:25",
-        "ST5": "13:00:11"
-      }
-    }
-,
-{
-      "Clave": "4654POL",
-      "Conductor": "Señor2",
-      
-      "Placa": "ZGR58D",
-      "Ruta": "T3",
-      "HoraSalidaEstimada": "12:25:00",
-      "HoraSalidaReal":"12:26:00",
-      "HorarioEstimado": {
-        "ST1": "12:30:00",
-        "ST2": "12:40:00",
-        "ST3": "12:50:00",
-        "ST4": "12:55:00",
-        "ST5": "13:05:00"
-      },
-       "HorarioReal": {
-        "ST1": "11:22:00",
-        "ST2": "12:37:00",
-        "ST3": "12:45:00",
-        "ST4": "12:50:25",
-        "ST5": "13:00:11"
-      }
-    }
-,
-{
-      "Clave": "4654POL",
-      "Conductor": "Señor2",
-      
-      "Placa": "ZGR58D",
-      "Ruta": "T3",
-      "HoraSalidaEstimada": "12:25:00",
-      "HoraSalidaReal":"12:26:00",
-      "HorarioEstimado": {
-        "ST1": "12:30:00",
-        "ST2": "12:40:00",
-        "ST3": "12:50:00",
-        "ST4": "12:55:00",
-        "ST5": "13:05:00"
-      },
-       "HorarioReal": {
-        "ST1": "11:22:00",
-        "ST2": "12:37:00",
-        "ST3": "12:45:00",
-        "ST4": "12:50:25",
-        "ST5": "13:00:11"
-      }
-    }
-,
-{
-      "Clave": "4654POL",
-      "Conductor": "Señor2",
-      
-      "Placa": "ZGR58D",
-      "Ruta": "T3",
-      "HoraSalidaEstimada": "12:25:00",
-      "HoraSalidaReal":"12:26:00",
-      "HorarioEstimado": {
-        "ST1": "12:30:00",
-        "ST2": "12:40:00",
-        "ST3": "12:50:00",
-        "ST4": "12:55:00",
-        "ST5": "13:05:00"
-      },
-       "HorarioReal": {
-        "ST1": "11:22:00",
-        "ST2": "12:37:00",
-        "ST3": "12:45:00",
-        "ST4": "12:50:25",
-        "ST5": "13:00:11"
-      }
-    }
-,
-{
-      "Clave": "4654POL",
-      "Conductor": "Señor2",
+      "Conductor": "Señor6",
       
       "Placa": "ZGR58D",
       "Ruta": "T3",
