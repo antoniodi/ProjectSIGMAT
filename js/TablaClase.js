@@ -1,6 +1,6 @@
 var app = angular.module('app', ['ngAnimate', 'ngTouch', 'ui.grid', 'ui.grid.selection', 'ui.grid.exporter']);
 
-app.controller('MainCtrl', ['$scope', '$http', function ($scope, $http) {
+app.controller('MainCtrl', ['$scope', '$http','i18nService', function ($scope, $http, i18nService ) {
 
   
  $scope.deleteRow = function(row) {
@@ -66,6 +66,7 @@ app.controller('MainCtrl', ['$scope', '$http', function ($scope, $http) {
       $scope.gridApi = gridApi;
     }
   };
+  i18nService.setCurrentLang('es');
 
   $http.get('../data/Tabla.json')
     .success(function(data) {
