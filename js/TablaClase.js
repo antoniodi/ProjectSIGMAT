@@ -1,5 +1,8 @@
 var app = angular.module('app', ['ngAnimate', 'ngTouch', 'ui.grid', 'ui.grid.selection', 'ui.grid.exporter']);
 
+var rutaSeleccionada = window.location.search.split("=")[1];
+    console.log(rutaSeleccionada);
+
 app.controller('MainCtrl', ['$scope', '$http','i18nService', function ($scope, $http, i18nService ) {
 
   
@@ -38,10 +41,11 @@ app.controller('MainCtrl', ['$scope', '$http','i18nService', function ($scope, $
       {field: 'HorarioEstimado.ST4', name:'H.E-est4', width: '8%'},
       {field: 'HorarioReal.ST4', name:'H.R-est4', width: '8%'},
       {field: 'HorarioEstimado.ST5', name:'H.E-est5', width: '8%'},
-      {field: 'HorarioReal.ST5', name:'H.R-est5', width: '8%'}
+      {field: 'HorarioReal.ST5', name:'H.R-est5', width: '8%'},
+      {field: 'HorarioReal.ST6', name:'H.R-est6', width: '8%'}
 
     ],
-    
+    rowHeight: 35,
     exporterMenuCsv: false,
     enableGridMenu: true,
     enableSelectAll: true,
@@ -68,7 +72,7 @@ app.controller('MainCtrl', ['$scope', '$http','i18nService', function ($scope, $
   };
   i18nService.setCurrentLang('es');
 
-  $http.get('../data/Tabla.json')
+  $http.get("../data/Tabla"+rutaSeleccionada+".json")
     .success(function(data) {
       $scope.gridOptions.data = data;
     });
