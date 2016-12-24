@@ -13,19 +13,20 @@
         nEstaciones = paradas.length,
         itinerarios = {}, //alacenamos cada una delas rutas
         nRutas = 0;
-/*
+/**/
     for (var i = 0; i < rutasSeleccionadas.length; i++) {
       for (var j = 0; j < data.length; j++) {
         console.log(data.length+"   "+rutasSeleccionadas[i]+"    "+data[j].nombre);
         if (rutasSeleccionadas[i] == data[j].nombre ) {
-          itinerarios.push(new Recorridos(data[j].nombre,disEE,data[j].paradas,nRutas));
+          //itinerarios.push(new Recorridos(data[j].nombre,disEE,data[j].paradas,nRutas));
+          console.log("Hola");
         }
 
       }
-    }*/
+    }//*/
     //parametros necesarios(obligatorios), hora de salida, numero de buses, distancia entre estaciones, vector de paradas
     //ese vector viene del .json tiene un formato especifico, y un id del numero del recorrido segun el día
-    
+
     it =new Recorridos(nombreRuta,disEE,paradas,0);
     it1 =new Recorridos(data[1].nombre,disEE,data[1].paradas,1);
     it2 =new Recorridos(data[2].nombre,disEE,data[2].paradas,2);

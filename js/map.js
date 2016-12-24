@@ -149,12 +149,25 @@ function generarOpcionesU(rutasSeleccionadas) {
 function generarOpciones(rutasSeleccionadas) {
   cuadroRutas = [];
   for (var i = 0; i < rutasSeleccionadas.length; i++) {
-    cuadroRutas.push("<div class=caja3> <div class=logo style=background:#"+rutasSeleccionadas[i].color+";>"+rutasSeleccionadas[i].nombre+"</div>  <div class=texto>"+rutasSeleccionadas[i].descripcion+"</div><div class=switch><label><input type=checkbox><span class=lever></span></label></div></div>");
+    cuadroRutas.push("<div class=caja3> <div class=logo style=background:#"+rutasSeleccionadas[i].color+";>"+rutasSeleccionadas[i].nombre+"</div>  <div class=texto>"+rutasSeleccionadas[i].descripcion+"</div><div class=switch><label><input type=checkbox value="+rutasSeleccionadas[i].nombre+"><span class=lever></span></label></div></div>");
   }
   $(".bloque4").children().remove();
   $(".bloque4").append(cuadroRutas.join(" "));
-
+  
 };
+//mira y me informa cando son accionados los swichet
+$(".bloque4").on('click','input',function() {
+  s =$(this);
+   if (s.is(':checked')) {
+      //se selecciono una opcion
+      console.log("lo selecciono "+s.val());
+   }else {
+    //se des-selecciono una opcion
+     console.log("lo des-selecciono "+s.val());
+   }
+   //var i = t.index();
+   
+ });
 
 //funcion que busca coincidencias en una categoria a partir de una palabra
 function buscarCoincidencias(palabra) {
