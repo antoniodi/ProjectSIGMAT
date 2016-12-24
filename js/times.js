@@ -25,7 +25,7 @@
     }*/
     //parametros necesarios(obligatorios), hora de salida, numero de buses, distancia entre estaciones, vector de paradas
     //ese vector viene del .json tiene un formato especifico, y un id del numero del recorrido segun el día
-
+    
     it =new Recorridos(nombreRuta,disEE,paradas,0);
     it1 =new Recorridos(data[1].nombre,disEE,data[1].paradas,1);
     it2 =new Recorridos(data[2].nombre,disEE,data[2].paradas,2);
