@@ -1,7 +1,7 @@
 
 /*
 Author: Antonio Cortes
-esta clase se usa para dministrar los recorridos, cuando solo se cuenta con una ruta
+esta clase se usa para administrar los recorridos, cuando solo se cuenta con una ruta
 */
 function Itinerario(disEE,paradas) {
   var nEstaciones=paradas.length;
@@ -143,7 +143,7 @@ $("#btn6").click(function(){
   //se encarga de agregar un recorrido al final, info se refiere a la hora de salida del bus
   this.agregarRecorrido = function(id, horaS, idBus){
     buses = caja.append("<div class=timeline0 id=recorrido"+id+"><div class=line><ol class=linei style=width:"+timelineWidth+"px;>"+estBus+"<li class=bus>"+idBus+"</li></div> <div class=datos>hora de salida:</br>"+horaS+"</div><div class=cerrar onclick=it.removeRecorrido("+id+")>x</div></div>");
-    console.log(id);
+    //console.log(id);
     busesAceptados.push(id);
 
   }

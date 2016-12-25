@@ -11,6 +11,12 @@
   list-style: none
   box-sizing: border-box
 
+.bloque1
+  display: flex
+  font-size: 3em
+  color: $grisos
+  padding-left: 24px
+  font-stretch: condensed
 .datos
   position: absolute
   @include center(y)
@@ -68,9 +74,9 @@ a
     text-align: center
     z-index: 2
     cursor: pointer
-
     &:hover
       color: $colorti
+
 .timeline,.timeline0,.timelineM
   background: white
   overflow: hidden
@@ -83,13 +89,40 @@ a
 .timeline,.timelineM
   width: 100%
 .timelineM
-  height: 10em
+  height: 132px
   .estacion
     top: -6em
   .linei
     top: 6em
   .line
     overflow-x: auto
+  #detalle
+    position: absolute
+    @include center(y)
+    z-index: 2    
+    right: 25px
+    font-size: 3.2em
+    color: $grisc
+    
+    cursor: pointer
+    &:hover
+      color: $verde
+
+  .cerrar
+    position: absolute
+    right: -8px
+    top: 0px
+    width: 36px
+    height: 36px
+    font-size: 20px
+    color: $grisc
+    text-align: center
+    z-index: 2
+    cursor: pointer
+    &:hover
+      color: $colorti
+
+
 
 
   //margin-left: 5%

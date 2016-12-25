@@ -4,6 +4,14 @@
   box-sizing: border-box;
 }
 
+.bloque1 {
+  display: flex;
+  font-size: 3em;
+  color: #515151;
+  padding-left: 24px;
+  font-stretch: condensed;
+}
+
 .datos {
   position: absolute;
   top: 50%;
@@ -101,7 +109,7 @@ a {
 }
 
 .timelineM {
-  height: 10em;
+  height: 132px;
 }
 .timelineM .estacion {
   top: -6em;
@@ -111,6 +119,39 @@ a {
 }
 .timelineM .line {
   overflow-x: auto;
+}
+.timelineM #detalle {
+  position: absolute;
+  top: 50%;
+  bottom: auto;
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
+  transform: translateY(-50%);
+  z-index: 2;
+  right: 25px;
+  font-size: 3.2em;
+  color: #b5b5b5;
+  cursor: pointer;
+}
+.timelineM #detalle:hover {
+  color: #1bce7c;
+}
+.timelineM .cerrar {
+  position: absolute;
+  right: -8px;
+  top: 0px;
+  width: 36px;
+  height: 36px;
+  font-size: 20px;
+  color: #b5b5b5;
+  text-align: center;
+  z-index: 2;
+  cursor: pointer;
+}
+.timelineM .cerrar:hover {
+  color: #212121;
 }
 
 .caja {
