@@ -511,7 +511,7 @@ var h=function hola() {
     //creamos un paquete de Marker
    	 var m=factory.crearPaqueteMarker("estacion",map,arrayEstaciones.length);
      for (var i = 0; i < arrayEstaciones.length; i++) {
-				 m[i].setPosition(new google.maps.LatLng(arrayEstaciones[i].latitud,arrayEstaciones[i].longitud));
+				 m[i].setPosition(new google.maps.LatLng(arrayEstaciones[i].Coordenada.Latitud,arrayEstaciones[i].Coordenada.Longitud));
          infoW(arrayEstaciones[i].Nombre,m[i]);
      }
   }
