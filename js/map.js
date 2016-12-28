@@ -1,7 +1,7 @@
 //google map custom marker icon - .png fallback for IE11
 var marker_bus0 = 'img/bus-markern.svg',
   	marker_bus1 = 'img/bus-markerv.svg',
-  	marker_bus2 = 'img/bus-markerm.svg',
+  	marker_bus2 = 'img/bus-markeraz.svg',
   	marker_estacion = 'img/bus-stop.svg',
     flecha = $('.flecha'),
     flecha0 = flecha.children("a"),
@@ -155,19 +155,7 @@ function generarOpciones(rutasSeleccionadas) {
   $(".bloque4").append(cuadroRutas.join(" "));
   
 };
-//mira y me informa cando son accionados los swichet
-$(".bloque4").on('click','input',function() {
-  s =$(this);
-   if (s.is(':checked')) {
-      //se selecciono una opcion
-      console.log("lo selecciono "+s.val());
-   }else {
-    //se des-selecciono una opcion
-     console.log("lo des-selecciono "+s.val());
-   }
-   //var i = t.index();
-   
- });
+
 
 //funcion que busca coincidencias en una categoria a partir de una palabra
 function buscarCoincidencias(palabra) {
@@ -302,7 +290,7 @@ function markerPaqueteFactory(){
 						break;
 					case "R1":
 						console.log("Se creo un recorrido de la ruta R1");
-            console.log(paqueteMarkerR1(map,n));
+           
 						return paqueteMarkerR1(map,n);
         		break;
 					case "R2":
@@ -576,42 +564,47 @@ infoWindow1 = new google.maps.InfoWindow();
         openInfoWindow(marker10);
     });
 */
-var R2=factory.crearPaqueteMarker("R2",map,5);
 
-timer=setInterval(asi,1000);
+//mira y me informa cando son accionados los swichet
+$(".bloque4").on('click','input',function() {
+  s =$(this);
+   if (s.is(':checked')) {
+//se selecciono una opcion
+
+var R2=factory.crearPaqueteMarker(s.val(),map,5);
 var b=0;
-//variable para almacenar valores de posicion conceptual y poder saber si ubo un camio de posicion
-var ant=[];
-function asi() {
-		$.getJSON("http://localhost:8000/data/ruta1.json", function(datos) {
-				$.coordenadas=datos;
-        //if para resetear la b cuando se llegue al final de la prueba
+//variable para almacenar valores de posicion conceptual y poder saber si hubo un cambio de posicion
+
+
+    $.getJSON("http://localhost:8000/data/ruta"+s.val()+".json", function(datos) {
+       setInterval ( function (){
+
+       $.coordenadas=datos;
+        //if para resetear la b cuando se llegue al final de la prueba   
         if(b<datos[0].coordenadas.length)
         {
 
-          //recorremos todos los datos de la ruta especifica
         for (var i = 0; i < datos.length; i++) {
-/*
-          if (ant[i]==undefined || (ant[i]-datos[i].coordenadas[b].id)>0 ) {
-            for (var j = 0; j < chart.series.length; j++) {
-              chart.series[j].data[i+1].update(0);
-              }
 
-          }
-*/
           moverMarker(datos[i].coordenadas[b],R2[i]);
 
-          //recorridosGrafica(datos[i].coordenadas[b],i);
-
-          ant[i]=datos[i].coordenadas[b].id;
-
-          }	b++
+          //recorridosGrafica(datos[i].coordenadas[b],i)        
+          } b++
         }else {
           b=0
         }
-}
+        console.log("VALOR Que TIENE "+s.val());
+},5000);})
+ 
+   } else {
+    
+    //se des-selecciono una opcion
+     console.log("lo des-selecciono "+s.val());
+   }  
+ });
 
-)};
+
+
 /*
 function construir(data, b) {
   //if para resetear la b cuando se llegue al final de la prueba
