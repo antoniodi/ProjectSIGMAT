@@ -1,0 +1,26 @@
+<!doctype html>
+<html ng-app="app">
+  <head>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular-touch.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular-animate.js"></script>
+    
+    <script src="http://ui-grid.info/docs/grunt-scripts/pdfmake.js"></script>
+    <script src="http://ui-grid.info/docs/grunt-scripts/vfs_fonts.js"></script>
+    <script src="http://ui-grid.info/release/ui-grid.js"></script>
+    <link rel="stylesheet" href="http://ui-grid.info/release/ui-grid.css" type="text/css">
+    <link href="../css/styletablas.css" rel="stylesheet" type="text/css">
+  </head>
+  <body>
+
+ <div class="grid">
+ <div id="cajaletrero"><b>MONITOREO EN TABLAS: UNICA RUTA</b></div>
+ 
+  <div id="grid1" ng-controller="MainCtrl">
+   <div  ui-grid="gridOptions" ui-grid-selection ui-grid-exporter  ></div>
+  </div>
+</div>
+
+  <script src="../js/TablaClase.js"></script>
+  </body>
+</html>
