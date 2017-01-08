@@ -7987,6 +7987,8 @@ body, html {
  .derecha {
   position: absolute;
   background-color: white;
+  display: flex;
+  flex-direction: column;
   width: 150px;
   height: 80px;
   right: 0.5%;
@@ -7995,7 +7997,14 @@ body, html {
   text-align: center;
   z-index: 1;
   box-shadow: 0px 0px 5px 3px rgba(0, 0, 0, 0.2);
+
 }
+.derecha > label{   
+    display: flex;
+    margin-left: 20px;
+      
+  }
+
 
 .izquierda {
   position: absolute;

@@ -21,7 +21,7 @@
       for (var j = 0; j < data.length; j++) {
         //console.log(data.length+"   "+rutasSeleccionadas[i]+"    "+data[j].nombre);
         if (rutasSeleccionadas[i] == data[j].nombre ) {
-          itinerarios.push(new Recorridos(data[j].nombre,disEE,data[j].paradas,idRutas));
+          itinerarios.push(new Recorridos(data[j].nombre,disEE,data[j].paradas,idRutas,data[j].color));
           idRutas++;
 
         }
@@ -36,12 +36,13 @@
     it1 =new Recorridos(data[1].nombre,disEE,data[1].paradas,1);
     it2 =new Recorridos(data[2].nombre,disEE,data[2].paradas,2);
     it3 =new Recorridos(data[2].nombre,disEE,data[2].paradas,3);*/
+
     //mira y me informa cando el usuario le da click a la x para eliminar una ruta
     $(".cajarr").on('click','input',function() {
-      console.log("hola");
+      
       s =$(this);
       delete itinerarios[idRutas];
-       console.log("lo selecciono .cajaR"+s.val());
+       //console.log("lo selecciono .cajaR"+s.val());
         ruta = $(".cajaR"+s.val());
         ruta.find('.timelinem').css('height','0px');
         ruta.find(".cerrar").css('display','none');
