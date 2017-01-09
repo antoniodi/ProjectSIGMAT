@@ -1,336 +1,181 @@
-{"hora":"10:12:24","recorridos":[{"id":"EM-KML256","idRecorrido":"1","horaSalidaReal":"10:10","distancia":[
-  5
-, 9
-, 15
-, 24
-, 32
-, 37
-, 42
-, 53
-, 62
-, 69
-, 72
-, 82
-, 89
-, 92
-, 105
-, 107
-, 115
-, 122
-, 130
-, 139
-, 145
-, 151
-, 159
-, 165
-, 171
-, 179
-, 188
-, 191
-, 198
-, 206
-, 212
-, 218
-, 226
-, 232
-, 238
-, 248
-, 256
-, 263
-, 267
-, 278
-, 281
-, 290
-, 299
-, 304
-, 314
-, 321
-, 327
-, 335
-, 340
-, 347
-, 354
-, 358
-, 368
-, 373
-, 379
-, 390
-, 394
-, 403
-, 411
-, 416
-, 425
-, 430
-, 434
-, 444
-, 449
-, 460
-, 465
-, 474
-, 478
-, 489
-, 495
-, 501
-, 509
-, 512
-, 522
-, 528
-, 533
-, 542
-, 552
-, 557
-, 562
-, 568
-, 580
-, 584
-, 595
-, 596
-, 606
-, 615
-, 618
-, 624
-, 632
-, 639
-, 648
-, 656
-, 660
-, 669
-, 673
-, 679
-, 687
-, 694
-, 706
-, 708
-, 714
-, 727
-, 732
-, 739
-, 745
-, 752
-, 756
-, 769
-]},{"id":"EL-KML257","idRecorrido":"2","horaSalidaReal":"10:20","distancia":[
-   290
-  , 299
-  , 304
-  , 314
-  , 321
-  , 327
-  , 335
-  , 340
-  , 347
-  , 354
-  , 358
-  , 368
-  , 373
-  , 379
-  , 390
-  , 394
-  , 403
-  , 411
-  , 416
-  , 425
-  , 430
-  , 434
-  , 444
-  , 449
-  , 460
-  , 465
-  , 474
-  , 478
-  , 489
-  , 495
-  , 501
-  , 509
-  , 512
-  , 522
-  , 528
-  , 533
-  , 542
-  , 552
-  , 557
-  , 562
-  , 568
-  , 580
-  , 584
-  , 595
-  , 596
-  , 606
-  , 615
-  , 618
-  , 624
-  , 632
-  , 639
-  , 648
-  , 656
-  , 660
-  , 669
-  , 673
-  , 679
-  , 687
-  , 694
-  , 706
-  , 708
-  , 714
-  , 727
-  , 732
-  , 739
-  , 745
-  , 752
-  , 756
-  , 769
-  ,5
-, 9
-, 15
-, 24
-, 32
-, 37
-, 42
-, 53
-, 62
-, 69
-, 72
-, 82
-, 89
-, 92
-, 105
-, 107
-, 115
-, 122
-, 130
-, 139
-, 145
-, 151
-, 159
-, 165
-, 171
-, 179
-, 188
-, 191
-, 198
-, 206
-, 212
-, 218
-, 226
-, 232
-, 238
-, 248
-, 256
-, 263
-, 267
-, 278
-, 281
-, 290
-]},{"id":"EM-KML258","idRecorrido":"3","horaSalidaReal":"10:30","idRecorrido":"3","distancia":[
-  8
-  , 9
-  , 25
-  , 29
-  , 40
-  , 51
-  , 56
-  , 63
-  , 73
-  , 85
-  , 97
-  , 107
-  , 117
-  , 119
-  , 132
-  , 138
-  , 152
-  , 161
-  , 165
-  , 177
-  , 186
-  , 189
-  , 202
-  , 212
-  , 220
-  , 232
-  , 235
-  , 247
-  , 257
-  , 269
-  , 272
-  , 288
-  , 294
-  , 301
-  , 312
-  , 317
-  , 325
-  , 336
-  , 350
-  , 353
-  , 366
-  , 377
-  , 379
-  , 388
-  , 398
-  , 407
-  , 423
-  , 429
-  , 432
-  , 443
-  , 450
-  , 468
-  , 470
-  , 478
-  , 489
-  , 496
-  , 510
-  , 514
-  , 523
-  , 538
-  , 543
-  , 549
-  , 565
-  , 572
-  , 581
-  , 588
-  , 602
-  , 610
-  , 613
-  , 626
-  , 632
-  , 640
-  , 650
-  , 660
-  , 667
-  , 679
-  , 684
-  , 700
-  , 705
-  , 712
-  , 726
-  , 731
-  , 740
-  , 752
-  , 763
-  , 771
-  , 777
-  , 788
-  , 794
-  ,8
-  , 9
-  , 25
-  , 29
-  , 40
-  , 51
-  , 56
-  , 63
-  , 73
-  , 85
-  , 97
-  , 107
-  , 117
-  , 119
-  , 132
-  , 138
-  , 152
-  , 161
-  , 165
-  , 177
-  , 186
-]}
- ]}
+[
+[
+{"Hora":1483888517144,"id":"EM-KML256","idRecorrido":"1","horaSaliDete":1483888517144,"horaSaliReal":1483888517144,"tiemAcumDete":60,"tiemEstaDete":60,"porcAvan":0},
+{"Hora":1483888527144,"id":"EM-KML256","idRecorrido":"1","horaSaliDete":1483888517144,"horaSaliReal":1483888517144,"tiemAcumDete":60,"tiemEstaDete":60,"porcAvan":20},
+{"Hora":1483888537144,"id":"EM-KML256","idRecorrido":"1","horaSaliDete":1483888517144,"horaSaliReal":1483888517144,"tiemAcumDete":60,"tiemEstaDete":60,"porcAvan":46},
+{"Hora":1483888547144,"id":"EM-KML256","idRecorrido":"1","horaSaliDete":1483888517144,"horaSaliReal":1483888517144,"tiemAcumDete":60,"tiemEstaDete":60,"porcAvan":73},
+{"Hora":1483888557144,"id":"EM-KML256","idRecorrido":"1","horaSaliDete":1483888517144,"horaSaliReal":1483888517144,"tiemAcumDete":60,"tiemEstaDete":60,"porcAvan":99},
+{"Hora":1483888567144,"id":"EM-KML256","idRecorrido":"1","horaSaliDete":1483888517144,"horaSaliReal":1483888517144,"tiemAcumDete":60,"tiemEstaDete":60,"porcAvan":124},
+{"Hora":1483888577144,"id":"EM-KML256","idRecorrido":"1","horaSaliDete":1483888517144,"horaSaliReal":1483888517144,"tiemAcumDete":60,"tiemEstaDete":60,"porcAvan":146},
+{"Hora":1483888587144,"id":"EM-KML256","idRecorrido":"1","horaSaliDete":1483888517144,"horaSaliReal":1483888517144,"tiemAcumDete":60,"tiemEstaDete":60,"porcAvan":173},
+{"Hora":1483888597144,"id":"EM-KML256","idRecorrido":"1","horaSaliDete":1483888517144,"horaSaliReal":1483888517144,"tiemAcumDete":60,"tiemEstaDete":60,"porcAvan":196},
+{"Hora":1483888607144,"id":"EM-KML256","idRecorrido":"1","horaSaliDete":1483888517144,"horaSaliReal":1483888517144,"tiemAcumDete":60,"tiemEstaDete":60,"porcAvan":222},
+{"Hora":1483888617144,"id":"EM-KML256","idRecorrido":"1","horaSaliDete":1483888517144,"horaSaliReal":1483888517144,"tiemAcumDete":60,"tiemEstaDete":60,"porcAvan":245},
+{"Hora":1483888627144,"id":"EM-KML256","idRecorrido":"1","horaSaliDete":1483888517144,"horaSaliReal":1483888517144,"tiemAcumDete":60,"tiemEstaDete":60,"porcAvan":272},
+{"Hora":1483888637144,"id":"EM-KML256","idRecorrido":"1","horaSaliDete":1483888517144,"horaSaliReal":1483888517144,"tiemAcumDete":60,"tiemEstaDete":60,"porcAvan":297},
+{"Hora":1483888647144,"id":"EM-KML256","idRecorrido":"1","horaSaliDete":1483888517144,"horaSaliReal":1483888517144,"tiemAcumDete":60,"tiemEstaDete":60,"porcAvan":323},
+{"Hora":1483888657144,"id":"EM-KML256","idRecorrido":"1","horaSaliDete":1483888517144,"horaSaliReal":1483888517144,"tiemAcumDete":60,"tiemEstaDete":60,"porcAvan":348},
+{"Hora":1483888667144,"id":"EM-KML256","idRecorrido":"1","horaSaliDete":1483888517144,"horaSaliReal":1483888517144,"tiemAcumDete":60,"tiemEstaDete":60,"porcAvan":371},
+{"Hora":1483888677144,"id":"EM-KML256","idRecorrido":"1","horaSaliDete":1483888517144,"horaSaliReal":1483888517144,"tiemAcumDete":60,"tiemEstaDete":60,"porcAvan":400},
+{"Hora":1483888687144,"id":"EM-KML256","idRecorrido":"1","horaSaliDete":1483888517144,"horaSaliReal":1483888517144,"tiemAcumDete":60,"tiemEstaDete":60,"porcAvan":423},
+{"Hora":1483888697144,"id":"EM-KML256","idRecorrido":"1","horaSaliDete":1483888517144,"horaSaliReal":1483888517144,"tiemAcumDete":60,"tiemEstaDete":60,"porcAvan":445},
+{"Hora":1483888707144,"id":"EM-KML256","idRecorrido":"1","horaSaliDete":1483888517144,"horaSaliReal":1483888517144,"tiemAcumDete":60,"tiemEstaDete":60,"porcAvan":471},
+{"Hora":1483888717144,"id":"EM-KML256","idRecorrido":"1","horaSaliDete":1483888517144,"horaSaliReal":1483888517144,"tiemAcumDete":60,"tiemEstaDete":60,"porcAvan":496},
+{"Hora":1483888727144,"id":"EM-KML256","idRecorrido":"1","horaSaliDete":1483888517144,"horaSaliReal":1483888517144,"tiemAcumDete":60,"tiemEstaDete":60,"porcAvan":522},
+{"Hora":1483888737144,"id":"EM-KML256","idRecorrido":"1","horaSaliDete":1483888517144,"horaSaliReal":1483888517144,"tiemAcumDete":60,"tiemEstaDete":60,"porcAvan":548},
+{"Hora":1483888747144,"id":"EM-KML256","idRecorrido":"1","horaSaliDete":1483888517144,"horaSaliReal":1483888517144,"tiemAcumDete":60,"tiemEstaDete":60,"porcAvan":573},
+{"Hora":1483888757144,"id":"EM-KML256","idRecorrido":"1","horaSaliDete":1483888517144,"horaSaliReal":1483888517144,"tiemAcumDete":60,"tiemEstaDete":60,"porcAvan":600},
+{"Hora":1483888767144,"id":"EM-KML256","idRecorrido":"1","horaSaliDete":1483888517144,"horaSaliReal":1483888517144,"tiemAcumDete":60,"tiemEstaDete":60,"porcAvan":620},
+{"Hora":1483888777144,"id":"EM-KML256","idRecorrido":"1","horaSaliDete":1483888517144,"horaSaliReal":1483888517144,"tiemAcumDete":60,"tiemEstaDete":60,"porcAvan":648},
+{"Hora":1483888787144,"id":"EM-KML256","idRecorrido":"1","horaSaliDete":1483888517144,"horaSaliReal":1483888517144,"tiemAcumDete":60,"tiemEstaDete":60,"porcAvan":670},
+{"Hora":1483888797144,"id":"EM-KML256","idRecorrido":"1","horaSaliDete":1483888517144,"horaSaliReal":1483888517144,"tiemAcumDete":60,"tiemEstaDete":60,"porcAvan":700},
+{"Hora":1483888807144,"id":"EM-KML256","idRecorrido":"1","horaSaliDete":1483888517144,"horaSaliReal":1483888517144,"tiemAcumDete":60,"tiemEstaDete":60,"porcAvan":721},
+{"Hora":1483888817144,"id":"EM-KML256","idRecorrido":"1","horaSaliDete":1483888517144,"horaSaliReal":1483888517144,"tiemAcumDete":60,"tiemEstaDete":60,"porcAvan":746},
+{"Hora":1483888827144,"id":"EM-KML256","idRecorrido":"1","horaSaliDete":1483888517144,"horaSaliReal":1483888517144,"tiemAcumDete":60,"tiemEstaDete":60,"porcAvan":774},
+{"Hora":1483888837144,"id":"EM-KML256","idRecorrido":"1","horaSaliDete":1483888517144,"horaSaliReal":1483888517144,"tiemAcumDete":60,"tiemEstaDete":60,"porcAvan":799},
+{"Hora":1483888847144,"id":"EM-KML256","idRecorrido":"1","horaSaliDete":1483888517144,"horaSaliReal":1483888517144,"tiemAcumDete":60,"tiemEstaDete":60,"porcAvan":822},
+{"Hora":1483888857144,"id":"EM-KML256","idRecorrido":"1","horaSaliDete":1483888517144,"horaSaliReal":1483888517144,"tiemAcumDete":60,"tiemEstaDete":60,"porcAvan":849},
+{"Hora":1483888867144,"id":"EM-KML256","idRecorrido":"1","horaSaliDete":1483888517144,"horaSaliReal":1483888517144,"tiemAcumDete":60,"tiemEstaDete":60,"porcAvan":874},
+{"Hora":1483888877144,"id":"EM-KML256","idRecorrido":"1","horaSaliDete":1483888517144,"horaSaliReal":1483888517144,"tiemAcumDete":60,"tiemEstaDete":60,"porcAvan":899},
+{"Hora":1483888887144,"id":"EM-KML256","idRecorrido":"1","horaSaliDete":1483888517144,"horaSaliReal":1483888517144,"tiemAcumDete":60,"tiemEstaDete":60,"porcAvan":0},
+{"Hora":1483888897144,"id":"EM-KML256","idRecorrido":"1","horaSaliDete":1483888517144,"horaSaliReal":1483888517144,"tiemAcumDete":60,"tiemEstaDete":60,"porcAvan":20},
+{"Hora":1483888907144,"id":"EM-KML256","idRecorrido":"1","horaSaliDete":1483888517144,"horaSaliReal":1483888517144,"tiemAcumDete":60,"tiemEstaDete":60,"porcAvan":46},
+{"Hora":1483888917144,"id":"EM-KML256","idRecorrido":"1","horaSaliDete":1483888517144,"horaSaliReal":1483888517144,"tiemAcumDete":60,"tiemEstaDete":60,"porcAvan":73},
+{"Hora":1483888927144,"id":"EM-KML256","idRecorrido":"1","horaSaliDete":1483888517144,"horaSaliReal":1483888517144,"tiemAcumDete":60,"tiemEstaDete":60,"porcAvan":99},
+{"Hora":1483888937144,"id":"EM-KML256","idRecorrido":"1","horaSaliDete":1483888517144,"horaSaliReal":1483888517144,"tiemAcumDete":60,"tiemEstaDete":60,"porcAvan":124},
+{"Hora":1483888947144,"id":"EM-KML256","idRecorrido":"1","horaSaliDete":1483888517144,"horaSaliReal":1483888517144,"tiemAcumDete":60,"tiemEstaDete":60,"porcAvan":146},
+{"Hora":1483888957144,"id":"EM-KML256","idRecorrido":"1","horaSaliDete":1483888517144,"horaSaliReal":1483888517144,"tiemAcumDete":60,"tiemEstaDete":60,"porcAvan":173},
+{"Hora":1483888967144,"id":"EM-KML256","idRecorrido":"1","horaSaliDete":1483888517144,"horaSaliReal":1483888517144,"tiemAcumDete":60,"tiemEstaDete":60,"porcAvan":196},
+{"Hora":1483888977144,"id":"EM-KML256","idRecorrido":"1","horaSaliDete":1483888517144,"horaSaliReal":1483888517144,"tiemAcumDete":60,"tiemEstaDete":60,"porcAvan":222},
+{"Hora":1483888987144,"id":"EM-KML256","idRecorrido":"1","horaSaliDete":1483888517144,"horaSaliReal":1483888517144,"tiemAcumDete":60,"tiemEstaDete":60,"porcAvan":245},
+{"Hora":1483888997144,"id":"EM-KML256","idRecorrido":"1","horaSaliDete":1483888517144,"horaSaliReal":1483888517144,"tiemAcumDete":60,"tiemEstaDete":60,"porcAvan":272},
+{"Hora":1483889007144,"id":"EM-KML256","idRecorrido":"1","horaSaliDete":1483888517144,"horaSaliReal":1483888517144,"tiemAcumDete":60,"tiemEstaDete":60,"porcAvan":297},
+{"Hora":1483889017144,"id":"EM-KML256","idRecorrido":"1","horaSaliDete":1483888517144,"horaSaliReal":1483888517144,"tiemAcumDete":60,"tiemEstaDete":60,"porcAvan":323},
+{"Hora":1483889027144,"id":"EM-KML256","idRecorrido":"1","horaSaliDete":1483888517144,"horaSaliReal":1483888517144,"tiemAcumDete":60,"tiemEstaDete":60,"porcAvan":348},
+{"Hora":1483889037144,"id":"EM-KML256","idRecorrido":"1","horaSaliDete":1483888517144,"horaSaliReal":1483888517144,"tiemAcumDete":60,"tiemEstaDete":60,"porcAvan":371},
+{"Hora":1483889047144,"id":"EM-KML256","idRecorrido":"1","horaSaliDete":1483888517144,"horaSaliReal":1483888517144,"tiemAcumDete":60,"tiemEstaDete":60,"porcAvan":400},
+{"Hora":1483889057144,"id":"EM-KML256","idRecorrido":"1","horaSaliDete":1483888517144,"horaSaliReal":1483888517144,"tiemAcumDete":60,"tiemEstaDete":60,"porcAvan":423}
+
+],
+[
+{"Hora":1483888517144,"id":"EM-KML256","idRecorrido":"2","horaSaliDete":1483888337144,"horaSaliReal":1483888277144,"tiemAcumDete":60,"tiemEstaDete":60,"porcAvan":288},
+{"Hora":1483888527144,"id":"EM-KML256","idRecorrido":"2","horaSaliDete":1483888337144,"horaSaliReal":1483888277144,"tiemAcumDete":60,"tiemEstaDete":60,"porcAvan":304},
+{"Hora":1483888537144,"id":"EM-KML256","idRecorrido":"2","horaSaliDete":1483888337144,"horaSaliReal":1483888277144,"tiemAcumDete":60,"tiemEstaDete":60,"porcAvan":320},
+{"Hora":1483888547144,"id":"EM-KML256","idRecorrido":"2","horaSaliDete":1483888337144,"horaSaliReal":1483888277144,"tiemAcumDete":60,"tiemEstaDete":60,"porcAvan":336},
+{"Hora":1483888557144,"id":"EM-KML256","idRecorrido":"2","horaSaliDete":1483888337144,"horaSaliReal":1483888277144,"tiemAcumDete":60,"tiemEstaDete":60,"porcAvan":352},
+{"Hora":1483888567144,"id":"EM-KML256","idRecorrido":"2","horaSaliDete":1483888337144,"horaSaliReal":1483888277144,"tiemAcumDete":60,"tiemEstaDete":60,"porcAvan":368},
+{"Hora":1483888577144,"id":"EM-KML256","idRecorrido":"2","horaSaliDete":1483888337144,"horaSaliReal":1483888277144,"tiemAcumDete":60,"tiemEstaDete":60,"porcAvan":384},
+{"Hora":1483888587144,"id":"EM-KML256","idRecorrido":"2","horaSaliDete":1483888337144,"horaSaliReal":1483888277144,"tiemAcumDete":60,"tiemEstaDete":60,"porcAvan":400},
+{"Hora":1483888597144,"id":"EM-KML256","idRecorrido":"2","horaSaliDete":1483888337144,"horaSaliReal":1483888277144,"tiemAcumDete":60,"tiemEstaDete":60,"porcAvan":416},
+{"Hora":1483888607144,"id":"EM-KML256","idRecorrido":"2","horaSaliDete":1483888337144,"horaSaliReal":1483888277144,"tiemAcumDete":60,"tiemEstaDete":60,"porcAvan":432},
+{"Hora":1483888617144,"id":"EM-KML256","idRecorrido":"2","horaSaliDete":1483888337144,"horaSaliReal":1483888277144,"tiemAcumDete":60,"tiemEstaDete":60,"porcAvan":448},
+{"Hora":1483888627144,"id":"EM-KML256","idRecorrido":"2","horaSaliDete":1483888337144,"horaSaliReal":1483888277144,"tiemAcumDete":60,"tiemEstaDete":60,"porcAvan":464},
+{"Hora":1483888637144,"id":"EM-KML256","idRecorrido":"2","horaSaliDete":1483888337144,"horaSaliReal":1483888277144,"tiemAcumDete":60,"tiemEstaDete":60,"porcAvan":480},
+{"Hora":1483888647144,"id":"EM-KML256","idRecorrido":"2","horaSaliDete":1483888337144,"horaSaliReal":1483888277144,"tiemAcumDete":60,"tiemEstaDete":60,"porcAvan":496},
+{"Hora":1483888657144,"id":"EM-KML256","idRecorrido":"2","horaSaliDete":1483888337144,"horaSaliReal":1483888277144,"tiemAcumDete":60,"tiemEstaDete":60,"porcAvan":512},
+{"Hora":1483888667144,"id":"EM-KML256","idRecorrido":"2","horaSaliDete":1483888337144,"horaSaliReal":1483888277144,"tiemAcumDete":60,"tiemEstaDete":60,"porcAvan":528},
+{"Hora":1483888677144,"id":"EM-KML256","idRecorrido":"2","horaSaliDete":1483888337144,"horaSaliReal":1483888277144,"tiemAcumDete":60,"tiemEstaDete":60,"porcAvan":544},
+{"Hora":1483888687144,"id":"EM-KML256","idRecorrido":"2","horaSaliDete":1483888337144,"horaSaliReal":1483888277144,"tiemAcumDete":60,"tiemEstaDete":60,"porcAvan":560},
+{"Hora":1483888697144,"id":"EM-KML256","idRecorrido":"2","horaSaliDete":1483888337144,"horaSaliReal":1483888277144,"tiemAcumDete":60,"tiemEstaDete":60,"porcAvan":576},
+{"Hora":1483888707144,"id":"EM-KML256","idRecorrido":"2","horaSaliDete":1483888337144,"horaSaliReal":1483888277144,"tiemAcumDete":60,"tiemEstaDete":60,"porcAvan":592},
+{"Hora":1483888717144,"id":"EM-KML256","idRecorrido":"2","horaSaliDete":1483888337144,"horaSaliReal":1483888277144,"tiemAcumDete":60,"tiemEstaDete":60,"porcAvan":608},
+{"Hora":1483888727144,"id":"EM-KML256","idRecorrido":"2","horaSaliDete":1483888337144,"horaSaliReal":1483888277144,"tiemAcumDete":60,"tiemEstaDete":60,"porcAvan":624},
+{"Hora":1483888737144,"id":"EM-KML256","idRecorrido":"2","horaSaliDete":1483888337144,"horaSaliReal":1483888277144,"tiemAcumDete":60,"tiemEstaDete":60,"porcAvan":640},
+{"Hora":1483888747144,"id":"EM-KML256","idRecorrido":"2","horaSaliDete":1483888337144,"horaSaliReal":1483888277144,"tiemAcumDete":60,"tiemEstaDete":60,"porcAvan":656},
+{"Hora":1483888757144,"id":"EM-KML256","idRecorrido":"2","horaSaliDete":1483888337144,"horaSaliReal":1483888277144,"tiemAcumDete":60,"tiemEstaDete":60,"porcAvan":672},
+{"Hora":1483888767144,"id":"EM-KML256","idRecorrido":"2","horaSaliDete":1483888337144,"horaSaliReal":1483888277144,"tiemAcumDete":60,"tiemEstaDete":60,"porcAvan":688},
+{"Hora":1483888777144,"id":"EM-KML256","idRecorrido":"2","horaSaliDete":1483888337144,"horaSaliReal":1483888277144,"tiemAcumDete":60,"tiemEstaDete":60,"porcAvan":704},
+{"Hora":1483888787144,"id":"EM-KML256","idRecorrido":"2","horaSaliDete":1483888337144,"horaSaliReal":1483888277144,"tiemAcumDete":60,"tiemEstaDete":60,"porcAvan":720},
+{"Hora":1483888797144,"id":"EM-KML256","idRecorrido":"2","horaSaliDete":1483888337144,"horaSaliReal":1483888277144,"tiemAcumDete":60,"tiemEstaDete":60,"porcAvan":736},
+{"Hora":1483888807144,"id":"EM-KML256","idRecorrido":"2","horaSaliDete":1483888337144,"horaSaliReal":1483888277144,"tiemAcumDete":60,"tiemEstaDete":60,"porcAvan":752},
+{"Hora":1483888817144,"id":"EM-KML256","idRecorrido":"2","horaSaliDete":1483888337144,"horaSaliReal":1483888277144,"tiemAcumDete":60,"tiemEstaDete":60,"porcAvan":768},
+{"Hora":1483888827144,"id":"EM-KML256","idRecorrido":"2","horaSaliDete":1483888337144,"horaSaliReal":1483888277144,"tiemAcumDete":60,"tiemEstaDete":60,"porcAvan":784},
+{"Hora":1483888837144,"id":"EM-KML256","idRecorrido":"2","horaSaliDete":1483888337144,"horaSaliReal":1483888277144,"tiemAcumDete":60,"tiemEstaDete":60,"porcAvan":800},
+{"Hora":1483888847144,"id":"EM-KML256","idRecorrido":"2","horaSaliDete":1483888337144,"horaSaliReal":1483888277144,"tiemAcumDete":60,"tiemEstaDete":60,"porcAvan":816},
+{"Hora":1483888857144,"id":"EM-KML256","idRecorrido":"2","horaSaliDete":1483888337144,"horaSaliReal":1483888277144,"tiemAcumDete":60,"tiemEstaDete":60,"porcAvan":832},
+{"Hora":1483888867144,"id":"EM-KML256","idRecorrido":"2","horaSaliDete":1483888337144,"horaSaliReal":1483888277144,"tiemAcumDete":60,"tiemEstaDete":60,"porcAvan":848},
+{"Hora":1483888877144,"id":"EM-KML256","idRecorrido":"2","horaSaliDete":1483888337144,"horaSaliReal":1483888277144,"tiemAcumDete":60,"tiemEstaDete":60,"porcAvan":864},
+{"Hora":1483888887144,"id":"EM-KML256","idRecorrido":"2","horaSaliDete":1483888337144,"horaSaliReal":1483888277144,"tiemAcumDete":60,"tiemEstaDete":60,"porcAvan":880},
+{"Hora":1483888897144,"id":"EM-KML256","idRecorrido":"2","horaSaliDete":1483888337144,"horaSaliReal":1483888277144,"tiemAcumDete":60,"tiemEstaDete":60,"porcAvan":0},
+{"Hora":1483888907144,"id":"EM-KML256","idRecorrido":"2","horaSaliDete":1483888337144,"horaSaliReal":1483888277144,"tiemAcumDete":60,"tiemEstaDete":60,"porcAvan":16},
+{"Hora":1483888917144,"id":"EM-KML256","idRecorrido":"2","horaSaliDete":1483888337144,"horaSaliReal":1483888277144,"tiemAcumDete":60,"tiemEstaDete":60,"porcAvan":32},
+{"Hora":1483888927144,"id":"EM-KML256","idRecorrido":"2","horaSaliDete":1483888337144,"horaSaliReal":1483888277144,"tiemAcumDete":60,"tiemEstaDete":60,"porcAvan":48},
+{"Hora":1483888937144,"id":"EM-KML256","idRecorrido":"2","horaSaliDete":1483888337144,"horaSaliReal":1483888277144,"tiemAcumDete":60,"tiemEstaDete":60,"porcAvan":64},
+{"Hora":1483888947144,"id":"EM-KML256","idRecorrido":"2","horaSaliDete":1483888337144,"horaSaliReal":1483888277144,"tiemAcumDete":60,"tiemEstaDete":60,"porcAvan":80},
+{"Hora":1483888957144,"id":"EM-KML256","idRecorrido":"2","horaSaliDete":1483888337144,"horaSaliReal":1483888277144,"tiemAcumDete":60,"tiemEstaDete":60,"porcAvan":96},
+{"Hora":1483888967144,"id":"EM-KML256","idRecorrido":"2","horaSaliDete":1483888337144,"horaSaliReal":1483888277144,"tiemAcumDete":60,"tiemEstaDete":60,"porcAvan":112},
+{"Hora":1483888977144,"id":"EM-KML256","idRecorrido":"2","horaSaliDete":1483888337144,"horaSaliReal":1483888277144,"tiemAcumDete":60,"tiemEstaDete":60,"porcAvan":128},
+{"Hora":1483888987144,"id":"EM-KML256","idRecorrido":"2","horaSaliDete":1483888337144,"horaSaliReal":1483888277144,"tiemAcumDete":60,"tiemEstaDete":60,"porcAvan":144},
+{"Hora":1483888997144,"id":"EM-KML256","idRecorrido":"2","horaSaliDete":1483888337144,"horaSaliReal":1483888277144,"tiemAcumDete":60,"tiemEstaDete":60,"porcAvan":160},
+{"Hora":1483889007144,"id":"EM-KML256","idRecorrido":"2","horaSaliDete":1483888337144,"horaSaliReal":1483888277144,"tiemAcumDete":60,"tiemEstaDete":60,"porcAvan":176},
+{"Hora":1483889017144,"id":"EM-KML256","idRecorrido":"2","horaSaliDete":1483888337144,"horaSaliReal":1483888277144,"tiemAcumDete":60,"tiemEstaDete":60,"porcAvan":192},
+{"Hora":1483889027144,"id":"EM-KML256","idRecorrido":"2","horaSaliDete":1483888337144,"horaSaliReal":1483888277144,"tiemAcumDete":60,"tiemEstaDete":60,"porcAvan":208},
+{"Hora":1483889037144,"id":"EM-KML256","idRecorrido":"2","horaSaliDete":1483888337144,"horaSaliReal":1483888277144,"tiemAcumDete":60,"tiemEstaDete":60,"porcAvan":224},
+{"Hora":1483889047144,"id":"EM-KML256","idRecorrido":"2","horaSaliDete":1483888337144,"horaSaliReal":1483888277144,"tiemAcumDete":60,"tiemEstaDete":60,"porcAvan":240},
+{"Hora":1483889057144,"id":"EM-KML256","idRecorrido":"2","horaSaliDete":1483888337144,"horaSaliReal":1483888277144,"tiemAcumDete":60,"tiemEstaDete":60,"porcAvan":256}
+
+],
+[
+{"Hora":1483888517144,"id":"EM-KML256","idRecorrido":"3","horaSaliDete":1483888157144,"horaSaliReal":1483888217144,"tiemAcumDete":60,"tiemEstaDete":60,"porcAvan":389},
+{"Hora":1483888527144,"id":"EM-KML256","idRecorrido":"3","horaSaliDete":1483888157144,"horaSaliReal":1483888217144,"tiemAcumDete":60,"tiemEstaDete":60,"porcAvan":400},
+{"Hora":1483888537144,"id":"EM-KML256","idRecorrido":"3","horaSaliDete":1483888157144,"horaSaliReal":1483888217144,"tiemAcumDete":60,"tiemEstaDete":60,"porcAvan":416},
+{"Hora":1483888547144,"id":"EM-KML256","idRecorrido":"3","horaSaliDete":1483888157144,"horaSaliReal":1483888217144,"tiemAcumDete":60,"tiemEstaDete":60,"porcAvan":424},
+{"Hora":1483888557144,"id":"EM-KML256","idRecorrido":"3","horaSaliDete":1483888157144,"horaSaliReal":1483888217144,"tiemAcumDete":60,"tiemEstaDete":60,"porcAvan":438},
+{"Hora":1483888567144,"id":"EM-KML256","idRecorrido":"3","horaSaliDete":1483888157144,"horaSaliReal":1483888217144,"tiemAcumDete":60,"tiemEstaDete":60,"porcAvan":452},
+{"Hora":1483888577144,"id":"EM-KML256","idRecorrido":"3","horaSaliDete":1483888157144,"horaSaliReal":1483888217144,"tiemAcumDete":60,"tiemEstaDete":60,"porcAvan":466},
+{"Hora":1483888587144,"id":"EM-KML256","idRecorrido":"3","horaSaliDete":1483888157144,"horaSaliReal":1483888217144,"tiemAcumDete":60,"tiemEstaDete":60,"porcAvan":481},
+{"Hora":1483888597144,"id":"EM-KML256","idRecorrido":"3","horaSaliDete":1483888157144,"horaSaliReal":1483888217144,"tiemAcumDete":60,"tiemEstaDete":60,"porcAvan":491},
+{"Hora":1483888607144,"id":"EM-KML256","idRecorrido":"3","horaSaliDete":1483888157144,"horaSaliReal":1483888217144,"tiemAcumDete":60,"tiemEstaDete":60,"porcAvan":504},
+{"Hora":1483888617144,"id":"EM-KML256","idRecorrido":"3","horaSaliDete":1483888157144,"horaSaliReal":1483888217144,"tiemAcumDete":60,"tiemEstaDete":60,"porcAvan":517},
+{"Hora":1483888627144,"id":"EM-KML256","idRecorrido":"3","horaSaliDete":1483888157144,"horaSaliReal":1483888217144,"tiemAcumDete":60,"tiemEstaDete":60,"porcAvan":530},
+{"Hora":1483888637144,"id":"EM-KML256","idRecorrido":"3","horaSaliDete":1483888157144,"horaSaliReal":1483888217144,"tiemAcumDete":60,"tiemEstaDete":60,"porcAvan":542},
+{"Hora":1483888647144,"id":"EM-KML256","idRecorrido":"3","horaSaliDete":1483888157144,"horaSaliReal":1483888217144,"tiemAcumDete":60,"tiemEstaDete":60,"porcAvan":554},
+{"Hora":1483888657144,"id":"EM-KML256","idRecorrido":"3","horaSaliDete":1483888157144,"horaSaliReal":1483888217144,"tiemAcumDete":60,"tiemEstaDete":60,"porcAvan":571},
+{"Hora":1483888667144,"id":"EM-KML256","idRecorrido":"3","horaSaliDete":1483888157144,"horaSaliReal":1483888217144,"tiemAcumDete":60,"tiemEstaDete":60,"porcAvan":581},
+{"Hora":1483888677144,"id":"EM-KML256","idRecorrido":"3","horaSaliDete":1483888157144,"horaSaliReal":1483888217144,"tiemAcumDete":60,"tiemEstaDete":60,"porcAvan":595},
+{"Hora":1483888687144,"id":"EM-KML256","idRecorrido":"3","horaSaliDete":1483888157144,"horaSaliReal":1483888217144,"tiemAcumDete":60,"tiemEstaDete":60,"porcAvan":609},
+{"Hora":1483888697144,"id":"EM-KML256","idRecorrido":"3","horaSaliDete":1483888157144,"horaSaliReal":1483888217144,"tiemAcumDete":60,"tiemEstaDete":60,"porcAvan":620},
+{"Hora":1483888707144,"id":"EM-KML256","idRecorrido":"3","horaSaliDete":1483888157144,"horaSaliReal":1483888217144,"tiemAcumDete":60,"tiemEstaDete":60,"porcAvan":636},
+{"Hora":1483888717144,"id":"EM-KML256","idRecorrido":"3","horaSaliDete":1483888157144,"horaSaliReal":1483888217144,"tiemAcumDete":60,"tiemEstaDete":60,"porcAvan":649},
+{"Hora":1483888727144,"id":"EM-KML256","idRecorrido":"3","horaSaliDete":1483888157144,"horaSaliReal":1483888217144,"tiemAcumDete":60,"tiemEstaDete":60,"porcAvan":662},
+{"Hora":1483888737144,"id":"EM-KML256","idRecorrido":"3","horaSaliDete":1483888157144,"horaSaliReal":1483888217144,"tiemAcumDete":60,"tiemEstaDete":60,"porcAvan":672},
+{"Hora":1483888747144,"id":"EM-KML256","idRecorrido":"3","horaSaliDete":1483888157144,"horaSaliReal":1483888217144,"tiemAcumDete":60,"tiemEstaDete":60,"porcAvan":685},
+{"Hora":1483888757144,"id":"EM-KML256","idRecorrido":"3","horaSaliDete":1483888157144,"horaSaliReal":1483888217144,"tiemAcumDete":60,"tiemEstaDete":60,"porcAvan":699},
+{"Hora":1483888767144,"id":"EM-KML256","idRecorrido":"3","horaSaliDete":1483888157144,"horaSaliReal":1483888217144,"tiemAcumDete":60,"tiemEstaDete":60,"porcAvan":710},
+{"Hora":1483888777144,"id":"EM-KML256","idRecorrido":"3","horaSaliDete":1483888157144,"horaSaliReal":1483888217144,"tiemAcumDete":60,"tiemEstaDete":60,"porcAvan":725},
+{"Hora":1483888787144,"id":"EM-KML256","idRecorrido":"3","horaSaliDete":1483888157144,"horaSaliReal":1483888217144,"tiemAcumDete":60,"tiemEstaDete":60,"porcAvan":738},
+{"Hora":1483888797144,"id":"EM-KML256","idRecorrido":"3","horaSaliDete":1483888157144,"horaSaliReal":1483888217144,"tiemAcumDete":60,"tiemEstaDete":60,"porcAvan":752},
+{"Hora":1483888807144,"id":"EM-KML256","idRecorrido":"3","horaSaliDete":1483888157144,"horaSaliReal":1483888217144,"tiemAcumDete":60,"tiemEstaDete":60,"porcAvan":763},
+{"Hora":1483888817144,"id":"EM-KML256","idRecorrido":"3","horaSaliDete":1483888157144,"horaSaliReal":1483888217144,"tiemAcumDete":60,"tiemEstaDete":60,"porcAvan":775},
+{"Hora":1483888827144,"id":"EM-KML256","idRecorrido":"3","horaSaliDete":1483888157144,"horaSaliReal":1483888217144,"tiemAcumDete":60,"tiemEstaDete":60,"porcAvan":788},
+{"Hora":1483888837144,"id":"EM-KML256","idRecorrido":"3","horaSaliDete":1483888157144,"horaSaliReal":1483888217144,"tiemAcumDete":60,"tiemEstaDete":60,"porcAvan":803},
+{"Hora":1483888847144,"id":"EM-KML256","idRecorrido":"3","horaSaliDete":1483888157144,"horaSaliReal":1483888217144,"tiemAcumDete":60,"tiemEstaDete":60,"porcAvan":817},
+{"Hora":1483888857144,"id":"EM-KML256","idRecorrido":"3","horaSaliDete":1483888157144,"horaSaliReal":1483888217144,"tiemAcumDete":60,"tiemEstaDete":60,"porcAvan":831},
+{"Hora":1483888867144,"id":"EM-KML256","idRecorrido":"3","horaSaliDete":1483888157144,"horaSaliReal":1483888217144,"tiemAcumDete":60,"tiemEstaDete":60,"porcAvan":843},
+{"Hora":1483888877144,"id":"EM-KML256","idRecorrido":"3","horaSaliDete":1483888157144,"horaSaliReal":1483888217144,"tiemAcumDete":60,"tiemEstaDete":60,"porcAvan":856},
+{"Hora":1483888887144,"id":"EM-KML256","idRecorrido":"3","horaSaliDete":1483888157144,"horaSaliReal":1483888217144,"tiemAcumDete":60,"tiemEstaDete":60,"porcAvan":867},
+{"Hora":1483888897144,"id":"EM-KML256","idRecorrido":"3","horaSaliDete":1483888157144,"horaSaliReal":1483888217144,"tiemAcumDete":60,"tiemEstaDete":60,"porcAvan":880},
+{"Hora":1483888907144,"id":"EM-KML256","idRecorrido":"3","horaSaliDete":1483888157144,"horaSaliReal":1483888217144,"tiemAcumDete":60,"tiemEstaDete":60,"porcAvan":892},
+{"Hora":1483888917144,"id":"EM-KML256","idRecorrido":"3","horaSaliDete":1483888157144,"horaSaliReal":1483888217144,"tiemAcumDete":60,"tiemEstaDete":60,"porcAvan":0},
+{"Hora":1483888927144,"id":"EM-KML256","idRecorrido":"3","horaSaliDete":1483888157144,"horaSaliReal":1483888217144,"tiemAcumDete":60,"tiemEstaDete":60,"porcAvan":9},
+{"Hora":1483888937144,"id":"EM-KML256","idRecorrido":"3","horaSaliDete":1483888157144,"horaSaliReal":1483888217144,"tiemAcumDete":60,"tiemEstaDete":60,"porcAvan":26},
+{"Hora":1483888947144,"id":"EM-KML256","idRecorrido":"3","horaSaliDete":1483888157144,"horaSaliReal":1483888217144,"tiemAcumDete":60,"tiemEstaDete":60,"porcAvan":38},
+{"Hora":1483888957144,"id":"EM-KML256","idRecorrido":"3","horaSaliDete":1483888157144,"horaSaliReal":1483888217144,"tiemAcumDete":60,"tiemEstaDete":60,"porcAvan":51},
+{"Hora":1483888967144,"id":"EM-KML256","idRecorrido":"3","horaSaliDete":1483888157144,"horaSaliReal":1483888217144,"tiemAcumDete":60,"tiemEstaDete":60,"porcAvan":62},
+{"Hora":1483888977144,"id":"EM-KML256","idRecorrido":"3","horaSaliDete":1483888157144,"horaSaliReal":1483888217144,"tiemAcumDete":60,"tiemEstaDete":60,"porcAvan":76},
+{"Hora":1483888987144,"id":"EM-KML256","idRecorrido":"3","horaSaliDete":1483888157144,"horaSaliReal":1483888217144,"tiemAcumDete":60,"tiemEstaDete":60,"porcAvan":91},
+{"Hora":1483888997144,"id":"EM-KML256","idRecorrido":"3","horaSaliDete":1483888157144,"horaSaliReal":1483888217144,"tiemAcumDete":60,"tiemEstaDete":60,"porcAvan":103},
+{"Hora":1483889007144,"id":"EM-KML256","idRecorrido":"3","horaSaliDete":1483888157144,"horaSaliReal":1483888217144,"tiemAcumDete":60,"tiemEstaDete":60,"porcAvan":116},
+{"Hora":1483889017144,"id":"EM-KML256","idRecorrido":"3","horaSaliDete":1483888157144,"horaSaliReal":1483888217144,"tiemAcumDete":60,"tiemEstaDete":60,"porcAvan":128},
+{"Hora":1483889027144,"id":"EM-KML256","idRecorrido":"3","horaSaliDete":1483888157144,"horaSaliReal":1483888217144,"tiemAcumDete":60,"tiemEstaDete":60,"porcAvan":141},
+{"Hora":1483889037144,"id":"EM-KML256","idRecorrido":"3","horaSaliDete":1483888157144,"horaSaliReal":1483888217144,"tiemAcumDete":60,"tiemEstaDete":60,"porcAvan":152},
+{"Hora":1483889047144,"id":"EM-KML256","idRecorrido":"3","horaSaliDete":1483888157144,"horaSaliReal":1483888217144,"tiemAcumDete":60,"tiemEstaDete":60,"porcAvan":166},
+{"Hora":1483889057144,"id":"EM-KML256","idRecorrido":"3","horaSaliDete":1483888157144,"horaSaliReal":1483888217144,"tiemAcumDete":60,"tiemEstaDete":60,"porcAvan":181}
+
+]
+]
+
+
+
+
+
