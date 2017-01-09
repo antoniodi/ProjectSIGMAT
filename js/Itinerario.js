@@ -11,6 +11,8 @@ function Itinerario(disEE,paradas) {
       timeline = retorno[0],
       timelineWidth = retorno[1],
       estBus = retorno[2],
+      TTolerancia = 15, //este margen de tiempo se usa para aplicar los criteros sobre los que se define si un conductor va tarde, muy rapido o bien entre todo el recorrido.
+      TToleranciaEstaciones = 10, // este margen de tiempo se usa para aplicar los criteros sobre los que se define si un conductor va tarde, muy rapido o bien entre cada estacion.   
       busesAceptados = [];
       //agregando todos los buses de los que se dispone y ocultandolos para usarlos cuando sea necesario
 
@@ -142,7 +144,7 @@ $("#btn6").click(function(){
     }
   //se encarga de agregar un recorrido al final, info se refiere a la hora de salida del bus
   this.agregarRecorrido = function(id, horaS, idBus){
-    buses = caja.append("<div class=timeline0 id=recorrido"+id+"><div class=line><ol class=linei style=width:"+timelineWidth+"px;>"+estBus+"<li class=bus>"+idBus+"</li></div> <div class=datos>hora de salida:</br>"+horaS+"</div><div class=cerrar onclick=it.removeRecorrido("+id+")>x</div></div>");
+    buses = caja.append("<div class=timeline0 id=recorrido"+id+"><div class=line><ol class=linei style=width:"+timelineWidth+"px;>"+estBus+"<li class=bus>"+idBus+"</li></div> <div class=datos>hora de salida:</br>"+horaS.toLocaleTimeString()+"</div><div class=cerrar onclick=it.removeRecorrido("+id+")>x</div></div>");
     //console.log(id);
     busesAceptados.push(id);
 
@@ -213,10 +215,10 @@ $("#btn6").click(function(){
           elemento.css('transform','translateX(-50%)');
   }
   //modificamos la posicion de los buses en la linea de tiempo y se transladan -50% en x para lograr un centrado relativo
-  function actualizarBus(elementoPadre,distancia) {
+  function actualizarBus(elementoPadre,distancia, bus) {
       /*  var distance = daydiff(timelineComponents['timelineDates'][0], timelineComponents['timelineDates'][i]),
           distanceNorm = Math.round(distance/timelineComponents['eventsMinLapse']) + 2;*/
-          //TTolerancia = 15;   este margen de tiempo se usa para aplicar los criteros sobre los que se define si un conductor va tarde, muy rapido o bien entre todo el recorrido.
+          TTolerancia = 20;   //este margen de tiempo se usa para aplicar los criteros sobre los que se define si un conductor va tarde, muy rapido o bien entre todo el recorrido.
           //TToleranciaEstaciones = 10;   este margen de tiempo se usa para aplicar los criteros sobre los que se define si un conductor va tarde, muy rapido o bien entre cada estacion.
           elemento = elementoPadre.find(".bus");
           dis = Math.round(distancia);
@@ -226,6 +228,8 @@ $("#btn6").click(function(){
           elemento.css('transform','translateX(-50%)');
           elemento.css('transition','left 1s linear');
 
+
+
         /*funcion para modificar el color 
           //TTolerancia = 15;   este margen de tiempo se usa para aplicar los criteros sobre los que se define si un conductor va tarde, muy rapido o bien entre todo el recorrido.
           //TToleranciaEstaciones = 10;   este margen de tiempo se usa para aplicar los criteros sobre los que se define si un conductor va tarde, muy rapido o bien entre cada estacion.
@@ -233,15 +237,18 @@ $("#btn6").click(function(){
         $('#recorrido2 .bus').eq(0).css('background-image','url(../img/bus-markerv.svg)');
           *
       // funcion que modifica el estado o color del bus, dependiendo de si va tarde, muy rapido o bien
-      TRecorrido: el tiempo que el bus lleva en el recorrido
-      lo necesito > TEstimado: el tiempo que se espera le halla tomado al bus llegar a ese nivel avance, calcula en base al tiempo de avance y el porcentaje de recorrido total realizado
-      if (TRecorrido > TEstimado+TToleranciaEstaciones) {
-        $('#recorrido2 .bus').eq(0).css('background-image','url(../img/bus-markern.svg)');
-      }else if(TRecorrido < TEstimado-TToleranciaEstaciones){
-        $('#recorrido2 .bus').eq(0).css('background-image','url(../img/bus-markerm.svg)');
+      TRecorrido: el tiempo que el bus lleva en el recorrido*/
+
+      //lo necesito > TEstimado: el tiempo que se espera le halla tomado al bus llegar a ese nivel avance, calcula en base al tiempo de avance y el porcentaje de recorrido total realizado
+      TRecorrido = (bus.hora - bus.horaSaliDete )/(1000);
+      console.log(bus.tiemAcumDete - TRecorrido)
+      if ((TRecorrido -bus.tiemAcumDete) > TTolerancia) {
+        elemento.css('background-image','url(../img/bus-markern.svg)');
+      }else if((TRecorrido -bus.tiemAcumDete ) < ((-1)*TTolerancia)){
+        elemento.css('background-image','url(../img/bus-markeraz.svg)');
       }else{
-        $('#recorrido2 .bus').eq(0).css('background-image','url(../img/bus-markerv.svg)');
-      } */
+        elemento.css('background-image','url(../img/bus-markerv.svg)');
+      } 
   }
 
 

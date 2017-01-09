@@ -40,26 +40,26 @@ $.getJSON("http://localhost:8000/data/buses"+rutaSeleccionada+".json").
      success(function(dataB) {
      $.bus = dataB;
       var buses = [],
-          recorridos = dataB.recorridos;
+          recorridos = dataB;
 
         for (var i = 0; i < recorridos.length; i++) {
-          buses.push(recorridos[i].idRecorrido);
-          it.agregarRecorrido(recorridos[i].idRecorrido,recorridos[i].horaSalidaReal,recorridos[i].id);
+          buses.push(recorridos[i][0].idRecorrido);
+          it.agregarRecorrido(recorridos[i][0].idRecorrido,new Date(recorridos[i][0].horaSaliReal),recorridos[i][0].id);
         }
         console.log(buses);
               b=0;
       setInterval(function () {
 
-         if (b<recorridos[0].distancia.length) {
+         if (b<recorridos[0].length) {
            //console.log(data[0].Nombre);
            //recorremos el
 
-           indices =it.getVectorIndices(buses)
+           indices = it.getVectorIndices(buses);
            //console.log(busesAceptados);
 
            for (var i = 0; i < indices.length; i++) {
              //console.log(busesAceptados.length);
-             actualizarBus($("#recorrido"+recorridos[indices[i]].idRecorrido+" .linei"),recorridos[indices[i]].distancia[b]);
+             actualizarBus($("#recorrido"+recorridos[indices[i]][b].idRecorrido+" .linei"),recorridos[indices[i]][b].porcAvan,recorridos[indices[i]][b]);
               
            }
        b++;
