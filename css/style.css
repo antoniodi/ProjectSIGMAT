@@ -4974,7 +4974,7 @@ button.btn-floating {
   width: 55%;
   margin: auto;
   overflow-y: auto;
-  border-radius: 2px;
+  border-radius: 15px;
   will-change: top, opacity;
 }
 @media only screen and (max-width: 992px) {
@@ -7987,8 +7987,6 @@ body, html {
  .derecha {
   position: absolute;
   background-color: white;
-  display: flex;
-  flex-direction: column;
   width: 150px;
   height: 80px;
   right: 0.5%;
@@ -7997,14 +7995,7 @@ body, html {
   text-align: center;
   z-index: 1;
   box-shadow: 0px 0px 5px 3px rgba(0, 0, 0, 0.2);
-
 }
-.derecha > label{   
-    display: flex;
-    margin-left: 20px;
-      
-  }
-
 
 .izquierda {
   position: absolute;
@@ -8314,6 +8305,7 @@ section #map {
   box-shadow: 0px 0px 5px 3px rgba(0, 0, 0, 0.2);
   width: 100%;
   height: 38px;
+  font-size: xx-large !important;
   border-radius: 15px;
   background-color: #11EF96;
  color: white;

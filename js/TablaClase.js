@@ -43,52 +43,52 @@ app.controller('MainCtrl', ['$scope', '$http','i18nService', function ($scope, $
             return 'red';
           }
         }, 
-        cellTemplate:'<div ng-click="grid.appScope.cellClicked(row,col)"  class="ui-grid-cell-contents" title="TOOLTIP">{{COL_FIELD CUSTOM_FILTERS}}</div>'
+        cellTemplate:'<div style="cursor:pointer" ng-click="grid.appScope.cellClicked(row,col)"  class="ui-grid-cell-contents" title="TOOLTIP">{{COL_FIELD CUSTOM_FILTERS}}</div>'
       },
       {field: 'HorarioEstimado.ST1', name:'H.E-est1', visible:false, width: '8%'},
-      {field: 'HorarioReal.ST1', name:'H.R.E1', width: '8%',
+      {field: 'HorarioReal.ST1', name:'llegada E1', width: '10%',
         cellClass: function(grid, row, col, rowRenderIndex, colRenderIndex) {
           if (grid.getCellValue(row,col) > row.entity.HorarioEstimado.ST1) {
             return 'red';
           }
         },
-        cellTemplate:'<div ng-click="grid.appScope.cellClicked1(row,col)"  class="ui-grid-cell-contents" title="TOOLTIP">{{COL_FIELD CUSTOM_FILTERS}}</div>'
+        cellTemplate:'<div style="cursor:pointer" ng-click="grid.appScope.cellClicked1(row,col)"  class="ui-grid-cell-contents" title="TOOLTIP">{{COL_FIELD CUSTOM_FILTERS}}</div>'
       },
       {field: 'HorarioEstimado.ST2', name:'H.E-est2', visible: false, width: '8%'},
-      {field: 'HorarioReal.ST2', name:'H.R.E2', width: '8%',
+      {field: 'HorarioReal.ST2', name:'llegada E2', width: '10%',
       cellClass: function(grid, row, col, rowRenderIndex, colRenderIndex) {
           if (grid.getCellValue(row,col) > row.entity.HorarioEstimado.ST2) {
             return 'red';
           }
         }, 
-        cellTemplate:'<div ng-click="grid.appScope.cellClicked2(row,col)"  class="ui-grid-cell-contents" title="TOOLTIP">{{COL_FIELD CUSTOM_FILTERS}}</div>'
+        cellTemplate:'<div style="cursor:pointer" ng-click="grid.appScope.cellClicked2(row,col)"  class="ui-grid-cell-contents" title="TOOLTIP">{{COL_FIELD CUSTOM_FILTERS}}</div>'
       },
       {field: 'HorarioEstimado.ST3', name:'H.E-est3', visible: false, width: '8%'},
-      {field: 'HorarioReal.ST3', name:'H.R.E3', width: '8%',
+      {field: 'HorarioReal.ST3', name:'llegada E3', width: '10%',
     cellClass: function(grid, row, col, rowRenderIndex, colRenderIndex) {
           if (grid.getCellValue(row,col) > row.entity.HorarioEstimado.ST3) {
             return 'red';
           }
         },
-        cellTemplate:'<div ng-click="grid.appScope.cellClicked3(row,col)"  class="ui-grid-cell-contents" title="TOOLTIP">{{COL_FIELD CUSTOM_FILTERS}}</div>'
+        cellTemplate:'<div style="cursor:pointer" ng-click="grid.appScope.cellClicked3(row,col)"  class="ui-grid-cell-contents" title="TOOLTIP">{{COL_FIELD CUSTOM_FILTERS}}</div>'
       },
       {field: 'HorarioEstimado.ST4', name:'H.E-est4', visible: false, width: '8%'},
-      {field: 'HorarioReal.ST4', name:'H.R.E4', width: '8%', 
+      {field: 'HorarioReal.ST4', name:'llegada E4', width: '10%', 
     cellClass: function(grid, row, col, rowRenderIndex, colRenderIndex) {
           if (grid.getCellValue(row,col) > row.entity.HorarioEstimado.ST1) {
             return 'red';
           }
         },
-        cellTemplate:'<div ng-click="grid.appScope.cellClicked4(row,col)"  class="ui-grid-cell-contents" title="TOOLTIP">{{COL_FIELD CUSTOM_FILTERS}}</div>'
+        cellTemplate:'<div style="cursor:pointer" ng-click="grid.appScope.cellClicked4(row,col)"  class="ui-grid-cell-contents" title="TOOLTIP">{{COL_FIELD CUSTOM_FILTERS}}</div>'
       },
       {field: 'HorarioEstimado.ST5', name:'H.E-est5', visible: false, width: '8%'},
-      {field: 'HorarioReal.ST5', name:'H.R.E5', width: '8%', 
+      {field: 'HorarioReal.ST5', name:'llegada E5', width: '10%', 
     cellClass: function(grid, row, col, rowRenderIndex, colRenderIndex) {
           if (grid.getCellValue(row,col) > row.entity.HorarioEstimado.ST1) {
             return 'red';
           }
         },
-        cellTemplate:'<div ng-click="grid.appScope.cellClicked5(row,col)"  class="ui-grid-cell-contents" title="TOOLTIP">{{COL_FIELD CUSTOM_FILTERS}}</div>'
+        cellTemplate:'<div style="cursor:pointer" ng-click="grid.appScope.cellClicked5(row,col)"  class="ui-grid-cell-contents" title="TOOLTIP">{{COL_FIELD CUSTOM_FILTERS}}</div>'
       }
 
     ],
@@ -121,13 +121,23 @@ app.controller('MainCtrl', ['$scope', '$http','i18nService', function ($scope, $
   };
   i18nService.setCurrentLang('es');
 
-  function refrescarTiempo() {
+var pnt = function(){
   $http.get("http://localhost:8000/data/Tabla"+rutaSeleccionada+".json")
     .success(function(data) {
       $scope.gridOptions.data = data;
     });  
   };
-  window.setInterval(refrescarTiempo,5000);
+
+//Almacenamos las referencias al elemento, para que así no tengamos que buscarlo en el DOM cada que se ejecute el interval, y a la función así no se carga cada vez en memoria
+  function initPnt( pnt, time ){
+     return setInterval(pnt, time);
+    };
+
+//Ejecutamos la funcion pnt
+pnt();
+// activamos el intipnt para realizar peticiones cada 5 segundos 
+initPnt(pnt, 5000);
+  
 }]);
 
 

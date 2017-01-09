@@ -669,7 +669,7 @@ switch (s) {
         });
 
  var R2=factory.crearPaqueteMarker(s,map,5);
-       trm = setInterval(function(){
+       var trm = function(){
         $.getJSON("http://localhost:8000/data/busesmapa"+s+".json", function(datos) {
         $.coordenadas=datos;
 //if para resetear la b cuando se llegue al final de la prueba   
@@ -681,7 +681,17 @@ switch (s) {
         }else {
           b=0
         }
-})},5000);
+})};
+//Almacenamos las referencias al elemento, para que así no tengamos que buscarlo en el DOM cada que se ejecute el interval, y a la función así no se carga cada vez en memoria
+  function initTrm( trm, time ){
+     return setInterval(trm, time);
+    };
+
+//Ejecutamos la funcion pnt
+trm();
+// activamos el intipnt para realizar peticiones cada 5 segundos 
+initTrm(trm, 5000);
+  
          console.log("VALOR Que TIENE "+s); 
          break; 
       };
