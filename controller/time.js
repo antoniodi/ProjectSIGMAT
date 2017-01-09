@@ -22,7 +22,7 @@
     var disEE = 100, //esta variable define la distancia entre estaciones en pixeles
         paradas = rutaElegida.paradas; //el indice marca la ruta, en este caso se selecciona la primera ruta del json
 
-        it =new Itinerario(disEE,paradas);
+        it = new Itinerario(disEE,paradas);
     //creamos un nuevo itinerario, que sera un objeto que contiene todos los recorridos
     //var it = new itinerario(disEE,rutaElegida.paradas)
 /*
@@ -59,7 +59,7 @@ $.getJSON("http://localhost:8000/data/buses"+rutaSeleccionada+".json").
 
            for (var i = 0; i < indices.length; i++) {
              //console.log(busesAceptados.length);
-             actualizarBus($("#recorrido"+recorridos[indices[i]][b].idRecorrido+" .linei"),recorridos[indices[i]][b].porcAvan,recorridos[indices[i]][b]);
+             it.actualizarBus($("#recorrido"+recorridos[indices[i]][b].idRecorrido+" .linei"),recorridos[indices[i]][b].porcAvan,recorridos[indices[i]][b]);
               
            }
        b++;

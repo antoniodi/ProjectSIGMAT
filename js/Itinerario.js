@@ -11,7 +11,10 @@ function Itinerario(disEE,paradas) {
       timeline = retorno[0],
       timelineWidth = retorno[1],
       estBus = retorno[2],
-      TTolerancia = 15, //este margen de tiempo se usa para aplicar los criteros sobre los que se define si un conductor va tarde, muy rapido o bien entre todo el recorrido.
+      modAnteEsta = 0, //alamcena el modulo anterior encargado de definir un cambio entre estaciones
+      estadoAvance = false, //defino un etado que me permita saber cuando se podra dibujar la linea de estado entre estaciones 
+      horaIni = 0, //esta hora me permitira almacenar la hora a la que el bus abandona a estacion, con esta hora podre determinar el tiempo que duro entre las dos estaciones
+      TTolerancia = 20, //este margen de tiempo se usa para aplicar los criteros sobre los que se define si un conductor va tarde, muy rapido o bien entre todo el recorrido.
       TToleranciaEstaciones = 10, // este margen de tiempo se usa para aplicar los criteros sobre los que se define si un conductor va tarde, muy rapido o bien entre cada estacion.   
       busesAceptados = [];
       //agregando todos los buses de los que se dispone y ocultandolos para usarlos cuando sea necesario
@@ -21,6 +24,8 @@ function Itinerario(disEE,paradas) {
       */
 
       //agregarRecorridosFaltantes(nBuses);
+
+
 
 
   // timeline.addClass('loaded');
@@ -197,7 +202,71 @@ $("#btn6").click(function(){
     return totalWidth;
   }
 
+ //modificamos la posicion de los buses en la linea de tiempo y se transladan -50% en x para lograr un centrado relativo
+ this.actualizarBus = function (elementoPadre,distancia, bus) {
+      /*  var distance = daydiff(timelineComponents['timelineDates'][0], timelineComponents['timelineDates'][i]),
+          distanceNorm = Math.round(distance/timelineComponents['eventsMinLapse']) + 2;*/
+          
+          elemento = elementoPadre.find(".bus");
+          linea = elementoPadre.find(".lineT");
+          dis = Math.round(distancia);
+          //console.log(distancia +"left "+dis);
+          //console.log("bus"+disNormal);
+          elemento.css('left', dis+'px');
+          elemento.css('transform','translateX(-50%)');
+          elemento.css('transition','left 1s linear');
 
+
+
+        if ( (modAnteEsta >  bus.porcAvan%100)  && bus.porcAvan%100 != 0 && bus.idRecorrido ==3) {
+          console.log(modAnteEsta+"    "+bus.porcAvan%100+"    "+bus.porcAvan);
+            TEstaciones = (bus.hora - horaIni)/(1000); 
+          if (estadoAvance) {
+            if ((TEstaciones - bus.tiemEstaDete) > TToleranciaEstaciones) {
+              linea.eq(bus.porcAvan.toString()[0]-1).css('background-color','#FF5252');
+              linea.eq(bus.porcAvan.toString()[0]-1).css('width',disEE+'px');
+              
+            }else if((TEstaciones - bus.tiemEstaDete ) < ((-1)*TToleranciaEstaciones)){
+              linea.eq(bus.porcAvan.toString()[0]-1).css('background-color','#3F51B5');
+              linea.eq(bus.porcAvan.toString()[0]-1).css('width',disEE+'px');
+              
+            }else{
+              linea.eq(bus.porcAvan.toString()[0]-1).css('background-color','#1BCE7C');
+              linea.eq(bus.porcAvan.toString()[0]-1).css('width',disEE+'px');
+            } 
+            horaIni = bus.hora;
+          }else{
+            horaIni = bus.hora;
+            estadoAvance =true;
+          };
+        } else{};
+
+
+        if (bus.porcAvan%100 != 0 && bus.idRecorrido ==3) {
+          modAnteEsta = bus.porcAvan%100;
+
+          
+        };
+        /*funcion para modificar el color 
+          //TTolerancia = 15;   este margen de tiempo se usa para aplicar los criteros sobre los que se define si un conductor va tarde, muy rapido o bien entre todo el recorrido.
+          //TToleranciaEstaciones = 10;   este margen de tiempo se usa para aplicar los criteros sobre los que se define si un conductor va tarde, muy rapido o bien entre cada estacion.
+
+        $('#recorrido2 .bus').eq(0).css('background-image','url(../img/bus-markerv.svg)');
+          *
+      // funcion que modifica el estado o color del bus, dependiendo de si va tarde, muy rapido o bien
+      TRecorrido: el tiempo que el bus lleva en el recorrido*/
+
+      //lo necesito > TEstimado: el tiempo que se espera le halla tomado al bus llegar a ese nivel avance, calcula en base al tiempo de avance y el porcentaje de recorrido total realizado
+      TRecorrido = (bus.hora - bus.horaSaliDete )/(1000);
+      //console.log(bus.tiemAcumDete - TRecorrido)
+      if ((TRecorrido -bus.tiemAcumDete) > TTolerancia) {
+        elemento.css('background-image','url(../img/bus-markern.svg)');
+      }else if((TRecorrido -bus.tiemAcumDete ) < ((-1)*TTolerancia)){
+        elemento.css('background-image','url(../img/bus-markeraz.svg)');
+      }else{
+        elemento.css('background-image','url(../img/bus-markerv.svg)');
+      } 
+  }
 
 
 }
@@ -214,42 +283,7 @@ $("#btn6").click(function(){
           elemento.css('left', disNormal+'px');
           elemento.css('transform','translateX(-50%)');
   }
-  //modificamos la posicion de los buses en la linea de tiempo y se transladan -50% en x para lograr un centrado relativo
-  function actualizarBus(elementoPadre,distancia, bus) {
-      /*  var distance = daydiff(timelineComponents['timelineDates'][0], timelineComponents['timelineDates'][i]),
-          distanceNorm = Math.round(distance/timelineComponents['eventsMinLapse']) + 2;*/
-          TTolerancia = 20;   //este margen de tiempo se usa para aplicar los criteros sobre los que se define si un conductor va tarde, muy rapido o bien entre todo el recorrido.
-          //TToleranciaEstaciones = 10;   este margen de tiempo se usa para aplicar los criteros sobre los que se define si un conductor va tarde, muy rapido o bien entre cada estacion.
-          elemento = elementoPadre.find(".bus");
-          dis = Math.round(distancia);
-          //console.log(distancia +"left "+dis);
-          //console.log("bus"+disNormal);
-          elemento.css('left', dis+'px');
-          elemento.css('transform','translateX(-50%)');
-          elemento.css('transition','left 1s linear');
-
-
-
-        /*funcion para modificar el color 
-          //TTolerancia = 15;   este margen de tiempo se usa para aplicar los criteros sobre los que se define si un conductor va tarde, muy rapido o bien entre todo el recorrido.
-          //TToleranciaEstaciones = 10;   este margen de tiempo se usa para aplicar los criteros sobre los que se define si un conductor va tarde, muy rapido o bien entre cada estacion.
-
-        $('#recorrido2 .bus').eq(0).css('background-image','url(../img/bus-markerv.svg)');
-          *
-      // funcion que modifica el estado o color del bus, dependiendo de si va tarde, muy rapido o bien
-      TRecorrido: el tiempo que el bus lleva en el recorrido*/
-
-      //lo necesito > TEstimado: el tiempo que se espera le halla tomado al bus llegar a ese nivel avance, calcula en base al tiempo de avance y el porcentaje de recorrido total realizado
-      TRecorrido = (bus.hora - bus.horaSaliDete )/(1000);
-      console.log(bus.tiemAcumDete - TRecorrido)
-      if ((TRecorrido -bus.tiemAcumDete) > TTolerancia) {
-        elemento.css('background-image','url(../img/bus-markern.svg)');
-      }else if((TRecorrido -bus.tiemAcumDete ) < ((-1)*TTolerancia)){
-        elemento.css('background-image','url(../img/bus-markeraz.svg)');
-      }else{
-        elemento.css('background-image','url(../img/bus-markerv.svg)');
-      } 
-  }
+ 
 
 
   function updateSlide(timeline, timelineTotWidth, string) {
