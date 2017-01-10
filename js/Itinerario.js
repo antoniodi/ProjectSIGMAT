@@ -4,16 +4,19 @@ Author: Antonio Cortes
 esta clase se usa para administrar los recorridos, cuando solo se cuenta con una ruta
 */
 function Itinerario(disEE,paradas) {
+
   var nEstaciones=paradas.length;
       agregarCabecera(nEstaciones,paradas);
   var caja = $(".caja"), //raiz para la creacion de las lineas de tiempo para los buses
       retorno = crearEstructura(),
+      busesOnline = [],    //alamcena un vector de objetos de tipo bus, siemppre que estos se encuentre disponibles visualmente en la interfaz de monitoreo
       timeline = retorno[0],
       timelineWidth = retorno[1],
       estBus = retorno[2],
-      modAnteEsta = 0, //alamcena el modulo anterior encargado de definir un cambio entre estaciones
-      estadoAvance = false, //defino un etado que me permita saber cuando se podra dibujar la linea de estado entre estaciones 
-      horaIni = 0, //esta hora me permitira almacenar la hora a la que el bus abandona a estacion, con esta hora podre determinar el tiempo que duro entre las dos estaciones
+
+      //modAnteEsta = 0, //alamcena el modulo anterior encargado de definir un cambio entre estaciones
+      //estadoAvance = false, defino un etado que me permita saber cuando se podra dibujar la linea de estado entre estaciones 
+      //horaIni = 0, //esta hora me permitira almacenar la hora a la que el bus abandona a estacion, con esta hora podre determinar el tiempo que duro entre las dos estaciones
       TTolerancia = 20, //este margen de tiempo se usa para aplicar los criteros sobre los que se define si un conductor va tarde, muy rapido o bien entre todo el recorrido.
       TToleranciaEstaciones = 10, // este margen de tiempo se usa para aplicar los criteros sobre los que se define si un conductor va tarde, muy rapido o bien entre cada estacion.   
       busesAceptados = [];
@@ -86,7 +89,7 @@ timeline.find('.mover').on('click', '.prev', function(event){
 
 /*
 
-*/
+
 //funciones de los botones
 var contadorBusAgregado = 10;
 $("#btn1").click(function(){
@@ -119,7 +122,7 @@ $("#btn6").click(function(){
     a++;
 });
 
-
+*/
 
 //funciopn encarga de mostrar los nombre de las estaciones
   function agregarCabecera(nEstaciones,estaciones){
@@ -137,21 +140,13 @@ $("#btn6").click(function(){
           }
 
   }
-  //se encarga de agregar los siguientes recorridos faltantes
-  function agregarRecorridosFaltantes(nBuses){
-    var recorridos=[];
-    //se guarda primero la informacion del DOM en un array debido al costo computacion elevado de la funcion "append" de jQuery
-    for (var i = 0; i < nBuses-1; i++) {
-      recorridos.push("<div class=timeline0 id=recorrido"+buses+"><div class=line><ol class=linei style=width:"+timelineWidth+"px;>"+estBus+"<li class=bus>id tyo</li></div> <div class=datos>hora de salida: <br>"+(i+1)+"</div><div class=cerrar onclick=it.eliminarRecorrido(recorrido"+idBus+")>x</div></div>");
-      buses++
-    }
-    caja.append(recorridos.join(''));
-    }
+  
   //se encarga de agregar un recorrido al final, info se refiere a la hora de salida del bus
-  this.agregarRecorrido = function(id, horaS, idBus){
-    buses = caja.append("<div class=timeline0 id=recorrido"+id+"><div class=line><ol class=linei style=width:"+timelineWidth+"px;>"+estBus+"<li class=bus>"+idBus+"</li></div> <div class=datos>hora de salida:</br>"+horaS.toLocaleTimeString()+"</div><div class=cerrar onclick=it.removeRecorrido("+id+")>x</div></div>");
+  this.agregarRecorrido = function(idRecorrido, horaSaliReal,horaSaliDete, id){
+   busesOnline.push(new Bus(idRecorrido, horaSaliReal,horaSaliDete, id, caja,timelineWidth,estBus));
+    //caja.append("<div class=timeline0 id=recorrido"+idRecorrido+"><div class=line><ol class=linei style=width:"+timelineWidth+"px;>"+estBus+"<li class=bus>"+id+"</li></div> <div class=datos>hora de salida:</br>"+horaSaliReal.toLocaleTimeString()+"</div><div class=cerrar onclick=it.removeRecorrido("+idRecorrido+")>x</div></div>");
     //console.log(id);
-    busesAceptados.push(id);
+    busesAceptados.push(idRecorrido);
 
   }
   this.getRecorridos = function () {
@@ -163,6 +158,7 @@ $("#btn6").click(function(){
     index = busesAceptados.indexOf(""+id);
     if (index > -1) {
     busesAceptados.splice(index, 1);
+    busesOnline.splice(index, 1);
     }
     bus = caja.find("#recorrido"+id);
     //bus.css('height','0px');
@@ -203,13 +199,17 @@ $("#btn6").click(function(){
   }
 
  //modificamos la posicion de los buses en la linea de tiempo y se transladan -50% en x para lograr un centrado relativo
- this.actualizarBus = function (elementoPadre,distancia, bus) {
+ this.actualizarBus = function (elementoPadre, bus,idRecorrido) {
       /*  var distance = daydiff(timelineComponents['timelineDates'][0], timelineComponents['timelineDates'][i]),
           distanceNorm = Math.round(distance/timelineComponents['eventsMinLapse']) + 2;*/
-          
+
+          var busSeleccionado = $.grep(busesOnline, function(e){ return e.idRecorrido == bus.idRecorrido; })[0];
+
+
           elemento = elementoPadre.find(".bus");
           linea = elementoPadre.find(".lineT");
-          dis = Math.round(distancia);
+
+          dis = Math.round(bus.porcAvan);
           //console.log(distancia +"left "+dis);
           //console.log("bus"+disNormal);
           elemento.css('left', dis+'px');
@@ -218,10 +218,10 @@ $("#btn6").click(function(){
 
 
 
-        if ( (modAnteEsta >  bus.porcAvan%100)  && bus.porcAvan%100 != 0 && bus.idRecorrido ==3) {
-          console.log(modAnteEsta+"    "+bus.porcAvan%100+"    "+bus.porcAvan);
-            TEstaciones = (bus.hora - horaIni)/(1000); 
-          if (estadoAvance) {
+        if ( (busSeleccionado.getModAnteEsta() >  bus.porcAvan%100)  && bus.porcAvan%100 != 0 ) {
+          
+            TEstaciones = (bus.hora - busSeleccionado.getHoraIni())/(1000); 
+          if (busSeleccionado.getEstadoAvance()) {
             if ((TEstaciones - bus.tiemEstaDete) > TToleranciaEstaciones) {
               linea.eq(bus.porcAvan.toString()[0]-1).css('background-color','#FF5252');
               linea.eq(bus.porcAvan.toString()[0]-1).css('width',disEE+'px');
@@ -234,16 +234,16 @@ $("#btn6").click(function(){
               linea.eq(bus.porcAvan.toString()[0]-1).css('background-color','#1BCE7C');
               linea.eq(bus.porcAvan.toString()[0]-1).css('width',disEE+'px');
             } 
-            horaIni = bus.hora;
+            busSeleccionado.setHoraIni(bus.hora);
           }else{
-            horaIni = bus.hora;
-            estadoAvance =true;
+            busSeleccionado.setHoraIni(bus.hora);
+            busSeleccionado.setEstadoAvance(true);
           };
         } else{};
 
 
-        if (bus.porcAvan%100 != 0 && bus.idRecorrido ==3) {
-          modAnteEsta = bus.porcAvan%100;
+        if (bus.porcAvan%100 != 0 ) {
+          busSeleccionado.setModAnteEsta(bus.porcAvan%100);
 
           
         };

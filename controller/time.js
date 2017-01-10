@@ -44,9 +44,9 @@ $.getJSON("http://localhost:8000/data/buses"+rutaSeleccionada+".json").
 
         for (var i = 0; i < recorridos.length; i++) {
           buses.push(recorridos[i][0].idRecorrido);
-          it.agregarRecorrido(recorridos[i][0].idRecorrido,new Date(recorridos[i][0].horaSaliReal),recorridos[i][0].id);
+          it.agregarRecorrido(recorridos[i][0].idRecorrido,new Date(recorridos[i][0].horaSaliReal),new Date(recorridos[i][0].horaSaliDete),recorridos[i][0].id);
         }
-        console.log(buses);
+       
               b=0;
       setInterval(function () {
 
@@ -59,7 +59,7 @@ $.getJSON("http://localhost:8000/data/buses"+rutaSeleccionada+".json").
 
            for (var i = 0; i < indices.length; i++) {
              //console.log(busesAceptados.length);
-             it.actualizarBus($("#recorrido"+recorridos[indices[i]][b].idRecorrido+" .linei"),recorridos[indices[i]][b].porcAvan,recorridos[indices[i]][b]);
+             it.actualizarBus($("#recorrido"+recorridos[indices[i]][b].idRecorrido+" .linei"),recorridos[indices[i]][b]);
               
            }
        b++;
