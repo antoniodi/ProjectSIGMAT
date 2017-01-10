@@ -22,7 +22,7 @@ app.controller('MainCtrl', ['$scope', '$http','i18nService', function ($scope, $
     columnDefs: [
       
       // {name: 'Eliminar', width: '7%', cellTemplate: '<button class="btn primary" ng-click="grid.appScope.deleteRow(row)">Eliminar</button>'},
-      {field: 'Clave', width: '6%'},
+      // {field: 'Clave', width: '6%'},
       {field: 'Bus', width: '8%'},
       {field: 'Conductor', width: '9%'},
       {field: 'Recorrido',  name:'Ruta', width: '6%'},
@@ -37,11 +37,14 @@ app.controller('MainCtrl', ['$scope', '$http','i18nService', function ($scope, $
         }
       },
       {field: 'HoraSalidaEstimada', name:'H.S.E',  visible:false, width: '7%'},
-      {field: 'HoraSalidaReal', name:'H.S.R', width: '7%',
+      {field: 'HoraSalidaReal', name:'Salida', width: '7%',
      cellClass: function(grid, row, col, rowRenderIndex, colRenderIndex) {
           if (grid.getCellValue(row,col) > row.entity.HoraSalidaEstimada) {
             return 'red';
           }
+          else { if (grid.getCellValue(row,col) < row.entity.HoraSalidaEstimada) 
+            { return 'blue'; }
+              }
         }, 
         cellTemplate:'<div style="cursor:pointer" ng-click="grid.appScope.cellClicked(row,col)"  class="ui-grid-cell-contents" title="TOOLTIP">{{COL_FIELD CUSTOM_FILTERS}}</div>'
       },
@@ -51,6 +54,9 @@ app.controller('MainCtrl', ['$scope', '$http','i18nService', function ($scope, $
           if (grid.getCellValue(row,col) > row.entity.HorarioEstimado.ST1) {
             return 'red';
           }
+          else { if (grid.getCellValue(row,col) < row.entity.HorarioEstimado.ST1) 
+            { return 'blue'; }
+              }
         },
         cellTemplate:'<div style="cursor:pointer" ng-click="grid.appScope.cellClicked1(row,col)"  class="ui-grid-cell-contents" title="TOOLTIP">{{COL_FIELD CUSTOM_FILTERS}}</div>'
       },
@@ -60,6 +66,9 @@ app.controller('MainCtrl', ['$scope', '$http','i18nService', function ($scope, $
           if (grid.getCellValue(row,col) > row.entity.HorarioEstimado.ST2) {
             return 'red';
           }
+           else { if (grid.getCellValue(row,col) < row.entity.HorarioEstimado.ST2) 
+            { return 'blue'; }
+              }
         }, 
         cellTemplate:'<div style="cursor:pointer" ng-click="grid.appScope.cellClicked2(row,col)"  class="ui-grid-cell-contents" title="TOOLTIP">{{COL_FIELD CUSTOM_FILTERS}}</div>'
       },
@@ -69,24 +78,33 @@ app.controller('MainCtrl', ['$scope', '$http','i18nService', function ($scope, $
           if (grid.getCellValue(row,col) > row.entity.HorarioEstimado.ST3) {
             return 'red';
           }
+            else { if (grid.getCellValue(row,col) < row.entity.HorarioEstimado.ST3) 
+            { return 'blue'; }
+              }
         },
         cellTemplate:'<div style="cursor:pointer" ng-click="grid.appScope.cellClicked3(row,col)"  class="ui-grid-cell-contents" title="TOOLTIP">{{COL_FIELD CUSTOM_FILTERS}}</div>'
       },
       {field: 'HorarioEstimado.ST4', name:'H.E-est4', visible: false, width: '8%'},
       {field: 'HorarioReal.ST4', name:'llegada E4', width: '10%', 
     cellClass: function(grid, row, col, rowRenderIndex, colRenderIndex) {
-          if (grid.getCellValue(row,col) > row.entity.HorarioEstimado.ST1) {
+          if (grid.getCellValue(row,col) > row.entity.HorarioEstimado.ST4) {
             return 'red';
           }
+          else { if (grid.getCellValue(row,col) < row.entity.HorarioEstimado.ST4) 
+            { return 'blue'; }
+              }
         },
         cellTemplate:'<div style="cursor:pointer" ng-click="grid.appScope.cellClicked4(row,col)"  class="ui-grid-cell-contents" title="TOOLTIP">{{COL_FIELD CUSTOM_FILTERS}}</div>'
       },
       {field: 'HorarioEstimado.ST5', name:'H.E-est5', visible: false, width: '8%'},
       {field: 'HorarioReal.ST5', name:'llegada E5', width: '10%', 
     cellClass: function(grid, row, col, rowRenderIndex, colRenderIndex) {
-          if (grid.getCellValue(row,col) > row.entity.HorarioEstimado.ST1) {
+          if (grid.getCellValue(row,col) > row.entity.HorarioEstimado.ST5) {
             return 'red';
           }
+           else { if (grid.getCellValue(row,col) < row.entity.HorarioEstimado.ST5) 
+            { return 'blue'; }
+              }
         },
         cellTemplate:'<div style="cursor:pointer" ng-click="grid.appScope.cellClicked5(row,col)"  class="ui-grid-cell-contents" title="TOOLTIP">{{COL_FIELD CUSTOM_FILTERS}}</div>'
       }

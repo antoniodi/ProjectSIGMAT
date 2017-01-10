@@ -15,7 +15,13 @@
 
  <div class="grid">
  <div id="cajaletrero"><b>MONITOREO EN TABLAS: UNICA RUTA</b></div>
- <div id="cajaletreroinformacion">&nbsp;&nbsp;&nbsp;&nbsp;Lento <br/> &nbsp;&nbsp;&nbsp;&nbsp;Bien <br/> &nbsp;&nbsp;&nbsp;&nbsp;Veloz</div>
+ <div id="cajaletreroinformacion">
+   <div id="cajaletreroinformacionrojo"></div>
+   <div id="cajaletreroinformacionblanco"></div>
+   <div id="cajaletreroinformacionazul"></div>
+   <div id="cajaletreroinformaciontexto"><b>Atrasado <br/> Normal <br/> Adelantado</b></div>
+ </div>
+
   <div id="grid1" ng-controller="MainCtrl">
    <div  ui-grid="gridOptions" ui-grid-selection ui-grid-exporter  ></div>
   </div>
