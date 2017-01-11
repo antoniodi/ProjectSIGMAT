@@ -2,7 +2,7 @@ var app = angular.module('app', ['ngAnimate', 'ngTouch', 'ui.grid', 'ui.grid.sel
 
 var rutaSeleccionada = window.location.search.split("=")[1];
     console.log(rutaSeleccionada);
-
+  $("#cajaletreroinformaciontexto1").html("RUTA "+rutaSeleccionada);
 app.controller('MainCtrl', ['$scope', '$http','i18nService', function ($scope, $http, i18nService ) {
 
  /*$scope.deleteRow = function(row) {

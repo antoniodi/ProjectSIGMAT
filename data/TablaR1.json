@@ -3,7 +3,7 @@
 "Clave": "HOLA1",
 "Bus": "ZOE101",
 "Conductor": "1000000",
-"Recorrido": "T3-1",
+"Recorrido": "R1-1",
 "HoraSalidaEstimada": "13:00:00",
 "HoraSalidaReal": "13:00:00",
 "HorarioEstimado": {
@@ -27,7 +27,7 @@
 "Clave": "HOLA2",
 "Bus": "ZOE202",
 "Conductor": "1098468424",
-"Recorrido": "T3-2",
+"Recorrido": "R1-2",
 "HoraSalidaEstimada": "13:15:00",
 "HoraSalidaReal": "13:15:00",
 "HorarioEstimado": {
@@ -51,7 +51,7 @@
 "Clave": "HOLA3",
 "Bus": "ZOE203",
 "Conductor": "1096544654",
-"Recorrido": "T3-3",
+"Recorrido": "R1-3",
 "HoraSalidaEstimada": "13:30:00",
 "HoraSalidaReal": "13:32:00",
 "HorarioEstimado": {
@@ -75,7 +75,7 @@
 "Clave": "HOLA4",
 "Bus": "ZOE204",
 "Conductor": "1096484894",
-"Recorrido": "T3-4",
+"Recorrido": "R1-4",
 "HoraSalidaEstimada": "13:45:00",
 "HoraSalidaReal": "13:44:00",
 "HorarioEstimado": {
@@ -99,7 +99,7 @@
 "Clave": "HOLA5",
 "Bus": "ZOE205",
 "Conductor": "109999999",
-"Recorrido": "T3-5",
+"Recorrido": "R1-5",
 "HoraSalidaEstimada": "14:00:00",
 "HoraSalidaReal": "14:00:00",
 "HorarioEstimado": {
@@ -123,7 +123,7 @@
 "Clave": "HOLA6",
 "Bus": "ZOE206",
 "Conductor": "133333333",
-"Recorrido": "T3-6",
+"Recorrido": "R1-6",
 "HoraSalidaEstimada": "14:15:00",
 "HoraSalidaReal": "14:16:00",
 "HorarioEstimado": {
@@ -147,7 +147,7 @@
 "Clave": "HOLA7",
 "Bus": "ZOE207",
 "Conductor": "17777777",
-"Recorrido": "T3-7",
+"Recorrido": "R1-7",
 "HoraSalidaEstimada": "14:30:00",
 "HoraSalidaReal": "14:30:00",
 "HorarioEstimado": {
@@ -171,7 +171,7 @@
 "Clave": "HOLA8",
 "Bus": "ZOE208",
 "Conductor": "18888888",
-"Recorrido": "T3-8",
+"Recorrido": "R1-8",
 "HoraSalidaEstimada": "14:45:00",
 "HoraSalidaReal": "14:45:00",
 "HorarioEstimado": {

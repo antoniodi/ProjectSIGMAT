@@ -10,16 +10,17 @@
 #grid1{
   position: relative;
   z-index: 1;
-  top: 51px;
+  top: 60px;
 }
 
 #cajaletrero{
+  font-style: italic;
   position: relative;
-  box-shadow: 0px 0px 5px 3px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 0px 5px 4px rgba(0, 0, 0, 0.2);
   z-index: 1;
-  top: 20px;
-  width: 55%;
-  height: 38px;
+  top: 22px;
+  width: 100%;
+  height: 40px;
   font-size: xx-large !important; 
   background-color: #11EF96;
   color: white;
@@ -27,19 +28,19 @@
   border-radius: 15px;
   }
 
-#cajaletreroinformacion{
+#cajaletreroinformacion1{
   position: relative;
   box-shadow: 0px 0px 5px 3px rgba(0, 0, 0, 0.2);
   z-index: 1;
-  left: 85.5%; 
-  top: 40px;
+  left: 40%; 
+  top: -10px;
   width: 190px;
-  height: 62px;
+  height: 55px;
   border-radius: 15px;
-  background-color: white;
+  background-color: #f2f2f2;
 }
 
-#cajaletreroinformacionrojo{
+/*#cajaletreroinformacionrojo1{
   position: relative;
   z-index: 1;
   left: 16.5%; 
@@ -49,9 +50,8 @@
   border-radius: 10px;
   background-color: red;
   box-shadow: 0px 0px 3px 1px rgba(0, 0, 0, 0.2);
- 
  }
-#cajaletreroinformacionblanco{
+#cajaletreroinformacionblanco1{
   position: relative;
   z-index: 1;
   left: 16.5%; 
@@ -62,7 +62,7 @@
   background-color: white;
   box-shadow: 0px 0px 3px 1px rgba(0, 0, 0, 0.2);
  }
- #cajaletreroinformacionazul{
+ #cajaletreroinformacionazul1{
   position: relative;
   z-index: 1;
   left: 16.5%; 
@@ -73,19 +73,79 @@
   background-color: blue;
   box-shadow: 0px 0px 3px 1px rgba(0, 0, 0, 0.2);
  }
-  #cajaletreroinformaciontexto{
+ */
+
+  #cajaletreroinformaciontexto1{
   position: relative;
   z-index: 1;
-  left: 44.5%; 
-  top:-22.5px;
-  width: 50px;
-  height: 50px;
+  font-style: italic;
+  left: 13.5%; 
+  top:9px;
+  font-weight: bold;
+  width: 150px;
+  height: 40px;
   border-radius: 15px;
-  background-color: white;
-  color: black; /*black*/
+  font-size: xx-large !important;
+  background-color:#f2f2f2;
+  color: #6B4545; /*black*/
   font-size: 14px;
   text-align: left;
  }
+
+
+#cajaletreroinformacion{
+  position: relative;
+   font-style: italic;
+   color: #6B4545;
+  box-shadow: 0px 0px 5px 3px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  word-spacing: 30px;
+  left: 71.8%; 
+  top: 110px;
+  width: 350px;
+  height: 40px;
+  text-align: center;
+  border-radius: 5px;
+  background-color: #f2f2f2;
+}
+
+#cajaletreroinformacionrojo{
+  position: relative;
+  
+  z-index: 1;
+  left:12.5%; 
+  top: 0.30em;
+  width: 46px;
+  height: 12px;
+  border-radius: 10px;
+  background-color: red;
+  box-shadow: 0px 0px 3px 1px rgba(0, 0, 0, 0.2);
+ 
+ }
+#cajaletreroinformacionblanco{
+  position: relative;
+  z-index: 1;
+  left: 41.5%; 
+  top: -0.45em;
+  width: 46px;
+  height: 12px;
+  border-radius: 10px;
+  background-color: white;
+  box-shadow: 0px 0px 3px 1px rgba(0, 0, 0, 0.2);
+ }
+ #cajaletreroinformacionazul{
+  position: relative;
+  z-index: 1;
+  left: 70%; 
+  top: -1.25em;
+  width: 46px;
+  height: 12px;
+  border-radius: 10px;
+  background-color: blue;
+  box-shadow: 0px 0px 3px 1px rgba(0, 0, 0, 0.2);
+ }
+
+ 
 
 .red { color: #51F051;  background-color: red !important;}
 .blue { color: #51F051;  background-color: blue !important;}
@@ -103,10 +163,10 @@ body, html {
   
 }
 
-
 /*FIN TABLAS*/
 .ui-grid {
-  border: 1px solid #51f051;
+  border: 3px solid #51f051;
+  box-shadow: 0px 0px 6px 6px rgba(0, 0, 0, 0.2);
   box-sizing: content-box;
   -webkit-border-radius: 10px;
   -moz-border-radius: 10px;
@@ -118,15 +178,16 @@ body, html {
   transform: translateZ(0);
 }
 .ui-grid-header {
-  border-bottom: 1px solid #51f051;
+  border-bottom: 2.5px solid #51f051;
   box-sizing: border-box;
+
 }
 
 .ui-grid-header-cell {
   position: relative;
   box-sizing: border-box;
   background-color: inherit;
-  border-right: 1px solid;
+  border-right: 1.5px solid;
   border-color: #51f051;
  
 }
@@ -135,12 +196,12 @@ body, html {
   overflow: hidden;
   float: left;
   background-color: inherit;
-  border-right: 1px solid;
+  border-right: 1.5px solid;
   border-color: #51f051;
   box-sizing: border-box;
 }
 
 .ui-grid-row .ui-grid-cell.ui-grid-row-header-cell {
   background-color: #f0f0ee;
-  border-bottom: solid 1px #51f051;
+  border-bottom: solid 1.5px #51f051;
 }
