@@ -82,8 +82,8 @@
      opcionesSelectu=[];
 
   for (var i = 0; i < opcionesRutas.length; i++) {
-    opcionesSelectm.push("ver rutas<div class=cajar> "+opcionesRutas[i]+"</div>");
-    opcionesSelectu.push("ver rutas<div class=cajar> "+opcionesRutas[i]+"</div>");
+    opcionesSelectm.push("<div class=cajar> "+opcionesRutas[i]+"</div>");
+    opcionesSelectu.push("<div class=cajar> "+opcionesRutas[i]+"</div>");
   }
   cajam1s.append(opcionesSelectm.join(" "));
   cajamm = cajam1s.find(".cajar");
@@ -172,9 +172,9 @@ $('.amodal1').click(function () {
     Materialize.toast('¡Porfavor, Seleccione almenos una ruta!', 5000);
   }
 //en caso de que el usuario solo desee monitorizar una ruta
-  else if(seleccionadasC.length == 1){
+  /*else if(seleccionadasC.length == 1){
     window.open('view/unicaRuta.html?ruta='+seleccionadasC.join(""));
-  }
+  } */
 //en caso de que el usuario desee monitorizar una o mas rutas
   else {
       window.open('view/multiplesRutas.html?rutas='+seleccionadasC.join(","));
