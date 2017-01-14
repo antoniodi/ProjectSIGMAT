@@ -7978,8 +7978,10 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
 .bloque1 {
   display: flex;
   font-size: 3em;
+  align-items: center;
   color: #515151;
   padding-left: 24px;
+  padding-top: 12px;
   font-stretch: condensed;
 }
 .bloque1 a {
@@ -8184,7 +8186,7 @@ a {
   overflow: hidden;
   margin-top: 12px;
   padding-top: 12px;
-  height: calc(90vh - 24px);
+  height: calc(90vh - 36px);
 }
 
 .cajaR0, .cajaR1, .cajaR2, .cajaR3, .cajaR4 {
