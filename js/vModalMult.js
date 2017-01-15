@@ -10,6 +10,7 @@ var rutas = rut,
     unica = $(".unica");
 
      this.setRutasActivas = function(rutasActivas){
+     	multipleM.children().remove();
         rutasAct = rutasActivas;
     }
     this.getRutasActivas = function(rutasActivas){
