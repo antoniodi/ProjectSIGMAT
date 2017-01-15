@@ -34,7 +34,7 @@
   box-shadow: 0px 0px 5px 3px rgba(0, 0, 0, 0.2);
   z-index: 1;
   left: 42%; 
-  top: -10px;
+  top: 21px;
   width: 190px;
   height: 55px;
   border-radius: 80px;
@@ -103,7 +103,7 @@
   font-size: 11px !important;
   word-spacing: 18px;
   left: 82%; 
-  top: 110px;
+  top: 55px;
   width: 210px;
   height: 31.8px;
   text-align: center;
