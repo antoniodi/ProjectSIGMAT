@@ -12,7 +12,8 @@ var estadoAvance = false, //alamcena el modulo anterior encargado de definir un 
 	horaIni = 0; //esta hora me permitira almacenar la hora a la que el bus abandona a estacion, con esta hora podre determinar el tiempo que duro entre las dos estaciones
 
 	function agregarBusCaja (idRecorrido, horaSaliReal,horaSaliDete, id, caja) {
-		caja.append("<div class=timeline0 id=recorrido"+idRecorrido+"><div class=line><ol class=linei style=width:"+timelineWidth+"px;>"+estBus+"<li class=bus>"+id+"</li></div> <div class=datos>hora de salida:</br>"+horaSaliReal.toLocaleTimeString()+"</div><div class=cerrar onclick=it.removeRecorrido("+idRecorrido+")>x</div></div>");
+		caja.append("<div class=timeline0  id=recorrido"+idRecorrido+"><div class=line><ol class=linei style=width:"+timelineWidth+"px;>"+estBus+"<li class=bus><div class=bust>"+id+"</div></li></div> <div class=datos>hora de salida:</br>"+horaSaliReal.toLocaleTimeString()+"</div><div class=cerrar onclick=it.removeRecorrido("+idRecorrido+")>x</div></div>");
+		$('.tooltipped').tooltip({delay: 50});
 	}
 	//metodos get (obtencion)
 	this.getEstadoAvance = function () {

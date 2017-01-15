@@ -1,10 +1,10 @@
 
 
   jQuery(document).ready(function($){
-    
+ 
     //capturamos la url, y obtenemos los valores de las rutas que el usuario desea monitorizar
     var rutaSeleccionada = window.location.search.split("=")[1];
-    console.log(rutaSeleccionada);
+    //console.log(rutaSeleccionada);
     $(".bloque1").html("RUTA "+rutaSeleccionada);
     
     $.getJSON("http://localhost:8000/data/rutas.json").
@@ -19,10 +19,11 @@
 
         }
       }
+
     var disEE = 100, //esta variable define la distancia entre estaciones en pixeles
         paradas = rutaElegida.paradas; //el indice marca la ruta, en este caso se selecciona la primera ruta del json
-
-        it = new Itinerario(disEE,paradas);
+       
+        it = new Itinerario(disEE,paradas, rutaElegida.color);
     //creamos un nuevo itinerario, que sera un objeto que contiene todos los recorridos
     //var it = new itinerario(disEE,rutaElegida.paradas)
 /*

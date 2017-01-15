@@ -2,23 +2,35 @@
 <html>
   <head>
     <title>SIGMAT - Multiples Rutas</title>
-    <script src="../lib/jquery-2.2.4.min.js"></script>
-    <script src="../js/min/materialize.min.js"></script>
+    <meta charset="UTF-8"/>
+    <script src="../lib/jquery-2.2.4.min.js"> </script>
     <script type="application/javascript" src="../js/recorridos.js"></script>
-    <script type="application/javascript" src="../js/itinerarios.js"></script>
     <script type="application/javascript" src="../js/times.js"></script>
-    <link href="css/style.css" rel="../stylesheet"/>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"/>
-   
+    <script type="application/javascript" src="../js/min/materialize.min.js"></script>
     <link rel="stylesheet" type="text/css" href="../css/rcss.css"/>
     <link rel="stylesheet" type="text/css" href="../css/scroll.css"/>
-    
-    
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"/>
   </head>
   <body>
     <button id="btn1">agregar recorrido</button>
     <button id="btn2">eliminar recorrido</button>
     <button id="btn3">cambio de color del marcador</button>
+    <div class="bloque1"><a href="#modal1" class="modal-trigger waves-effect waves-light btn btnM"><i class="material-icons left">queue</i>Agregar ruta(s)</a></div>
+    <div id="modal1" class="modal modal-fixed-footer">
+      <div class="modal-content">
+        <div class="cerrar modal-close">x</div>
+        <h4 class="center-align flow-text">LINEAS DE TIEMPO</h4>
+        <div class="cajam1">
+          <h3 class="cajam1m flow-text">1. Seleccione una de las siguientes categorias</h3>
+          <div class="cajam1s"></div>
+          <h3 class="cajam1m flow-text">2. Seleccione las rutas que desea monitorear</h3>
+          <div class="cajam1i">
+            <form class="multipleM"></form>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer"><a class="amodal1 modal-action modal-close waves-effect waves-green btn">Agregar rutas</a><a class="modal-action modal-close waves-effect waves-red left btn red">Cancelar</a></div>
+    </div>
     <div class="cajaRR"></div>
   </body>
 </html>

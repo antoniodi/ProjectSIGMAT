@@ -3,7 +3,7 @@
 Author: Antonio Cortes
 esta clase se usa para administrar los recorridos, cuando solo se cuenta con una ruta
 */
-function Itinerario(disEE,paradas) {
+function Itinerario(disEE,paradas,color) {
 
   var nEstaciones=paradas.length;
       agregarCabecera(nEstaciones,paradas);
@@ -21,7 +21,9 @@ function Itinerario(disEE,paradas) {
       TToleranciaEstaciones = 10, // este margen de tiempo se usa para aplicar los criteros sobre los que se define si un conductor va tarde, muy rapido o bien entre cada estacion.   
       busesAceptados = [];
       //agregando todos los buses de los que se dispone y ocultandolos para usarlos cuando sea necesario
-
+      
+      $('select').material_select();
+       $('.indicador').eq(0).css('background-color','#'+color);
       /*
       Estas funciones se encargan de permitir el desplazamiento horizontal en la linea de tiempo
       */
@@ -49,8 +51,11 @@ function crearEstructura() {
   lineG.append(estaciones.join(""));
   //creamos las lineas de control que nos indicaran de forma parcial el estado del recorrido
   for (var i = 0; i < nEstaciones; i++) {
-    lineasContol.push("<div class=lineT style=left:"+disEE*i+"px></div>")
+    lineasContol.push("<div class='lineT' style=left:"+disEE*i+"px><span class=tooltiptext>Hola</span></div>");
+    
     //lineG.append("<li class=estacion1></li>")
+    
+  
   }
     lineG.append(lineasContol.join(""));
   // se hace la nueva llamada desde este lugar debido a que en la anteror linea se estaban agregando las estaciones
@@ -208,7 +213,6 @@ $("#btn6").click(function(){
 
           elemento = elementoPadre.find(".bus");
           linea = elementoPadre.find(".lineT");
-
           dis = Math.round(bus.porcAvan);
           //console.log(distancia +"left "+dis);
           //console.log("bus"+disNormal);
@@ -222,18 +226,28 @@ $("#btn6").click(function(){
           
             TEstaciones = (bus.hora - busSeleccionado.getHoraIni())/(1000); 
           if (busSeleccionado.getEstadoAvance()) {
-            if ((TEstaciones - bus.tiemEstaDete) > TToleranciaEstaciones) {
+
+            difTiempoSegu = TEstaciones - bus.tiemEstaDete; //diferencia de tiepo en segundos
+           
+            //el bus va rapido con respecto al tiempo estimado
+            if ((difTiempoSegu) > TToleranciaEstaciones) {
+              $(linea.eq(bus.porcAvan.toString()[0]-1)).children(".tooltiptext").text('+'+difTiempoSegu+' [s]');
               linea.eq(bus.porcAvan.toString()[0]-1).css('background-color','#FF5252');
               linea.eq(bus.porcAvan.toString()[0]-1).css('width',disEE+'px');
               
-            }else if((TEstaciones - bus.tiemEstaDete ) < ((-1)*TToleranciaEstaciones)){
+            }else if((difTiempoSegu ) < ((-1)*TToleranciaEstaciones)){
+              //el bus va lento con respecto al tiempo estimado
+              $(linea.eq(bus.porcAvan.toString()[0]-1)).children(".tooltiptext").text('-'+difTiempoSegu+' [s]');
               linea.eq(bus.porcAvan.toString()[0]-1).css('background-color','#3F51B5');
               linea.eq(bus.porcAvan.toString()[0]-1).css('width',disEE+'px');
+
               
             }else{
+              $(linea.eq(bus.porcAvan.toString()[0]-1)).children(".tooltiptext").text('A tiempo');
               linea.eq(bus.porcAvan.toString()[0]-1).css('background-color','#1BCE7C');
               linea.eq(bus.porcAvan.toString()[0]-1).css('width',disEE+'px');
             } 
+          
             busSeleccionado.setHoraIni(bus.hora);
           }else{
             busSeleccionado.setHoraIni(bus.hora);

@@ -29,7 +29,7 @@
 //funcion encargada de abrir la ventana modal de monitoreo al cargarse la pagina web
 //$('#modal1').openModal();
 //funcion encargada de cargar las librerias graficas asosciadas a materialize
-    $('select').material_select();
+    
 
 //funcion encargada de procesar las categorias, devolver y graficar
     function agregarRutas(rutas) {

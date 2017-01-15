@@ -7970,6 +7970,12 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
     margin-bottom: 5em;
   }
 }
+.ele {
+  width: 24px;
+  height: 24px;
+  background-color: black;
+}
+
 *, *::after, *::before {
   list-style: none;
   box-sizing: border-box;
@@ -8075,8 +8081,12 @@ a {
 .timeline0:hover {
   background: #eeeeee;
 }
-.timeline0:hover .line, .timeline0:hover .line::before, .timeline0:hover .line::after {
+.timeline0:hover .line {
   background: #eeeeee;
+}
+.timeline0:hover .line::before {
+  background-image: -webkit-linear-gradient( left , #eeeeee, rgba(238, 238, 238, 0));
+  background-image: linear-gradient(to right, #eeeeee, rgba(238, 238, 238, 0));
 }
 .timeline0 .cerrar {
   position: absolute;
@@ -8162,6 +8172,13 @@ a {
   color: #212121;
 }
 
+.indicador {
+  width: 100%;
+  height: 12px;
+  background-color: black;
+  box-shadow: 1px 2px 10px 0px rgba(0, 0, 0, 0.3);
+}
+
 .caja {
   height: calc(100% - 66.66px);
   overflow-y: scroll;
@@ -8174,8 +8191,8 @@ a {
   width: 100%;
   height: 90vh;
   padding-top: 12px;
-  overflow-y: scroll;
   width: 100%;
+  overflow: auto;
 }
 
 .cajaP {
@@ -8186,12 +8203,13 @@ a {
   overflow: hidden;
   margin-top: 12px;
   padding-top: 12px;
-  height: calc(90vh - 36px);
+  height: calc(100vh - 96px);
 }
 
 .cajaR0, .cajaR1, .cajaR2, .cajaR3, .cajaR4 {
   width: 95%;
   margin: auto;
+  left: -10px;
   margin-bottom: 12px;
   box-shadow: 1px 2px 10px 0px rgba(0, 0, 0, 0.3);
   overflow: hidden;
@@ -8206,7 +8224,7 @@ a {
   /* width will be set using JavaScript */
   background: #fdfdfd;
 }
-.line::after, .line::before {
+.line::before {
   /* these are used to create a shadow effect at the sides of the timeline */
   content: "";
   position: absolute;
@@ -8220,11 +8238,6 @@ a {
   left: 0;
   background-image: -webkit-linear-gradient( left , #f8f8f8, rgba(248, 248, 248, 0));
   background-image: linear-gradient(to right, #f8f8f8, rgba(248, 248, 248, 0));
-}
-.timeline .line::after, .timeline0 .line::after, .timelinem .line::after {
-  right: 0;
-  background-image: -webkit-linear-gradient( right , #f8f8f8, rgba(248, 248, 248, 0));
-  background-image: linear-gradient(to left, #f8f8f8, rgba(248, 248, 248, 0));
 }
 
 .linei {
@@ -8253,9 +8266,19 @@ a {
   background-size: 1.5em 1.5em;
   background-repeat: no-repeat;
   background-position: bottom;
-  z-index: 4;
+  z-index: 3;
   transition: left 1s linear;
   font-stretch: condensed !important;
+}
+.bus:hover {
+  z-index: 4;
+}
+.bus .busT {
+  position: absolute;
+  box-shadow: 1px 2px 10px 0px rgba(0, 0, 0, 0.3);
+  width: 100%;
+  background-color: white;
+  border-radius: 4px;
 }
 
 .estacion1 {
@@ -8359,15 +8382,46 @@ a {
 .lineT {
   position: absolute;
   background-color: transparent;
-  /* this is the grey line/timeline */
-  position: absolute;
   z-index: 2;
   top: -1px;
   height: 3px;
   width: 0px;
   transition: all 1.5s;
-  cursor: default;
+  cursor: pointer;
   box-shadow: 1px 2px 10px 0px rgba(0, 0, 0, 0.3);
+}
+.lineT:hover .tooltiptext {
+  visibility: visible;
+  opacity: 1;
+}
+.lineT .tooltiptext {
+  visibility: hidden;
+  width: 80px;
+  background-color: #555555;
+  color: white;
+  text-align: center;
+  padding: 5px 0;
+  border-radius: 6px;
+  /* Position the tooltip text */
+  position: absolute;
+  z-index: 2;
+  bottom: 8px;
+  left: 70%;
+  margin-left: -60px;
+  /* Fade in tooltip */
+  opacity: 0;
+  transition: opacity 1s;
+  box-shadow: 1px 2px 10px 0px rgba(0, 0, 0, 0.3);
+}
+.lineT .tooltiptext::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #555555 transparent transparent transparent;
 }
 
 .activate {
@@ -8376,7 +8430,7 @@ a {
 
 .timeline .mover a {
   position: absolute;
-  z-index: 1;
+  z-index: 4;
   top: 50%;
   bottom: auto;
   -webkit-transform: translateY(-50%);

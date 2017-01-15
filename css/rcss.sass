@@ -8,6 +8,12 @@
 @import '../partials/mixins'
 // custom mixins
 
+.ele
+  width: 24px
+  height: 24px
+  background-color: black
+
+
 *,*::after,*::before
   list-style: none
   box-sizing: border-box
@@ -86,8 +92,12 @@ a
   transition: width 1s
   &:hover
     background: $blanco1
-    .line,.line::before,.line::after
+    .line
       background: $blanco1
+      &::before       
+        @include background-image(linear-gradient(to right,$blanco1, rgba($blanco1, 0)))
+      
+
 
 
   .cerrar
@@ -152,7 +162,11 @@ a
 
 
 
-
+.indicador
+  width: 100%
+  height: 12px
+  background-color: black
+  box-shadow: 1px 2px 10px 0px rgba(0, 0, 0, 0.3)
 
   //margin-left: 5%
 .caja
@@ -166,11 +180,8 @@ a
   width: 100%
   height: 90vh
   padding-top: 12px
-  overflow-y: scroll
-
-
-
   width: 100%
+  overflow: auto
 .cajaP
   background: white
   width: calc(100% - 24px)
@@ -179,11 +190,13 @@ a
   overflow: hidden
   margin-top: 12px
   padding-top: 12px
-  height: calc(90vh - 36px)
+  height: calc(100vh - 96px)
 
 .cajaR0,.cajaR1,.cajaR2,.cajaR3,.cajaR4
   width: 95%
   margin: auto
+  
+  left: -10px
   margin-bottom: 12px
   box-shadow: 1px 2px 10px 0px rgba(0, 0, 0, 0.3)
   overflow: hidden
@@ -199,7 +212,7 @@ a
   overflow: hidden
   /* width will be set using JavaScript */
   background: $blanco
-  &::after,&::before
+  &::before
     /* these are used to create a shadow effect at the sides of the timeline */
     content: ''
     position: absolute
@@ -213,9 +226,7 @@ a
       left: 0
       @include background-image(linear-gradient(to right,$plateado, rgba($plateado, 0)))
 
-    &::after
-      right: 0
-      @include background-image(linear-gradient(to left,$plateado, rgba($plateado, 0)))
+    
 
 .linei
   /* this is the grey line/timeline */
@@ -229,6 +240,7 @@ a
   background: $grisos
   @include transition(transform .4s)
 
+
 .bus
   font-family: $letra1
   position: absolute
@@ -240,9 +252,18 @@ a
   background-size: 1.5em 1.5em
   background-repeat: no-repeat
   background-position: bottom
-  z-index: 4
+  z-index: 3
   transition: left 1s linear
   font-stretch: condensed !important
+  &:hover
+    z-index: 4 
+  .busT
+    position: absolute
+    box-shadow: 1px 2px 10px 0px rgba(0, 0, 0, 0.3)
+    width: 100%
+    background-color: white
+    border-radius: 4px
+
 
 
 .estacion1
@@ -312,15 +333,50 @@ a
 .lineT
   position: absolute
   background-color: transparent
-  /* this is the grey line/timeline */
-  position: absolute
   z-index: 2
   top: -1px
   height: 3px
   width: 0px
   transition: all 1.5s
-  cursor: default
+  cursor: pointer
   box-shadow: 1px 2px 10px 0px rgba(0, 0, 0, 0.3)
+  &:hover
+    .tooltiptext
+      visibility: visible
+      opacity: 1
+  .tooltiptext
+    visibility: hidden
+    width: 80px
+    background-color: #555
+    color: #fff
+    text-align: center
+    padding: 5px 0
+    border-radius: 6px
+
+    /* Position the tooltip text */
+    position: absolute
+    z-index: 2
+    bottom: 8px
+    left: 70%
+    margin-left: -60px
+
+    /* Fade in tooltip */
+    opacity: 0
+    transition: opacity 1s
+    box-shadow: 1px 2px 10px 0px rgba(0, 0, 0, 0.3)
+    &::after
+      content: ""
+      position: absolute
+      top: 100%
+      left: 50%
+      margin-left: -5px
+      border-width: 5px
+      border-style: solid
+      border-color: #555 transparent transparent transparent
+  
+
+
+
 
 .activate
   cursor: pointer
@@ -329,7 +385,7 @@ a
   .mover
     a
       position: absolute
-      z-index: 1
+      z-index: 4
       @include center(y)
       height: 50px
       width: 40px

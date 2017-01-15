@@ -11,7 +11,7 @@ function Recorridos(nombreRuta,disEE,paradas,nid,color) {
     nombreEstaciones.push("<div class=estacion>"+paradas[i].nombre+"</div>")
     //lineG.append("<li class=estacion1></li>")
   }
-  
+  $('.modal-trigger').leanModal(open);
   $(".cajaRR").append("<div class=cajaR"+nid+"><div class=timelineM><div id=recorrido class=line><ol class=linei>"+nombreEstaciones.join("")+"</ol> </div> <div class=nombreRuta style=background-color:#"+color+"> <h1>"+nombreRuta+"</h1></div><a href=unicaRuta.html?ruta="+nombreRuta+" target=_blank><i class=material-icons id=detalle >launch</i></a><input id=id"+nid+" type=radio value="+nid+"><label class=cerrar id=cerrar for=id"+nid+">x</label></div></div></div>");
   $(".prev").addClass("inactive");
 
