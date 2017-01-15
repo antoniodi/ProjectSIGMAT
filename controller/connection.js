@@ -12,7 +12,7 @@ jQuery(document).ready(function($){
           success(function(data) {
            $.rutas = data;
             //Agrega las rutas luego de filtrarlas a partir de sus caracteristicas mas relevantes
-           agregarRutas(data,data[0].categoria);
+           agregarRutas(data);
            });
 });
 

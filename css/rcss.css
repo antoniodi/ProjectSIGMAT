@@ -7982,6 +7982,7 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
 }
 
 .bloque1 {
+  cursor: default;
   display: flex;
   font-size: 3em;
   align-items: center;
@@ -7996,6 +7997,7 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
 }
 
 .datos {
+  cursor: default;
   position: absolute;
   top: 50%;
   bottom: auto;
@@ -8009,6 +8011,7 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
 }
 
 .datof {
+  cursor: default;
   position: absolute;
   top: 50%;
   bottom: auto;
@@ -8046,6 +8049,8 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
 }
 .modal-content h4 {
   margin-bottom: 0px;
+  font-weight: bold;
+  border-bottom: 1px solid #b5b5b5;
 }
 .modal-content .cerrar {
   position: absolute;
@@ -8505,4 +8510,86 @@ a {
 }
 .timeline .mover a.inactive .no-touch:hover {
   border-color: #dfdfdf;
+}
+
+.cajam1 {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+}
+.cajam1 .cajam1s, .cajam1 .cajam1i {
+  width: 80%;
+  margin: auto;
+  height: 100%;
+}
+.cajam1 .cajam1m {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  align-items: center;
+  margin: 12px 0;
+}
+.cajam1 .cajam1s {
+  display: flex;
+  width: 80%;
+  height: 50%;
+  margin: auto;
+  margin-bottom: 6px;
+}
+.cajam1 .cajam1s .cajarm {
+  color: #fdfdfd;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  font-size: 17px;
+  font-stretch: condensed;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  margin-right: 12px;
+  cursor: pointer;
+  font-weight: bold;
+  background: #1bce7c;
+  border-radius: 5px;
+  padding: 4px;
+  transition: box-shadow 0.5s;
+  transition: background 0.5s;
+  box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12), 0 2px 4px -1px rgba(0, 0, 0, 0.4);
+}
+.cajam1 .cajam1s .cajarm:hover {
+  box-shadow: 0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12), 0 5px 5px -3px rgba(0, 0, 0, 0.4);
+  background: #3f51b5;
+}
+.cajam1 .cajam1s .cajarm:last-child {
+  margin-right: 0px;
+}
+.cajam1 .cajam1s .active {
+  box-shadow: 0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12), 0 5px 5px -3px rgba(0, 0, 0, 0.4);
+  background: #3f51b5;
+}
+.cajam1 .cajam1i {
+  flex: 0 1 auto;
+  overflow-y: auto;
+  padding: 12px 12px 0 12px;
+  margin-top: 6px;
+  border-radius: 5px;
+  box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12), 0 2px 4px -1px rgba(0, 0, 0, 0.4);
+}
+.cajam1 .cajam1i form {
+  display: flex;
+  flex-wrap: wrap;
+}
+.cajam1 .cajam1i form h3 {
+  flex: auto;
+  text-align: center;
+  margin: auto;
+}
+.cajam1 .cajam1i form p {
+  margin: 0;
+  width: 25%;
+  flex: 0 1 auto;
+}
+.cajam1 .cajam1i form p label {
+  margin-bottom: 5px;
 }

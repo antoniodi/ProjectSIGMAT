@@ -3,8 +3,9 @@ html
     title SIGMAT - Multiples Rutas
     meta(charset="UTF-8")     
     script(src="../lib/jquery-2.2.4.min.js")  
-    script(type="application/javascript", src="../js/recorridos.js")
-    script(type="application/javascript", src="../js/times.js")
+    script(type="application/javascript", src="../js/vModalMult.js")
+    script(type="application/javascript", src="../controller/times.js")
+    script(type="application/javascript", src="../js/Itinerarios.js")
     script(type="application/javascript", src="../js/min/materialize.min.js") 
     link(rel="stylesheet", type="text/css", href="../css/rcss.css")
     link(rel="stylesheet", type="text/css", href="../css/scroll.css") 
@@ -16,20 +17,19 @@ html
         i.material-icons.left queue
         | Agregar ruta(s)
     #modal1.modal.modal-fixed-footer
-        .modal-content
-          .cerrar.modal-close x
-          h4.center-align.flow-text LINEAS DE TIEMPO
-          .cajam1
-            h3.cajam1m.flow-text 1. Seleccione una de las siguientes categorias
-            .cajam1s
-            h3.cajam1m.flow-text 2. Seleccione las rutas que desea monitorear
-            .cajam1i
-              form.multipleM
-               
-              
-        .modal-footer 
-          a.amodal1.modal-action.modal-close.waves-effect.waves-green.btn Agregar rutas
-          a.modal-action.modal-close.waves-effect.waves-red.left.btn.red Cancelar
+      .modal-content
+        .cerrar.modal-close x
+        h4.center-align.flow-text LINEAS DE TIEMPO
+        .cajam1
+          h3.cajam1m.flow-text 1. Seleccione una de las siguientes categorias
+          .cajam1s
+          h3.cajam1m.flow-text 2. Seleccione las rutas que desea monitorear
+          .cajam1i
+            form.multipleM
+  
+      .modal-footer 
+        a.amodal1.modal-action.modal-close.waves-effect.waves-green.btn Agregar rutas
+        a.modal-action.modal-close.waves-effect.waves-red.left.btn.red Cancelar
     .cajaRR
      
       
