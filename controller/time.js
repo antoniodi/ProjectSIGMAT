@@ -53,7 +53,6 @@ $.getJSON("http://localhost:8000/data/buses"+rutaSeleccionada+".json").
 
          if (b<recorridos[0].length) {
            //console.log(data[0].Nombre);
-           //recorremos el
 
            indices = it.getVectorIndices(buses);
            //console.log(busesAceptados);

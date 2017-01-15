@@ -11,10 +11,7 @@
       success(function(data) {
       $.rutas = data;
 
-    var disEE=120, //esta variable define la distancia entre estaciones en pixeles
-        paradas = data[0].paradas, //el indice marca la ruta, en este caso se selecciona la primera ruta del json
-        nombreRuta = data[0].nombre,
-        nEstaciones = paradas.length,
+    var disEE = 100, //esta variable define la distancia entre estaciones en pixeles
         itinerarios = [], //alacenamos cada una delas rutas
         idRutas = 0;
   /*En el siguiente for miramos y agregamos cuales de las rutas que selecciono el usuario son las que se deben mostrar
@@ -23,7 +20,7 @@
       for (var j = 0; j < data.length; j++) {
         //console.log(data.length+"   "+rutasSeleccionadas[i]+"    "+data[j].nombre);
         if (rutasSeleccionadas[i] == data[j].nombre ) {
-          itinerarios.push(new Recorridos(data[j].nombre,disEE,data[j].paradas,idRutas,data[j].color));
+          itinerarios.push(new Recorridos(disEE, data[j].nombre,data[j].paradas,idRutas,data[j].color));
           idRutas++;
 
         }
@@ -32,6 +29,17 @@
     }//*/
     //parametros necesarios(obligatorios), hora de salida, numero de buses, distancia entre estaciones, vector de paradas
     //ese vector viene del .json tiene un formato especifico, y un id del numero del recorrido segun el día
+   
+/**/
+    for (var i = 0; i < itinerarios.length; i++) {
+      monitoreoUnico(rutasSeleccionadas[i], itinerarios[i]);
+      console.log(i);
+    };
+
+/*/
+//monitoreoUnico(rutasSeleccionadas[1], itinerarios[1])
+    
+
 /*
 
     it =new Recorridos(nombreRuta,disEE,paradas,0);
@@ -43,7 +51,7 @@
     $(".cajarr").on('click','input',function() {
       
       s =$(this);
-      delete itinerarios[idRutas];
+      delete itinerarios[s.val()];
        //console.log("lo selecciono .cajaR"+s.val());
         ruta = $(".cajaR"+s.val());
         ruta.find('.timelinem').css('height','0px');
@@ -51,7 +59,7 @@
         //se selecciono una opcion
         setTimeout(function() {
         // rest of code here
-            ruta.remove();idRutas
+            ruta.remove();
             
             }, 1000);
      
@@ -59,34 +67,44 @@
 
 
 
+  function monitoreoUnico (nombreRuta, rutaAProcesada, id) {
+       $.getJSON("http://localhost:8000/data/buses"+nombreRuta+".json").
+          success(function(dataB) {
+          $.bus = dataB;
+          var buses = [],
+              recorridos = dataB;
+/**/
+          for (var i = 0; i < recorridos.length; i++) {
+            buses.push(recorridos[i][0].idRecorrido);
+            rutaAProcesada.agregarRecorrido(nombreRuta,recorridos[i][0].idRecorrido,recorridos[i][0].id);
+        }
 
-      $.getJSON("http://localhost:8000/data/busesR1.json").
-                 success(function(dataB) {
-                   $.bus = dataB;
-                   for (var i = itinerarios.length - 1; i >= 0; i--) {
-                     itinerarios[i].agregarBuses(3);
-                   };
+//* */
        
-        var b=0,
-            z=0,
-            vectorBuses=$(".bus");
-
+          var b = 0;
             setInterval(function () {
 
-                         if (b<dataB.recorridos[0].distancia.length) {
+              if (b<recorridos[0].length) {
+           //console.log(data[0].Nombre);
 
-                           //console.log(data[0].Nombre);
-                           //recorremos el
-                           for (var i = 0; i < dataB.recorridos.length; i++) {
-                             setPosTimelineB(vectorBuses.eq(i),dataB.recorridos[i].distancia[b]);
-                             setPosTimelineB(vectorBuses.eq(3+i),dataB.recorridos[i].distancia[b]);
-                             setPosTimelineB(vectorBuses.eq(6+i),dataB.recorridos[i].distancia[b]);
-                           }
-                       b++;
-                     }else {
-                       b=0;
-                     }
-             },1000);
-                 });
-});
-   })
+           indices = rutaAProcesada.getVectorIndices(buses);
+           //console.log(busesAceptados);
+
+           for (var i = 0; i < indices.length; i++) {
+             //console.log(busesAceptados.length);
+             rutaAProcesada.actualizarBus($("#"+recorridos[indices[i]][b].idRecorrido+""+nombreRuta),recorridos[indices[i]][b]);
+              
+           }
+             b++;
+           }else {
+             b=0;
+           }
+                
+                                  },1000);
+      });
+  }
+
+  //fin de la funcion
+      
+  });
+})

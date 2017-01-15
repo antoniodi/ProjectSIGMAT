@@ -286,6 +286,15 @@ $("#btn6").click(function(){
 }
 
 
+/*
+  Funciones extraidas del proyecto Horizontal Timeline
+  estas funciones han sido modificadas para decuarce a las necesidades del proyecto: SIGMAT
+  @autor codyhouse
+  https://codyhouse.co/gem/horizontal-timeline/
+
+
+*/
+
   //funcion encargada de calcular a partir de la distacia de la estacion o el bus, la posicion de este en el timeline
   //modificamos la posicion de las estaciones en la linea de tiempo y se transladan -50% en x para lograr un centrado relativo
   function setPosTimelineE(i,disEE,elemento) {

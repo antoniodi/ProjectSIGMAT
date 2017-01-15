@@ -3,7 +3,7 @@
 
 */
 
-function Recorridos(nombreRuta,disEE,paradas,nid,color) {
+function Recorridos(disEE,nombreRuta,paradas,nid,color) {
   var nEstaciones = paradas.length,
       nombreEstaciones = [];
   //creamos las estaciones de la cabecera
@@ -20,7 +20,11 @@ function Recorridos(nombreRuta,disEE,paradas,nid,color) {
   var datos = this.timelineM.children(".datos"),
       line = this.timelineM.children(".line"),
       lineG = line.children(".linei");
-      vectorEstaciones = lineG.children(".estacion");
+      vectorEstaciones = lineG.children(".estacion"),
+      TTolerancia = 20, //este margen de tiempo se usa para aplicar los criteros sobre los que se define si un conductor va tarde, muy rapido o bien entre todo el recorrido.
+      TToleranciaEstaciones = 10, // este margen de tiempo se usa para aplicar los criteros sobre los que se define si un conductor va tarde, muy rapido o bien entre cada estacion.   
+      busesAceptados = [],
+      disEE = 100; //esta variable define la distancia entre estaciones en pixeles;
       //console.log(vectorEstaciones);
     for (var i = 0; i < nEstaciones; i++) {
           setPosTimelineE(i,disEE,vectorEstaciones.eq(i));
@@ -70,39 +74,6 @@ timeline.find('.mover').on('click', '.prev', function(event){
   updateSlide(this.timelineM, longitudTimeline, 'prev');
 });
 
-/*
-
-*/
-//funciones de los botones
-//agregamos un nuevo bus
-$("#btn1").click(function(){
-    it.agregarRecorrido("hola todos");
-    this.timelineM=cajaR.children(".timelineM");
-});
-//eliminamos un bus, el inice 0 indica que se elimina el primero en ser agregado
-$("#btn2").click(function(){
-    it.eliminarRecorrido(0);
-    this.timelineM=cajaR.children(".timelineM");
-});
-$("#btn3").click(function(){
-    $('.bus').eq(0).css('background-image','url(../img/bus-markerv.svg)');
-});
-a=0;
-$("#btn4").click(function(){
-    $('.lineT').eq(a).css('background-color','#FF5252');
-    $('.lineT').eq(a).css('width','120px');
-    a++;
-});
-$("#btn5").click(function(){
-    $('.lineT').eq(a).css('background-color','#00E676');
-    $('.lineT').eq(a).css('width','120px');
-    a++;
-});
-$("#btn6").click(function(){
-    $('.lineT').eq(a).css('background-color','#3F51B5');
-    $('.lineT').eq(a).css('width','120px');
-    a++;
-});
 
 //funciopn encarga de mostrar los nombre de las estaciones
   function agregarCabecera(nEstaciones,estaciones){
@@ -117,11 +88,11 @@ $("#btn6").click(function(){
     body.append("<div class=cajaR"+nid+"><div class=timeline><div class=line><ol style=background-color:transparent class=linei>"+nombreEstaciones.join("")+"</ol></div><ul class=mover><li><a href=#0 class=prev class=inactive>Anterior</a></li><li><a href=#0 class=next>Siguiente</a></li></ul></div></div>");
     $(".prev").addClass("inactive");
 
-    var cajaR=$(".cajaR"+nid),
-        timeline=cajaR.children(".timeline"),
-        line=timeline.children(".line"),
-        lineG=line.children(".linei"),
-        vectorEstaciones=lineG.children(".estacion");
+    var cajaR = $(".cajaR"+nid),
+        timeline = cajaR.children(".timeline"),
+        line = timeline.children(".line"),
+        lineG = line.children(".linei"),
+        vectorEstaciones = lineG.children(".estacion");
         //console.log(vectorEstaciones);
       for (var i = 0; i < nEstaciones; i++) {
             setPosTimelineE(i,disEE,vectorEstaciones.eq(i));
@@ -160,6 +131,29 @@ $("#btn6").click(function(){
         console.log("El número de buses indicado es invalido");
       }
     }
+
+    this.agregarRecorrido = function(nombreRuta,idRecorrido, id){
+        lineG.append("<li class=bus id="+idRecorrido+""+nombreRuta+" ><div class=busM>"+idRecorrido+"</div></li>");
+        //console.log(id);
+        busesAceptados.push(idRecorrido);
+
+    }
+
+    this.getVectorIndices = function (buses) {
+    indices = [];
+
+    for (var i = 0; i < busesAceptados.length; i++) {
+      indice = buses.indexOf(busesAceptados[i]);
+
+      if (indice > -1) {
+          indices.push(indice);
+        }
+    }
+    return indices;
+  }
+
+
+
   //Se encarga de eliminar un recorrido, una vez que el bus ha completado su trayecto y ya no se encuentra en el itinerario
   //se usa un indice para este evento ya que es posible que un bus adelante a otro por lo que no siempre el primero en entrar es el primero en salir
   this.eliminarBus = function (indice) {
@@ -178,9 +172,38 @@ $("#btn6").click(function(){
     //el ancho esta definido por el numero de estaciones, se estima 120px estre cada estacion, los cuales seran distibuidos
     //de forma uniforme entre las estaciones (en estudio: de acuerdo a la distancia real, genreando una perseccion de la distacia real.)
 
-    totalWidth=(length*disEE+disEE);
+    totalWidth = (length*disEE+disEE);
     (timeline.children('.line')).children('.linei').css('width', totalWidth+'px');
     return totalWidth;
+  }
+
+  //modificamos la posicion de los buses en la linea de tiempo y se transladan -50% en x para lograr un centrado relativo
+ this.actualizarBus = function (elemento, bus,idRecorrido) {
+
+          
+          dis = Math.round(bus.porcAvan);
+          //console.log(distancia +"left "+dis);
+          //console.log("bus"+disNormal);
+          elemento.css('left', dis+'px');
+          elemento.css('transform','translateX(-50%)');
+          elemento.css('transition','left 1s linear');
+
+        /*funcion para modificar el color 
+          //TTolerancia = 15;   este margen de tiempo se usa para aplicar los criteros sobre los que se define si un conductor va tarde, muy rapido o bien entre todo el recorrido.
+          //TToleranciaEstaciones = 10;   este margen de tiempo se usa para aplicar los criteros sobre los que se define si un conductor va tarde, muy rapido o bien entre cada estacion.
+
+      // funcion que modifica el estado o color del bus, dependiendo de si va tarde, muy rapido o bien
+      TRecorrido: el tiempo que el bus lleva en el recorrido*/
+      //lo necesito > TEstimado: el tiempo que se espera le halla tomado al bus llegar a ese nivel avance, calcula en base al tiempo de avance y el porcentaje de recorrido total realizado
+      TRecorrido = (bus.hora - bus.horaSaliDete )/(1000);
+      //console.log(bus.tiemAcumDete - TRecorrido)
+      if ((TRecorrido -bus.tiemAcumDete) > TTolerancia) {
+        elemento.css('background-image','url(../img/bus-markern.svg)');
+      }else if((TRecorrido -bus.tiemAcumDete ) < ((-1)*TTolerancia)){
+        elemento.css('background-image','url(../img/bus-markeraz.svg)');
+      }else{
+        elemento.css('background-image','url(../img/bus-markerv.svg)');
+      } 
   }
 
 
@@ -195,7 +218,7 @@ $("#btn6").click(function(){
       /*  var distance = daydiff(timelineComponents['timelineDates'][0], timelineComponents['timelineDates'][i]),
           distanceNorm = Math.round(distance/timelineComponents['eventsMinLapse']) + 2;*/
           //console.log(i);
-          disNormal=Math.round(i*disEE+disEE);
+          disNormal = Math.round(i*disEE+disEE);
           //console.log(disNormal);
           elemento.css('left', disNormal+'px');
           elemento.css('transform','translateX(-50%)');
@@ -212,8 +235,16 @@ $("#btn6").click(function(){
           elemento.css('transform','translateX(-50%)');
           elemento.css('transition','left 1s linear');
   }
+
+
+
+
+
+
+
 /*
   Funciones extraidas del proyecto Horizontal Timeline
+  estas funciones han sido modificadas para decuarce a las necesidades del proyecto: SIGMAT
   @autor codyhouse
   https://codyhouse.co/gem/horizontal-timeline/
 
@@ -270,3 +301,38 @@ $("#btn6").click(function(){
     element.style["-o-transform"] = property+"("+value+")";
     element.style["transform"] = property+"("+value+")";
   }
+
+/*
+//Funciones realizadas para hacer pruevas, que se han queda obsoletas
+*
+//funciones de los botones
+//agregamos un nuevo bus
+$("#btn1").click(function(){
+    it.agregarRecorrido("hola todos");
+    this.timelineM=cajaR.children(".timelineM");
+});
+//eliminamos un bus, el inice 0 indica que se elimina el primero en ser agregado
+$("#btn2").click(function(){
+    it.eliminarRecorrido(0);
+    this.timelineM=cajaR.children(".timelineM");
+});
+$("#btn3").click(function(){
+    $('.bus').eq(0).css('background-image','url(../img/bus-markerv.svg)');
+});
+a=0;
+$("#btn4").click(function(){
+    $('.lineT').eq(a).css('background-color','#FF5252');
+    $('.lineT').eq(a).css('width','120px');
+    a++;
+});
+$("#btn5").click(function(){
+    $('.lineT').eq(a).css('background-color','#00E676');
+    $('.lineT').eq(a).css('width','120px');
+    a++;
+});
+$("#btn6").click(function(){
+    $('.lineT').eq(a).css('background-color','#3F51B5');
+    $('.lineT').eq(a).css('width','120px');
+    a++;
+});
+*/
