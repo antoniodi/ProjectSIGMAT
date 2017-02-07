@@ -583,9 +583,6 @@ $('input.filled-in').on('change', function(e) {
 
 // Si el checkbox del mapa es checked entra a un switch y medianta la variable p que contiene el value compara si es algunos de los casos.
 if ($this.is(':checked')) {
-    switch (p) {
-    case "estacionestotales":
-    case "paradastotales":
 
 //creamos un paquete de marcadores segun el p seleccionado y ejecutamos la funcion para graficarlos 
  var m=factory.crearPaqueteMarker(p,map,100);
@@ -596,22 +593,17 @@ if ($this.is(':checked')) {
             infoW(data[i].Nombre,m[i]); }
         });
        console.log("ESTA FUNCIONANDO "+p);
-       break;
-     };
-    }
+       
+     }
 
 //Si el checkbox llega hacer deseleccionado elimina los marcadores creados sobre la api de google maps
   else {
-    switch (p) {
-    case "estacionestotales":
-    case "paradastotales":
-
+    
 // Nos tocará borrarlo 
     var eMarcadores1=factory1.eliminarPaqueteMarker(p,map,100);
     console.log("SE ELIMINARON "+p);
-   break;
- };
-  }
+   
+ }
    });
 
 //funcion encargada de colocar los marcadores de todas las estaciones sobre el mapa
@@ -651,10 +643,6 @@ $(".bloque4").on('click','input',function() {
 //variable para almacenar valores de posicion conceptual y poder saber si hubo un cambio de posicion
 var b=0;
 
-switch (s) {
-    case "R1":
-    case "R2":
-    case "R3":
 //creamos un paquete de marcadores segun el p seleccionado y ejecutamos la funcion para graficarlos 
   var r=factory2.crearPaqueteMarker(s,map,50);
       $.getJSON("http://localhost:8000/data/rutasconsultar"+s+".json", function(data,paradas) {
@@ -671,7 +659,7 @@ switch (s) {
  var R2=factory.crearPaqueteMarker(s,map,5);
        var trm = function(){
         $.getJSON("http://localhost:8000/data/busesmapa"+s+".json", function(datos) {
-        $.coordenadas=datos;
+        $.coordenadas=datos; 
 //if para resetear la b cuando se llegue al final de la prueba   
         if(b<datos[0].coordenadas.length){
             for (var i = 0; i < datos.length; i++) {
@@ -693,19 +681,16 @@ trm();
 initTrm(trm, 5000);
   
          console.log("VALOR Que TIENE "+s); 
-         break; 
-      };
+         
+      
 // Si el switch deja de ser checked se eliminan los marcadores del mapa
     } else {
-    switch (s) {
-    case "R1":
-    case "R2":
-    case "R3":
+    
 var eMarcadores=factory1.eliminarPaqueteMarker(s,map,5);
 var eMarcadores1=factory3.eliminarPaqueteMarker(s,map,50);
 console.log("lo des-selecciono "+s);
-break;
-  };
+
+  
    }
     });
 

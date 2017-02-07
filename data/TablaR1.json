@@ -2,23 +2,23 @@
 {
 "Clave": "HOLA1",
 "Bus": "ZOE101",
-"Conductor": "1000000",
+"Conductor": "Pedro Roa",
 "Recorrido": "R1-1",
-"HoraSalidaEstimada": "13:00:00",
-"HoraSalidaReal": "13:00:00",
+"HoraSalidaEstimada": 1485626400000,
+"HoraSalidaReal": 1485626400000,
 "HorarioEstimado": {
-"ST1": "13:10:24",
-"ST2": "13:20:47",
-"ST3": "13:25:52",
-"ST4": "13:35:25",
-"ST5": "13:45:11"
+"ST1": 1485627024000,
+"ST2": 1485627647000,
+"ST3": 1485627952000,
+"ST4": 1485628525000,
+"ST5": 1485629111000
 },
 "HorarioReal": { 
-"ST1": "13:09:00",
-"ST2": "13:23:47",
-"ST3": "13:29:52",
-"ST4": "13:35:25",
-"ST5": "13:45:25"
+"ST1": 1485626940000,
+"ST2": 1485627827000,
+"ST3": 1485628192000,
+"ST4": 1485628525000,
+"ST5": 1485629111000
 },
 "EstaTerminado": true,
 "ProximaParada": 0
@@ -26,23 +26,23 @@
 {
 "Clave": "HOLA2",
 "Bus": "ZOE202",
-"Conductor": "1098468424",
+"Conductor": "Andrea Roa",
 "Recorrido": "R1-2",
-"HoraSalidaEstimada": "13:15:00",
-"HoraSalidaReal": "13:15:00",
+"HoraSalidaEstimada": 1485627300000,
+"HoraSalidaReal": 1485627300000,
 "HorarioEstimado": {
-"ST1": "13:25:00",
-"ST2": "13:35:48",
-"ST3": "13:40:55",
-"ST4": "13:50:26",
-"ST5": "14:00:12"
+"ST1": 1485627900000,
+"ST2": 1485628548000,
+"ST3": 1485628855000,
+"ST4": 1485629426000,
+"ST5": 1485630012000
 },
 "HorarioReal": {
-"ST1": "13:25:00",
-"ST2": "14:35:48",
-"ST3": "13:44:32",
-"ST4": "13:52:32",
-"ST5": "13:59:32"
+"ST1": 1485627900000,
+"ST2": 1485628548000,
+"ST3": 1485629072000,
+"ST4": 1485629552000,
+"ST5": 1485630012000
 },
 "EstaTerminado": true,
 "ProximaParada": 2
@@ -50,23 +50,23 @@
 {
 "Clave": "HOLA3",
 "Bus": "ZOE203",
-"Conductor": "1096544654",
+"Conductor": "Elkin Roa",
 "Recorrido": "R1-3",
-"HoraSalidaEstimada": "13:30:00",
-"HoraSalidaReal": "13:32:00",
+"HoraSalidaEstimada": 1485628200000,
+"HoraSalidaReal": 1485628320000,
 "HorarioEstimado": {
-"ST1": "13:42:00",
-"ST2": "13:52:48",
-"ST3": "13:57:55",
-"ST4": "14:07:26",
-"ST5": "14:17:26"
+"ST1": 1485628920000,
+"ST2": 1485629568000,
+"ST3": 1485629875000,
+"ST4": 1485630446000,
+"ST5": 1485631046000
 
 },
 "HorarioReal": {
-"ST1": "13:41:00",
-"ST2": "13:51:48",
-"ST3": "13:57:55",
-"ST4": "14:06:26"
+"ST1": 1485628860000,
+"ST2": 1485629508000,
+"ST3": 1485629875000,
+"ST4": 1485630386000
 },
 "EstaTerminado": false,
 "ProximaParada": 0
@@ -74,23 +74,23 @@
 {
 "Clave": "HOLA4",
 "Bus": "ZOE204",
-"Conductor": "1096484894",
+"Conductor": "Brayan Roa",
 "Recorrido": "R1-4",
-"HoraSalidaEstimada": "13:45:00",
-"HoraSalidaReal": "13:44:00",
+"HoraSalidaEstimada": 1485629100000,
+"HoraSalidaReal": 1485629040000,
 "HorarioEstimado": {
-"ST1": "13:55:00",
-"ST2": "14:05:48",
-"ST3": "14:10:55",
-"ST4": "14:20:26",
-"ST5": "14:30:26"
+"ST1": 1485629700000,
+"ST2": 1485630348000,
+"ST3": 1485630655000,
+"ST4": 1485631226000,
+"ST5": 1485631826000
 
 },
 "HorarioReal": {
-"ST1": "13:54:00",
-"ST2": "14:04:48",
-"ST3": "14:09:55",
-"ST4": "14:20:26"
+"ST1": 1485629640000,
+"ST2": 1485629640000,
+"ST3": 1485630595000,
+"ST4": 1485631226000
 },
 "EstaTerminado": false,
 "ProximaParada": 0
@@ -98,23 +98,23 @@
 {
 "Clave": "HOLA5",
 "Bus": "ZOE205",
-"Conductor": "109999999",
+"Conductor": "Carlos Roa",
 "Recorrido": "R1-5",
-"HoraSalidaEstimada": "14:00:00",
-"HoraSalidaReal": "14:00:00",
+"HoraSalidaEstimada": 1485630000000,
+"HoraSalidaReal": 1485630000000,
 "HorarioEstimado": {
-"ST1": "14:10:00",
-"ST2": "14:20:48",
-"ST3": "14:25:55",
-"ST4": "14:35:26",
-"ST5": "14:45:26"
+"ST1": 1485630600000,
+"ST2": 1485631248000,
+"ST3": 1485631555000,
+"ST4": 1485632126000,
+"ST5": 1485632726000
 
 },
 "HorarioReal": {
-"ST1": "14:11:00",
-"ST2": "14:20:48",
-"ST3": "14:26:55",
-"ST4": "14:34:26"
+"ST1": 1485630660000,
+"ST2": 1485631248000,
+"ST3": 1485631615000,
+"ST4": 1485632066000
 },
 "EstaTerminado": false,
 "ProximaParada": 0
@@ -122,22 +122,22 @@
 {
 "Clave": "HOLA6",
 "Bus": "ZOE206",
-"Conductor": "133333333",
+"Conductor": "Julian Roa",
 "Recorrido": "R1-6",
-"HoraSalidaEstimada": "14:15:00",
-"HoraSalidaReal": "14:16:00",
+"HoraSalidaEstimada": 1485630900000,
+"HoraSalidaReal": 1485630960000,
 "HorarioEstimado": {
-"ST1": "14:25:00",
-"ST2": "14:35:48",
-"ST3": "14:40:55",
-"ST4": "14:50:26",
-"ST5": "15:00:26"
+"ST1": 1485631500000,
+"ST2": 1485632148000,
+"ST3": 1485632455000,
+"ST4": 1485633026000,
+"ST5": 1485633626000
 
 },
 "HorarioReal": {
-"ST1": "14:25:00",
-"ST2": "14:35:48",
-"ST3": "14:39:55"
+"ST1": 1485631500000,
+"ST2": 1485632148000,
+"ST3": 1485632395000
 
 },
 "EstaTerminado": false,
@@ -146,22 +146,22 @@
 {
 "Clave": "HOLA7",
 "Bus": "ZOE207",
-"Conductor": "17777777",
+"Conductor": "Camilo Roa",
 "Recorrido": "R1-7",
-"HoraSalidaEstimada": "14:30:00",
-"HoraSalidaReal": "14:30:00",
+"HoraSalidaEstimada": 1485631800000,
+"HoraSalidaReal": 1485631800000,
 "HorarioEstimado": {
-"ST1": "14:40:00",
-"ST2": "14:50:48",
-"ST3": "14:55:55",
-"ST4": "15:05:26",
-"ST5": "15:15:26"
+"ST1": 1485632400000,
+"ST2": 1485633048000,
+"ST3": 1485633355000,
+"ST4": 1485633926000,
+"ST5": 1485634526000
 
 },
 "HorarioReal": {
-"ST1": "14:39:00",
-"ST2": "14:51:48",
-"ST3": "14:55:55"
+"ST1": 1485632340000,
+"ST2": 1485633108000,
+"ST3": 1485633355000
 
 },
 "EstaTerminado": false,
@@ -170,22 +170,22 @@
 {
 "Clave": "HOLA8",
 "Bus": "ZOE208",
-"Conductor": "18888888",
+"Conductor": "Nelson Roa",
 "Recorrido": "R1-8",
-"HoraSalidaEstimada": "14:45:00",
-"HoraSalidaReal": "14:45:00",
+"HoraSalidaEstimada": 1485632700000,
+"HoraSalidaReal": 1485632700000,
 "HorarioEstimado": {
-"ST1": "14:55:00",
-"ST2": "15:05:48",
-"ST3": "15:10:55",
-"ST4": "15:20:26",
-"ST5": "15:30:26"
+"ST1": 1485633300000,
+"ST2": 1485633948000,
+"ST3": 1485634255000,
+"ST4": 1485634826000,
+"ST5": 1485635426000
 
 },
 "HorarioReal": {
-"ST1": "14:56:00",
-"ST2": "15:05:48",
-"ST3": "15:11:55"
+"ST1": 1485633360000,
+"ST2": 1485633948000,
+"ST3": 1485634315000
 
 },
 "EstaTerminado": false,
